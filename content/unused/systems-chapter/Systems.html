@@ -1,0 +1,430 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Systems &#8212; Digital Signals Theory</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/sphinx-book-theme.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/mystnb.js"></script>
+    <script src="../../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/dstlogo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Digital Signals Theory</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Preface
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 1, Signals and systems
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ch01-signals/Intro.html">
+   Signals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ch02-sampling/intro.html">
+   Digital sampling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ch03-convolution/intro.html">
+   Convolution
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 2, The frequency domain
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ch04-fourier/intro.html">
+   The Discrete Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ch05-dft-properties/intro.html">
+   Properties of the DFT
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../appendix/Fundamentals.html">
+   Mathematical fundamentals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../appendix/Algebra.html">
+   Algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../appendix/Trigonometry.html">
+   Trigonometry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../appendix/Complex.html">
+   Complex numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../appendix/Python.html">
+   Programming in Python
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/unused/systems-chapter/Systems.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examples">
+   Examples
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gain">
+     Gain
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#clipping">
+     Clipping
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#time-reversal">
+     Time-reversal
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="systems">
+<h1>Systems<a class="headerlink" href="#systems" title="Permalink to this headline">¶</a></h1>
+<div class="cell tag_hide_input tag_hide_output tag_remove_input docutils container">
+</div>
+<div class="math notranslate nohighlight">
+\[
+\require{cancel}\notag%
+\require{color}\notag%
+\]</div>
+<p>A <strong>system</strong> is any process which transforms one signal (the input, <span class="math notranslate nohighlight">\(x\)</span>) into another (the output, <span class="math notranslate nohighlight">\(y\)</span>).
+Abstractly, we’ll represent a system by some mathematical function <span class="math notranslate nohighlight">\(f\)</span>, so that we can say</p>
+<div class="math notranslate nohighlight">
+\[
+y = g(x).
+\]</div>
+<p>Note that systems generally depend on <em>the entire signal</em> <span class="math notranslate nohighlight">\(x\)</span> and not just individual samples <span class="math notranslate nohighlight">\(x[n]\)</span> in isolation!
+This definition is <strong>not equivalent</strong> to defining a system sample-by-sample:</p>
+<div class="math notranslate nohighlight">
+\[
+{\color{#EC2830}y[n] = g(x[n])}\quad\quad\Leftarrow \text{not the same as } y = g(x)\text{!}\notag
+\]</div>
+<p>In the previous chapter, we saw several examples of systems implemented by <em>convolution</em>,
+where</p>
+<div class="math notranslate nohighlight">
+\[
+g(x) = h * x
+\]</div>
+<p>for some fixed impulse response <span class="math notranslate nohighlight">\(h\)</span>.
+While this chapter is broadly concerned with analyzing convolutional systems, it will be helpful to broaden our view for a little while to think about different kinds of systems.
+Looking at different kinds of systems will help us develop some intuition about what convolution can and cannot do.</p>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>To warm up, we’ll first work through a few example systems.</p>
+<div class="section" id="gain">
+<h3>Gain<a class="headerlink" href="#gain" title="Permalink to this headline">¶</a></h3>
+<p>After reading the previous chapter, the <em>gain</em> system should already be familiar.
+All it does is scale each input sample <span class="math notranslate nohighlight">\(x\)</span> by a fixed multiplicative factor <span class="math notranslate nohighlight">\(G\)</span>.
+For example, <span class="math notranslate nohighlight">\(G=2\)</span> would double the signal’s amplitude, and <span class="math notranslate nohighlight">\(G=0\)</span> would render it completely silent.
+Mathematically, this is expressed as</p>
+<div class="math notranslate nohighlight">
+\[
+y[n] = G \cdot x[n],
+\]</div>
+<p>and in code, we could implement it as:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">gain</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">G</span><span class="p">):</span>
+    <span class="c1"># Note: when x is a numpy array, we could also multiply </span>
+    <span class="c1"># all samples by G at the same time.</span>
+    <span class="c1"># This would replace the code below by the one-liner:</span>
+    <span class="c1">#</span>
+    <span class="c1">#    return G * x</span>
+    
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+        
+    <span class="k">return</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p>This bit of code would define a new function <code class="docutils literal notranslate"><span class="pre">gain</span></code> which implements the system, and you could then call by saying</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">gain</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>  <span class="c1"># Double amplitude</span>
+</pre></div>
+</div>
+<p>Having a system implemented by a self-contained function like this can make it easier to reason about and debug.
+It can also help to isolate what parameters are needed to implement the system: in this case, just the input signal <span class="math notranslate nohighlight">\(x\)</span> and the gain value <span class="math notranslate nohighlight">\(G\)</span>.</p>
+<div class="cell tag_remove_input tag_hide_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/Systems_4_0.png" src="../../../_images/Systems_4_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="clipping">
+<h3>Clipping<a class="headerlink" href="#clipping" title="Permalink to this headline">¶</a></h3>
+<p>A <strong>clipping</strong> system limits the output of a system so that it cannot be less than some minimum value <span class="math notranslate nohighlight">\(v_-\)</span> or greater than a maximum value <span class="math notranslate nohighlight">\(v_+\)</span>.
+In equations, this looks like:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+y[n] = \begin{cases}
+v_+ &amp; x[n] \geq v_+\\
+v_- &amp; x[n] \leq v_-\\
+x[n] &amp; \text{otherwise}
+\end{cases}.
+\end{split}\]</div>
+<p>Equivalently, in code this is expressed as:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">clip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">):</span>
+    <span class="c1"># This behavior is implemented by np.clip,</span>
+    <span class="c1"># but we provide a full implementation</span>
+    <span class="c1"># here for reference.</span>
+    
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">vmax</span><span class="p">:</span>
+            <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">vmax</span>
+        <span class="k">elif</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">vmin</span><span class="p">:</span>
+            <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">vmin</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p>Clipping is a key step of many <em>distortion</em> effects, leading to the distinctive sound of distorted electric guitar.
+This is because clipping models what happens to amplifier circuits when pushed past their limits (overdriven): the amplifier is asked to produce a voltage higher than it’s capable of, and the output signal saturates at its voltage limits.</p>
+<div class="cell tag_remove_input tag_hide_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/Systems_6_0.png" src="../../../_images/Systems_6_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="time-reversal">
+<h3>Time-reversal<a class="headerlink" href="#time-reversal" title="Permalink to this headline">¶</a></h3>
+<p>A <em>time-reversal</em> system does exactly what it sounds like: it plays the signal backward.
+Mathematically, this is done by swapping the sample at index <span class="math notranslate nohighlight">\(n\)</span> with the one at index <span class="math notranslate nohighlight">\(N-1-n\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+y[n] = x[N - 1 - n]
+\]</div>
+<p>or in code,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reverse</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="c1"># This could be equivalently done with the one-liner:</span>
+    <span class="c1">#   return x[::-1]</span>
+    
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">n</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p>Note that the previous two examples (gain and clipping) can operate independently on each sample, and do not need to know the entire signal at once to operate correctly.
+However, this system needs to know the entire signal in advance.</p>
+<div class="cell tag_remove_input tag_hide_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/Systems_8_0.png" src="../../../_images/Systems_8_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>In general, you can think of systems as <em>effects</em> to be applied to a signal.
+Now that we’ve seen a few examples, we’re ready to dive into what makes convolutional systems special.</p>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Brian McFee<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../../_static/js/index.js"></script>
+    
+  </body>
+</html>

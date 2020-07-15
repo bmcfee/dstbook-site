@@ -1,0 +1,608 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linearity and Shift-invariance &#8212; Digital Signals Theory</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Exercises" href="Exercises.html" />
+    <link rel="prev" title="Properties of convolution" href="Properties.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/dstlogo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Digital Signals Theory</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Preface
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 1, Signals and systems
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch01-signals/Intro.html">
+   Signals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch02-sampling/intro.html">
+   Digital sampling
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="intro.html">
+   Convolution
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Building.html">
+     Delay, gain, and mix
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Convolution.html">
+     Defining convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="IR.html">
+     Impulse Response
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Modes.html">
+     Convolution modes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Properties.html">
+     Properties of convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Properties.html#proving-these-properties">
+     Proving these properties
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Linearity and Shift-invariance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Exercises.html">
+     Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 2, The frequency domain
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch04-fourier/intro.html">
+   The Discrete Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch05-dft-properties/intro.html">
+   Properties of the DFT
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Fundamentals.html">
+   Mathematical fundamentals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Algebra.html">
+   Algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Trigonometry.html">
+   Trigonometry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Complex.html">
+   Complex numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Python.html">
+   Programming in Python
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/ch03-convolution/LSI.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#shift-invariance">
+   Shift-invariance
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#all-convolutional-systems-are-shift-invariant">
+     All convolutional systems are shift-invariant
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linearity">
+   Linearity
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#all-convolutional-systems-are-linear">
+     All convolutional systems are linear
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#systems-which-are-not-lsi">
+   Systems which are not LSI
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#shift-invariant-but-not-linear">
+     Shift-invariant, but not linear
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#clipping">
+       Clipping
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#linear-but-not-shift-invariant">
+     Linear, but not shift-invariant
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#time-reversal">
+       Time-reversal
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="linearity-and-shift-invariance">
+<h1>Linearity and Shift-invariance<a class="headerlink" href="#linearity-and-shift-invariance" title="Permalink to this headline">¶</a></h1>
+<div class="math notranslate nohighlight">
+\[
+\require{cancel}\notag%
+\require{color}\notag%
+\require{amsmath}\notag%%
+\]</div>
+<div class="cell tag_remove_input tag_remove_output docutils container">
+</div>
+<p>We’ll end this chapter with a discussion of two of the more advanced properties of convolutional filters: linearity and shift-invariance.
+These are general concepts which can be applied to more than just convolutional filters, but for now, we’ll focus on the specific case of convolution.</p>
+<p>Taken together, these two conditions (linearity and shift-invariance) are often referred to as <em>LSI</em>, and a system satisfying these properties is called an <em>LSI system</em>.</p>
+<div class="section" id="shift-invariance">
+<h2>Shift-invariance<a class="headerlink" href="#shift-invariance" title="Permalink to this headline">¶</a></h2>
+<p>The idea of shift-invariance is that delay can be applied either before or after a system <span class="math notranslate nohighlight">\(g\)</span>, and produce the same result.</p>
+<p>Formally, let <span class="math notranslate nohighlight">\(\Delta\)</span> denote a <span class="math notranslate nohighlight">\(d\)</span>-step delay filter for some fixed but arbitrary delay <span class="math notranslate nohighlight">\(d \in \mathbb{N}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta = [\underbrace{0, 0, \dots, 0}_{d \text{ times}}, 1]
+\]</div>
+<p>so that convolving a signal <span class="math notranslate nohighlight">\(x\)</span> with <span class="math notranslate nohighlight">\(\Delta\)</span> yields</p>
+<div class="math notranslate nohighlight" id="equation-conv-delay2">
+<span class="eqno">(17)<a class="headerlink" href="#equation-conv-delay2" title="Permalink to this equation">¶</a></span>\[(\Delta * x)[n] = x[n-d].\]</div>
+<div class="important admonition">
+<p class="admonition-title">Definition: shift-invariance</p>
+<p>A filter <span class="math notranslate nohighlight">\(g\)</span> is <strong>shift-invariant</strong> if for all delays <span class="math notranslate nohighlight">\(d\)</span> (implemented by delay filter <span class="math notranslate nohighlight">\(\Delta\)</span>) and all input signals <span class="math notranslate nohighlight">\(x\)</span>, the following is true:</p>
+<div class="math notranslate nohighlight" id="equation-shift-invariance">
+<span class="eqno">(18)<a class="headerlink" href="#equation-shift-invariance" title="Permalink to this equation">¶</a></span>\[g(\Delta * x) = \Delta * g(x).\]</div>
+</div>
+<p>In plain language, equation <code class="xref std std-numref docutils literal notranslate"><span class="pre">shift-invariance</span></code> says that if we delay <span class="math notranslate nohighlight">\(x\)</span> by <span class="math notranslate nohighlight">\(d\)</span> samples, and then process the delayed signal by the system <span class="math notranslate nohighlight">\(g\)</span>, we will get the exact same result as if we had first applied <span class="math notranslate nohighlight">\(g\)</span> to <span class="math notranslate nohighlight">\(x\)</span> (without delay) and then delayed the result.</p>
+<div class="margin sidebar">
+<p class="sidebar-title">Shift-invariance or time-invariance?</p>
+<p>The term <em>time-invariant</em> is also commonly used to describe the property above.
+There are two reasons why shift-invariance is a more precise term:</p>
+<ol class="simple">
+<li><p>“Time-invariant” does not describe what transformation of time the system is invariant to.  Shifting is one transformation, but so is stretching (e.g., changing units from seconds to milliseconds), reversal, or any number of other actions.</p></li>
+<li><p>“Shift-invariant” can be applied to systems operating on other kinds of signals, such as images, which may have different notions of “position” than time (e.g., pixel coordinates).</p></li>
+</ol>
+<p>For these reasons, we’ll stick to the more precise terminology, but you are likely to encounter the <em>time-invariant</em> terminology elsewhere, so remember that these are the same thing.</p>
+</div>
+<div class="section" id="all-convolutional-systems-are-shift-invariant">
+<h3>All convolutional systems are shift-invariant<a class="headerlink" href="#all-convolutional-systems-are-shift-invariant" title="Permalink to this headline">¶</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(g(x) = h *x\)</span> be a convolutional system for some fixed <span class="math notranslate nohighlight">\(h\)</span> and any input signal <span class="math notranslate nohighlight">\(x\)</span>, and let <span class="math notranslate nohighlight">\(\Delta\)</span> be the impulse response of a <span class="math notranslate nohighlight">\(d\)</span>-step delay for any fixed <span class="math notranslate nohighlight">\(d \geq 0\)</span>.
+To prove that <span class="math notranslate nohighlight">\(g\)</span> is shift-invariant, we need to verify that</p>
+<div class="math notranslate nohighlight">
+\[
+g(\Delta * x) = \Delta * g(x).
+\]</div>
+<p>We’ll do this by the following argument:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+g(\Delta * x) &amp;= h * (\Delta * x) &amp; \text{ apply }g\text{ to delayed input}\\
+&amp;= (h * \Delta) * x &amp; \text { associative rule}\\
+&amp;= (\Delta * h) * x &amp; \text { commutative rule}\\
+&amp;= \Delta * (h * x) &amp; \text { associative rule}\\
+&amp;= \Delta * g(x) &amp; \text { definition of }g.
+\end{align*}
+\end{split}\]</div>
+<p>This can give us a shortcut to showing shift-invariance: if you can implement a system <span class="math notranslate nohighlight">\(g\)</span> in terms of convolution, it automatically satisfies shift-invariance!</p>
+</div>
+</div>
+<div class="section" id="linearity">
+<h2>Linearity<a class="headerlink" href="#linearity" title="Permalink to this headline">¶</a></h2>
+<p><em>Linearity</em> is another important characteristic of many systems, including convolution.
+Broadly speaking, it encapsulates our notions of <em>gain</em> and <em>mixing</em> of signals.</p>
+<div class="admonition-definition-linearity admonition" id="id1">
+<p class="admonition-title">Definition: linearity</p>
+<p>A system <span class="math notranslate nohighlight">\(g\)</span> is <strong>linear</strong> if for any two signals <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span>, and for any pair of numbers <span class="math notranslate nohighlight">\(c_1\)</span> and <span class="math notranslate nohighlight">\(c_2\)</span>, the following holds:</p>
+<div class="math notranslate nohighlight" id="equation-linearity">
+<span class="eqno">(19)<a class="headerlink" href="#equation-linearity" title="Permalink to this equation">¶</a></span>\[g(c_1 \cdot x_1 + c_2 \cdot x_2) = c_1 \cdot g(x_1) + c_2 \cdot g(x_2).\]</div>
+</div>
+<p>This might look like a tangle of symbols, so it helps to think about a few special cases.
+For instance, if we take <span class="math notranslate nohighlight">\(x_2\)</span> to be a silent (all zeros) signal, and <span class="math notranslate nohighlight">\(c_2 = 0\)</span>, then we get the simpler case</p>
+<div class="math notranslate nohighlight">
+\[
+g(c_1 \cdot x_1) = c_1 \cdot g(x_1),
+\]</div>
+<p>which is also known as <em>homogeneity</em>.  This says that gain can be applied before or after the system <span class="math notranslate nohighlight">\(g\)</span> with no difference in the output.</p>
+<p>Similarly, if we take <span class="math notranslate nohighlight">\(c_1 = c_2 = 1\)</span>, then we get</p>
+<div class="math notranslate nohighlight">
+\[
+g(x_1 + x_2) = g(x_1) + g(x_2),
+\]</div>
+<p>which is also known as <em>additivity</em>.  This says that signals can be mixed before applying <span class="math notranslate nohighlight">\(g\)</span>, or after, and the result will be the same.  We’ve already seen this particular case before, when discussing how convolution <a class="reference internal" href="Properties.html#convolution-distributive"><span class="std std-ref">distributes over addition</span></a>.</p>
+<p>The linearity definition <a class="reference internal" href="#equation-linearity">(19)</a> combines these two ideas into one compact form.</p>
+<div class="margin sidebar">
+<p class="sidebar-title">Aside: why <em>linear</em>?</p>
+<p>In the context of signal processing, the term <em>linearity</em> might seem a little out of place, if not downright mysterious.</p>
+<p>Like many parts of our mathematical vocabulary, the term is borrowed from the theory of <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_algebra"><em>linear algebra</em></a>, where operators like rotation or translation are defined to ensure that the shapes of straight lines are preserved after application.</p>
+<p>The idea is much more general though, and in our context, <em>linearity</em> should be interpreted as preserving <em>gain</em> and <em>mixture</em> of signals.</p>
+</div>
+<div class="section" id="all-convolutional-systems-are-linear">
+<h3>All convolutional systems are linear<a class="headerlink" href="#all-convolutional-systems-are-linear" title="Permalink to this headline">¶</a></h3>
+<p>As before, let <span class="math notranslate nohighlight">\(g(x) = h*x\)</span> be an arbitrary convolutional system, and let <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span> denote arbitrary signals, and <span class="math notranslate nohighlight">\(c_1, c_2\)</span> denote arbitrary numbers.</p>
+<p>We could prove that <span class="math notranslate nohighlight">\(g\)</span> is linear by brute force, using the definition of convolution and working through the algebra directly.  (If this sounds like fun, please feel free to give it a shot!)</p>
+<p>We’ll take a slightly different route here though, relying on facts we already know about convolution.</p>
+<p>Recall that we can implement gain as a convolutional system by creating an impulse response with only one element: <a class="reference internal" href="Convolution.html#convolution-gain"><span class="std std-ref">Gain</span></a>.
+Let <span class="math notranslate nohighlight">\(C_1 = [c_1]\)</span> and <span class="math notranslate nohighlight">\(C_2 = [c_2]\)</span>, so that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+c_1 \cdot x_1[n] &amp;= (C_1 * x_1)[n]\\
+c_2 \cdot x_2[n] &amp;= (C_2 * x_2)[n].
+\end{align*}
+\end{split}\]</div>
+<p>Then, we can show linearity in terms of associative, commutative, and distributive properties:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+g(c_1 \cdot x_1 + c_2 \cdot x_2) &amp;= h * (c_1 \cdot x_1 + c_2 \cdot x_2) &amp; \text{ apply }g\\
+&amp;= h * (C_1 * x_1 + C_2 * x_2) &amp; \text { use definition of } C_1, C_2\\
+&amp;= (h * C_1 * x_1) + (h * C_2 * x_2) &amp; \text { distributive rule}\\
+&amp;= (C_1 * h * x_1) + (C_2 * h * x_2) &amp; \text { commutative rule (twice)}\\
+&amp;= C_1 * (h * x_1) + C_2 * (h * x_2) &amp; \text { associative rule (twice)}\\
+&amp;= C_1 * g(x_1) + C_2 * g(x_2) &amp; \text { definition of }g\\
+&amp;= c_1 \cdot g(x_1) + c_2 \cdot g(x_2) &amp; \text { definition of }C_1, C_2\\
+\end{align*}
+\end{split}\]</div>
+<p>Note that the use of convolution to implement gain here is mainly for convenience: having all operations expressed as either sums or convolutions buys us a bit of notational simplicity.
+That said, it is still completely valid to prove this from first princples, but the derivation would be longer.</p>
+</div>
+</div>
+<div class="section" id="systems-which-are-not-lsi">
+<h2>Systems which are not LSI<a class="headerlink" href="#systems-which-are-not-lsi" title="Permalink to this headline">¶</a></h2>
+<p>Not all filtering operations you might want to do satisfy the LSI conditions.
+Some might be only linear, some might be only shift-invariant, and some might be neither.
+Identifying these properties can be helpful for understanding both how a particular system behaves, and how it can be combined with others.
+In particular, since all convolutional systems are LSI, we can infer that any system which is <em>not</em> LSI cannot be implemented by a convolution!</p>
+<div class="section" id="shift-invariant-but-not-linear">
+<h3>Shift-invariant, but not linear<a class="headerlink" href="#shift-invariant-but-not-linear" title="Permalink to this headline">¶</a></h3>
+<p>There are many systems which are shift-invariant, but not linear.
+Generally speaking, any system which operates on each sample <em>value</em> independently (like <em>gain</em>) will be shift-invariant.
+Linearity will then depend on <em>how</em> the sample values are processed.</p>
+<div class="section" id="clipping">
+<h4>Clipping<a class="headerlink" href="#clipping" title="Permalink to this headline">¶</a></h4>
+<p>A <strong>clipping</strong> system limits the output of a system so that it cannot be less than some minimum value <span class="math notranslate nohighlight">\(v_-\)</span> or greater than a maximum value <span class="math notranslate nohighlight">\(v_+\)</span>.
+In equations, this looks like:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+y[n] = \begin{cases}
+v_+ &amp; x[n] \geq v_+\\
+v_- &amp; x[n] \leq v_-\\
+x[n] &amp; \text{otherwise}
+\end{cases}.
+\end{split}\]</div>
+<p>Equivalently, in code this is expressed as:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">clip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">):</span>
+    <span class="c1"># This behavior is implemented by np.clip,</span>
+    <span class="c1"># but we provide a full implementation</span>
+    <span class="c1"># here for reference.</span>
+    
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">vmax</span><span class="p">:</span>
+            <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">vmax</span>
+        <span class="k">elif</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">vmin</span><span class="p">:</span>
+            <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">vmin</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">y</span>
+</pre></div>
+</div>
+<div class="margin sidebar">
+<p class="sidebar-title">Clipping</p>
+<p>Clipping is a key step of many <em>distortion</em> effects, leading to the distinctive sound of distorted electric guitar.
+This is because clipping models what happens to amplifier circuits when pushed past their limits (overdriven): the amplifier is asked to produce a voltage higher than it’s capable of, and the output signal saturates at its voltage limits.</p>
+</div>
+<div class="cell tag_remove_input tag_hide_input tag_remove_output docutils container">
+</div>
+<div class="figure align-default" id="id2">
+<div class="cell_output docutils container">
+<img alt="../../_images/LSI_13_0.svg" src="../../_images/LSI_13_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">Top: an input signal <span class="math notranslate nohighlight">\(x\)</span>.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<div class="legend">
+<p>Bottom: the result of clipping <span class="math notranslate nohighlight">\(x\)</span> to lie between <span class="math notranslate nohighlight">\(v_-\)</span> and <span class="math notranslate nohighlight">\(v_+\)</span> (dashed lines).</p>
+</div>
+</div>
+<p>Remember that if a system is linear, it must be linear for <em>all</em> signals <span class="math notranslate nohighlight">\(x_1,x_2\)</span> and scalars <span class="math notranslate nohighlight">\(c_1,c_2\)</span>.
+To show that clipping is not linear, we only need to find one counter-example case: a setting of <span class="math notranslate nohighlight">\(x_1, x_2, c_1, c_2\)</span> for which it fails to hold.</p>
+<p>Imagine taking a signal <span class="math notranslate nohighlight">\(x_1[n] = v_+\)</span> (for all <span class="math notranslate nohighlight">\(n\)</span>), letting <span class="math notranslate nohighlight">\(x_2 = 0\)</span>, and setting <span class="math notranslate nohighlight">\(c_1=2\)</span>.
+Then</p>
+<div class="math notranslate nohighlight">
+\[
+g(c_1 \cdot x_1) = g(2 \cdot v_+) = v_+
+\]</div>
+<p>but this is not equal to <span class="math notranslate nohighlight">\(c_1 \cdot g(x_1) = 2 \cdot v_+\)</span>.</p>
+<p>In general, showing that a system is not linear requires some insight about how the system operates.  In this case, we exploited the fact that the behavior of <span class="math notranslate nohighlight">\(g\)</span> changes when the input is above <span class="math notranslate nohighlight">\(v_+\)</span>, and used that to construct a counter-example.
+This type of argument often seems obvious in hindsight, but creating counter-examples is a skill that takes practice to develop.</p>
+</div>
+</div>
+<div class="section" id="linear-but-not-shift-invariant">
+<h3>Linear, but not shift-invariant<a class="headerlink" href="#linear-but-not-shift-invariant" title="Permalink to this headline">¶</a></h3>
+<p>Just as in the previous case, there are many systems which are linear, but not shift-invariant.
+In this case, the dependence to look at is on the sample indices.</p>
+<div class="section" id="time-reversal">
+<h4>Time-reversal<a class="headerlink" href="#time-reversal" title="Permalink to this headline">¶</a></h4>
+<p>A <em>time-reversal</em> system does exactly what it sounds like: it plays the signal backward.
+Mathematically, this is done by swapping the sample at index <span class="math notranslate nohighlight">\(n\)</span> with the one at index <span class="math notranslate nohighlight">\(N-1-n\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+y[n] = x[N - 1 - n]
+\]</div>
+<p>or in code,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reverse</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="c1"># This could be equivalently done with the one-liner:</span>
+    <span class="c1">#   return x[::-1]</span>
+    
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">n</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p>Note that the previous example (clipping) can operate independently on each sample, and do not need to know the entire signal at once to operate correctly.
+However, this system needs to know the entire signal in advance.</p>
+<p>To show that time-reversal is not shift-invariant, we again must construct a counter-example.
+Here the key property that we’re looking at is symmetry (in time), so we should probably consider signals which do not look the same forwards as backwards.
+Sinusoids and square waves probably won’t work, but a sawtooth will do nicely!</p>
+<p>After that, we need only check what happens when we delay the input by some number of samples.  Here, we’ll take a 5-step delay, but any positive number would do.</p>
+<div class="cell tag_remove_input tag_hide_input tag_remove_output docutils container">
+</div>
+<div class="figure align-default" id="reverse">
+<div class="cell_output docutils container">
+<img alt="../../_images/LSI_18_0.svg" src="../../_images/LSI_18_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">Top: a signal <span class="math notranslate nohighlight">\(x[n]\)</span> and a 5-sample delayed copy.
+Bottom: applying time-reversal before or after delaying the input produces different output signals.</span><a class="headerlink" href="#reverse" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#reverse"><span class="std std-numref">Fig. 28</span></a> shows that changing the order of operations (delay first or reverse first) matters, since the two signals in the bottom plot are not identical.
+From this example, we can conclude that time-reversal is <em>not</em> shift-invariance.</p>
+</div>
+</div>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>What we’ve seen here is that all convolutional systems are both linear and shift-invariant, and if a system fails to satisfy either of these conditions, then it cannot be implemented by convolution.</p>
+<p>The connection here is even stronger than that: all LSI systems are convolutions as well!
+Proving that this is true is beyond the scope of this text, and requires some slightly more sophisticated mathematics.
+However, the equivalence between convolutions and LSI systems is one of the most powerful concepts in all of signal processing.</p>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Properties.html" title="previous page">Properties of convolution</a>
+    <a class='right-next' id="next-link" href="Exercises.html" title="next page">Exercises</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Brian McFee<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

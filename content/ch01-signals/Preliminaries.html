@@ -1,0 +1,423 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preliminaries &#8212; Digital Signals Theory</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Periodicity and waves" href="Waves.html" />
+    <link rel="prev" title="Signals" href="Intro.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/dstlogo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Digital Signals Theory</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Preface
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 1, Signals and systems
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="Intro.html">
+   Signals
+  </a>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Preliminaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Waves.html">
+     Periodicity and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Units.html">
+     Units and dimensional analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Acoustics.html">
+     Basic Acoustics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Exercises.html">
+     Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch02-sampling/intro.html">
+   Digital sampling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch03-convolution/intro.html">
+   Convolution
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 2, The frequency domain
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch04-fourier/intro.html">
+   The Discrete Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch05-dft-properties/intro.html">
+   Properties of the DFT
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Fundamentals.html">
+   Mathematical fundamentals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Algebra.html">
+   Algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Trigonometry.html">
+   Trigonometry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Complex.html">
+   Complex numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Python.html">
+   Programming in Python
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/ch01-signals/Preliminaries.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-a-signal">
+   What is a signal?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#notation">
+   Notation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#standard-conventions">
+   Standard conventions
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell tag_remove_input tag_remove_output docutils container">
+</div>
+<div class="section" id="preliminaries">
+<h1>Preliminaries<a class="headerlink" href="#preliminaries" title="Permalink to this headline">¶</a></h1>
+<p>Before we get too far into digital signals, we’ll need to establish some basic notation and concepts.
+This section covers the following</p>
+<ul class="simple">
+<li><p>What is a signal?</p></li>
+<li><p>Mathematical notation</p></li>
+<li><p>Standard conventions</p></li>
+</ul>
+<p>It does not cover mathematical fundamentals.  For the first few chapeters, we will not need much math beyond basic algebra (variables and rules of arithmetic), and a bit of geometry.
+Later on, we’ll make use of more advanced concepts (complex numbers, polynomials, and exponentials), but those will be introduced as needed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I sometimes use the term <em>basic</em> in reference to certain ideas.  By this, I mean that these ideas are the <em>base level</em> upon which we will build.  This is <strong>not</strong> the same thing as being <em>easy</em>.  Many basic ideas can be complicated, and take quite some time to thoroughly understand.</p>
+</div>
+<p>If the mathematical concepts start to seem overwhelming at some point, don’t worry!  Just take it slow, and don’t move on to the next section too soon.  None of the contents here are magical: it all builds on basic ideas.</p>
+<hr class="docutils" />
+<div class="section" id="what-is-a-signal">
+<h2>What is a signal?<a class="headerlink" href="#what-is-a-signal" title="Permalink to this headline">¶</a></h2>
+<p>At a high level, a <strong>signal</strong> is a way of conveying information.
+There unfortunately isn’t a simple, concise, technical definition glue signal that provides us with much insight.
+The most intuitive example of a signal, at least for acoustically-minded folks, is the voltage on a wire connected to a microphone.
+If you were to watch the voltage change over time, you might see something like the figure below:</p>
+<div class="cell tag_remove_input tag_remove_output docutils container">
+</div>
+<div class="figure align-default" id="id1">
+<div class="cell_output docutils container">
+<img alt="../../_images/Preliminaries_3_0.svg" src="../../_images/Preliminaries_3_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">An example signal, showing voltage changing over time.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>The blue curve above represents the voltage measured at every time <span class="math notranslate nohighlight">\(t\)</span>, and we denote this curve (our signal) by the notation</p>
+<div class="math notranslate nohighlight">
+\[
+x(t).
+\]</div>
+<p>If we want to know the voltage at a specific time, say, 4 seconds, we would substitute that value for <span class="math notranslate nohighlight">\(t\)</span> to get <span class="math notranslate nohighlight">\(x(4)\)</span>.  (In this case, <span class="math notranslate nohighlight">\(x(4) \approx 0.3\)</span>.)
+Not all signals measure voltages, though at least recorded audio signals are typically constructed from electrical signals.
+For audio processing, the important thing is that the signal can be converted somehow into changes in air-pressure that our ears can detect and interpret as sound.
+Whether <span class="math notranslate nohighlight">\(x(t)\)</span> is measuring volts, Pascals (the standard unit of air pressure), or something else, is usually not too important, as we are primarily concerned with the relative changes in the signal and not its absolute interpretation.
+For that reason, we usually do not bother precisely annotating the units of whatever the signal is measuring.</p>
+<p>To be a bit more precise, the signal <span class="math notranslate nohighlight">\(x(t)\)</span> above is a <em>time-domain</em> signal.  There are other kinds of signals: for example, a gray-scale image can be thought of as a signal over two input coordinates (horizontal and vertical position), and the measurement is the brightness at that point.
+Most of the techiques we develop in this book can be carried over to more general types of signals, but we will focus on the time-domain.</p>
+</div>
+<div class="section" id="notation">
+<h2>Notation<a class="headerlink" href="#notation" title="Permalink to this headline">¶</a></h2>
+<p>The first bit of notation that we’ll need is for signals.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x(t)\)</span> denotes a <strong>continuous-time</strong> signal.  <span class="math notranslate nohighlight">\(t\)</span> can be any real number: 0, 1, -53, <span class="math notranslate nohighlight">\(\pi\)</span>, etc.  We read this as “signal <span class="math notranslate nohighlight">\(x\)</span> at time <span class="math notranslate nohighlight">\(t\)</span>.”</p></li>
+<li><p><span class="math notranslate nohighlight">\(x[n]\)</span> denotes a <strong>discrete-time</strong> signal.  <span class="math notranslate nohighlight">\(n\)</span> must be an integer: <span class="math notranslate nohighlight">\(0, 1, 2, -1, -2\)</span>, etc.  We read this as “the <span class="math notranslate nohighlight">\(n^\text{th}\)</span> sample of signal <span class="math notranslate nohighlight">\(x\)</span>.”</p></li>
+</ul>
+<p>For this first chapter, we’ll deal only with continuous signals <span class="math notranslate nohighlight">\(x(t)\)</span>.
+Discrete signals will be introduced in the next chapter, but it’s important to keep clear the distinction of notation (parentheses for continuous time, square brackets for discrete sample indices).
+When the usage is clear from context, we may omit the time or sample index and refer to a signal just by its name <span class="math notranslate nohighlight">\(x\)</span> – this should be understood as referring to the entire signal.</p>
+<p>Because we often use the letter “x” to refer to signals, we’ll need a different symbol to represent multiplication.
+We’ll instead use the center dot <span class="math notranslate nohighlight">\(\cdot\)</span> for this, e.g., <span class="math notranslate nohighlight">\(2\cdot 3 = 6\)</span>.
+This creates a bit of a disconnect between multiplication in software (usually denoted by <code class="docutils literal notranslate"><span class="pre">*</span></code>) and in text, but this is for good reason: the <span class="math notranslate nohighlight">\(*\)</span> operator will be used for a different purpose later on, known as <em>convolution</em>.
+Using <span class="math notranslate nohighlight">\(\cdot\)</span> instead of <span class="math notranslate nohighlight">\(*\)</span> for multiplication will help avoid confusion due to notational issues.</p>
+<p>Usually, we’ll let <span class="math notranslate nohighlight">\(x(t)\)</span> represent an arbitrary signal.  If we need to refer to a specific signal, it will be defined explicitly by a mathematical formula, such as this example</p>
+<div class="math notranslate nohighlight">
+\[
+x(t) = \sin(2\pi \cdot t)
+\]</div>
+<p>would define a pure tone oscillating at 1 cycle per second.</p>
+<p>Most of what we do in signal processing amounts to modifying a signal in some way, for example, applying a low-pass filter.
+We can think of this as applying some <strong>function</strong> <span class="math notranslate nohighlight">\(g\)</span> to an <strong>input signal</strong> <span class="math notranslate nohighlight">\(x\)</span> and producing an <strong>output signal</strong> <span class="math notranslate nohighlight">\(y\)</span>, which we write as</p>
+<div class="math notranslate nohighlight">
+\[
+y = g(x).
+\]</div>
+</div>
+<div class="section" id="standard-conventions">
+<h2>Standard conventions<a class="headerlink" href="#standard-conventions" title="Permalink to this headline">¶</a></h2>
+<p>We’ll often use <span class="math notranslate nohighlight">\(x(t)\)</span> and <span class="math notranslate nohighlight">\(y(t)\)</span> to generally refer to input and output signals, respectively.</p>
+<p>To keep things simple, time will always be referred to by the letter <span class="math notranslate nohighlight">\(t\)</span>, and it will always be measured in units of seconds.
+As stated above, time should be understood to be continuously valued.
+Time will be measured starting from 0.</p>
+<p>Discrete (i.e., integer-valued) quantities will be referred to by the letters <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(m\)</span>, or <span class="math notranslate nohighlight">\(k\)</span>.
+These also will be measured starting from 0.
+This means that a sequence of length <span class="math notranslate nohighlight">\(N\)</span> has indices <span class="math notranslate nohighlight">\(0, 1, 2, ..., N-1\)</span>.
+If you’re not used to this, it can seem a bit awkward at first, but trust me: this convention will make the math much easier later on!</p>
+<p>Unless otherwise stated, we will by default assume that signals are 0-valued when <span class="math notranslate nohighlight">\(t\)</span> (for continuous-time) or <span class="math notranslate nohighlight">\(n\)</span> (for discrete-time) are negative:</p>
+<div class="math notranslate nohighlight" id="equation-negative-time">
+<span class="eqno">(1)<a class="headerlink" href="#equation-negative-time" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align}
+t &lt; 0 &amp;\Rightarrow x(t) = 0\\
+n &lt; 0 &amp;\Rightarrow x[n] = 0.
+\end{align}\end{split}\]</div>
+<p>You can think of this as pretending that signals are silent until you start recording.</p>
+<div class="cell tag_remove_input tag_remove_output docutils container">
+</div>
+<div class="figure align-default" id="id2">
+<div class="cell_output docutils container">
+<img alt="../../_images/Preliminaries_8_0.svg" src="../../_images/Preliminaries_8_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">An example signal showing that voltage <span class="math notranslate nohighlight">\(x(t) = 0\)</span> for all <span class="math notranslate nohighlight">\(t &lt; 0\)</span> (negative time).</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>Angles will be denoted by the greek letters <span class="math notranslate nohighlight">\(\theta\)</span> or <span class="math notranslate nohighlight">\(\phi\)</span>, and measured in units of <em>radians</em>, <strong>not degrees!</strong>.
+There are <span class="math notranslate nohighlight">\(2\pi\)</span> radians in a full rotation (<span class="math notranslate nohighlight">\(360^\circ\)</span>); <span class="math notranslate nohighlight">\(\pi\)</span> radians in a half rotation (<span class="math notranslate nohighlight">\(180^\circ\)</span>), and <span class="math notranslate nohighlight">\(\pi/2\)</span> radians in a right angle (<span class="math notranslate nohighlight">\(90^\circ\)</span>).</p>
+<div class="cell tag_remove_input tag_remove_output docutils container">
+</div>
+<div class="figure align-default" id="id3">
+<div class="cell_output docutils container">
+<img alt="../../_images/Preliminaries_11_0.svg" src="../../_images/Preliminaries_11_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Illustrations of angles measured in radians, denoted by <span class="math notranslate nohighlight">\(\theta\)</span>.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<p>We’ll use the letter <span class="math notranslate nohighlight">\(\mathrm{j}\)</span> to refer to the <em>imaginary unit</em>, i.e., <span class="math notranslate nohighlight">\(\mathrm{j} = \sqrt{-1}\)</span>.
+Mathematicians traditionally use <span class="math notranslate nohighlight">\(i\)</span> for this, but <span class="math notranslate nohighlight">\(\mathrm{j}\)</span> is more commonly used in electrical engineering, where <span class="math notranslate nohighlight">\(i\)</span> is reserved for electrical current.
+Fortunately for us, the Python programming language also uses <code class="docutils literal notranslate"><span class="pre">1j</span></code> to denote the imaginary unit, so translating from text to code should be fairly straightforward.</p>
+<p>Complex numbers — numbers with both a real and imaginary component — will be denoted generally by the letter <span class="math notranslate nohighlight">\(z\)</span> (or occasionally <span class="math notranslate nohighlight">\(w\)</span>).
+This is primarily for consistency with other mathematical traditions.
+In general, <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> can assumed to be real-valued, and <span class="math notranslate nohighlight">\(z\)</span> can be assumed to be complex-valued.</p>
+<p>Finally, we will occasionally see snippets of code that implement the abstract concepts being described in the text.
+This code will be written in the Python programming language, and will be typeset as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+    <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>  <span class="c1"># Hurray! Now x is twice as loud!</span>
+</pre></div>
+</div>
+<p>More specifically, I will assume Python 3.6 or later, and will make use of the <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> package for numerical computation.
+If you’re new to Python, I recommend getting started with the <a class="reference external" href="https://www.anaconda.com/distribution/">Anaconda</a> distribution.</p>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Intro.html" title="previous page">Signals</a>
+    <a class='right-next' id="next-link" href="Waves.html" title="next page">Periodicity and waves</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Brian McFee<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
