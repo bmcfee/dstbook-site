@@ -1,0 +1,535 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematical fundamentals &#8212; Digital Signals Theory</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Algebra" href="Algebra.html" />
+    <link rel="prev" title="Exercises" href="../ch05-dft-properties/Exercises.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/dstlogo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Digital Signals Theory</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Preface
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 1, Signals and systems
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch01-signals/Intro.html">
+   Signals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch02-sampling/intro.html">
+   Digital sampling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch03-convolution/intro.html">
+   Convolution
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 2, The frequency domain
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch04-fourier/intro.html">
+   The Discrete Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch05-dft-properties/intro.html">
+   Properties of the DFT
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Mathematical fundamentals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Algebra.html">
+   Algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Trigonometry.html">
+   Trigonometry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Complex.html">
+   Complex numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Python.html">
+   Programming in Python
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/appendix/Fundamentals.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sets">
+   Sets
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#number-systems">
+   Number systems
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sequences">
+   Sequences
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summations">
+   Summations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modular-arithmetic">
+   Modular arithmetic
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#examples">
+     Examples
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exponentials">
+   Exponentials
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rules-for-working-with-exponentials">
+     Rules for working with exponentials
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-exponential-function">
+     The exponential function
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="mathematical-fundamentals">
+<h1>Mathematical fundamentals<a class="headerlink" href="#mathematical-fundamentals" title="Permalink to this headline">¶</a></h1>
+<p>This section of the appendix establishes some mathematical notation, and may serve as a brief refresher on fundamental concepts.</p>
+<div class="cell tag_remove_input tag_remove_output docutils container">
+</div>
+<div class="section" id="sets">
+<h2>Sets<a class="headerlink" href="#sets" title="Permalink to this headline">¶</a></h2>
+<p>A <em>set</em> is a basic concept in mathematics used to define collections of <em>elements</em>.
+The <a class="reference external" href="https://en.wikipedia.org/wiki/Set_(mathematics)">technical underpinnings of set theory</a> can get a bit tricky, but for our purposes, you can think of a set as any un-ordered collection.</p>
+<p>Notationally, we use curly braces <span class="math notranslate nohighlight">\(\{\}\)</span> to denote a set.  For example, we could have a set consisting of three colors defined as</p>
+<div class="math notranslate nohighlight">
+\[
+S = \{\text{red},\;\text{green},\;\text{blue}\}.
+\]</div>
+<p>Each of the three colors <strong>red, green, blue</strong> are <em>elements</em> of the set <span class="math notranslate nohighlight">\(S\)</span>.
+Order is not important here: the the set above is equivalent to the set <span class="math notranslate nohighlight">\(\{\text{blue},\;\text{green},\;\text{red}\}\)</span>.
+Repetition also does not matter: an element is either in the set or not.</p>
+<p>We use the symbol <span class="math notranslate nohighlight">\(\in\)</span> (a funny-looking <em>E</em>, denoting <em>element</em>) to denote membership in a set:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{red} \in S,
+\]</div>
+<p>and <span class="math notranslate nohighlight">\(\notin\)</span> to denote that an element does not belong to a set:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Cleveland} \notin S.
+\]</div>
+<p>We won’t do too much with sets in this text, but the basic notation is helpful to have, especially when dealing with different types of numbers.</p>
+</div>
+<div class="section" id="number-systems">
+<h2>Number systems<a class="headerlink" href="#number-systems" title="Permalink to this headline">¶</a></h2>
+<p>In digital signal processing, we use many kinds of numbers to represent different quantities.
+It’s helpful to have notation to specify exactly what kind of numbers we’re talking about, so here’s a brief list with their standard notations:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbb{N}\)</span>, the <em>natural  numbers</em> (or <em>counting</em> numbers): <span class="math notranslate nohighlight">\(\{0, 1, 2, 3, \dots\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{Z}\)</span>, the <em>integers</em>: <span class="math notranslate nohighlight">\(\{\dots, -3, -2, -1, 0, 1, 2, 3, \dots\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{Q}\)</span>, the <em>rational numbers</em> (fractions): <span class="math notranslate nohighlight">\(\left\{\frac{n}{m} ~\middle|~ n,m \in \mathbb{Z}, m \neq 0\right\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{R}\)</span>, the <em>real numbers</em> (i.e., the continuous number line)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{C}\)</span>, the <em>complex numbers</em>: <span class="math notranslate nohighlight">\(\{a + \mathrm{j}b ~|~ a,b \in \mathbb{R}\}\)</span></p></li>
+</ul>
+<p>where <span class="math notranslate nohighlight">\(\mathrm{j} = \sqrt{-1}\)</span> is the <em>imaginary unit</em> (we’ll say more about that later in the appendix).</p>
+<p>Natural numbers (<span class="math notranslate nohighlight">\(\mathbb{N}\)</span>) are often used for whole number quantities, such as sample positions <span class="math notranslate nohighlight">\(n\)</span>.
+Real numbers (<span class="math notranslate nohighlight">\(\mathbb{R}\)</span>) are often used for continuous quantities, such as angles (in radians), frequencies (in cycles/sec), or time (in seconds).</p>
+<p>Complex numbers occupy a special place in signal processing because they turn out to be a great tool for modeling periodic processes.  But more on that later.</p>
+</div>
+<div class="section" id="sequences">
+<h2>Sequences<a class="headerlink" href="#sequences" title="Permalink to this headline">¶</a></h2>
+<p>A <em>sequence</em> is exactly what it sounds like: an ordered list of things.
+Sequences are different from <em>sets</em> in that they are ordered, and repetition is allowed.</p>
+<p>The most common usage of sequences in DSP is the sequence of sample values representing a digital signal.
+This is commonly denoted by <span class="math notranslate nohighlight">\(x[n]\)</span>, where <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span> is the sample index, and <span class="math notranslate nohighlight">\(x[n]\)</span> is the sampled value of the signal at the <span class="math notranslate nohighlight">\(n\)</span>th position.</p>
+</div>
+<div class="section" id="summations">
+<h2>Summations<a class="headerlink" href="#summations" title="Permalink to this headline">¶</a></h2>
+<p>Throughout signal processing, we often need to add up long sequences of numbers. While we could easily express this using the standard <span class="math notranslate nohighlight">\(+\)</span> notation, such as</p>
+<div class="math notranslate nohighlight">
+\[
+S = 1 + 2 + 3 + \dots + 100,
+\]</div>
+<p>this can get cumbersome and difficult to read, especially when the terms of the summation involve other calculations.</p>
+<p>Instead, mathematicians express summations using the <span class="math notranslate nohighlight">\(\sum\)</span> symbol, derived from the (capital) Greek letter <em>sigma</em> (equivalent to <em>S</em> in the latin alphabet, standing for <em>s</em>ummation).
+The summation above would be equivalently expressed as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+S &amp;= \sum_{n=1}^{100} n\\
+&amp;= 1 + 2 + 3 + \dots + 100.
+\end{align*}
+\end{split}\]</div>
+<p>The notation specifies the variable which is changing throughout the summation (in our case, <span class="math notranslate nohighlight">\(n\)</span>), and the start and end-points of the sum (1 to 100, inclusive) below and above the <span class="math notranslate nohighlight">\(\sum\)</span> symbol.
+Everything after the summation symbol describes what’s being added up: in this case, just the values of <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p>It’s often helpful to think programmatically when reading summation expressions.
+The summation above would be translated to Python code as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Python ranges do not include the end point, so we need to go one past where we want to stop</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">):</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">S</span> <span class="o">+</span> <span class="n">n</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="modular-arithmetic">
+<h2>Modular arithmetic<a class="headerlink" href="#modular-arithmetic" title="Permalink to this headline">¶</a></h2>
+<p>Another common feature of mathematics of signal processing is the need to deal with repeating sequences and periodicity.
+We use real numbers to model continuously repeating processes (like a point traveling continuously around a circle), but we also occasionally have <strong>discrete</strong> repeating processes, like the hours on a clock: 12:00, 1:00, 2:00, \dots, 11:00.
+<strong>Modular arithmetic</strong> is the math of discrete repetition.</p>
+<p>For a positive integer <span class="math notranslate nohighlight">\(N &gt; 1\)</span> (the <em>modulus</em>), we define for any integer <span class="math notranslate nohighlight">\(q \in \mathbb{Z}\)</span></p>
+<div class="math notranslate nohighlight">
+\[q \mod N \in \{0, 1, \dots, N-1\}\]</div>
+<p>to be the remainder of <span class="math notranslate nohighlight">\(q / N\)</span>.
+Equivalently:</p>
+<div class="math notranslate nohighlight">
+\[q \mod N = k \quad\quad \text{such that } a \cdot N + k = q.\]</div>
+<p>for non-negative integer <span class="math notranslate nohighlight">\(a \in \mathbb{N}\)</span>.</p>
+<p>In Python code, this is implemented by</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The % symbol</span>
+<span class="n">q</span> <span class="o">%</span> <span class="n">N</span>
+
+<span class="c1"># Or the numpy function np.mod</span>
+<span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<p>A few examples:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(3 \mod 2 = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(-1 \mod 4 = 3\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(20 \mod 5 = 0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(10 \mod 10 = 0\)</span></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="exponentials">
+<h2>Exponentials<a class="headerlink" href="#exponentials" title="Permalink to this headline">¶</a></h2>
+<p>An exponential, generally speaking, is an expression of the form <span class="math notranslate nohighlight">\(c^x\)</span> for some constant <span class="math notranslate nohighlight">\(c\)</span>, and should be read as “<span class="math notranslate nohighlight">\(c\)</span> to the <span class="math notranslate nohighlight">\(x\)</span>th power”.
+Note that this is different from powers <span class="math notranslate nohighlight">\(x^n\)</span>, in that exponentials keep the base <span class="math notranslate nohighlight">\(c\)</span> fixed and vary <span class="math notranslate nohighlight">\(x\)</span>, while powers do the opposite.</p>
+<p><strong>Example</strong>: <span class="math notranslate nohighlight">\(2^x \neq x^2\)</span>.</p>
+<div class="cell tag_remove_input tag_remove_output docutils container">
+</div>
+<div class="figure align-default" id="id1">
+<div class="cell_output docutils container">
+<img alt="../../_images/Fundamentals_8_0.svg" src="../../_images/Fundamentals_8_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 50 </span><span class="caption-text">A quadratic curve <span class="math notranslate nohighlight">\(y=x^2\)</span> and an exponential curve <span class="math notranslate nohighlight">\(y=2^x\)</span> behave very differently.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>Often, when we refer to an <em>exponential</em>, we really mean a specific base <span class="math notranslate nohighlight">\(e = 2.71828\dots\)</span>, known alternately as “Euler’s number”, or “the base of the natural logarithm”.</p>
+<div class="section" id="rules-for-working-with-exponentials">
+<h3>Rules for working with exponentials<a class="headerlink" href="#rules-for-working-with-exponentials" title="Permalink to this headline">¶</a></h3>
+<p>The following rules are useful when manipulating expressions involving exponentials.
+All of these rules work for any base <span class="math notranslate nohighlight">\(c \neq 0\)</span>, including the special case <span class="math notranslate nohighlight">\(c=e\)</span>.</p>
+<p><strong>Rule 1</strong>: Any <span class="math notranslate nohighlight">\(c\)</span> raised to the 0 power is 1, and specifically:</p>
+<div class="math notranslate nohighlight">
+\[
+c^0 = 1
+\]</div>
+<p><strong>Rule 2</strong>: Exponentials turn negatives into inverses:</p>
+<div class="math notranslate nohighlight">
+\[
+c^{-a} = \frac{1}{c^a}
+\]</div>
+<p><strong>Rule 3</strong>: Exponentials turn sums into products:</p>
+<div class="math notranslate nohighlight">
+\[
+c^{a}\cdot c^{b} = c^{a+b}
+\]</div>
+<p><strong>Rule 4</strong>: Exponentials turn products into powers:</p>
+<div class="math notranslate nohighlight">
+\[
+c^{a\cdot b} = {\left(c^a\right)}^b = {\left(c^b\right)}^a
+\]</div>
+</div>
+<div class="section" id="the-exponential-function">
+<h3>The exponential function<a class="headerlink" href="#the-exponential-function" title="Permalink to this headline">¶</a></h3>
+<p>While it is convenient to regard <span class="math notranslate nohighlight">\(e\)</span> as the number <span class="math notranslate nohighlight">\(2.71828\dots\)</span>, there is an alternative (and more general) definition for <span class="math notranslate nohighlight">\(e\)</span> given by the following infinite summation</p>
+<div class="math notranslate nohighlight">
+\[
+e := \sum_{n=0}^\infty \frac{1}{n!}
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[
+n! := 1\cdot 2 \cdot 3 \cdot \dots \cdot n
+\]</div>
+<p>is the <em>factorial</em> function: the product of numbers 1 through <span class="math notranslate nohighlight">\(n\)</span>.
+(We define the special case <span class="math notranslate nohighlight">\(0! = 1\)</span>.)</p>
+<p>Note that summation above depends on <em>infinitely</em> many terms, and is not something you could explicitly compute.
+While this could be a problem in some cases, it’s okay here because the terms are getting smaller at a very fast rate:</p>
+<div class="math notranslate nohighlight">
+\[
+e = \sum_{n=0}^\infty \frac{1}{n!} = \frac{1}{1} + \frac{1}{1} + \frac{1}{2} + \frac{1}{6} + \frac{1}{24} + \frac{1}{60} + \dots
+\]</div>
+<p>and the summation <em>converges</em> to Euler’s number.
+Proving this sort of thing is out of scope for us here, but we can simulate it computationally by printing out the first few partial sums with a bit of python code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">factorial</span>
+
+<span class="c1"># Initialize the partial sum</span>
+<span class="n">e_partial</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">):</span>
+    <span class="c1"># Add in 1/n!</span>
+    <span class="n">e_partial</span> <span class="o">+=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;First </span><span class="si">{:2d}</span><span class="s1"> term(s): </span><span class="si">{:0.12f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">e_partial</span><span class="p">))</span>
+    
+<span class="c1"># Print the actual constant to 12 decimals</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Euler&#39;s constant: </span><span class="si">{:0.12f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">e</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>First  1 term(s): 1.000000000000
+First  2 term(s): 2.000000000000
+First  3 term(s): 2.500000000000
+First  4 term(s): 2.666666666667
+First  5 term(s): 2.708333333333
+First  6 term(s): 2.716666666667
+First  7 term(s): 2.718055555556
+First  8 term(s): 2.718253968254
+First  9 term(s): 2.718278769841
+First 10 term(s): 2.718281525573
+First 11 term(s): 2.718281801146
+First 12 term(s): 2.718281826198
+First 13 term(s): 2.718281828286
+First 14 term(s): 2.718281828447
+First 15 term(s): 2.718281828458
+---
+Euler&#39;s constant: 2.718281828459
+</pre></div>
+</div>
+</div>
+</div>
+<p>After only 15 terms of the summation, we already have a quite good approximation to <span class="math notranslate nohighlight">\(e\)</span> (accurate to 11 decimal places).</p>
+<p>This definition of <span class="math notranslate nohighlight">\(e\)</span> as an infinite summation can be generalized to depend on an arbitrary exponent <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+e^x := \sum_{n=0}^{\infty} \frac{x^n}{n!},
+\]</div>
+<p>where the first definition can be recovered by setting <span class="math notranslate nohighlight">\(x=1\)</span> in the second equation.</p>
+<p>While we rarely work with this form directly, it is useful because it provides a way to generalize the exponential to support <em>complex</em> exponents <span class="math notranslate nohighlight">\(e^z\)</span> for <span class="math notranslate nohighlight">\(z\in\mathbb{C}\)</span>.
+We’ll come back to this later in the appendix when we go into complex numbers more thoroughly.</p>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../ch05-dft-properties/Exercises.html" title="previous page">Exercises</a>
+    <a class='right-next' id="next-link" href="Algebra.html" title="next page">Algebra</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Brian McFee<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

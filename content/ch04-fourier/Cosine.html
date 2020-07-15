@@ -1,0 +1,569 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparing to sinusoids &#8212; Digital Signals Theory</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Analysis frequencies and phase" href="Phase.html" />
+    <link rel="prev" title="Similarity" href="Similarity.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/dstlogo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Digital Signals Theory</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Preface
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 1, Signals and systems
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch01-signals/Intro.html">
+   Signals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch02-sampling/intro.html">
+   Digital sampling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch03-convolution/intro.html">
+   Convolution
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 2, The frequency domain
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="intro.html">
+   The Discrete Fourier Transform
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Similarity.html">
+     Similarity
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Comparing to sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Phase.html">
+     Analysis frequencies and phase
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="DFT.html">
+     The Discrete Fourier Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Examples.html">
+     Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Exercises.html">
+     Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch05-dft-properties/intro.html">
+   Properties of the DFT
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Fundamentals.html">
+   Mathematical fundamentals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Algebra.html">
+   Algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Trigonometry.html">
+   Trigonometry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Complex.html">
+   Complex numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Python.html">
+   Programming in Python
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/ch04-fourier/Cosine.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#band-limiting">
+   Band-limiting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#periodicity">
+   Periodicity
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choosing-reference-frequencies">
+   Choosing reference frequencies
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-many-distinct-analysis-frequencies-are-there">
+     How many distinct analysis frequencies are there?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-closer-look-at-analysis-frequencies">
+     A closer look at analysis frequencies
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bringing-it-all-together">
+   Bringing it all together
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell tag_remove_input tag_remove_output docutils container">
+</div>
+<div class="section" id="comparing-to-sinusoids">
+<h1>Comparing to sinusoids<a class="headerlink" href="#comparing-to-sinusoids" title="Permalink to this headline">¶</a></h1>
+<p>In this section, we’ll begin to build up the foundations of the Fourier transform and the frequency domain.
+As stated in the introduction to this chapter, the entire idea of the Fourier transform is to represent arbitrary signals <span class="math notranslate nohighlight">\(x[n]\)</span> as combinations of sinusoids:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+x[n] &amp;= A_0 \cdot \cos\left(2\pi \cdot f_0 \cdot \frac{n}{f_s} + \phi_0\right) \\
+&amp;+ A_1 \cdot \cos\left(2\pi \cdot f_1 \cdot \frac{n}{f_s} + \phi_1\right) \\
+&amp;+ \dots
+\end{align*}
+\end{split}\]</div>
+<p>Before we go any further with this idea, it is helpful to think carefully about what it would mean to represent an arbitrary discrete signal <span class="math notranslate nohighlight">\(x[n]\)</span> in this way.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The representation that we develop in this section is <strong>not</strong> the Fourier transform.</p>
+<p>This section will set up the foundations that we’ll need to define the Fourier transform later in this chapter.
+There is plenty to cover, but your patience will be rewarded!</p>
+</div>
+<div class="section" id="band-limiting">
+<h2>Band-limiting<a class="headerlink" href="#band-limiting" title="Permalink to this headline">¶</a></h2>
+<p>Since <span class="math notranslate nohighlight">\(x[n]\)</span> is a discrete signal taken at some sampling rate <span class="math notranslate nohighlight">\(f_s\)</span>, we will assume that the conditions of the Nyquist-Shannon theorem hold and that aliasing is not going to be a problem for us.
+More specifically, this means that we are assuming that the underlying continuous signal <span class="math notranslate nohighlight">\(x(t)\)</span> which produced <span class="math notranslate nohighlight">\(x[n]\)</span> is <strong>band-limited</strong> to the frequency range <span class="math notranslate nohighlight">\(\pm \frac{f_s}{2}\)</span>.
+This implies that when representing <span class="math notranslate nohighlight">\(x[n]\)</span>, we will not need to use frequencies outside of this range.</p>
+<p>That said, there are still infinitely many frequencies in the range <span class="math notranslate nohighlight">\([-f_s/2, f_s/2]\)</span> (e.g., 1 Hz, 1/2 Hz, 1/4 Hz, …), and we can’t compare to all of them and still have a finite representation of the signal.
+We’ll need to be careful in choosing which frequencies we compare to!</p>
+</div>
+<div class="section" id="periodicity">
+<span id="dft-periodicity"></span><h2>Periodicity<a class="headerlink" href="#periodicity" title="Permalink to this headline">¶</a></h2>
+<p>Recall back in <a class="reference internal" href="../ch01-signals/Waves.html#periodicity"><span class="std std-ref">chapter 1</span></a> that periodic signals must repeat forever, and this includes the sinusoids that will form the basis of any frequency-domain representation.
+This also carries through to (finite) combinations of sinusoids.
+Any signal that we try to represent as a combination of sinusoids, therefore, must also be assumed to be periodic.</p>
+<div class="margin sidebar">
+<p class="sidebar-title">Finite vs infinite?</p>
+<p>Things get weird when we allow for infinitely many sinusoids.</p>
+<p>Fortunately, computers (like ourselves) are finite in nature, so let’s not worry about it.</p>
+</div>
+<p>This presents a bit of a problem for us, as up to now, we’ve been assuming that signals are silent for all negative time: <span class="math notranslate nohighlight">\(x[n] = 0\)</span> for <span class="math notranslate nohighlight">\(n &lt; 0\)</span>.
+A (non-empty) signal with an infinitely long stretch of silence cannot be periodic, so what can we do?</p>
+<p>To make progress here, we’ll need to change our assumptions.
+Rather than assume that signals are silent for all time before recording, we’ll assume that a finite signal <span class="math notranslate nohighlight">\(x[0], x[1], \dots, x[N-1]\)</span> represents one cycle of a loop that repeats forever.
+Under this assumption, once we’ve observed these <span class="math notranslate nohighlight">\(N\)</span> samples, there is nothing new to learn from further observation, since the repetition assumption gives us for any sample index <span class="math notranslate nohighlight">\(n\)</span>:</p>
+<div class="margin sidebar">
+<p class="sidebar-title">Array indexing</p>
+<p>More generally, we can assume</p>
+<div class="math notranslate nohighlight">
+\[x[n] = x[n \mod N]\]</div>
+<p>where <span class="math notranslate nohighlight">\(n\mod N\)</span> is the remainder of dividing <span class="math notranslate nohighlight">\(n\)</span> by <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<p>In Python, this is done by saying</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="n">n</span> <span class="o">%</span> <span class="n">N</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Python also allows us to use negative array indices (up to -N) directly to index from the end of the array:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Last sample</span>
+</pre></div>
+</div>
+</div>
+<div class="math notranslate nohighlight" id="equation-periodicity-assumption">
+<span class="eqno">(21)<a class="headerlink" href="#equation-periodicity-assumption" title="Permalink to this equation">¶</a></span>\[x[n] = x[n + N] = x[n + 2\cdot N] = \dots = x[n + k \cdot N] \quad\quad \text{for any } k \in \mathbb{Z}\]</div>
+<p>This also gives a new view to negative sample indices as offsets from the end of the signal:</p>
+<div class="math notranslate nohighlight" id="equation-negative-samples">
+<span class="eqno">(22)<a class="headerlink" href="#equation-negative-samples" title="Permalink to this equation">¶</a></span>\[x[-n] = x[-n+N] = x[N-n]\]</div>
+<p>This assumption is demonstrated visually below, where signal <span class="math notranslate nohighlight">\(x[n]\)</span> of duration <span class="math notranslate nohighlight">\(1.5\)</span> seconds (sampled at <span class="math notranslate nohighlight">\(f_s=100\)</span>, so <span class="math notranslate nohighlight">\(N=150\)</span>) is shown along with its implied repetitions.
+These repetitions are implied to go on forever in each direction of time.
+Note that the repeating signal need not be continuous at the repetition boundaries: all that matters is that the observed signal repeats exactly.</p>
+<div class="cell tag_remove_input tag_hide_input tag_remove_output docutils container">
+</div>
+<div class="figure align-default" id="id1">
+<div class="cell_output docutils container">
+<img alt="../../_images/Cosine_5_0.svg" src="../../_images/Cosine_5_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">A signal <span class="math notranslate nohighlight">\(x[n]\)</span> of some finite number of samples <span class="math notranslate nohighlight">\(N\)</span> (dark curve) is assumed to repeat forever (light curve).
+Vertical lines denote the boundaries of each repetition of <span class="math notranslate nohighlight">\(x\)</span>.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="choosing-reference-frequencies">
+<h2>Choosing reference frequencies<a class="headerlink" href="#choosing-reference-frequencies" title="Permalink to this headline">¶</a></h2>
+<p>As mentioned above, even though we’re assuming <span class="math notranslate nohighlight">\(x[n]\)</span> represents a band-limited signal, there are still infinitely many frequencies within the band.
+Our periodicity assumption will help us narrow this down to a finite set that we can use to form our reference signals.</p>
+<p>In the plot above, we see several identical repetitions of the observed signal <span class="math notranslate nohighlight">\(x[n]\)</span>.
+Imagine comparing the full repeating signal to a sinusoid of some frequency <span class="math notranslate nohighlight">\(f\)</span>, and computing the <a class="reference internal" href="Similarity.html#similarity-score"><span class="std std-ref">similarity score</span></a> independently for each individual repetition.
+Ideally, it should not matter which repetition of <span class="math notranslate nohighlight">\(x\)</span> we look at: they should all produce the same similarity score.
+Unfortunately, this is not the case.</p>
+<p>For example, if we take <span class="math notranslate nohighlight">\(f=1~[\text{Hz}]\)</span> to get a reference signal</p>
+<div class="math notranslate nohighlight">
+\[
+y[n] = \cos\left(2 \pi \cdot \frac{n}{f_s}\right)
+\]</div>
+<p>we would observe the following:</p>
+<div class="cell tag_remove_input tag_hide_input tag_remove_output docutils container">
+</div>
+<div class="figure align-default" id="id2">
+<div class="cell_output docutils container">
+<img alt="../../_images/Cosine_8_0.svg" src="../../_images/Cosine_8_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text">Top: a repeating signal <span class="math notranslate nohighlight">\(x\)</span> and a reference sinusoid <span class="math notranslate nohighlight">\(y\)</span>.
+Bottom: each repetition of <span class="math notranslate nohighlight">\(x\)</span> produces a different similarity score when compared to the corresponding segment of the reference signal <span class="math notranslate nohighlight">\(y\)</span>.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>Each repetition of the signal <span class="math notranslate nohighlight">\(x[n]\)</span> produces a different similarity score when compared to the 1 Hz reference signal, alternating between <span class="math notranslate nohighlight">\(+28.7\)</span> and <span class="math notranslate nohighlight">\(-28.7\)</span>.
+As a result, it’s unclear how we should define the similarity between <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>: if it’s the similarity between one repetition, which one do we choose?  Or do we combine scores from multiple repetitions, and if so, how would that work if they go on forever?
+In this example, we only had two distinct score values to deal with, but it’s possible to construct examples where there are many more than that.</p>
+<p>This problem arises because the period if the reference signal (1 second) does not line up with the period <span class="math notranslate nohighlight">\(x\)</span>, so the reference signal appears to start at a different point within each repetition.
+In the figure, we observe the reference signal starting either high (1) or low (-1) in alternating repetitions of <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>If we can ensure that the reference signal always starts at the exact same position in each repetition of <span class="math notranslate nohighlight">\(x\)</span>, then the problem vanishes: each repetition will produce the same similarity score, so we only need to examine one of them.
+This observation leads us to the concept of an <em>analysis frequency</em>.</p>
+<div class="important admonition">
+<p class="admonition-title">Definition: Analysis frequency</p>
+<p>For a sampling rate <span class="math notranslate nohighlight">\(f_s\)</span> and a signal length <span class="math notranslate nohighlight">\(N\)</span>, an <strong>analysis frequency</strong> <span class="math notranslate nohighlight">\(f_m\)</span> is any frequency which exactly completes a whole (integer) number of cycles <span class="math notranslate nohighlight">\(m\)</span> in <span class="math notranslate nohighlight">\(N\)</span> samples at <span class="math notranslate nohighlight">\(f_s\)</span>.</p>
+<p>Equivalently:</p>
+<div class="math notranslate nohighlight" id="equation-analysis-frequency">
+<span class="eqno">(23)<a class="headerlink" href="#equation-analysis-frequency" title="Permalink to this equation">¶</a></span>\[\begin{align*}
+f_m &amp;= \frac{m}{N}\cdot f_s \left[\frac{\text{cycles}}{\text{sec.}} \right] &amp; \quad\quad m = 0, 1, 2, \dots
+\end{align*}\]</div>
+</div>
+<p>Since we will be sampling waves at these frequencies at rate <span class="math notranslate nohighlight">\(f_s\)</span> over the full signal duration <span class="math notranslate nohighlight">\(N\)</span>, it is sometimes more useful to think of analysis frequencies in units of <code class="docutils literal notranslate"><span class="pre">[cycles</span> <span class="pre">/</span> <span class="pre">signal-duration]</span></code>, or in the notation above, the ratio <span class="math notranslate nohighlight">\(m/N\)</span>.</p>
+<p>Analysis frequencies have exactly the characteristic that we want: a shift by <span class="math notranslate nohighlight">\(N\)</span> samples will leave the signal unchanged, so each repetition of <span class="math notranslate nohighlight">\(x\)</span> is guaranteed to produce the same similarity score.
+For example, if we had chosen <span class="math notranslate nohighlight">\(m=1\)</span> (one cycle per signal duration) so that <span class="math notranslate nohighlight">\(f = 1/N \cdot f_s\)</span> (1.5 Hz for this case), we’d observe the following result:</p>
+<div class="cell tag_remove_input tag_hide_input tag_remove_output docutils container">
+</div>
+<div class="figure align-default" id="id3">
+<div class="cell_output docutils container">
+<img alt="../../_images/Cosine_11_0.svg" src="../../_images/Cosine_11_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text">If the reference sinusoid corresponds to an analysis frequency, each repetition of <span class="math notranslate nohighlight">\(x\)</span> will produce the same similarity score.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<p>Since we are now guaranteed that each repetition produces the same similarity score, we only need to look at one of them.</p>
+<p>One is much less than infinity, so we’re making progress!</p>
+<div class="section" id="how-many-distinct-analysis-frequencies-are-there">
+<h3>How many distinct analysis frequencies are there?<a class="headerlink" href="#how-many-distinct-analysis-frequencies-are-there" title="Permalink to this headline">¶</a></h3>
+<p>Now that we’ve settled on <em>which</em> frequencies we’ll be comparing our signal to, the next natural question is <strong>how many analysis frequencies are there</strong>?
+Since each analysis frequency will give us a different similarity score, the number of frequencies determines the size of the representation of our signal.
+Hopefully it’s not too big!</p>
+<p>As defined above, each analysis frequency is determined by a non-negative integer <span class="math notranslate nohighlight">\(m\)</span> which counts how many full cycles (positive or negative) are completed over the duration <span class="math notranslate nohighlight">\(N\)</span> samples.
+There are, of course, infinitely many values for <span class="math notranslate nohighlight">\(m\)</span>, but let’s see what happens.</p>
+<p>For an index <span class="math notranslate nohighlight">\(m\)</span>, we have analysis frequency <span class="math notranslate nohighlight">\(f_m = m/N \cdot f_s\)</span>, and the samples of the corresponding reference signal <span class="math notranslate nohighlight">\(y_m\)</span> (using cosine waves) will be determined by:</p>
+<div class="math notranslate nohighlight" id="equation-reference-signal">
+<span class="eqno">(24)<a class="headerlink" href="#equation-reference-signal" title="Permalink to this equation">¶</a></span>\[y_m[n] = \cos\left(2\pi \cdot \frac{m}{N}\cdot f_s \cdot \frac{n}{f_s} \right) = \cos\left(2\pi \cdot \frac{m}{N} \cdot n \right).\]</div>
+<p>The plots below illustrate the sampled reference signals for the first few analysis frequencies with <span class="math notranslate nohighlight">\(f_s = 20\)</span> and <span class="math notranslate nohighlight">\(N = 30\)</span> (1.5 seconds):</p>
+<div class="cell tag_remove_input tag_remove_output docutils container">
+</div>
+<div class="figure align-default" id="id4">
+<div class="cell_output docutils container">
+<img alt="../../_images/Cosine_15_0.svg" src="../../_images/Cosine_15_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 34 </span><span class="caption-text">The first four analysis frequencies for a signal of duration 1.5 seconds.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<p>If we continue this process a little further (<span class="math notranslate nohighlight">\(m= \dots, N-2, N-1, N, N+1, \dots\)</span>), what happens?</p>
+<p>Let’s take <span class="math notranslate nohighlight">\(m=N+1\)</span> as an example.  In this case, we have</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+f_{N+1} &amp;= \frac{N+1}{N} \cdot f_s\\
+&amp;= \frac{N}{N}\cdot f_s + \frac{1}{N} \cdot f_s\\
+&amp;= f_s + \frac{1}{N} \cdot f_s\\
+&amp;= f_s + f_1.
+\end{align*}
+\end{split}\]</div>
+<p>This is our old friend, <a class="reference internal" href="../ch02-sampling/Aliasing.html#id1"><span class="std std-ref">aliasing</span></a>!
+Analysis frequency <span class="math notranslate nohighlight">\(m=N+1\)</span> gives us exactly the same samples as <span class="math notranslate nohighlight">\(m=1\)</span> because they are related by the bandwidth of the signal <span class="math notranslate nohighlight">\(f_s\)</span>.
+Comparing our signal <span class="math notranslate nohighlight">\(x\)</span> to the reference signal for <span class="math notranslate nohighlight">\(m=N+1\)</span> would therefore give us exactly the same similarity score as if we had compared to the <span class="math notranslate nohighlight">\(m=1\)</span> signal.
+So let’s not bother with it!</p>
+<p>More generally, for any <span class="math notranslate nohighlight">\(m \geq N\)</span>, the corresponding frequency will always have an alias given by <span class="math notranslate nohighlight">\(m \mod N\)</span>.
+This answers our question: there are only <span class="math notranslate nohighlight">\(N\)</span> such frequencies (<span class="math notranslate nohighlight">\(m=0,1,2, \dots, N-2, N-1\)</span>) which produce distinct reference signals.
+How fortunate that this is exactly the same number as the length of our signal!</p>
+</div>
+<div class="section" id="a-closer-look-at-analysis-frequencies">
+<h3>A closer look at analysis frequencies<a class="headerlink" href="#a-closer-look-at-analysis-frequencies" title="Permalink to this headline">¶</a></h3>
+<p>Now that we have our analysis frequencies chosen, it’s worth taking a closer look to make sure we really understand what’s going on.
+The plot above shows the first few (<span class="math notranslate nohighlight">\(m=0,1,2,3\)</span>) but what happens for larger values?</p>
+<p>Recall that we’ve assumed the signal <span class="math notranslate nohighlight">\(x[n]\)</span> to be band-limited to satisfy the Nyquist-Shannon theorem, so it cannot contain energy from frequencys above <span class="math notranslate nohighlight">\(f_s/2\)</span> (the Nyquist frequency).
+The Nyquist frequency appears in our analysis frequencies (when <span class="math notranslate nohighlight">\(N\)</span> is even, anyway) as <span class="math notranslate nohighlight">\(m=N/2\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+f_{N/2} = \frac{N}{2N} \cdot f_s = \frac{f_s}{2},
+\]</div>
+<p>but <span class="math notranslate nohighlight">\(m\)</span> itself can range all the way up to <span class="math notranslate nohighlight">\(N-1 &gt; N/2\)</span>.</p>
+<p>Again, aliasing can help us make sense of this.
+When <span class="math notranslate nohighlight">\(N-1\geq m &gt; N/2\)</span>, the corresponding frequency will lie outside the band limits of the signal.
+However, it will have an alias within the band, which we can find by subtracting <span class="math notranslate nohighlight">\(f_s\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+f_m - f_s &amp;= \frac{m}{N} \cdot f_s - f_s\\
+&amp;= \frac{m}{N} \cdot f_s - \frac{N}{N} \cdot f_s\\
+&amp;= \frac{m-N}{N} \cdot f_s.
+\end{align*}
+\end{split}\]</div>
+<p>Since <span class="math notranslate nohighlight">\(m &lt; N\)</span>, this will be a negative frequency, but that’s okay!
+The important thing is that it will be within the range <span class="math notranslate nohighlight">\([-f_s/2, +f_s/2]\)</span>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Analysis frequencies for <span class="math notranslate nohighlight">\(m \geq N/2\)</span> correspond to <strong>negative frequencies</strong>.</p>
+</div>
+<p>So far in this section, we’ve been assuming that the reference signals are produced by cosine waves, for which negative frequencies are indistinguishable from positive frequencies.  (Remember, <span class="math notranslate nohighlight">\(\cos(\theta) = \cos(-\theta)\)</span>.)
+This means that the distinction isn’t so important right now.
+However, it will become important in the full context of the Fourier transform, which we will see in the next section.</p>
+</div>
+</div>
+<div class="section" id="bringing-it-all-together">
+<h2>Bringing it all together<a class="headerlink" href="#bringing-it-all-together" title="Permalink to this headline">¶</a></h2>
+<p>To finish off this section, let’s combine everything we’ve seen so far, and finally compare a signal <span class="math notranslate nohighlight">\(x[n]\)</span> to a full collection of reference signals.
+For each analysis frequency <span class="math notranslate nohighlight">\(f_m\)</span>, we’ll compute a similarity score <span class="math notranslate nohighlight">\(S_m\)</span>, and the collection of scores <span class="math notranslate nohighlight">\([S_0, S_1, \dots, S_{N-1}]\)</span> will form the representation of our signal.
+We’ll use the same example signal as above, but we’ll now focus on a single repetition of <span class="math notranslate nohighlight">\(x[n]\)</span> rather than the infinitely repeating sequence.</p>
+<p>The plot below shows the signal <span class="math notranslate nohighlight">\(x\)</span>, reference signals <span class="math notranslate nohighlight">\(y_m\)</span> for <span class="math notranslate nohighlight">\(m = 0, 1, 2, \dots, 9\)</span> in the left column.
+The middle column shows the product of <span class="math notranslate nohighlight">\(x[n] \cdot y_m[n]\)</span> for each reference signal <span class="math notranslate nohighlight">\(y_m\)</span>,
+and the right column shows the resulting similarity scores.</p>
+<div class="cell tag_remove_input tag_hide_input tag_remove_output docutils container">
+</div>
+<div class="figure align-default" id="id5">
+<div class="cell_output docutils container">
+<img alt="../../_images/Cosine_20_0.svg" src="../../_images/Cosine_20_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 35 </span><span class="caption-text">Left: a signal <span class="math notranslate nohighlight">\(x\)</span> overlayed with the first 10 reference sinusoids.
+Middle: the per-sample product.
+Right: the resulting similarity scores for each reference sinusoid.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>Showing all <span class="math notranslate nohighlight">\(N=150\)</span> comparisons in the form above would take quite a bit of space, so we only show the first ten to illustrate the idea.</p>
+<p>More frequently, we omit the center column, and go directly to the third column.
+For our signal, if we show all <span class="math notranslate nohighlight">\(N\)</span> similarity scores in one plot, it looks like this:</p>
+<div class="cell tag_remove_input tag_remove_output tag_hide_output docutils container">
+</div>
+<div class="figure align-default" id="id6">
+<div class="cell_output docutils container">
+<img alt="../../_images/Cosine_23_0.svg" src="../../_images/Cosine_23_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 36 </span><span class="caption-text">A bar-plot illustrating the similarity score for the input signal compared to the full set of analysis frequencies.
+Indices <span class="math notranslate nohighlight">\(m = 0, 1, ... N/2\)</span> correspond to positive frequencies, and <span class="math notranslate nohighlight">\(m \geq N/2\)</span> (shaded region) correspond to negative frequencies.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<p>This kind of plot is called a <strong>spectrum</strong>.
+By analogy to colors, you can think of the length of each bar as measuring “how much” of each frequency is present in the signal <span class="math notranslate nohighlight">\(x[n]\)</span>.
+You may have encountered something like this previously, for example, in a music player application, digital audio workstation, or on a stereo system.</p>
+<p>We’ll have much more to say about frequency spectra in the following sections, but for now we’ll leave it here.</p>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>As mentioned at the top of this section, the process that we’ve just seen is <strong>not quite</strong> the Fourier transform, but we’re almost there.</p>
+<p>The key things to remember from this section:</p>
+<ol class="simple">
+<li><p>We now assume that a signal <span class="math notranslate nohighlight">\(x[n]\)</span> of <span class="math notranslate nohighlight">\(N\)</span> samples will repeat indefinitely.</p></li>
+<li><p>Analysis frequencies complete a whole number of cycles in <span class="math notranslate nohighlight">\(N\)</span> samples.</p></li>
+<li><p>We can represent a signal <span class="math notranslate nohighlight">\(x\)</span> according in terms of its similarity to sinusoids at our chosen analysis frequencies.</p></li>
+</ol>
+</div>
+</div>
+
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Similarity.html" title="previous page">Similarity</a>
+    <a class='right-next' id="next-link" href="Phase.html" title="next page">Analysis frequencies and phase</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Brian McFee<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>
