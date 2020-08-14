@@ -2,11 +2,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spectral leakage and windowing &#8212; Digital Signals Theory</title>
+    <title>2.4. Spectral leakage and windowing &#8212; Digital Signals Theory</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -14,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -30,11 +30,18 @@
     <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Exercises" href="Exercises.html" />
-    <link rel="prev" title="Conjugate Symmetry" href="Conjugate-Symmetry.html" />
+    <link rel="next" title="2.5. Exercises" href="Exercises.html" />
+    <link rel="prev" title="2.3. Conjugate Symmetry" href="Conjugate-Symmetry.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -82,18 +89,109 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../ch01-signals/Intro.html">
-   Signals
+   1. Signals
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Preliminaries.html">
+     1.1. Preliminaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Waves.html">
+     1.2. Periodicity and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Units.html">
+     1.3. Units and dimensional analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Acoustics.html">
+     1.4. Audio and signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Exercises.html">
+     1.5. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ch02-sampling/intro.html">
-   Digital sampling
+   2. Digital sampling
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Sampling.html">
+     2.1. Sampling period and rate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Aliasing.html">
+     2.2. Aliasing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Nyquist.html">
+     2.3. The Nyquist-Shannon sampling theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Quantization.html">
+     2.4. Quantization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Exercises.html">
+     2.5. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ch03-convolution/intro.html">
-   Convolution
+   3. Convolution
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Building.html">
+     3.1. Delay, gain, and mix
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Convolution.html">
+     3.2. Defining convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/IR.html">
+     3.3. Impulse Response
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Modes.html">
+     3.4. Convolution modes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Properties.html">
+     3.5. Properties of convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/LSI.html">
+     3.6. Linearity and Shift-invariance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Exercises.html">
+     3.7. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -104,37 +202,140 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../ch04-fourier/intro.html">
-   The Discrete Fourier Transform
+   1. The Discrete Fourier Transform
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Similarity.html">
+     1.1. Similarity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Cosine.html">
+     1.2. Comparing to sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/AnalysisFrequencies.html">
+     1.3. Analysis frequencies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Phase.html">
+     1.4. Phase
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/DFT.html">
+     1.5. The Discrete Fourier Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Examples.html">
+     1.6. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/SummingSinusoids.html">
+     1.7. Summing sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Exercises.html">
+     1.8. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 current active">
   <a class="reference internal" href="intro.html">
-   Properties of the DFT
+   2. Properties of the DFT
   </a>
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="Linearity.html">
-     Linearity
+     2.1. Linearity
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Shifting.html">
-     The DFT shifting theorem
+     2.2. The DFT shifting theorem
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Conjugate-Symmetry.html">
-     Conjugate Symmetry
+     2.3. Conjugate Symmetry
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Spectral leakage and windowing
+     2.4. Spectral leakage and windowing
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Exercises.html">
-     Exercises
+     2.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch06-inverse-dft/intro.html">
+   3. DFT Invertibility
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-inverse-dft/InverseDFT.html">
+     3.1. The Inverse DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-inverse-dft/Exercises.html">
+     3.2. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch07-fft/intro.html">
+   4. Fast Fourier Transform
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-fft/DFT-Analysis.html">
+     4.1. Time-analysis of the DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-fft/FFT.html">
+     4.2. Radix-2 Cooley-Tukey
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-fft/Exercises.html">
+     4.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch08-stft/intro.html">
+   5. Time-frequency representation
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-stft/Framing.html">
+     5.1. Framing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-stft/STFT.html">
+     5.2. The Short-time Fourier Transform (STFT)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-stft/Exercises.html">
+     5.3. Exercises
     </a>
    </li>
   </ul>
@@ -148,27 +349,27 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/Fundamentals.html">
-   Mathematical fundamentals
+   1. Mathematical fundamentals
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/Algebra.html">
-   Algebra
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../appendix/Trigonometry.html">
-   Trigonometry
+   2. Algebra
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/Complex.html">
-   Complex numbers
+   3. Complex numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Trigonometry.html">
+   4. Trigonometry
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/Python.html">
-   Programming in Python
+   5. Programming in Python
   </a>
  </li>
 </ul>
@@ -237,10 +438,39 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> On this page
+            <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#windowing">
+   2.4.1. Windowing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choosing-a-window">
+   2.4.2. Choosing a window
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-about-analysis-frequencies">
+     2.4.2.1. What about analysis frequencies?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#windowing-in-practice">
+   2.4.3. Windowing in practice
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   2.4.4. Summary
+  </a>
+ </li>
+</ul>
+
         </nav>
     </div>
 </div>
@@ -249,12 +479,168 @@
         
               <div>
                 
-  <div class="section" id="spectral-leakage-and-windowing">
-<h1>Spectral leakage and windowing<a class="headerlink" href="#spectral-leakage-and-windowing" title="Permalink to this headline">¶</a></h1>
+  <p>(leakage=)</p>
+<div class="section" id="spectral-leakage-and-windowing">
+<h1><span class="section-number">2.4. </span>Spectral leakage and windowing<a class="headerlink" href="#spectral-leakage-and-windowing" title="Permalink to this headline">¶</a></h1>
 <div class="cell tag_remove_input docutils container">
+</div>
+<p>In this section, we’ll take a more in-depth look at how the DFT responds to non-analysis frequencies, and how we might counteract these effects.</p>
+<p>In an earlier section, we’ve seen that waves at non-analysis frequencies can produce sharp discontinuities at the boundaries of the signal (<a class="reference internal" href="Shifting.html#circ-shift"><span class="std std-numref">Fig. 2.9</span></a>).
+If we were to listen to a signal like this on a repeating loop, these discontinuities would become audible as <em>clicks</em> or <em>pops</em>, not dissimilar to the sound of an impulse.</p>
+<p>To illustrate the point, here we’ll construct a pure sinusoid at <span class="math notranslate nohighlight">\(f = 111\)</span>, with <span class="math notranslate nohighlight">\(f_s = 500\)</span>, and sample for 1/4 second (<span class="math notranslate nohighlight">\(N= f_s/4 = 125\)</span>).
+This produces the following wave:</p>
+<div class="cell tag_remove_input tag_remove_output docutils container">
+</div>
+<div class="figure align-default" id="id1">
+<div class="cell_output docutils container">
+<img alt="../../_images/Leakage_4_0.svg" src="../../_images/Leakage_4_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 2.13 </span><span class="caption-text"><em>Top</em>: A wave at frequency <span class="math notranslate nohighlight">\(f=111\)</span>, with sampling rate <span class="math notranslate nohighlight">\(f_s=500\)</span> and duration of 1/4 second (<span class="math notranslate nohighlight">\(N=f_s/4\)</span>).
+<span class="math notranslate nohighlight">\(f=111\)</span> is not an integer multiple of <span class="math notranslate nohighlight">\(f_s/N = 4\)</span>, so it is not an analysis frequency.
+Note the large gap between samples when the signal repeats at <span class="math notranslate nohighlight">\(t=0.25\)</span>.
+<em>Bottom</em>: The DFT spectrum of <span class="math notranslate nohighlight">\(x[n]\)</span>, displayed on a logarithmic scale.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>Looping this sample 8 times produces a signal of duration <span class="math notranslate nohighlight">\(N= 2\cdot f_s = 2\)</span> seconds, with audible glitches every 1/4 second:</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<audio  controls="controls" >
+    <source src="data:audio/wav;base64,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" type="audio/wav" />
+    Your browser does not support the audio element.
+</audio>
+</div></div>
+</div>
+<p>To understand this behavior in the frequency domain, it can be helpful to think about the DFT of a unit impulse or delay signal (see <a class="reference internal" href="../ch04-fourier/Examples.html#dft-impulse"><span class="std std-numref">Section 1.6.1</span></a>).
+Impulses—and more generally, sharp discontinuities—are not easy to express with smoothly varying sinusoids, and this is why it takes the entire set of analysis frequencies to represent a delay signal (all <span class="math notranslate nohighlight">\(X[m]\)</span> are non-zero in <a class="reference internal" href="../ch04-fourier/Examples.html#impulse-dft"><span class="std std-numref">Fig. 1.32</span></a>).</p>
+<p>A similar thing happens to non-analysis frequencies: to explain the discontinuity at the boundary of the signal, the DFT uses the entire frequency spectrum, again producing non-zero DFT magnitudes <span class="math notranslate nohighlight">\(|X[m]|\)</span> across the frequency spectrum.  This phenomenon is called <strong>spectral leakage</strong>: the energy associated with our non-analysis frequency <span class="math notranslate nohighlight">\(f\)</span> has “leaked” over the entire spectrum.</p>
+<p>The bad news is that spectral leakage cannot be avoided in general.  The energy in a signal associated with each frequency has to go somewhere in the DFT, and if the frequency does not correspond to one of our analysis frequencies, then it will spread out.</p>
+<p>The good news is that we can, to some extent, control leakage to direct the leaked energy in various ways.
+This is accomplished by a technique called <strong>windowing</strong>.</p>
+<p>(windowing=)</p>
+<div class="section" id="windowing">
+<h2><span class="section-number">2.4.1. </span>Windowing<a class="headerlink" href="#windowing" title="Permalink to this headline">¶</a></h2>
+<p>The idea of windowing a signal is to force continuity at the boundaries, prior to performing the DFT:</p>
+<div class="math notranslate nohighlight">
+\[X \leftarrow \text{DFT}(x[n] \cdot w[n])\]</div>
+<p>The simplest way to achieve this is by multiplying the signal <span class="math notranslate nohighlight">\(x[n]\)</span> by another signal <span class="math notranslate nohighlight">\(w[n]\)</span> of the same duration, such that <span class="math notranslate nohighlight">\(w[0] \approx w[N-1] \approx 0\)</span>.
+For example, <a class="reference internal" href="#windowing-example"><span class="std std-numref">Fig. 2.14</span></a> illustrates this using a <em>triangular</em> window.</p>
+<div class="cell tag_remove_input tag_remove_output docutils container">
+</div>
+<div class="figure align-default" id="windowing-example">
+<div class="cell_output docutils container">
+<img alt="../../_images/Leakage_10_0.svg" src="../../_images/Leakage_10_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 2.14 </span><span class="caption-text">A sinusoid at a non-analysis frequency (<em>upper-left</em>, <span class="math notranslate nohighlight">\(f=2.25\)</span>, <span class="math notranslate nohighlight">\(N=128\)</span>, <span class="math notranslate nohighlight">\(f_s=64\)</span>) produces spectral energy at all frequencies in the DFT (<em>original spectrum</em>, bottom-right).
+Multiplying the sinusoid by a window function (<em>bottom-left</em>) tapers the signal values to 0 at the beginning and end, and reduces spectral leakage in the DFT spectrum (<em>windowed spectrum</em>, bottom-right).</span><a class="headerlink" href="#windowing-example" title="Permalink to this image">¶</a></p>
+</div>
+<p>Taking the DFT after windowing the signal significantly reduces the magnitude of components <span class="math notranslate nohighlight">\(X[m]\)</span> when <span class="math notranslate nohighlight">\(m\)</span> is far from the true frequency of the input signal, but retains energy for <span class="math notranslate nohighlight">\(m\)</span> close to the true frequency.</p>
+<p>If we loop the windowed signal, rather than the original signal, we’ll see that the boundary discontinuities have vanished.</p>
+<div class="cell tag_remove_input tag_remove_output docutils container">
+</div>
+<div class="figure align-default" id="window-repeating">
+<div class="cell_output docutils container">
+<img alt="../../_images/Leakage_13_0.svg" src="../../_images/Leakage_13_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 2.15 </span><span class="caption-text"><em>Top</em>: repeating a sinusoid at a non-analysis frequency produces discontinuities when the signal repeats (<span class="math notranslate nohighlight">\(t=2, 4\)</span>).
+<em>Bottom</em>: windowing the sinusoid prior to repetition eliminates discontinuities, but introduces low-frequency modulation.</span><a class="headerlink" href="#window-repeating" title="Permalink to this image">¶</a></p>
+</div>
+<p>As shown in <a class="reference internal" href="#window-repeating"><span class="std std-numref">Fig. 2.15</span></a>, the elimination of discontinuities does not come for free: we have also introduced a low-frequency amplitude modulation to the looped signal.</p>
+<p>This effect is certainly audible.
+If we apply windowing to the previous example (<span class="math notranslate nohighlight">\(f=111\)</span> Hz sampled at <span class="math notranslate nohighlight">\(f_s=1000\)</span>), and listen to the repeating signal as before, each loop of the signal now has a <em>pulse</em> due to the window.</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html">
+<audio  controls="controls" >
+    <source src="data:audio/wav;base64,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" type="audio/wav" />
+    Your browser does not support the audio element.
+</audio>
+</div></div>
+</div>
+<p>In practice, one would not typically use windowing in this fashion, but it is helpful to listen to the looped signal to get a better intuition for what the signal looks like to the DFT.
+In this example, we have traded off transient discontinuities for a smoothly varying pulse, which can be more easily modeled by sinusoids.</p>
+</div>
+<div class="section" id="choosing-a-window">
+<h2><span class="section-number">2.4.2. </span>Choosing a window<a class="headerlink" href="#choosing-a-window" title="Permalink to this headline">¶</a></h2>
+<p>In our first example, we used a triangular window, but there are many, many, many other options!
+The triangular window is simple: it increases at a constant rate, and then decreases at a constant rate, but there’s no law that says it must work this way.
+In fact, most window functions have non-linear curves, and often end up resembling a “bell curve”.</p>
+<p>We won’t go into the details of how each of these window functions are defined, but <a class="reference internal" href="#window-examples"><span class="std std-numref">Fig. 2.16</span></a> demonstrates a handful of commonly used windows.</p>
+<div class="cell tag_remove_input tag_remove_output docutils container">
+</div>
+<div class="figure align-default" id="window-examples">
+<div class="cell_output docutils container">
+<img alt="../../_images/Leakage_19_0.svg" src="../../_images/Leakage_19_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 2.16 </span><span class="caption-text">Different choices of window function <span class="math notranslate nohighlight">\(w\)</span> and the corresponding DFT magnitude spectrum after applying each window to a sinusoid at non-analysis frequency <span class="math notranslate nohighlight">\(f=2.25\)</span> Hz.</span><a class="headerlink" href="#window-examples" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#window-examples"><span class="std std-numref">Fig. 2.16</span></a> demonstrates two key properties of windowing functions.
+First, different window functions will attenuate distant frequencies differently.
+The height of the spectrum in the last plot (Blackman-Harris) is around <span class="math notranslate nohighlight">\(10^{-4}\)</span>, while the Hamming window is approximately 100x higher at <span class="math notranslate nohighlight">\(10^{-2}\)</span>.
+From this, we might conclude that the Blackman-Harris window is “better” than the Hamming window, but we shouldn’t be too hasty!</p>
+<p>The second property has to do with how much the energy spreads around its peak in the spectrum, the so-called “main lobe” width.
+From this perspective, the Blackman-Harris window has a broader main-lobe (around the peak frequency 2.25) than the other windows, making it a less ideal choice if our goal is to distinguish between nearby frequencies.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>As a general rule, the Hann window is a good default choice for most audio applications.</p>
+</div>
+<div class="section" id="what-about-analysis-frequencies">
+<h3><span class="section-number">2.4.2.1. </span>What about analysis frequencies?<a class="headerlink" href="#what-about-analysis-frequencies" title="Permalink to this headline">¶</a></h3>
+<p>All of this was motivated by the problem of transients being induced by looping signals with non-analysis frequencies.
+In general, we won’t know if a signal contains non-analysis frequencies, so it’s natural to ask what would happen if we apply windowing in general?
+What happens to signals that actually do contain analysis frequencies?</p>
+<p><a class="reference internal" href="#window-analysis-examples"><span class="std std-numref">Fig. 2.17</span></a> illustrates exactly the same comparisons as above, but now using an input signal <span class="math notranslate nohighlight">\(x\)</span> generated by a sinusoid at an analysis frequency.</p>
+<div class="cell tag_remove_input tag_remove_output docutils container">
+</div>
+<div class="figure align-default" id="window-analysis-examples">
+<div class="cell_output docutils container">
+<img alt="../../_images/Leakage_23_0.svg" src="../../_images/Leakage_23_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 2.17 </span><span class="caption-text">Different choices of window function <span class="math notranslate nohighlight">\(w\)</span> and the corresponding DFT magnitude spectrum after applying each window to a sinusoid at <strong>analysis</strong> frequency <span class="math notranslate nohighlight">\(f=3\)</span> Hz.</span><a class="headerlink" href="#window-analysis-examples" title="Permalink to this image">¶</a></p>
+</div>
+<p>The spectral plots in <a class="reference internal" href="#window-analysis-examples"><span class="std std-numref">Fig. 2.17</span></a> illustrate another price that we must pay to counteract leakage: if we do have analysis frequencies in the signal, applying windowing will spread some of their energy across the spectrum.
+Although in all cases, the energy far from the fundamental frequency (<span class="math notranslate nohighlight">\(f=3\)</span>) is very small (numerically close to 0), the energy in the windowed signals is dispersed around the peak, rather than being concentrated like in the un-windowed case.</p>
+<p>One way to view this trade-off is that windowing reduces the distinction between analysis and non-analysis frequencies: both end up leaking across the spectrum, but the choice of window function allows us to control this behavior.
+In reality, almost no naturally occurring signals will line up precisely to the parameters of your signal analysis, so it’s safer to assume that all energy is coming from non-analysis frequencies anyway.</p>
+</div>
+</div>
+<div class="section" id="windowing-in-practice">
+<h2><span class="section-number">2.4.3. </span>Windowing in practice<a class="headerlink" href="#windowing-in-practice" title="Permalink to this headline">¶</a></h2>
+<p>Most signal processing frameworks provide a library of pre-defined window functions.
+In Python, these are provided by the function <code class="docutils literal notranslate"><span class="pre">scipy.signal.get_window</span></code>.
+To use a windowing function as we did in the example above, one first constructs the window of a given length, and then applies the DFT:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># We&#39;ll assume the input signal x already exists, and get its length</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Build the window</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">get_window</span><span class="p">(</span><span class="s1">&#39;hann&#39;</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+
+<span class="c1"># Multiply by w and take the DFT</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">w</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="summary">
+<h2><span class="section-number">2.4.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>In this section, we’ve seen that windowing can help reduce the bad effects of spectral leakage.
+This doesn’t necessarily mean that windowing should always be used, however, as it does alter the content of the signal.</p>
+<p>As we will see later on, the main application of windowing has to do with the <em>short-time Fourier transform</em>, where a long signal is carved into small pieces for analysis purposes.</p>
 </div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "bloody"
+        },
+        kernelOptions: {
+            kernelName: "bloody",
+            path: "./content/ch05-dft-properties"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'bloody'</script>
 
               </div>
               
@@ -264,8 +650,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="Conjugate-Symmetry.html" title="previous page">Conjugate Symmetry</a>
-    <a class='right-next' id="next-link" href="Exercises.html" title="next page">Exercises</a>
+    <a class='left-prev' id="prev-link" href="Conjugate-Symmetry.html" title="previous page"><span class="section-number">2.3. </span>Conjugate Symmetry</a>
+    <a class='right-next' id="next-link" href="Exercises.html" title="next page"><span class="section-number">2.5. </span>Exercises</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

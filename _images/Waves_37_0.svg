@@ -6,11 +6,11 @@
   <rdf:RDF xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2020-07-15T06:58:35.887453</dc:date>
+    <dc:date>2020-08-12T06:42:47.322774</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
-      <dc:title>Matplotlib v3.3.0rc1.post282+g187e87b5f, https://matplotlib.org/</dc:title>
+      <dc:title>Matplotlib v3.3.0rc1.post382+g019a75231, https://matplotlib.org/</dc:title>
      </cc:Agent>
     </dc:creator>
    </cc:Work>
@@ -40,7 +40,7 @@ z
    <g id="matplotlib.axis_1"/>
    <g id="matplotlib.axis_2"/>
    <g id="patch_3">
-    <path clip-path="url(#pdf78f880ca)" d="M 220.19976 390.599568 
+    <path clip-path="url(#p384570ca99)" d="M 220.19976 390.599568 
 C 265.390317 390.599568 308.73607 372.645169 340.69062 340.69062 
 C 372.645169 308.73607 390.599568 265.390317 390.599568 220.19976 
 C 390.599568 175.009203 372.645169 131.66345 340.69062 99.7089 
@@ -53,7 +53,7 @@ z
 " style="fill:none;stroke:#000000;stroke-linejoin:miter;stroke-width:5;"/>
    </g>
    <g id="patch_4">
-    <path clip-path="url(#pdf78f880ca)" d="M 254.279722 220.19976 
+    <path clip-path="url(#p384570ca99)" d="M 254.279722 220.19976 
 C 254.279722 214.217923 252.704791 208.340202 249.713873 203.159779 
 C 246.722954 197.979356 242.420164 193.676566 237.239741 190.685647 
 L 220.19976 220.19976 
@@ -62,7 +62,7 @@ z
 " style="fill:#6e3b87;"/>
    </g>
    <g id="patch_5">
-    <path clip-path="url(#pdf78f880ca)" d="M 237.239741 249.713873 
+    <path clip-path="url(#p384570ca99)" d="M 237.239741 249.713873 
 C 242.420164 246.722954 246.722954 242.420164 249.713873 237.239741 
 C 252.704791 232.059318 254.279722 226.181597 254.279722 220.19976 
 L 220.19976 220.19976 
@@ -71,7 +71,7 @@ z
 " style="fill:#cb0c7b;"/>
    </g>
    <g id="patch_6">
-    <path clip-path="url(#pdf78f880ca)" d="M 305.399664 220.19976 
+    <path clip-path="url(#p384570ca99)" d="M 305.399664 220.19976 
 L 292.619678 220.19976 
 L 292.619678 207.419774 
 L 305.399664 207.419774 
@@ -79,22 +79,22 @@ z
 " style="fill:#ffffff;stroke:#000000;stroke-linejoin:miter;stroke-width:3;"/>
    </g>
    <g id="line2d_1">
-    <path clip-path="url(#pdf78f880ca)" d="M 305.399664 220.19976 
+    <path clip-path="url(#p384570ca99)" d="M 305.399664 220.19976 
 L 305.399664 72.629197 
 " style="fill:none;stroke:#ffc438;stroke-linecap:square;stroke-width:4;"/>
    </g>
    <g id="line2d_2">
-    <path clip-path="url(#pdf78f880ca)" d="M 220.19976 220.19976 
+    <path clip-path="url(#p384570ca99)" d="M 220.19976 220.19976 
 L 305.399664 220.19976 
 " style="fill:none;stroke:#dc2830;stroke-linecap:square;stroke-width:2;"/>
    </g>
    <g id="line2d_3">
-    <path clip-path="url(#pdf78f880ca)" d="M 220.19976 220.19976 
+    <path clip-path="url(#p384570ca99)" d="M 220.19976 220.19976 
 L 305.399664 220.19976 
 " style="fill:none;stroke:#dc2830;stroke-dasharray:14.8,6.4;stroke-dashoffset:0;stroke-width:4;"/>
    </g>
    <g id="line2d_4">
-    <path clip-path="url(#pdf78f880ca)" d="M 220.19976 220.19976 
+    <path clip-path="url(#p384570ca99)" d="M 220.19976 220.19976 
 L 305.399664 72.629197 
 " style="fill:none;stroke:#0271ae;stroke-linecap:square;stroke-width:4;"/>
     <defs>
@@ -108,25 +108,25 @@ C -5.591461 -3.247374 -6.25 -1.657519 -6.25 0
 C -6.25 1.657519 -5.591461 3.247374 -4.419417 4.419417 
 C -3.247374 5.591461 -1.657519 6.25 0 6.25 
 z
-" id="mf0ce132ffe"/>
+" id="md84c0bae44"/>
     </defs>
-    <g clip-path="url(#pdf78f880ca)">
-     <use style="fill:#0271ae;" x="220.19976" xlink:href="#mf0ce132ffe" y="220.19976"/>
-     <use style="fill:#0271ae;" x="305.399664" xlink:href="#mf0ce132ffe" y="72.629197"/>
+    <g clip-path="url(#p384570ca99)">
+     <use style="fill:#0271ae;" x="220.19976" xlink:href="#md84c0bae44" y="220.19976"/>
+     <use style="fill:#0271ae;" x="305.399664" xlink:href="#md84c0bae44" y="72.629197"/>
     </g>
    </g>
    <g id="line2d_5">
-    <path clip-path="url(#pdf78f880ca)" d="M 305.399664 220.19976 
+    <path clip-path="url(#p384570ca99)" d="M 305.399664 220.19976 
 L 305.399664 367.770323 
 " style="fill:none;stroke:#ffc438;stroke-dasharray:14.8,6.4;stroke-dashoffset:0;stroke-width:4;"/>
    </g>
    <g id="line2d_6">
-    <path clip-path="url(#pdf78f880ca)" d="M 220.19976 220.19976 
+    <path clip-path="url(#p384570ca99)" d="M 220.19976 220.19976 
 L 305.399664 367.770323 
 " style="fill:none;stroke:#0271ae;stroke-dasharray:14.8,6.4;stroke-dashoffset:0;stroke-width:4;"/>
-    <g clip-path="url(#pdf78f880ca)">
-     <use style="fill:#0271ae;" x="220.19976" xlink:href="#mf0ce132ffe" y="220.19976"/>
-     <use style="fill:#0271ae;" x="305.399664" xlink:href="#mf0ce132ffe" y="367.770323"/>
+    <g clip-path="url(#p384570ca99)">
+     <use style="fill:#0271ae;" x="220.19976" xlink:href="#md84c0bae44" y="220.19976"/>
+     <use style="fill:#0271ae;" x="305.399664" xlink:href="#md84c0bae44" y="367.770323"/>
     </g>
    </g>
    <g id="text_1">
@@ -182,7 +182,7 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="pdf78f880ca">
+  <clipPath id="p384570ca99">
    <rect height="425.99952" width="425.99952" x="7.2" y="7.2"/>
   </clipPath>
  </defs>

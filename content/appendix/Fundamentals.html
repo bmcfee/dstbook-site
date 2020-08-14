@@ -2,11 +2,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathematical fundamentals &#8212; Digital Signals Theory</title>
+    <title>1. Mathematical fundamentals &#8212; Digital Signals Theory</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -14,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -30,11 +30,18 @@
     <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Algebra" href="Algebra.html" />
-    <link rel="prev" title="Exercises" href="../ch05-dft-properties/Exercises.html" />
+    <link rel="next" title="2. Algebra" href="Algebra.html" />
+    <link rel="prev" title="5.3. Exercises" href="../ch08-stft/Exercises.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -82,18 +89,109 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../ch01-signals/Intro.html">
-   Signals
+   1. Signals
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Preliminaries.html">
+     1.1. Preliminaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Waves.html">
+     1.2. Periodicity and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Units.html">
+     1.3. Units and dimensional analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Acoustics.html">
+     1.4. Audio and signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Exercises.html">
+     1.5. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ch02-sampling/intro.html">
-   Digital sampling
+   2. Digital sampling
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Sampling.html">
+     2.1. Sampling period and rate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Aliasing.html">
+     2.2. Aliasing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Nyquist.html">
+     2.3. The Nyquist-Shannon sampling theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Quantization.html">
+     2.4. Quantization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Exercises.html">
+     2.5. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ch03-convolution/intro.html">
-   Convolution
+   3. Convolution
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Building.html">
+     3.1. Delay, gain, and mix
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Convolution.html">
+     3.2. Defining convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/IR.html">
+     3.3. Impulse Response
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Modes.html">
+     3.4. Convolution modes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Properties.html">
+     3.5. Properties of convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/LSI.html">
+     3.6. Linearity and Shift-invariance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Exercises.html">
+     3.7. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -104,13 +202,143 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../ch04-fourier/intro.html">
-   The Discrete Fourier Transform
+   1. The Discrete Fourier Transform
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Similarity.html">
+     1.1. Similarity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Cosine.html">
+     1.2. Comparing to sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/AnalysisFrequencies.html">
+     1.3. Analysis frequencies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Phase.html">
+     1.4. Phase
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/DFT.html">
+     1.5. The Discrete Fourier Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Examples.html">
+     1.6. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/SummingSinusoids.html">
+     1.7. Summing sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Exercises.html">
+     1.8. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ch05-dft-properties/intro.html">
-   Properties of the DFT
+   2. Properties of the DFT
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Linearity.html">
+     2.1. Linearity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Shifting.html">
+     2.2. The DFT shifting theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Conjugate-Symmetry.html">
+     2.3. Conjugate Symmetry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Leakage.html">
+     2.4. Spectral leakage and windowing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Exercises.html">
+     2.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch06-inverse-dft/intro.html">
+   3. DFT Invertibility
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-inverse-dft/InverseDFT.html">
+     3.1. The Inverse DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-inverse-dft/Exercises.html">
+     3.2. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch07-fft/intro.html">
+   4. Fast Fourier Transform
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-fft/DFT-Analysis.html">
+     4.1. Time-analysis of the DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-fft/FFT.html">
+     4.2. Radix-2 Cooley-Tukey
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-fft/Exercises.html">
+     4.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch08-stft/intro.html">
+   5. Time-frequency representation
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-stft/Framing.html">
+     5.1. Framing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-stft/STFT.html">
+     5.2. The Short-time Fourier Transform (STFT)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-stft/Exercises.html">
+     5.3. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -121,27 +349,27 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Mathematical fundamentals
+   1. Mathematical fundamentals
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Algebra.html">
-   Algebra
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Trigonometry.html">
-   Trigonometry
+   2. Algebra
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Complex.html">
-   Complex numbers
+   3. Complex numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Trigonometry.html">
+   4. Trigonometry
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Python.html">
-   Programming in Python
+   5. Programming in Python
   </a>
  </li>
 </ul>
@@ -210,55 +438,67 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> On this page
+            <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sets">
-   Sets
+   1.1. Sets
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#number-systems">
-   Number systems
+   1.2. Number systems
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sequences">
-   Sequences
+   1.3. Sequences
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summations">
-   Summations
+   1.4. Summations
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#modular-arithmetic">
-   Modular arithmetic
+   1.5. Modular arithmetic
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#examples">
-     Examples
+     1.5.1. Examples
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exponentials">
-   Exponentials
+   1.6. Exponentials
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#rules-for-working-with-exponentials">
-     Rules for working with exponentials
+     1.6.1. Rules for working with exponentials
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#the-exponential-function">
-     The exponential function
+     1.6.2. The exponential function
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logarithms">
+   1.7. Logarithms
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#properties-of-logarithms">
+     1.7.1. Properties of logarithms
     </a>
    </li>
   </ul>
@@ -274,12 +514,12 @@
               <div>
                 
   <div class="section" id="mathematical-fundamentals">
-<h1>Mathematical fundamentals<a class="headerlink" href="#mathematical-fundamentals" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1. </span>Mathematical fundamentals<a class="headerlink" href="#mathematical-fundamentals" title="Permalink to this headline">¶</a></h1>
 <p>This section of the appendix establishes some mathematical notation, and may serve as a brief refresher on fundamental concepts.</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">
 </div>
 <div class="section" id="sets">
-<h2>Sets<a class="headerlink" href="#sets" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.1. </span>Sets<a class="headerlink" href="#sets" title="Permalink to this headline">¶</a></h2>
 <p>A <em>set</em> is a basic concept in mathematics used to define collections of <em>elements</em>.
 The <a class="reference external" href="https://en.wikipedia.org/wiki/Set_(mathematics)">technical underpinnings of set theory</a> can get a bit tricky, but for our purposes, you can think of a set as any un-ordered collection.</p>
 <p>Notationally, we use curly braces <span class="math notranslate nohighlight">\(\{\}\)</span> to denote a set.  For example, we could have a set consisting of three colors defined as</p>
@@ -303,7 +543,7 @@ Repetition also does not matter: an element is either in the set or not.</p>
 <p>We won’t do too much with sets in this text, but the basic notation is helpful to have, especially when dealing with different types of numbers.</p>
 </div>
 <div class="section" id="number-systems">
-<h2>Number systems<a class="headerlink" href="#number-systems" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.2. </span>Number systems<a class="headerlink" href="#number-systems" title="Permalink to this headline">¶</a></h2>
 <p>In digital signal processing, we use many kinds of numbers to represent different quantities.
 It’s helpful to have notation to specify exactly what kind of numbers we’re talking about, so here’s a brief list with their standard notations:</p>
 <ul class="simple">
@@ -319,14 +559,14 @@ Real numbers (<span class="math notranslate nohighlight">\(\mathbb{R}\)</span>) 
 <p>Complex numbers occupy a special place in signal processing because they turn out to be a great tool for modeling periodic processes.  But more on that later.</p>
 </div>
 <div class="section" id="sequences">
-<h2>Sequences<a class="headerlink" href="#sequences" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.3. </span>Sequences<a class="headerlink" href="#sequences" title="Permalink to this headline">¶</a></h2>
 <p>A <em>sequence</em> is exactly what it sounds like: an ordered list of things.
 Sequences are different from <em>sets</em> in that they are ordered, and repetition is allowed.</p>
 <p>The most common usage of sequences in DSP is the sequence of sample values representing a digital signal.
 This is commonly denoted by <span class="math notranslate nohighlight">\(x[n]\)</span>, where <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span> is the sample index, and <span class="math notranslate nohighlight">\(x[n]\)</span> is the sampled value of the signal at the <span class="math notranslate nohighlight">\(n\)</span>th position.</p>
 </div>
 <div class="section" id="summations">
-<h2>Summations<a class="headerlink" href="#summations" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.4. </span>Summations<a class="headerlink" href="#summations" title="Permalink to this headline">¶</a></h2>
 <p>Throughout signal processing, we often need to add up long sequences of numbers. While we could easily express this using the standard <span class="math notranslate nohighlight">\(+\)</span> notation, such as</p>
 <div class="math notranslate nohighlight">
 \[
@@ -355,7 +595,7 @@ The summation above would be translated to Python code as follows:</p>
 </div>
 </div>
 <div class="section" id="modular-arithmetic">
-<h2>Modular arithmetic<a class="headerlink" href="#modular-arithmetic" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.5. </span>Modular arithmetic<a class="headerlink" href="#modular-arithmetic" title="Permalink to this headline">¶</a></h2>
 <p>Another common feature of mathematics of signal processing is the need to deal with repeating sequences and periodicity.
 We use real numbers to model continuously repeating processes (like a point traveling continuously around a circle), but we also occasionally have <strong>discrete</strong> repeating processes, like the hours on a clock: 12:00, 1:00, 2:00, \dots, 11:00.
 <strong>Modular arithmetic</strong> is the math of discrete repetition.</p>
@@ -376,7 +616,7 @@ Equivalently:</p>
 </pre></div>
 </div>
 <div class="section" id="examples">
-<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.5.1. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
 <p>A few examples:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(3 \mod 2 = 1\)</span></p></li>
@@ -387,7 +627,7 @@ Equivalently:</p>
 </div>
 </div>
 <div class="section" id="exponentials">
-<h2>Exponentials<a class="headerlink" href="#exponentials" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.6. </span>Exponentials<a class="headerlink" href="#exponentials" title="Permalink to this headline">¶</a></h2>
 <p>An exponential, generally speaking, is an expression of the form <span class="math notranslate nohighlight">\(c^x\)</span> for some constant <span class="math notranslate nohighlight">\(c\)</span>, and should be read as “<span class="math notranslate nohighlight">\(c\)</span> to the <span class="math notranslate nohighlight">\(x\)</span>th power”.
 Note that this is different from powers <span class="math notranslate nohighlight">\(x^n\)</span>, in that exponentials keep the base <span class="math notranslate nohighlight">\(c\)</span> fixed and vary <span class="math notranslate nohighlight">\(x\)</span>, while powers do the opposite.</p>
 <p><strong>Example</strong>: <span class="math notranslate nohighlight">\(2^x \neq x^2\)</span>.</p>
@@ -396,11 +636,11 @@ Note that this is different from powers <span class="math notranslate nohighligh
 <div class="figure align-default" id="id1">
 <div class="cell_output docutils container">
 <img alt="../../_images/Fundamentals_8_0.svg" src="../../_images/Fundamentals_8_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 50 </span><span class="caption-text">A quadratic curve <span class="math notranslate nohighlight">\(y=x^2\)</span> and an exponential curve <span class="math notranslate nohighlight">\(y=2^x\)</span> behave very differently.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.35 </span><span class="caption-text">A quadratic curve <span class="math notranslate nohighlight">\(y=x^2\)</span> and an exponential curve <span class="math notranslate nohighlight">\(y=2^x\)</span> behave very differently.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <p>Often, when we refer to an <em>exponential</em>, we really mean a specific base <span class="math notranslate nohighlight">\(e = 2.71828\dots\)</span>, known alternately as “Euler’s number”, or “the base of the natural logarithm”.</p>
 <div class="section" id="rules-for-working-with-exponentials">
-<h3>Rules for working with exponentials<a class="headerlink" href="#rules-for-working-with-exponentials" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.6.1. </span>Rules for working with exponentials<a class="headerlink" href="#rules-for-working-with-exponentials" title="Permalink to this headline">¶</a></h3>
 <p>The following rules are useful when manipulating expressions involving exponentials.
 All of these rules work for any base <span class="math notranslate nohighlight">\(c \neq 0\)</span>, including the special case <span class="math notranslate nohighlight">\(c=e\)</span>.</p>
 <p><strong>Rule 1</strong>: Any <span class="math notranslate nohighlight">\(c\)</span> raised to the 0 power is 1, and specifically:</p>
@@ -425,20 +665,24 @@ c^{a\cdot b} = {\left(c^a\right)}^b = {\left(c^b\right)}^a
 \]</div>
 </div>
 <div class="section" id="the-exponential-function">
-<h3>The exponential function<a class="headerlink" href="#the-exponential-function" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">1.6.2. </span>The exponential function<a class="headerlink" href="#the-exponential-function" title="Permalink to this headline">¶</a></h3>
 <p>While it is convenient to regard <span class="math notranslate nohighlight">\(e\)</span> as the number <span class="math notranslate nohighlight">\(2.71828\dots\)</span>, there is an alternative (and more general) definition for <span class="math notranslate nohighlight">\(e\)</span> given by the following infinite summation</p>
-<div class="math notranslate nohighlight">
-\[
-e := \sum_{n=0}^\infty \frac{1}{n!}
-\]</div>
+<div class="math notranslate nohighlight" id="equation-exp">
+<span class="eqno">(1.21)<a class="headerlink" href="#equation-exp" title="Permalink to this equation">¶</a></span>\[e := \sum_{n=0}^\infty \frac{1}{n!}\]</div>
 <p>where</p>
 <div class="math notranslate nohighlight">
-\[
-n! := 1\cdot 2 \cdot 3 \cdot \dots \cdot n
-\]</div>
+\[n! := 1\cdot 2 \cdot 3 \cdot \dots \cdot n\]</div>
 <p>is the <em>factorial</em> function: the product of numbers 1 through <span class="math notranslate nohighlight">\(n\)</span>.
 (We define the special case <span class="math notranslate nohighlight">\(0! = 1\)</span>.)</p>
-<p>Note that summation above depends on <em>infinitely</em> many terms, and is not something you could explicitly compute.
+<p>The exponential function <span class="math notranslate nohighlight">\(e^x\)</span>, sometimes also written <span class="math notranslate nohighlight">\(\exp(x)\)</span>, is equivalent to the number <span class="math notranslate nohighlight">\(e\)</span> raised to the <span class="math notranslate nohighlight">\(x\)</span>th power.</p>
+<div class="cell tag_remove_input tag_remove_output docutils container">
+</div>
+<div class="figure align-default" id="id2">
+<div class="cell_output docutils container">
+<img alt="../../_images/Fundamentals_13_0.svg" src="../../_images/Fundamentals_13_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 1.36 </span><span class="caption-text">The exponential function <span class="math notranslate nohighlight">\(e^x\)</span>.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>Note that summation in <a class="reference internal" href="#equation-exp">(1.21)</a> depends on <em>infinitely</em> many terms, and is not something you could explicitly compute.
 While this could be a problem in some cases, it’s okay here because the terms are getting smaller at a very fast rate:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -498,8 +742,70 @@ e^x := \sum_{n=0}^{\infty} \frac{x^n}{n!},
 We’ll come back to this later in the appendix when we go into complex numbers more thoroughly.</p>
 </div>
 </div>
+<div class="section" id="logarithms">
+<h2><span class="section-number">1.7. </span>Logarithms<a class="headerlink" href="#logarithms" title="Permalink to this headline">¶</a></h2>
+<p>Logarithms are the inverse of exponentials, similar to how square-root is the inverse of squaring.
+In general, logarithms have a “base” <span class="math notranslate nohighlight">\(b &gt; 0\)</span>, and define the following relationship for input <span class="math notranslate nohighlight">\(x &gt; 0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\log_b x = y \quad\quad \Leftrightarrow \quad\quad x = b^y.\]</div>
+<p>Intuitively, <span class="math notranslate nohighlight">\(\log_b x\)</span> measures the power <span class="math notranslate nohighlight">\(y\)</span> we would need to raise <span class="math notranslate nohighlight">\(b\)</span> to produce <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>When <span class="math notranslate nohighlight">\(x = 0\)</span>, there is no finite number <span class="math notranslate nohighlight">\(y\)</span> such that <span class="math notranslate nohighlight">\(b^y = 0\)</span>, and we say <span class="math notranslate nohighlight">\(\log_b x = -\infty\)</span>.</p>
+<p>The base can be any positive number, but among all logarithms, the <strong>natural logarithm</strong> (denoted <span class="math notranslate nohighlight">\(\ln\)</span>) uses <span class="math notranslate nohighlight">\(e\)</span> as the base:</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Why, exactly, base-<span class="math notranslate nohighlight">\(e\)</span> is considered the most “natural” is a deep and fascinating topic, that we unfortunately do not have the space for here.</p>
+</div>
+<div class="math notranslate nohighlight">
+\[\ln x = y \quad\quad \Leftrightarrow \quad\quad x = e^y.\]</div>
+<p>Other common choices for the base are <span class="math notranslate nohighlight">\(b=2\)</span> and <span class="math notranslate nohighlight">\(b=10\)</span>.
+In these cases, <span class="math notranslate nohighlight">\(\log_2 x\)</span> and <span class="math notranslate nohighlight">\(\log_{10} x\)</span> can be roughly thought of as measuring the “number” of bits (for <span class="math notranslate nohighlight">\(b=2\)</span>) or digits (for <span class="math notranslate nohighlight">\(b=10\)</span>) needed to represent a number <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<div class="section" id="properties-of-logarithms">
+<h3><span class="section-number">1.7.1. </span>Properties of logarithms<a class="headerlink" href="#properties-of-logarithms" title="Permalink to this headline">¶</a></h3>
+<p><strong>Rule 1</strong>: For any base <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(\log_b 1 = 0\)</span>.</p>
+<p>This is just another way of writing <span class="math notranslate nohighlight">\(b^0 = 1\)</span>.</p>
+<p><strong>Rule 2</strong>: For any base <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(\log_b b = 1\)</span>.</p>
+<p>This is another way of saying that <span class="math notranslate nohighlight">\(b^1 = b\)</span>.</p>
+<p><strong>Rule 3</strong>: <span class="math notranslate nohighlight">\(\log_b x = \frac{\ln x}{\ln b}\)</span></p>
+<p>This rule lets us convert between different logarithm bases.</p>
+<p><strong>Rule 4</strong>: For any <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(\log_b(x\cdot y) = \log_b(x) + \log_b(y)\)</span>.</p>
+<p>This rule allows us to turn products into sums, and is why slide-rules work!</p>
+<p>As a corollary, we also get the analogous rule for ratios: <span class="math notranslate nohighlight">\(\log_b(x/y) = \log_b(x) - \log_b(y)\)</span>.</p>
+<p><strong>Rule 5</strong>: For any <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(\log_b(x^k) = k \cdot \log_b x\)</span>.</p>
+<p>This is just a slight generalization of rule 4, allowing us to turn powers into products.
+Note that <span class="math notranslate nohighlight">\(k\)</span> need not be an integer, or positive: it works for any real number!</p>
+<p>In particular, we have <span class="math notranslate nohighlight">\(\log_b \frac{1}{x} = \log_b \left(x^{-1}\right) = -\log_b x\)</span>.</p>
+<p><strong>Rule 6</strong>: <span class="math notranslate nohighlight">\(b^{\log_b x} = x\)</span>.</p>
+<p>This is just notation that says <span class="math notranslate nohighlight">\(b^x\)</span> and <span class="math notranslate nohighlight">\(\log_b x\)</span> are mutual inverses.</p>
+<div class="cell tag_remove_input tag_remove_output docutils container">
+</div>
+<div class="figure align-default" id="id3">
+<div class="cell_output docutils container">
+<img alt="../../_images/Fundamentals_20_0.svg" src="../../_images/Fundamentals_20_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 1.37 </span><span class="caption-text">A comparison of the base-2, natural (base-<span class="math notranslate nohighlight">\(e\)</span>), and base-10 logarithms of <span class="math notranslate nohighlight">\(x\)</span>.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "bloody"
+        },
+        kernelOptions: {
+            kernelName: "bloody",
+            path: "./content/appendix"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'bloody'</script>
 
               </div>
               
@@ -509,8 +815,8 @@ We’ll come back to this later in the appendix when we go into complex numbers 
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../ch05-dft-properties/Exercises.html" title="previous page">Exercises</a>
-    <a class='right-next' id="next-link" href="Algebra.html" title="next page">Algebra</a>
+    <a class='left-prev' id="prev-link" href="../ch08-stft/Exercises.html" title="previous page"><span class="section-number">5.3. </span>Exercises</a>
+    <a class='right-next' id="next-link" href="Algebra.html" title="next page"><span class="section-number">2. </span>Algebra</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

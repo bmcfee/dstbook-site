@@ -1,0 +1,722 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>1.7. Summing sinusoids &#8212; Digital Signals Theory</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1.8. Exercises" href="Exercises.html" />
+    <link rel="prev" title="1.6. Examples" href="Examples.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/dstlogo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Digital Signals Theory</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Preface
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 1, Signals and systems
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch01-signals/Intro.html">
+   1. Signals
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Preliminaries.html">
+     1.1. Preliminaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Waves.html">
+     1.2. Periodicity and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Units.html">
+     1.3. Units and dimensional analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Acoustics.html">
+     1.4. Audio and signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Exercises.html">
+     1.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch02-sampling/intro.html">
+   2. Digital sampling
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Sampling.html">
+     2.1. Sampling period and rate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Aliasing.html">
+     2.2. Aliasing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Nyquist.html">
+     2.3. The Nyquist-Shannon sampling theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Quantization.html">
+     2.4. Quantization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Exercises.html">
+     2.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch03-convolution/intro.html">
+   3. Convolution
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Building.html">
+     3.1. Delay, gain, and mix
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Convolution.html">
+     3.2. Defining convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/IR.html">
+     3.3. Impulse Response
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Modes.html">
+     3.4. Convolution modes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Properties.html">
+     3.5. Properties of convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/LSI.html">
+     3.6. Linearity and Shift-invariance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Exercises.html">
+     3.7. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 2, The frequency domain
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="intro.html">
+   1. The Discrete Fourier Transform
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Similarity.html">
+     1.1. Similarity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Cosine.html">
+     1.2. Comparing to sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="AnalysisFrequencies.html">
+     1.3. Analysis frequencies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Phase.html">
+     1.4. Phase
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="DFT.html">
+     1.5. The Discrete Fourier Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Examples.html">
+     1.6. Examples
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     1.7. Summing sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Exercises.html">
+     1.8. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch05-dft-properties/intro.html">
+   2. Properties of the DFT
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Linearity.html">
+     2.1. Linearity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Shifting.html">
+     2.2. The DFT shifting theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Conjugate-Symmetry.html">
+     2.3. Conjugate Symmetry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Leakage.html">
+     2.4. Spectral leakage and windowing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Exercises.html">
+     2.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch06-inverse-dft/intro.html">
+   3. DFT Invertibility
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-inverse-dft/InverseDFT.html">
+     3.1. The Inverse DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-inverse-dft/Exercises.html">
+     3.2. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch07-fft/intro.html">
+   4. Fast Fourier Transform
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-fft/DFT-Analysis.html">
+     4.1. Time-analysis of the DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-fft/FFT.html">
+     4.2. Radix-2 Cooley-Tukey
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-fft/Exercises.html">
+     4.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch08-stft/intro.html">
+   5. Time-frequency representation
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-stft/Framing.html">
+     5.1. Framing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-stft/STFT.html">
+     5.2. The Short-time Fourier Transform (STFT)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-stft/Exercises.html">
+     5.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Fundamentals.html">
+   1. Mathematical fundamentals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Algebra.html">
+   2. Algebra
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Complex.html">
+   3. Complex numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Trigonometry.html">
+   4. Trigonometry
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Python.html">
+   5. Programming in Python
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/ch04-fourier/SummingSinusoids.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aside-geometric-series">
+   1.7.1. Aside: geometric series
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#proof-of-geometric-series-identity">
+     1.7.1.1. Proof of geometric series identity
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summing-complex-exponentials">
+   1.7.2. Summing complex exponentials
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#proof-of-complex-exponential-summation">
+     1.7.2.1. Proof of complex exponential summation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-about-phase">
+   1.7.3. What about phase?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#back-to-the-original-question">
+   1.7.4. Back to the original question
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-does-this-matter">
+   1.7.5. Why does this matter?
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="summing-sinusoids">
+<span id="id1"></span><h1><span class="section-number">1.7. </span>Summing sinusoids<a class="headerlink" href="#summing-sinusoids" title="Permalink to this headline">¶</a></h1>
+<p>In the previous sections, we’ve made use of the fact that the samples of a wave at an analysis frequency must sum to zero.
+However, we never actually proved this from first principles.</p>
+<p>In fact, we can say something a little stronger, and exactly characterize the sum of samples for a wave at any frequency:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{n=0}^{N-1} \cos\left(2\pi \cdot f \cdot \frac{n}{f_s} + \phi \right) \quad = \quad ?\]</div>
+<p>Computing this sum requires adding up wave samples, which can be done directly, though it can be tedious.
+As we’ll see, this is a case where the complex exponential form is more convenient to work with.</p>
+<div class="section" id="aside-geometric-series">
+<h2><span class="section-number">1.7.1. </span>Aside: geometric series<a class="headerlink" href="#aside-geometric-series" title="Permalink to this headline">¶</a></h2>
+<p>Recall that Euler’s formula <a class="reference internal" href="../appendix/Complex.html#equation-euler">(3.10)</a> converts between rectangular and polar coordinates:</p>
+<div class="math notranslate nohighlight">
+\[
+e^{\mathrm{j}\cdot\theta} = \cos(\theta) + \mathrm{j} \cdot\sin(\theta).
+\]</div>
+<p>Since this holds for any angle <span class="math notranslate nohighlight">\(\theta\)</span>, it must also hold for <span class="math notranslate nohighlight">\(n\cdot \theta\)</span> as we vary <span class="math notranslate nohighlight">\(n\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+e^{\mathrm{j}\cdot n \cdot \theta} = \cos(n \cdot \theta) + \mathrm{j} \cdot\sin(n \cdot \theta),
+\]</div>
+<p>and by the product rule for exponents, we can re-write the left-hand side as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+e^{\mathrm{j}\cdot n \cdot \theta} = \left(e^{\mathrm{j}\cdot \theta}\right)^n.
+\]</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>This trick of turning waves into polynomials is one of the most useful tools in signal processing!
+We’ll see more of it later on when we cover filtering.</p>
+</div>
+<p>This will allow us to turn a summation of wave samples into a summation of the form <span class="math notranslate nohighlight">\(z^n\)</span>, which is also known as a <em>geometric series</em>.
+Geometric series have many nice properties, but for now, the one we’ll need is a formula for calculating the sum of the first <span class="math notranslate nohighlight">\(N\)</span> terms.</p>
+<div class="information admonition">
+<p class="admonition-title">Lemma: finite geometric series</p>
+<p>Let <span class="math notranslate nohighlight">\(z \neq 1\)</span> be a complex number, and <span class="math notranslate nohighlight">\(N &gt; 0\)</span> be an integer.
+Then</p>
+<div class="math notranslate nohighlight">
+\[\sum_{n=0}^{N-1} z^n = \frac{1 - z^N}{1 - z}.\]</div>
+</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>In code, we can either do:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">S</span> <span class="o">+</span> <span class="n">z</span><span class="o">**</span><span class="n">n</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="o">**</span><span class="n">N</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The latter will be much faster!</p>
+</div>
+<p>In plain language, this lemma says that summing up increasing powers of a number <span class="math notranslate nohighlight">\(z\)</span> (even a complex number <span class="math notranslate nohighlight">\(z\)</span>) can be equivalently expressed as a ratio, rather than adding up individual terms.</p>
+<div class="section" id="proof-of-geometric-series-identity">
+<h3><span class="section-number">1.7.1.1. </span>Proof of geometric series identity<a class="headerlink" href="#proof-of-geometric-series-identity" title="Permalink to this headline">¶</a></h3>
+<p>The idea behind this proof is that if we multiply the left-hand side (the summation) by <span class="math notranslate nohighlight">\((1-z)\)</span>, then successive terms in the summation will partially cancel each-other out.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\left(1-z\right) \cdot \sum_{n=0}^{N-1} z^n &amp;= \sum_{n=0}^{N-1} \left(1-z\right) \cdot z^n\\
+&amp;= \sum_{n=0}^{N-1} \left(z^{n} - z^{n+1}\right)\\
+&amp;= \left(z^0 - z^1\right) + \left(z^1 - z^2\right) + \left(z^2 - z^3\right) + \dots + \left(z^{N-1} - z^{N}\right)\\
+&amp;= z^0 + \left(- z^1 + z^1\right) + \left(- z^2 + z^2\right) + \dots + \left(-z^{N-1} + z^{N-1}\right) -  z^{N}\\
+&amp;= z^0 -  z^{N}\\
+&amp;= 1 - z^{N}.
+\end{align*}\end{split}\]</div>
+<p>Since <span class="math notranslate nohighlight">\(z\neq 1\)</span> (by hypothesis), we know that <span class="math notranslate nohighlight">\(1-z \neq 0\)</span>, so we can safely divide both sides of this equation by <span class="math notranslate nohighlight">\(1-z\)</span> to get the identity:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{n=0}^{N-1} z^n = \frac{1 - z^N}{1 - z}.\]</div>
+</div>
+</div>
+<div class="section" id="summing-complex-exponentials">
+<h2><span class="section-number">1.7.2. </span>Summing complex exponentials<a class="headerlink" href="#summing-complex-exponentials" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have our geometric series identity, we can state the following theorem.</p>
+<div class="admonition-theorem-complex-exponential-sums admonition">
+<p class="admonition-title">Theorem: Complex exponential sums</p>
+<p>Let <span class="math notranslate nohighlight">\(\theta \neq 0\)</span> be an angle, and let <span class="math notranslate nohighlight">\(N&gt;0\)</span> be an integer.  Then,</p>
+<div class="math notranslate nohighlight">
+\[\sum_{n=0}^{N-1} e^{\mathrm{j}\cdot n \cdot \theta} = 0 \quad \text{if and only if} \quad \theta = 2\pi \cdot \frac{k}{N}\]</div>
+<p>for an integer <span class="math notranslate nohighlight">\(k \neq 0\)</span>.</p>
+</div>
+<p>In plain language, this theorem says that a complex sinusoid with a frequency that completes a whole number of cycles in <span class="math notranslate nohighlight">\(N\)</span> samples must sum to 0.
+We can actually say a bit more than that, and also characterize what happens for any frequency, and see that if the wave does not complete a whole number of cycles, then its sum cannot be 0.</p>
+<p>Note that this does not handle the special case of <span class="math notranslate nohighlight">\(\theta=0\)</span> (<span class="math notranslate nohighlight">\(f_0 = 0\)</span>) case, for which the summation simplifies to <span class="math notranslate nohighlight">\(1+1+1+\dots = N + 0\mathrm{j}\)</span>.</p>
+<div class="section" id="proof-of-complex-exponential-summation">
+<h3><span class="section-number">1.7.2.1. </span>Proof of complex exponential summation<a class="headerlink" href="#proof-of-complex-exponential-summation" title="Permalink to this headline">¶</a></h3>
+<p>The theorem has an “if and only if” form, so we’ll need to show both directions:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((\Rightarrow)\)</span> <span class="math notranslate nohighlight">\(\theta\)</span> of the given form implies the summation must be zero, and</p></li>
+<li><p><span class="math notranslate nohighlight">\((\Leftarrow)\)</span> the summation being zero implies <span class="math notranslate nohighlight">\(\theta\)</span> takes the given form.</p></li>
+</ul>
+<p>Note that <span class="math notranslate nohighlight">\(e^{\mathrm{j}\cdot n\cdot \theta} = \left(e^{\mathrm{j}\cdot\theta} \right)^n\)</span> by the product rule for exponents.
+If <span class="math notranslate nohighlight">\(\theta \neq 0\)</span> then <span class="math notranslate nohighlight">\(e^{\mathrm{j}\cdot\theta} \neq 1\)</span>, so we are allowed to use the geometric series identity with <span class="math notranslate nohighlight">\(z = e^{\mathrm{j}\cdot\theta}\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-exp-sum">
+<span class="eqno">(1.18)<a class="headerlink" href="#equation-exp-sum" title="Permalink to this equation">¶</a></span>\[\sum_{n=0}^{N-1} e^{\mathrm{j}\cdot n \cdot \theta} = \sum_{n=0}^{N-1} \left(e^{\mathrm{j}\cdot \theta}\right)^n
+= \frac{1 - e^{\mathrm{j}\cdot N \cdot \theta}}{1 - e^{\mathrm{j}\cdot \theta}}.\]</div>
+<p><span class="math notranslate nohighlight">\((\Rightarrow)\)</span> If <span class="math notranslate nohighlight">\(\theta = 2\pi \cdot k/N\)</span> for integer <span class="math notranslate nohighlight">\(k\)</span>, then the numerator can be equivalently expressed as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+1 - e^{\mathrm{j}\cdot N \cdot \theta} &amp;= 1 - e^{\mathrm{j}\cdot N \cdot 2\pi \cdot k / N} &amp; \text{substitute } \theta\\
+&amp;= 1 - e^{\mathrm{j} \cdot 2\pi \cdot k} &amp; \text{cancel } N/N\\
+&amp;= 1 - e^{\mathrm{j} \cdot 0} &amp; \text{cancel extra rotations } 2\pi \cdot k\\
+&amp;= 1 - 1\\
+&amp;= 0.
+\end{align*}
+\end{split}\]</div>
+<p>Since the numerator is 0, so too is the entire summation.</p>
+<p><span class="math notranslate nohighlight">\((\Leftarrow)\)</span> In the other direction, if we assume the summation is 0, then we must have</p>
+<div class="math notranslate nohighlight">
+\[
+0 = 1 - e^{\mathrm{j}\cdot N \cdot \theta} \quad \Rightarrow \quad e^{\mathrm{j}\cdot N \cdot \theta} = 1 = e^{\mathrm{j}\cdot 0},
+\]</div>
+<p>which implies <span class="math notranslate nohighlight">\(N \cdot \theta = 2\pi \cdot k\)</span> for some integer <span class="math notranslate nohighlight">\(k\)</span> because <span class="math notranslate nohighlight">\(N\cdot\theta\)</span> must be equivalent to a whole number of rotations (in either direction).
+Dividing through by <span class="math notranslate nohighlight">\(N\)</span>, we get <span class="math notranslate nohighlight">\(\theta = 2\pi \cdot k / N\)</span>.</p>
+</div>
+</div>
+<div class="section" id="what-about-phase">
+<h2><span class="section-number">1.7.3. </span>What about phase?<a class="headerlink" href="#what-about-phase" title="Permalink to this headline">¶</a></h2>
+<p>We can generalize the statement above to handle phase offsets as well.
+Because the phase offset does not change with the sample index <span class="math notranslate nohighlight">\(n\)</span>, we can factor it out of the summation:</p>
+<div class="math notranslate nohighlight" id="equation-exp-sum-phase">
+<span class="eqno">(1.19)<a class="headerlink" href="#equation-exp-sum-phase" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{align*}
+\sum_{n=0}^{N-1} e^{\mathrm{j}\cdot(\theta\cdot n + \phi)} &amp;= 
+\sum_{n=0}^{N-1} e^{\mathrm{j}\cdot\theta\cdot n} \cdot  e^{\mathrm{j}\cdot \phi}\\
+&amp;= e^{\mathrm{j}\cdot \phi} \cdot \sum_{n=0}^{N-1} e^{\mathrm{j}\cdot\theta\cdot n} \\
+&amp;= e^{\mathrm{j}\cdot \phi} \cdot \frac{1 - e^{\mathrm{j}\cdot N \cdot \theta}}{1 - e^{\mathrm{j}\cdot \theta}}.
+\end{align*}\end{split}\]</div>
+<p>This says that when a wave is shifted by <span class="math notranslate nohighlight">\(\phi\)</span>, the summation is multiplied by <span class="math notranslate nohighlight">\(e^{\mathrm{j}\cdot \phi}\)</span>.
+Note that this is a pure rotation, so if the summation was 0 (i.e., we had an analysis frequency), then it will still be zero under <em>any</em> phase shift!
+Likewise, if the summation was non-zero, it will remain non-zero under any shift.</p>
+</div>
+<div class="section" id="back-to-the-original-question">
+<h2><span class="section-number">1.7.4. </span>Back to the original question<a class="headerlink" href="#back-to-the-original-question" title="Permalink to this headline">¶</a></h2>
+<p>The theorem above is for complex exponentials, which involve both a real and imaginary component.
+However, our original question was about summations of general waves in standard form:</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{n=0}^{N-1} \cos\left(2\pi \cdot f \cdot \frac{n}{f_s} + \phi \right)
+\]</div>
+<p>For this, we can use the fact that <span class="math notranslate nohighlight">\(\cos(\theta)\)</span> is equivalent to the real part of <span class="math notranslate nohighlight">\(e^{\mathrm{j}\cdot \theta}\)</span>, which implies</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>This is because for any complex number <span class="math notranslate nohighlight">\(z = a + \mathrm{j}\cdot b\)</span>, we have</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+z + \overline{z} &amp;= a + \mathrm{j}\cdot b + a - \mathrm{j}\cdot b\\
+&amp;= 2a,
+\end{align*}\end{split}\]</div>
+<p>so the real part <span class="math notranslate nohighlight">\(a\)</span> can be extracted by adding <span class="math notranslate nohighlight">\(z\)</span> to its conjugate <span class="math notranslate nohighlight">\(\overline{z}\)</span> and dividing by 2.</p>
+</div>
+<div class="math notranslate nohighlight">
+\[
+\cos(\theta) = \frac{1}{2}\cdot \left( e^{\mathrm{j}\cdot \theta} + e^{-\mathrm{j}\cdot \theta}\right),
+\]</div>
+<p>or when a sample index <span class="math notranslate nohighlight">\(n\)</span> and phase offset <span class="math notranslate nohighlight">\(\phi\)</span> are introduced, and letting <span class="math notranslate nohighlight">\(\theta = 2\pi \cdot f / f_s\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\cos(\theta \cdot n + \phi) = \frac{1}{2}\cdot \left( e^{\mathrm{j}\cdot (\theta\cdot n + \phi)} + e^{-\mathrm{j}\cdot (\theta\cdot n + \phi)} \right).
+\]</div>
+<p>By using <a class="reference internal" href="#equation-exp-sum-phase">(1.19)</a>, we can transform each part of this summation independently.
+The end result is the rather unwieldy formula:</p>
+<div class="math notranslate nohighlight" id="equation-cosine-sum">
+<span class="eqno">(1.20)<a class="headerlink" href="#equation-cosine-sum" title="Permalink to this equation">¶</a></span>\[\sum_{n=0}^{N-1} \cos(\theta \cdot n + \phi) = 
+\frac{e^{\mathrm{j}\cdot \phi}}{2} \cdot \frac{1 - e^{\mathrm{j} \cdot N \cdot \theta}}{1 - e^{\mathrm{j}\cdot \theta}}
++ 
+\frac{e^{-\mathrm{j}\cdot \phi}}{2} \cdot \frac{1 - e^{-\mathrm{j} \cdot N \cdot \theta}}{1 - e^{-\mathrm{j}\cdot \theta}}\]</div>
+</div>
+<div class="section" id="why-does-this-matter">
+<h2><span class="section-number">1.7.5. </span>Why does this matter?<a class="headerlink" href="#why-does-this-matter" title="Permalink to this headline">¶</a></h2>
+<p>Many of the things we’d like to say about Fourier series depend on having waves “average out to zero”. For continuous (time) signals, we can show this kind of thing via symmetry arguments (like in <span class="xref std std-ref">chapter 1</span>), but when using discretely sampled signals, a bit more care must be taken.</p>
+<p>The main theorem in this section tells us that waves at analysis frequencies always sum to 0, but in proving that theorem, we got as a byproduct a general equation <a class="reference internal" href="#equation-cosine-sum">(1.20)</a> for sums of waves at arbitrary (non-analysis) frequencies and phase offsets.
+While this equation could be used in principle to bypass computing sums sample-by-sample, it is more useful as an analytical tool: it allows us to reason about the properties of the sum (e.g., whether it is 0 or non-zero, real or complex, etc) just by knowing the wave’s parameters.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "bloody"
+        },
+        kernelOptions: {
+            kernelName: "bloody",
+            path: "./content/ch04-fourier"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'bloody'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="Examples.html" title="previous page"><span class="section-number">1.6. </span>Examples</a>
+    <a class='right-next' id="next-link" href="Exercises.html" title="next page"><span class="section-number">1.8. </span>Exercises</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Brian McFee<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

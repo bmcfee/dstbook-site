@@ -2,11 +2,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trigonometry &#8212; Digital Signals Theory</title>
+    <title>4. Trigonometry &#8212; Digital Signals Theory</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -14,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -30,11 +30,18 @@
     <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Complex numbers" href="Complex.html" />
-    <link rel="prev" title="Algebra" href="Algebra.html" />
+    <link rel="next" title="5. Programming in Python" href="Python.html" />
+    <link rel="prev" title="3. Complex numbers" href="Complex.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -82,18 +89,109 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../ch01-signals/Intro.html">
-   Signals
+   1. Signals
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Preliminaries.html">
+     1.1. Preliminaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Waves.html">
+     1.2. Periodicity and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Units.html">
+     1.3. Units and dimensional analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Acoustics.html">
+     1.4. Audio and signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Exercises.html">
+     1.5. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ch02-sampling/intro.html">
-   Digital sampling
+   2. Digital sampling
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Sampling.html">
+     2.1. Sampling period and rate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Aliasing.html">
+     2.2. Aliasing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Nyquist.html">
+     2.3. The Nyquist-Shannon sampling theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Quantization.html">
+     2.4. Quantization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Exercises.html">
+     2.5. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ch03-convolution/intro.html">
-   Convolution
+   3. Convolution
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Building.html">
+     3.1. Delay, gain, and mix
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Convolution.html">
+     3.2. Defining convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/IR.html">
+     3.3. Impulse Response
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Modes.html">
+     3.4. Convolution modes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Properties.html">
+     3.5. Properties of convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/LSI.html">
+     3.6. Linearity and Shift-invariance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Exercises.html">
+     3.7. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -104,13 +202,143 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../ch04-fourier/intro.html">
-   The Discrete Fourier Transform
+   1. The Discrete Fourier Transform
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Similarity.html">
+     1.1. Similarity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Cosine.html">
+     1.2. Comparing to sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/AnalysisFrequencies.html">
+     1.3. Analysis frequencies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Phase.html">
+     1.4. Phase
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/DFT.html">
+     1.5. The Discrete Fourier Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Examples.html">
+     1.6. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/SummingSinusoids.html">
+     1.7. Summing sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Exercises.html">
+     1.8. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ch05-dft-properties/intro.html">
-   Properties of the DFT
+   2. Properties of the DFT
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Linearity.html">
+     2.1. Linearity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Shifting.html">
+     2.2. The DFT shifting theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Conjugate-Symmetry.html">
+     2.3. Conjugate Symmetry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Leakage.html">
+     2.4. Spectral leakage and windowing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Exercises.html">
+     2.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch06-inverse-dft/intro.html">
+   3. DFT Invertibility
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-inverse-dft/InverseDFT.html">
+     3.1. The Inverse DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-inverse-dft/Exercises.html">
+     3.2. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch07-fft/intro.html">
+   4. Fast Fourier Transform
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-fft/DFT-Analysis.html">
+     4.1. Time-analysis of the DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-fft/FFT.html">
+     4.2. Radix-2 Cooley-Tukey
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-fft/Exercises.html">
+     4.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch08-stft/intro.html">
+   5. Time-frequency representation
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-stft/Framing.html">
+     5.1. Framing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-stft/STFT.html">
+     5.2. The Short-time Fourier Transform (STFT)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-stft/Exercises.html">
+     5.3. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -121,27 +349,27 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="Fundamentals.html">
-   Mathematical fundamentals
+   1. Mathematical fundamentals
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Algebra.html">
-   Algebra
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Trigonometry
+   2. Algebra
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Complex.html">
-   Complex numbers
+   3. Complex numbers
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   4. Trigonometry
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Python.html">
-   Programming in Python
+   5. Programming in Python
   </a>
  </li>
 </ul>
@@ -210,33 +438,28 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> On this page
+            <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sines-and-cosines">
-   Sines and cosines
+   4.1. Sines and cosines
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#basic-properties">
-   Basic properties
+   4.2. Basic properties
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#product-to-sum-rules">
-   Product-to-sum rules
+   4.3. Product-to-sum rules
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#complex-exponentials">
-   Complex exponentials
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#why-circles">
-   Why circles?
+   4.4. Complex exponentials
   </a>
  </li>
 </ul>
@@ -250,33 +473,97 @@
               <div>
                 
   <div class="section" id="trigonometry">
-<h1>Trigonometry<a class="headerlink" href="#trigonometry" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">4. </span>Trigonometry<a class="headerlink" href="#trigonometry" title="Permalink to this headline">¶</a></h1>
+<div class="cell tag_remove_input tag_remove_output docutils container">
+</div>
 <div class="section" id="sines-and-cosines">
-<h2>Sines and cosines<a class="headerlink" href="#sines-and-cosines" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.1. </span>Sines and cosines<a class="headerlink" href="#sines-and-cosines" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="basic-properties">
-<h2>Basic properties<a class="headerlink" href="#basic-properties" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">4.2. </span>Basic properties<a class="headerlink" href="#basic-properties" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="product-to-sum-rules">
-<h2>Product-to-sum rules<a class="headerlink" href="#product-to-sum-rules" title="Permalink to this headline">¶</a></h2>
-<p>show geometric proofs</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\cos\theta \cdot \cos\phi\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\cos\theta \cdot \sin\phi\)</span></p></li>
-</ul>
+<h2><span class="section-number">4.3. </span>Product-to-sum rules<a class="headerlink" href="#product-to-sum-rules" title="Permalink to this headline">¶</a></h2>
+<p>Two useful trigonometric identities are the “product-to-sum” formulae, for angles <span class="math notranslate nohighlight">\(\theta\)</span> and <span class="math notranslate nohighlight">\(\phi\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-cos-product-sum">
+<span class="eqno">(4.2)<a class="headerlink" href="#equation-cos-product-sum" title="Permalink to this equation">¶</a></span>\[\cos\left(\theta\right) \cdot \cos\left(\phi\right) = \frac{1}{2} \cdot \left(\cos\left(\theta + \phi\right) + \cos\left(\theta - \phi\right) \right)\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight" id="equation-sin-product-sum">
+<span class="eqno">(4.3)<a class="headerlink" href="#equation-sin-product-sum" title="Permalink to this equation">¶</a></span>\[\cos\left(\theta\right) \cdot \sin\left(\phi\right) = \frac{1}{2} \cdot \left(\sin\left(\theta + \phi\right) - \sin\left(\theta - \phi\right) \right)\]</div>
+<p>These rules are primarily used when comparing two sinusoids by the <a class="reference internal" href="../ch04-fourier/Similarity.html#similarity-score"><span class="std std-ref">multiply-and-add method</span></a>.
+These rules also have an interesting interpretation when applied to audio signals: loosely speaking, they say that if you multiply two pure tones with frequencies <span class="math notranslate nohighlight">\(f_1\)</span> and <span class="math notranslate nohighlight">\(f_2\)</span> together (sample by sample), the resulting signal is the <em>average</em> of two pure tones, one at frequency <span class="math notranslate nohighlight">\(f_1 + f_2\)</span> and the other at frequency <span class="math notranslate nohighlight">\(f_1 - f_2\)</span>.</p>
+<p>Proving rules like this can be a tedious exercise, but the diagram below provide a partial visual proof to help build intuition.
+We’ll give a more rigorous derivation a little later by using complex exponentials.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#fig, ax = plt.subplots(figaspect=0.75)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="complex-exponentials">
-<h2>Complex exponentials<a class="headerlink" href="#complex-exponentials" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>define cos in terms of exp, ditto sin</p></li>
-<li><p>use this to derive some identities</p></li>
-</ul>
+<h2><span class="section-number">4.4. </span>Complex exponentials<a class="headerlink" href="#complex-exponentials" title="Permalink to this headline">¶</a></h2>
+<p>Euler’s formula <a class="reference internal" href="Complex.html#equation-euler">(3.10)</a> gives us the identity</p>
+<div class="math notranslate nohighlight">
+\[
+e^{\mathrm{j}\cdot\theta} = \cos(\theta) + \mathrm{j} \cdot\sin(\theta).
+\]</div>
+<p>By combining this with the <a class="reference internal" href="../ch01-signals/Waves.html#wave-symmetry"><span class="std std-ref">symmetry rules for waves</span></a>, we can recover definitions of <span class="math notranslate nohighlight">\(\cos\)</span> and <span class="math notranslate nohighlight">\(\sin\)</span> in terms of the exponential:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+    \cos(\theta) &amp;= \frac{1}{2} \cdot \left(e^{\mathrm{j}\cdot \theta} + e^{-\mathrm{j}\cdot\theta}\right)\\
+    \sin(\theta) &amp;= \frac{1}{2\mathrm{j}} \cdot \left(e^{\mathrm{j}\cdot \theta} - e^{-\mathrm{j}\cdot\theta}\right)\\
+\end{align*}
+\end{split}\]</div>
+<p>Expressing <span class="math notranslate nohighlight">\(\cos\)</span> and <span class="math notranslate nohighlight">\(\sin\)</span> in this way may seem obtuse at first, but it can be a helpful tool when manipulating complicated expressions.
+For example, the product-to-sum rule for cosines can be derived algebraically:</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>A similar derivation can be used to show the second sum-product identity <span class="math notranslate nohighlight">\(\cos(\theta)\cdot\sin(\phi)\)</span>: see if you can work that one out on your own.</p>
 </div>
-<div class="section" id="why-circles">
-<h2>Why circles?<a class="headerlink" href="#why-circles" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\cos(\theta) \cdot \cos(\phi) &amp;=\frac{1}{2} \cdot \left(e^{\mathrm{j}\cdot \theta} + e^{-\mathrm{j}\cdot\theta}\right) \cdot 
+\frac{1}{2} \cdot \left(e^{\mathrm{j}\cdot \phi} + e^{-\mathrm{j}\cdot\phi}\right) &amp; \text{definition}\\
+&amp;= \frac{1}{4} \cdot \left(e^{\mathrm{j}\cdot(\theta + \phi)}  +  e^{\mathrm{j}\cdot(\theta - \phi)} + e^{\mathrm{j}\cdot(-\theta + \phi)}
++ e^{\mathrm{j}\cdot(-\theta - \phi)}\right) &amp; \text{FOIL multiply}\\
+&amp;= \frac{1}{4} \cdot \left(e^{\mathrm{j}\cdot(\theta + \phi)}  +  e^{\mathrm{j}\cdot(-\theta - \phi)}
++ e^{\mathrm{j}\cdot(\theta - \phi)} + e^{\mathrm{j}\cdot(-\theta + \phi)}
+\right) &amp; \text{rearrange terms}\\
+&amp;= \frac{1}{4} \cdot \left(e^{\mathrm{j}\cdot(\theta + \phi)}  +  e^{-\mathrm{j}\cdot(\theta + \phi)}
++ e^{\mathrm{j}\cdot(\theta - \phi)} + e^{-\mathrm{j}\cdot(\theta - \phi)}
+\right) &amp; \text{factor out } -1\\
+&amp;= \frac{1}{2} \cdot \left(\frac{1}{2}\cdot\left(e^{\mathrm{j}\cdot(\theta + \phi)}  +  e^{-\mathrm{j}\cdot(\theta + \phi)}\right)
++ \frac{1}{2}\cdot\left(e^{\mathrm{j}\cdot(\theta - \phi)} + e^{-\mathrm{j}\cdot(\theta - \phi)}\right)
+\right) &amp; \text{group terms}\\
+&amp;= \frac{1}{2} \cdot \left(\cos\left(\theta + \phi\right) + \cos\left(\theta - \phi\right) \right).
+\end{align*}\end{split}\]</div>
+<p>Some students find the geometric approach more intuitive, and some find the algebraic approach more intuitive.
+Neither is necessarily better than the other, so use whichever works for you!</p>
 </div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "bloody"
+        },
+        kernelOptions: {
+            kernelName: "bloody",
+            path: "./content/appendix"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'bloody'</script>
 
               </div>
               
@@ -286,8 +573,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="Algebra.html" title="previous page">Algebra</a>
-    <a class='right-next' id="next-link" href="Complex.html" title="next page">Complex numbers</a>
+    <a class='left-prev' id="prev-link" href="Complex.html" title="previous page"><span class="section-number">3. </span>Complex numbers</a>
+    <a class='right-next' id="next-link" href="Python.html" title="next page"><span class="section-number">5. </span>Programming in Python</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
