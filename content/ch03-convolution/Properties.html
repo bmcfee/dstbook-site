@@ -2,11 +2,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Properties of convolution &#8212; Digital Signals Theory</title>
+    <title>3.5. Properties of convolution &#8212; Digital Signals Theory</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -14,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -30,11 +30,18 @@
     <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Linearity and Shift-invariance" href="LSI.html" />
-    <link rel="prev" title="Convolution modes" href="Modes.html" />
+    <link rel="next" title="3.6. Linearity and Shift-invariance" href="LSI.html" />
+    <link rel="prev" title="3.4. Convolution modes" href="Modes.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -82,57 +89,106 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../ch01-signals/Intro.html">
-   Signals
+   1. Signals
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Preliminaries.html">
+     1.1. Preliminaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Waves.html">
+     1.2. Periodicity and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Units.html">
+     1.3. Units and dimensional analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Acoustics.html">
+     1.4. Audio and signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Exercises.html">
+     1.5. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ch02-sampling/intro.html">
-   Digital sampling
+   2. Digital sampling
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Sampling.html">
+     2.1. Sampling period and rate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Aliasing.html">
+     2.2. Aliasing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Nyquist.html">
+     2.3. The Nyquist-Shannon sampling theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Quantization.html">
+     2.4. Quantization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Exercises.html">
+     2.5. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 current active">
   <a class="reference internal" href="intro.html">
-   Convolution
+   3. Convolution
   </a>
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="Building.html">
-     Delay, gain, and mix
+     3.1. Delay, gain, and mix
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Convolution.html">
-     Defining convolution
+     3.2. Defining convolution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="IR.html">
-     Impulse Response
+     3.3. Impulse Response
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Modes.html">
-     Convolution modes
+     3.4. Convolution modes
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Properties of convolution
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="#proving-these-properties">
-     Proving these properties
+     3.5. Properties of convolution
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="LSI.html">
-     Linearity and Shift-invariance
+     3.6. Linearity and Shift-invariance
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Exercises.html">
-     Exercises
+     3.7. Exercises
     </a>
    </li>
   </ul>
@@ -146,13 +202,143 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../ch04-fourier/intro.html">
-   The Discrete Fourier Transform
+   1. The Discrete Fourier Transform
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Similarity.html">
+     1.1. Similarity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Cosine.html">
+     1.2. Comparing to sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/AnalysisFrequencies.html">
+     1.3. Analysis frequencies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Phase.html">
+     1.4. Phase
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/DFT.html">
+     1.5. The Discrete Fourier Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Examples.html">
+     1.6. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/SummingSinusoids.html">
+     1.7. Summing sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Exercises.html">
+     1.8. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ch05-dft-properties/intro.html">
-   Properties of the DFT
+   2. Properties of the DFT
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Linearity.html">
+     2.1. Linearity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Shifting.html">
+     2.2. The DFT shifting theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Conjugate-Symmetry.html">
+     2.3. Conjugate Symmetry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Leakage.html">
+     2.4. Spectral leakage and windowing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Exercises.html">
+     2.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch06-inverse-dft/intro.html">
+   3. DFT Invertibility
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-inverse-dft/InverseDFT.html">
+     3.1. The Inverse DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-inverse-dft/Exercises.html">
+     3.2. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch07-fft/intro.html">
+   4. Fast Fourier Transform
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-fft/DFT-Analysis.html">
+     4.1. Time-analysis of the DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-fft/FFT.html">
+     4.2. Radix-2 Cooley-Tukey
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-fft/Exercises.html">
+     4.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch08-stft/intro.html">
+   5. Time-frequency representation
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-stft/Framing.html">
+     5.1. Framing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-stft/STFT.html">
+     5.2. The Short-time Fourier Transform (STFT)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-stft/Exercises.html">
+     5.3. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -163,27 +349,27 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/Fundamentals.html">
-   Mathematical fundamentals
+   1. Mathematical fundamentals
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/Algebra.html">
-   Algebra
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../appendix/Trigonometry.html">
-   Trigonometry
+   2. Algebra
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/Complex.html">
-   Complex numbers
+   3. Complex numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Trigonometry.html">
+   4. Trigonometry
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/Python.html">
-   Programming in Python
+   5. Programming in Python
   </a>
  </li>
 </ul>
@@ -252,24 +438,41 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> On this page
+            <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#commutative-property">
-   Commutative property
+   3.5.1. Commutative property
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#associative-property">
-   Associative property
+   3.5.2. Associative property
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#distributive-over-addition">
-   Distributive over addition
+   3.5.3. Distributive over addition
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proving-these-properties">
+   3.5.4. Proving these properties
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#proof-of-distributivity">
+     3.5.4.1. Proof of distributivity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#is-there-a-better-way">
+     3.5.4.2. Is there a better way?
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -282,28 +485,28 @@
               <div>
                 
   <div class="section" id="properties-of-convolution">
-<h1>Properties of convolution<a class="headerlink" href="#properties-of-convolution" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3.5. </span>Properties of convolution<a class="headerlink" href="#properties-of-convolution" title="Permalink to this headline">¶</a></h1>
 <div class="cell tag_remove_input tag_remove_output docutils container">
 </div>
 <p>As stated earlier in this chapter, convolution acts like a kind of abstract <em>multiplication</em> between signals.
 Making this statement more precise will have to wait until we’ve developed the Fourier transform, but for now we can end this chapter by showing some of the properties that convolution shares with multiplication.</p>
 <p>Note: we’ll assume for now that all convolutions are <strong>full mode</strong>.  With appropriate trimming, you can extend these properties to the other modes, but the notation will get a bit more complicated.</p>
 <div class="section" id="commutative-property">
-<h2>Commutative property<a class="headerlink" href="#commutative-property" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.5.1. </span>Commutative property<a class="headerlink" href="#commutative-property" title="Permalink to this headline">¶</a></h2>
 <p>Convolution is <strong>commutative</strong>, which is a fancy word for saying that order doesn’t matter.
 Precisely, commutativity is the property that for any <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(h\)</span>, the following holds:</p>
 <div class="math notranslate nohighlight" id="equation-conv-commute">
-<span class="eqno">(14)<a class="headerlink" href="#equation-conv-commute" title="Permalink to this equation">¶</a></span>\[{\color{#DC2830}h}*{\color{#0271AE}x} = {\color{#DC2830}x}*{\color{#0271AE}h}.\]</div>
+<span class="eqno">(3.4)<a class="headerlink" href="#equation-conv-commute" title="Permalink to this equation">¶</a></span>\[{\color{#DC2830}h}*{\color{#0271AE}x} = {\color{#DC2830}x}*{\color{#0271AE}h}.\]</div>
 <p>What this says in words is that there is no difference between <em>signals</em> and <em>filters</em>: any sequence of numbers can be interpreted as either (or both)!</p>
 </div>
 <div class="section" id="associative-property">
-<h2>Associative property<a class="headerlink" href="#associative-property" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">3.5.2. </span>Associative property<a class="headerlink" href="#associative-property" title="Permalink to this headline">¶</a></h2>
 <p>Convolution is also <strong>associative</strong>, which means that if we’re chaining a series of convolutions together, it doesn’t matter which one you do first.
 Imagine that we convolve <span class="math notranslate nohighlight">\(x *h\)</span> and then convolve the result by some other filter <span class="math notranslate nohighlight">\(g\)</span>.
 Associativity says that we could equivalently convolve <span class="math notranslate nohighlight">\(h\)</span> with <span class="math notranslate nohighlight">\(g\)</span> first, and then convolve the result with <span class="math notranslate nohighlight">\(x\)</span>.
 Formally, we have</p>
 <div class="math notranslate nohighlight" id="equation-conv-associative">
-<span class="eqno">(15)<a class="headerlink" href="#equation-conv-associative" title="Permalink to this equation">¶</a></span>\[{\color{#DC2830}g}*({\color{#6E3B87}{h*x}}) = {\color{#DC2830}{(g*h)}}*{\color{#0271AE}x}\]</div>
+<span class="eqno">(3.5)<a class="headerlink" href="#equation-conv-associative" title="Permalink to this equation">¶</a></span>\[{\color{#DC2830}g}*({\color{#6E3B87}{h*x}}) = {\color{#DC2830}{(g*h)}}*{\color{#0271AE}x}\]</div>
 <p>Why does this matter?  Imagine that <span class="math notranslate nohighlight">\(h\)</span> and <span class="math notranslate nohighlight">\(g\)</span> are both short (maybe a dozen samples) and <span class="math notranslate nohighlight">\(x\)</span> is very long (millions of samples).
 Computing <span class="math notranslate nohighlight">\(h*x\)</span> would take work proportional to the length of <span class="math notranslate nohighlight">\(x\)</span>, as would convolving the output with <span class="math notranslate nohighlight">\(g\)</span>: you’d have to step through large arrays twice.
 However, if you convolve <span class="math notranslate nohighlight">\(g*h\)</span> first, that only takes work proportional to the length of the filters (which are small), and then you’d only have to step through the large array once.
@@ -312,21 +515,20 @@ Reasoning about filters in this way can help you develop more efficient processi
 This fact can be exploited to find the most efficient possible order (e.g. by ordering the inputs from short to long).</p>
 </div>
 <div class="section" id="distributive-over-addition">
-<span id="convolution-distributive"></span><h2>Distributive over addition<a class="headerlink" href="#distributive-over-addition" title="Permalink to this headline">¶</a></h2>
+<span id="convolution-distributive"></span><h2><span class="section-number">3.5.3. </span>Distributive over addition<a class="headerlink" href="#distributive-over-addition" title="Permalink to this headline">¶</a></h2>
 <p>Imagine we have two signals <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span> that we’d like to filter by <span class="math notranslate nohighlight">\(h\)</span> and then mix together.
 The <strong>distributive</strong> property says that we can equivalently mix the signals first, and then convolve by <span class="math notranslate nohighlight">\(h\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-conv-distribute">
-<span class="eqno">(16)<a class="headerlink" href="#equation-conv-distribute" title="Permalink to this equation">¶</a></span>\[{\color{#DC2830}h}*{\color{#0271AE}{x_1}} + {\color{#DC2830}h}*{\color{#0271AE}{x_2}} = {\color{#DC2830}h}*{\color{#0271AE}{(x_1 + x_2)}}.\]</div>
+<span class="eqno">(3.6)<a class="headerlink" href="#equation-conv-distribute" title="Permalink to this equation">¶</a></span>\[{\color{#DC2830}h}*{\color{#0271AE}{x_1}} + {\color{#DC2830}h}*{\color{#0271AE}{x_2}} = {\color{#DC2830}h}*{\color{#0271AE}{(x_1 + x_2)}}.\]</div>
 <p>Like the associative property, the distributive property can be used to reduce the amount of computation needed to produce a particular output.
 Note that the left-hand side of the equation has two convolutions, and the right-hand side has only one.</p>
-<p>As we’ll see in the next chapter, this property can be generalized slightly to show that convolution is a <em>linear operator</em>.</p>
-</div>
+<p>As we’ll see later, this property can be generalized slightly to show that convolution is a <em>linear operator</em>.</p>
 </div>
 <div class="section" id="proving-these-properties">
-<h1>Proving these properties<a class="headerlink" href="#proving-these-properties" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">3.5.4. </span>Proving these properties<a class="headerlink" href="#proving-these-properties" title="Permalink to this headline">¶</a></h2>
 <p>To prove that one of these properties holds, one would generally proceed by using the formal definition of convolution, and then applying a sequence of algebraic manipulations until we arrive at the desired result.</p>
 <div class="section" id="proof-of-distributivity">
-<h2>Proof of distributivity<a class="headerlink" href="#proof-of-distributivity" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">3.5.4.1. </span>Proof of distributivity<a class="headerlink" href="#proof-of-distributivity" title="Permalink to this headline">¶</a></h3>
 <p>As an example, here’s how one could show the distributive property.
 Let</p>
 <div class="math notranslate nohighlight">
@@ -351,15 +553,35 @@ Let</p>
 <p>which is what we set out to prove.</p>
 </div>
 <div class="section" id="is-there-a-better-way">
-<h2>Is there a better way?<a class="headerlink" href="#is-there-a-better-way" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">3.5.4.2. </span>Is there a better way?<a class="headerlink" href="#is-there-a-better-way" title="Permalink to this headline">¶</a></h3>
 <p>Similar types of arguments to the one above can be used to show that commutativity or associativity hold.
 For the mathematically inclined reader, this can be a good exercise.
 However, <strong>this style of proof can be tedious.</strong>
 For the time being, we’ll assume that these properties hold without giving explicit proofs.</p>
-<p>In <code class="xref any docutils literal notranslate"><span class="pre">chapter</span> <span class="pre">9</span></code>, we’ll see some mathematical tools that make it much simpler to show these properties of convolution from (more or less) first principles, without relying on so much algebra.</p>
+<p>In <span class="xref myst">chapter 9</span>, we’ll see some mathematical tools that make it much simpler to show these properties of convolution from (more or less) first principles, without relying on so much algebra.</p>
+</div>
 </div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "bloody"
+        },
+        kernelOptions: {
+            kernelName: "bloody",
+            path: "./content/ch03-convolution"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'bloody'</script>
 
               </div>
               
@@ -369,8 +591,8 @@ For the time being, we’ll assume that these properties hold without giving exp
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="Modes.html" title="previous page">Convolution modes</a>
-    <a class='right-next' id="next-link" href="LSI.html" title="next page">Linearity and Shift-invariance</a>
+    <a class='left-prev' id="prev-link" href="Modes.html" title="previous page"><span class="section-number">3.4. </span>Convolution modes</a>
+    <a class='right-next' id="next-link" href="LSI.html" title="next page"><span class="section-number">3.6. </span>Linearity and Shift-invariance</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

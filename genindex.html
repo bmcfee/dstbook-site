@@ -1,11 +1,11 @@
 
 
+
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index &#8212; Digital Signals Theory</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="_static/css/index.css" rel="stylesheet">
@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -30,7 +31,14 @@
     <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" />
 
@@ -80,18 +88,109 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="content/ch01-signals/Intro.html">
-   Signals
+   1. Signals
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch01-signals/Preliminaries.html">
+     1.1. Preliminaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch01-signals/Waves.html">
+     1.2. Periodicity and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch01-signals/Units.html">
+     1.3. Units and dimensional analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch01-signals/Acoustics.html">
+     1.4. Audio and signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch01-signals/Exercises.html">
+     1.5. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="content/ch02-sampling/intro.html">
-   Digital sampling
+   2. Digital sampling
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch02-sampling/Sampling.html">
+     2.1. Sampling period and rate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch02-sampling/Aliasing.html">
+     2.2. Aliasing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch02-sampling/Nyquist.html">
+     2.3. The Nyquist-Shannon sampling theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch02-sampling/Quantization.html">
+     2.4. Quantization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch02-sampling/Exercises.html">
+     2.5. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="content/ch03-convolution/intro.html">
-   Convolution
+   3. Convolution
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch03-convolution/Building.html">
+     3.1. Delay, gain, and mix
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch03-convolution/Convolution.html">
+     3.2. Defining convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch03-convolution/IR.html">
+     3.3. Impulse Response
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch03-convolution/Modes.html">
+     3.4. Convolution modes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch03-convolution/Properties.html">
+     3.5. Properties of convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch03-convolution/LSI.html">
+     3.6. Linearity and Shift-invariance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch03-convolution/Exercises.html">
+     3.7. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -102,13 +201,143 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="content/ch04-fourier/intro.html">
-   The Discrete Fourier Transform
+   1. The Discrete Fourier Transform
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch04-fourier/Similarity.html">
+     1.1. Similarity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch04-fourier/Cosine.html">
+     1.2. Comparing to sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch04-fourier/AnalysisFrequencies.html">
+     1.3. Analysis frequencies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch04-fourier/Phase.html">
+     1.4. Phase
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch04-fourier/DFT.html">
+     1.5. The Discrete Fourier Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch04-fourier/Examples.html">
+     1.6. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch04-fourier/SummingSinusoids.html">
+     1.7. Summing sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch04-fourier/Exercises.html">
+     1.8. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="content/ch05-dft-properties/intro.html">
-   Properties of the DFT
+   2. Properties of the DFT
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch05-dft-properties/Linearity.html">
+     2.1. Linearity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch05-dft-properties/Shifting.html">
+     2.2. The DFT shifting theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch05-dft-properties/Conjugate-Symmetry.html">
+     2.3. Conjugate Symmetry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch05-dft-properties/Leakage.html">
+     2.4. Spectral leakage and windowing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch05-dft-properties/Exercises.html">
+     2.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/ch06-inverse-dft/intro.html">
+   3. DFT Invertibility
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch06-inverse-dft/InverseDFT.html">
+     3.1. The Inverse DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch06-inverse-dft/Exercises.html">
+     3.2. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/ch07-fft/intro.html">
+   4. Fast Fourier Transform
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch07-fft/DFT-Analysis.html">
+     4.1. Time-analysis of the DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch07-fft/FFT.html">
+     4.2. Radix-2 Cooley-Tukey
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch07-fft/Exercises.html">
+     4.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/ch08-stft/intro.html">
+   5. Time-frequency representation
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch08-stft/Framing.html">
+     5.1. Framing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch08-stft/STFT.html">
+     5.2. The Short-time Fourier Transform (STFT)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="content/ch08-stft/Exercises.html">
+     5.3. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -119,27 +348,27 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="content/appendix/Fundamentals.html">
-   Mathematical fundamentals
+   1. Mathematical fundamentals
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="content/appendix/Algebra.html">
-   Algebra
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="content/appendix/Trigonometry.html">
-   Trigonometry
+   2. Algebra
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="content/appendix/Complex.html">
-   Complex numbers
+   3. Complex numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="content/appendix/Trigonometry.html">
+   4. Trigonometry
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="content/appendix/Python.html">
-   Programming in Python
+   5. Programming in Python
   </a>
  </li>
 </ul>

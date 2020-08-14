@@ -5,6 +5,10 @@
 }
 
 body { background-color: #fefefa;}
+div.cell div.cell_input {
+    background-color: #f7f7f3;
+}
+
 
 /*
 colors = ['#0271AE', '#DC2830', '#FFC438',  # blue, red, light orange
@@ -37,6 +41,10 @@ div.section {
 p.caption {
     text-align: justify;
     text-justify: inter-word;
+}
+span.caption-text {
+    text-align: left;
+    text-justify: auto;
 }
 
 /* Fixing up some pygments and code-styling CSS for accessibility */

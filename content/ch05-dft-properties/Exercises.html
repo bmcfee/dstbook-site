@@ -2,11 +2,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercises &#8212; Digital Signals Theory</title>
+    <title>2.5. Exercises &#8212; Digital Signals Theory</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -14,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -30,11 +30,18 @@
     <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Mathematical fundamentals" href="../appendix/Fundamentals.html" />
-    <link rel="prev" title="Spectral leakage and windowing" href="Leakage.html" />
+    <link rel="next" title="3. DFT Invertibility" href="../ch06-inverse-dft/intro.html" />
+    <link rel="prev" title="2.4. Spectral leakage and windowing" href="Leakage.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -82,18 +89,109 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../ch01-signals/Intro.html">
-   Signals
+   1. Signals
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Preliminaries.html">
+     1.1. Preliminaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Waves.html">
+     1.2. Periodicity and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Units.html">
+     1.3. Units and dimensional analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Acoustics.html">
+     1.4. Audio and signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Exercises.html">
+     1.5. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ch02-sampling/intro.html">
-   Digital sampling
+   2. Digital sampling
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Sampling.html">
+     2.1. Sampling period and rate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Aliasing.html">
+     2.2. Aliasing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Nyquist.html">
+     2.3. The Nyquist-Shannon sampling theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Quantization.html">
+     2.4. Quantization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Exercises.html">
+     2.5. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ch03-convolution/intro.html">
-   Convolution
+   3. Convolution
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Building.html">
+     3.1. Delay, gain, and mix
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Convolution.html">
+     3.2. Defining convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/IR.html">
+     3.3. Impulse Response
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Modes.html">
+     3.4. Convolution modes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Properties.html">
+     3.5. Properties of convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/LSI.html">
+     3.6. Linearity and Shift-invariance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Exercises.html">
+     3.7. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -104,37 +202,140 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../ch04-fourier/intro.html">
-   The Discrete Fourier Transform
+   1. The Discrete Fourier Transform
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Similarity.html">
+     1.1. Similarity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Cosine.html">
+     1.2. Comparing to sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/AnalysisFrequencies.html">
+     1.3. Analysis frequencies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Phase.html">
+     1.4. Phase
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/DFT.html">
+     1.5. The Discrete Fourier Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Examples.html">
+     1.6. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/SummingSinusoids.html">
+     1.7. Summing sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Exercises.html">
+     1.8. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 current active">
   <a class="reference internal" href="intro.html">
-   Properties of the DFT
+   2. Properties of the DFT
   </a>
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="Linearity.html">
-     Linearity
+     2.1. Linearity
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Shifting.html">
-     The DFT shifting theorem
+     2.2. The DFT shifting theorem
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Conjugate-Symmetry.html">
-     Conjugate Symmetry
+     2.3. Conjugate Symmetry
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Leakage.html">
-     Spectral leakage and windowing
+     2.4. Spectral leakage and windowing
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Exercises
+     2.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch06-inverse-dft/intro.html">
+   3. DFT Invertibility
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-inverse-dft/InverseDFT.html">
+     3.1. The Inverse DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-inverse-dft/Exercises.html">
+     3.2. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch07-fft/intro.html">
+   4. Fast Fourier Transform
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-fft/DFT-Analysis.html">
+     4.1. Time-analysis of the DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-fft/FFT.html">
+     4.2. Radix-2 Cooley-Tukey
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-fft/Exercises.html">
+     4.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch08-stft/intro.html">
+   5. Time-frequency representation
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-stft/Framing.html">
+     5.1. Framing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-stft/STFT.html">
+     5.2. The Short-time Fourier Transform (STFT)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-stft/Exercises.html">
+     5.3. Exercises
     </a>
    </li>
   </ul>
@@ -148,27 +349,27 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/Fundamentals.html">
-   Mathematical fundamentals
+   1. Mathematical fundamentals
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/Algebra.html">
-   Algebra
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../appendix/Trigonometry.html">
-   Trigonometry
+   2. Algebra
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/Complex.html">
-   Complex numbers
+   3. Complex numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Trigonometry.html">
+   4. Trigonometry
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/Python.html">
-   Programming in Python
+   5. Programming in Python
   </a>
  </li>
 </ul>
@@ -237,7 +438,7 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> On this page
+            <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
             
@@ -250,11 +451,43 @@
               <div>
                 
   <div class="section" id="exercises">
-<h1>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">2.5. </span>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h1>
 <div class="cell tag_remove_input docutils container">
 </div>
+<ol>
+<li><p>In general, magnitude is not a linear operation for complex numbers: <span class="math notranslate nohighlight">\(|w + z| \neq |w| + |z|\)</span>.  Are there any special cases where this equality does hold?  That is, can you find two complex numbers <span class="math notranslate nohighlight">\(w\)</span> and <span class="math notranslate nohighlight">\(z\)</span> such that <span class="math notranslate nohighlight">\(|w + z| = |w| + |z|\)</span>?  If so, what general property must these numbers satisfy to ensure that equality holds?</p></li>
+<li><p>The DFT shifting theorem gives an equation to express <span class="math notranslate nohighlight">\(Y[m]\)</span> as a complex rotation of <span class="math notranslate nohighlight">\(X[m]\)</span> when <span class="math notranslate nohighlight">\(y[n]\)</span> is a cyclic shift of <span class="math notranslate nohighlight">\(x[n]\)</span>.  For a fixed frequency index <span class="math notranslate nohighlight">\(m\)</span> and signal length <span class="math notranslate nohighlight">\(N\)</span>, can you find a delay <span class="math notranslate nohighlight">\(d \notin \{0, N\}\)</span> such that <span class="math notranslate nohighlight">\(X[m] = Y[m]\)</span>?  That is, is there a non-trivial delay that leaves <span class="math notranslate nohighlight">\(X[m]\)</span> unchanged?</p></li>
+<li><p>Let <span class="math notranslate nohighlight">\(y[n] = x[N-n]\)</span> be the time-reversal of <span class="math notranslate nohighlight">\(x[n]\)</span>.  What can you say about how the DFT <span class="math notranslate nohighlight">\(Y[m]\)</span> relates to <span class="math notranslate nohighlight">\(X[m]\)</span>?</p></li>
+<li><p>Create (or find) a recording of an instrument playing a single, isolated note.  Analyze the recording using:</p>
+<ul class="simple">
+<li><p>No windowing function: <code class="docutils literal notranslate"><span class="pre">np.fft.rfft(x)</span></code></p></li>
+<li><p>Hann window: <code class="docutils literal notranslate"><span class="pre">np.fft.rfft(x</span> <span class="pre">*</span> <span class="pre">scipy.signal.hann(len(x),</span> <span class="pre">sym=False))</span></code></p></li>
+<li><p>Two other window functions of your choice: e.g., Hamming, triangular, Kaiser, Blackman-Harris, etc.</p></li>
+</ul>
+<p>How do the resulting spectra compare to each other, qualitatively?  In particular, how do the height and widths of the spectral peaks change when different windows are used?</p>
+</li>
+</ol>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "bloody"
+        },
+        kernelOptions: {
+            kernelName: "bloody",
+            path: "./content/ch05-dft-properties"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'bloody'</script>
 
               </div>
               
@@ -264,8 +497,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="Leakage.html" title="previous page">Spectral leakage and windowing</a>
-    <a class='right-next' id="next-link" href="../appendix/Fundamentals.html" title="next page">Mathematical fundamentals</a>
+    <a class='left-prev' id="prev-link" href="Leakage.html" title="previous page"><span class="section-number">2.4. </span>Spectral leakage and windowing</a>
+    <a class='right-next' id="next-link" href="../ch06-inverse-dft/intro.html" title="next page"><span class="section-number">3. </span>DFT Invertibility</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

@@ -2,11 +2,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Nyquist-Shannon sampling theorem &#8212; Digital Signals Theory</title>
+    <title>2.3. The Nyquist-Shannon sampling theorem &#8212; Digital Signals Theory</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -14,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -30,11 +30,18 @@
     <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Quantization" href="Quantization.html" />
-    <link rel="prev" title="Aliasing" href="Aliasing.html" />
+    <link rel="next" title="2.4. Quantization" href="Quantization.html" />
+    <link rel="prev" title="2.2. Aliasing" href="Aliasing.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -82,60 +89,109 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../ch01-signals/Intro.html">
-   Signals
+   1. Signals
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Preliminaries.html">
+     1.1. Preliminaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Waves.html">
+     1.2. Periodicity and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Units.html">
+     1.3. Units and dimensional analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Acoustics.html">
+     1.4. Audio and signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Exercises.html">
+     1.5. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 current active">
   <a class="reference internal" href="intro.html">
-   Digital sampling
+   2. Digital sampling
   </a>
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="Sampling.html">
-     Sampling period and rate
+     2.1. Sampling period and rate
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Aliasing.html">
-     Aliasing
+     2.2. Aliasing
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     The Nyquist-Shannon sampling theorem
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="#band-limiting-in-practice">
-     Band-limiting in practice
+     2.3. The Nyquist-Shannon sampling theorem
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Quantization.html">
-     Quantization
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Quantization.html#the-effects-of-quantization">
-     The effects of quantization
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="Quantization.html#quantization-in-practice">
-     Quantization in practice
+     2.4. Quantization
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Exercises.html">
-     Exercises
+     2.5. Exercises
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ch03-convolution/intro.html">
-   Convolution
+   3. Convolution
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Building.html">
+     3.1. Delay, gain, and mix
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Convolution.html">
+     3.2. Defining convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/IR.html">
+     3.3. Impulse Response
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Modes.html">
+     3.4. Convolution modes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Properties.html">
+     3.5. Properties of convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/LSI.html">
+     3.6. Linearity and Shift-invariance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Exercises.html">
+     3.7. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -146,13 +202,143 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../ch04-fourier/intro.html">
-   The Discrete Fourier Transform
+   1. The Discrete Fourier Transform
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Similarity.html">
+     1.1. Similarity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Cosine.html">
+     1.2. Comparing to sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/AnalysisFrequencies.html">
+     1.3. Analysis frequencies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Phase.html">
+     1.4. Phase
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/DFT.html">
+     1.5. The Discrete Fourier Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Examples.html">
+     1.6. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/SummingSinusoids.html">
+     1.7. Summing sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-fourier/Exercises.html">
+     1.8. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ch05-dft-properties/intro.html">
-   Properties of the DFT
+   2. Properties of the DFT
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Linearity.html">
+     2.1. Linearity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Shifting.html">
+     2.2. The DFT shifting theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Conjugate-Symmetry.html">
+     2.3. Conjugate Symmetry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Leakage.html">
+     2.4. Spectral leakage and windowing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Exercises.html">
+     2.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch06-inverse-dft/intro.html">
+   3. DFT Invertibility
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-inverse-dft/InverseDFT.html">
+     3.1. The Inverse DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-inverse-dft/Exercises.html">
+     3.2. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch07-fft/intro.html">
+   4. Fast Fourier Transform
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-fft/DFT-Analysis.html">
+     4.1. Time-analysis of the DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-fft/FFT.html">
+     4.2. Radix-2 Cooley-Tukey
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-fft/Exercises.html">
+     4.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch08-stft/intro.html">
+   5. Time-frequency representation
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-stft/Framing.html">
+     5.1. Framing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-stft/STFT.html">
+     5.2. The Short-time Fourier Transform (STFT)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-stft/Exercises.html">
+     5.3. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -163,27 +349,27 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/Fundamentals.html">
-   Mathematical fundamentals
+   1. Mathematical fundamentals
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/Algebra.html">
-   Algebra
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../appendix/Trigonometry.html">
-   Trigonometry
+   2. Algebra
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/Complex.html">
-   Complex numbers
+   3. Complex numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Trigonometry.html">
+   4. Trigonometry
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/Python.html">
-   Programming in Python
+   5. Programming in Python
   </a>
  </li>
 </ul>
@@ -252,28 +438,45 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> On this page
+            <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sampling-pure-tones-and-combinations">
-   Sampling pure tones and combinations
+   2.3.1. Sampling pure tones and combinations
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#band-limited-sampling">
-   Band-limited sampling
+   2.3.2. Band-limited sampling
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
-   The Nyquist-Shannon sampling theorem
+   2.3.3. The Nyquist-Shannon sampling theorem
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#proof-of-the-theorem">
-     Proof of the theorem
+     2.3.3.1. Proof of the theorem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#band-limiting-in-practice">
+   2.3.4. Band-limiting in practice
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-the-bandwidth">
+     2.3.4.1. Setting the bandwidth
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#putting-it-all-together">
+     2.3.4.2. Putting it all together
     </a>
    </li>
   </ul>
@@ -289,7 +492,7 @@
               <div>
                 
   <div class="section" id="the-nyquist-shannon-sampling-theorem">
-<h1>The Nyquist-Shannon sampling theorem<a class="headerlink" href="#the-nyquist-shannon-sampling-theorem" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">2.3. </span>The Nyquist-Shannon sampling theorem<a class="headerlink" href="#the-nyquist-shannon-sampling-theorem" title="Permalink to this headline">¶</a></h1>
 <p>In the previous section, we saw that aliasing occurs between frequencies related by an integer multiple of the sampling rate <span class="math notranslate nohighlight">\(f_s\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -316,7 +519,7 @@ It is not!</p>
 <p>Proving that (continuous) signals can be expressed as a combination of sinuoids is a bit out of scope for us here, but we will show in a later chapter that this holds in the discrete case: every discrete signal <span class="math notranslate nohighlight">\(x[n]\)</span> can be expressed as a weighted sum of discrete (sampled) sinusoids.</p>
 </div>
 <div class="section" id="sampling-pure-tones-and-combinations">
-<h2>Sampling pure tones and combinations<a class="headerlink" href="#sampling-pure-tones-and-combinations" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.3.1. </span>Sampling pure tones and combinations<a class="headerlink" href="#sampling-pure-tones-and-combinations" title="Permalink to this headline">¶</a></h2>
 <p>The sampling theorem is most easily understood in terms of pure tones (sinusoids).
 While most any signal you encounter out in the world is unlikely to be a pure sinusoid, it turns out that under very mild conditions, <strong>every</strong> continuous signal can be expressed as a <strong>combination of sinusoids</strong>.
 By <strong>combination</strong>, we specifically mean a weighted sum, possibly with different phase offsets for each frequency:</p>
@@ -342,7 +545,7 @@ Note that we don’t need to know the specific values for <span class="math notr
 It suffices to know that they exist.</p>
 </div>
 <div class="section" id="band-limited-sampling">
-<span id="band-limiting"></span><h2>Band-limited sampling<a class="headerlink" href="#band-limited-sampling" title="Permalink to this headline">¶</a></h2>
+<span id="band-limiting"></span><h2><span class="section-number">2.3.2. </span>Band-limited sampling<a class="headerlink" href="#band-limited-sampling" title="Permalink to this headline">¶</a></h2>
 <p>A signal <span class="math notranslate nohighlight">\(x(t)\)</span> is <strong>band-limited</strong> if it can be expressed as a combination (weighted sum) of pure sinusoids whose frequencies lie between some minimum frequency <span class="math notranslate nohighlight">\(f_-\)</span> and some maximum frequency <span class="math notranslate nohighlight">\(f_+ \geq f_-\)</span>.
 The size of this <em>band</em> of frequencies,</p>
 <div class="math notranslate nohighlight">
@@ -354,7 +557,7 @@ f_+ - f_-
 <p>The basic idea of the Nyquist-Shannon theorem is that if the sampling rate <span class="math notranslate nohighlight">\(f_s\)</span> is sufficiently large (compared to the bandwidth of the signal), then aliasing can’t hurt us: <strong>aliases must have zero amplitude.</strong></p>
 </div>
 <div class="section" id="id1">
-<h2>The Nyquist-Shannon sampling theorem<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">2.3.3. </span>The Nyquist-Shannon sampling theorem<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>We can now formally state the sampling theorem due to <a class="reference external" href="https://en.wikipedia.org/wiki/Harry_Nyquist">Harry Nyquist</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Claude_Shannon">Claude Shannon</a>.
 (We’ll actually state a simpler form of their theorem that’s sufficient for our needs.)</p>
 <div class="important admonition">
@@ -362,7 +565,7 @@ f_+ - f_-
 <p>If <span class="math notranslate nohighlight">\(x(t)\)</span> band-limited to the range <span class="math notranslate nohighlight">\(f_- \dots f_+\)</span>, then any sampling rate <span class="math notranslate nohighlight">\(f_s \geq f_+ - f_-\)</span> is sufficient to prevent aliasing.</p>
 </div>
 <div class="section" id="proof-of-the-theorem">
-<h3>Proof of the theorem<a class="headerlink" href="#proof-of-the-theorem" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">2.3.3.1. </span>Proof of the theorem<a class="headerlink" href="#proof-of-the-theorem" title="Permalink to this headline">¶</a></h3>
 <p>Pick any frequency <span class="math notranslate nohighlight">\(f\)</span>, which will have aliasing frequencies of the form <span class="math notranslate nohighlight">\(f' = f + k \cdot f_s\)</span> for integer values <span class="math notranslate nohighlight">\(k\)</span>.
 Because the space between aliases is at least <span class="math notranslate nohighlight">\(f_s\)</span>, and the bandwidth of the signal is at most <span class="math notranslate nohighlight">\(f_s\)</span>, any aliasing frequency <span class="math notranslate nohighlight">\(f'\)</span> must reside outside the frequency range of <span class="math notranslate nohighlight">\(x(t)\)</span> as depicted below.</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">
@@ -370,21 +573,20 @@ Because the space between aliases is at least <span class="math notranslate nohi
 <div class="figure align-default" id="id2">
 <div class="cell_output docutils container">
 <img alt="../../_images/Nyquist_8_0.svg" src="../../_images/Nyquist_8_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">The shaded region indicates frequencies within the band limits of the signal.
+<p class="caption"><span class="caption-number">Fig. 2.4 </span><span class="caption-text">The shaded region indicates frequencies within the band limits of the signal.
 If the sampling rate <span class="math notranslate nohighlight">\(f_s\)</span> is sufficiently high, then aliases of <span class="math notranslate nohighlight">\(f\)</span> inside the band limits must land outside.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p>As a result, the discrete sampled signal <span class="math notranslate nohighlight">\(x[n]\)</span> will depend only on those frequencies within the band limits <span class="math notranslate nohighlight">\(f_- &lt; f &lt; f_+\)</span>, which cannot be aliases of each other.</p>
 </div>
 </div>
-</div>
 <div class="section" id="band-limiting-in-practice">
-<h1>Band-limiting in practice<a class="headerlink" href="#band-limiting-in-practice" title="Permalink to this headline">¶</a></h1>
+<h2><span class="section-number">2.3.4. </span>Band-limiting in practice<a class="headerlink" href="#band-limiting-in-practice" title="Permalink to this headline">¶</a></h2>
 <p>The Nyquist-Shannon theorem tells us how to choose a sampling rate, provided we know the band limits of the signal(s) we’d like to sample.
 But how do we ensure that <span class="math notranslate nohighlight">\(x(t)\)</span> is actually band-limited?</p>
 <p>In hardware analog-to-digital converters (ADCs), this is done by using an analog circuit to filter the continuous signal and remove any frequencies above <span class="math notranslate nohighlight">\(f_+\)</span> prior to sampling.
 If you’ve ever seen a tone knob on an electric guitar, the principle is very much the same.</p>
 <div class="section" id="setting-the-bandwidth">
-<h2>Setting the bandwidth<a class="headerlink" href="#setting-the-bandwidth" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">2.3.4.1. </span>Setting the bandwidth<a class="headerlink" href="#setting-the-bandwidth" title="Permalink to this headline">¶</a></h3>
 <p>At a first glance, the Nyquist-Shannon theorem might suggest to set <span class="math notranslate nohighlight">\(f_- = 0\)</span> and <span class="math notranslate nohighlight">\(f_+\)</span> to some reasonable maximum frequency, e.g. for audio, the upper range of human hearing (about 20000 Hz).
 Unfortunately, this approach won’t work.</p>
 <p>To see why, consider the two signals plotted below: one has a frequency of 5 Hz, and the other has a frequency of -5 Hz:</p>
@@ -400,7 +602,7 @@ x_2(t) &amp;= \cos\left(2\pi \cdot (-5) \cdot t\right).
 <div class="figure align-default" id="id3">
 <div class="cell_output docutils container">
 <img alt="../../_images/Nyquist_13_0.svg" src="../../_images/Nyquist_13_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Two cosine waves, one with positive frequency and one with negative frequency.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.5 </span><span class="caption-text">Two cosine waves, one with positive frequency and one with negative frequency.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <div class="dropdown tip admonition">
 <p class="admonition-title">Can you tell which is which?</p>
@@ -421,7 +623,7 @@ In that case, negative frequency <em>can</em> be distinguished from positive fre
 <p>which implies</p>
 <div class="math notranslate nohighlight">
 \[\cos\left(2\pi \cdot (-f)\cdot t + \phi\right) = \cos\left(2\pi \cdot f \cdot t - \phi\right).\]</div>
-<p>For sine waves, there is an anti-symmetry property, which we can combine with the phase inversion property (eq. <a class="reference internal" href="../ch01-signals/Waves.html#equation-phase-negation">(4)</a>):</p>
+<p>For sine waves, there is an anti-symmetry property, which we can combine with the phase inversion property (eq. <a class="reference internal" href="../ch01-signals/Waves.html#equation-phase-negation">(1.4)</a>):</p>
 <div class="math notranslate nohighlight">
 \[\sin(-\theta) = -\sin(\theta) = \sin(\theta - \pi),\]</div>
 <p>which implies</p>
@@ -431,10 +633,10 @@ In that case, negative frequency <em>can</em> be distinguished from positive fre
 Put another way, for any frequency <span class="math notranslate nohighlight">\(f\)</span> that we want to keep, we must also keep <span class="math notranslate nohighlight">\(-f\)</span>, so our band limits must be symmetric around 0.</p>
 </div>
 <div class="section" id="putting-it-all-together">
-<h2>Putting it all together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this headline">¶</a></h2>
+<h3><span class="section-number">2.3.4.2. </span>Putting it all together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this headline">¶</a></h3>
 <p>The symmetry argument above tells us that we must have <span class="math notranslate nohighlight">\(f_- = -f_+\)</span>.  This leads to the more common formula for the sampling rate in the Nyquist-Shannon theorem:</p>
 <div class="math notranslate nohighlight" id="equation-nyquist-frequency">
-<span class="eqno">(10)<a class="headerlink" href="#equation-nyquist-frequency" title="Permalink to this equation">¶</a></span>\[f_s \geq 2\cdot f_+,\]</div>
+<span class="eqno">(2.5)<a class="headerlink" href="#equation-nyquist-frequency" title="Permalink to this equation">¶</a></span>\[f_s \geq 2\cdot f_+,\]</div>
 <p>because <span class="math notranslate nohighlight">\(f_+ - f_- = f_+ - (-f_+) = 2\cdot f_+\)</span>.</p>
 <p>Alternatively, for a fixed sampling rate <span class="math notranslate nohighlight">\(f_s\)</span>, the highest frequency that can be measured without aliasing artifacts is <span class="math notranslate nohighlight">\(f_s / 2\)</span>, also known as the <strong>Nyquist frequency</strong> (for sampling rate <span class="math notranslate nohighlight">\(f_s\)</span>).</p>
 <p>For audio applications, we typically want <span class="math notranslate nohighlight">\(f_+\)</span> to be sufficiently large to capture the audible range, which for humans, generally spans <span class="math notranslate nohighlight">\(30\)</span> to <span class="math notranslate nohighlight">\(20000\)</span> Hz.
@@ -442,7 +644,27 @@ This suggests a sampling rate <span class="math notranslate nohighlight">\(f_s \
 Combining this with a few various technological constraints resulted in the standard rate <span class="math notranslate nohighlight">\(f_s = 44100\)</span> Hz for compact disc quality audio, and which is still commonly used today.</p>
 </div>
 </div>
+</div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "bloody"
+        },
+        kernelOptions: {
+            kernelName: "bloody",
+            path: "./content/ch02-sampling"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'bloody'</script>
 
               </div>
               
@@ -452,8 +674,8 @@ Combining this with a few various technological constraints resulted in the stan
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="Aliasing.html" title="previous page">Aliasing</a>
-    <a class='right-next' id="next-link" href="Quantization.html" title="next page">Quantization</a>
+    <a class='left-prev' id="prev-link" href="Aliasing.html" title="previous page"><span class="section-number">2.2. </span>Aliasing</a>
+    <a class='right-next' id="next-link" href="Quantization.html" title="next page"><span class="section-number">2.4. </span>Quantization</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

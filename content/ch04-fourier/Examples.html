@@ -2,11 +2,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Examples &#8212; Digital Signals Theory</title>
+    <title>1.6. Examples &#8212; Digital Signals Theory</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -14,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
@@ -30,11 +30,18 @@
     <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Exercises" href="Exercises.html" />
-    <link rel="prev" title="The Discrete Fourier Transform" href="DFT.html" />
+    <link rel="next" title="1.7. Summing sinusoids" href="SummingSinusoids.html" />
+    <link rel="prev" title="1.5. The Discrete Fourier Transform" href="DFT.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -82,18 +89,109 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../ch01-signals/Intro.html">
-   Signals
+   1. Signals
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Preliminaries.html">
+     1.1. Preliminaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Waves.html">
+     1.2. Periodicity and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Units.html">
+     1.3. Units and dimensional analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Acoustics.html">
+     1.4. Audio and signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Exercises.html">
+     1.5. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ch02-sampling/intro.html">
-   Digital sampling
+   2. Digital sampling
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Sampling.html">
+     2.1. Sampling period and rate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Aliasing.html">
+     2.2. Aliasing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Nyquist.html">
+     2.3. The Nyquist-Shannon sampling theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Quantization.html">
+     2.4. Quantization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Exercises.html">
+     2.5. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ch03-convolution/intro.html">
-   Convolution
+   3. Convolution
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Building.html">
+     3.1. Delay, gain, and mix
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Convolution.html">
+     3.2. Defining convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/IR.html">
+     3.3. Impulse Response
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Modes.html">
+     3.4. Convolution modes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Properties.html">
+     3.5. Properties of convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/LSI.html">
+     3.6. Linearity and Shift-invariance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Exercises.html">
+     3.7. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -104,45 +202,143 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active">
   <a class="reference internal" href="intro.html">
-   The Discrete Fourier Transform
+   1. The Discrete Fourier Transform
   </a>
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="Similarity.html">
-     Similarity
+     1.1. Similarity
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Cosine.html">
-     Comparing to sinusoids
+     1.2. Comparing to sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="AnalysisFrequencies.html">
+     1.3. Analysis frequencies
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Phase.html">
-     Analysis frequencies and phase
+     1.4. Phase
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="DFT.html">
-     The Discrete Fourier Transform
+     1.5. The Discrete Fourier Transform
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Examples
+     1.6. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="SummingSinusoids.html">
+     1.7. Summing sinusoids
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="Exercises.html">
-     Exercises
+     1.8. Exercises
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../ch05-dft-properties/intro.html">
-   Properties of the DFT
+   2. Properties of the DFT
   </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Linearity.html">
+     2.1. Linearity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Shifting.html">
+     2.2. The DFT shifting theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Conjugate-Symmetry.html">
+     2.3. Conjugate Symmetry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Leakage.html">
+     2.4. Spectral leakage and windowing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-dft-properties/Exercises.html">
+     2.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch06-inverse-dft/intro.html">
+   3. DFT Invertibility
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-inverse-dft/InverseDFT.html">
+     3.1. The Inverse DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-inverse-dft/Exercises.html">
+     3.2. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch07-fft/intro.html">
+   4. Fast Fourier Transform
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-fft/DFT-Analysis.html">
+     4.1. Time-analysis of the DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-fft/FFT.html">
+     4.2. Radix-2 Cooley-Tukey
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-fft/Exercises.html">
+     4.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch08-stft/intro.html">
+   5. Time-frequency representation
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-stft/Framing.html">
+     5.1. Framing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-stft/STFT.html">
+     5.2. The Short-time Fourier Transform (STFT)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-stft/Exercises.html">
+     5.3. Exercises
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p class="caption">
@@ -153,27 +349,27 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/Fundamentals.html">
-   Mathematical fundamentals
+   1. Mathematical fundamentals
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/Algebra.html">
-   Algebra
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../appendix/Trigonometry.html">
-   Trigonometry
+   2. Algebra
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/Complex.html">
-   Complex numbers
+   3. Complex numbers
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Trigonometry.html">
+   4. Trigonometry
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/Python.html">
-   Programming in Python
+   5. Programming in Python
   </a>
  </li>
 </ul>
@@ -242,28 +438,28 @@
     <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> On this page
+            <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#impulse-and-delay">
-   Impulse and delay
+   1.6.1. Impulse and delay
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sinusoids">
-   Sinusoids
+   1.6.2. Sinusoids
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#a-real-sound">
-   A real sound
+   1.6.3. A real sound
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#summary">
-   Summary
+   1.6.4. Summary
   </a>
  </li>
 </ul>
@@ -277,11 +473,11 @@
               <div>
                 
   <div class="section" id="examples">
-<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1.6. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
 <div class="cell tag_remove_input docutils container">
 </div>
 <div class="section" id="impulse-and-delay">
-<span id="dft-impulse"></span><h2>Impulse and delay<a class="headerlink" href="#impulse-and-delay" title="Permalink to this headline">¶</a></h2>
+<span id="dft-impulse"></span><h2><span class="section-number">1.6.1. </span>Impulse and delay<a class="headerlink" href="#impulse-and-delay" title="Permalink to this headline">¶</a></h2>
 <p>As a first example, let’s look at an impulse:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\color{#0271AE}{
@@ -289,7 +485,7 @@ x_|[n]} = \begin{cases}
 1 &amp; \text{if } n = 0\\
 0 &amp; \text{otherwise}.
 \end{cases}\end{split}\]</div>
-<p>In this example, the DFT equation <a class="reference internal" href="DFT.html#equation-dft-polar">(30)</a> gives us</p>
+<p>In this example, the DFT equation <a class="reference internal" href="DFT.html#equation-dft-polar">(1.17)</a> gives us</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align*}
 {\color{#444F95}{X[m]}} &amp;= \sum_{n=0}^{N-1} {\color{#0271AE}{x_|[n]}} \cdot {\color{#6E3B87}{\exp\left(-\mathrm{j}\cdot 2\pi \cdot m\cdot n / N \right)}}\\
@@ -314,19 +510,19 @@ x[n]} =
 &amp;= {\color{#444F95}{\exp\left(-\mathrm{j}\cdot 2\pi \cdot m \cdot d / N \right)}}.
 \end{align*}
 \end{split}\]</div>
-<p>Figure <a class="reference internal" href="#impulse-dft"><span class="std std-numref">Fig. 43</span></a> illustrates this for a few different values of <span class="math notranslate nohighlight">\(d\)</span>.</p>
+<p>Figure <a class="reference internal" href="#impulse-dft"><span class="std std-numref">Fig. 1.32</span></a> illustrates this for a few different values of <span class="math notranslate nohighlight">\(d\)</span>.</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">
 </div>
 <div class="figure align-default" id="impulse-dft">
 <div class="cell_output docutils container">
-<img alt="../../_images/Examples_3_0.svg" src="../../_images/Examples_3_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 43 </span><span class="caption-text">Each row shows the time-domain (left) and frequency-domain (right) representation of a <span class="math notranslate nohighlight">\(d\)</span>-step delay signal (for varying values of <span class="math notranslate nohighlight">\(d\)</span>.  The shaded region corresponds to negative analysis frequencies.</span><a class="headerlink" href="#impulse-dft" title="Permalink to this image">¶</a></p>
+<img alt="../../_images/Examples_3_1.svg" src="../../_images/Examples_3_1.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 1.32 </span><span class="caption-text">Each row shows the time-domain (left) and frequency-domain (right) representation of a <span class="math notranslate nohighlight">\(d\)</span>-step delay signal (for varying values of <span class="math notranslate nohighlight">\(d\)</span>.  The shaded region corresponds to negative analysis frequencies.</span><a class="headerlink" href="#impulse-dft" title="Permalink to this image">¶</a></p>
 </div>
 <p>Viewed as a sequence (over <span class="math notranslate nohighlight">\(m\)</span>), the DFT of a delayed impulse produces two sinusoids (one real, one imaginary) which cycle <span class="math notranslate nohighlight">\(d\)</span> times over the duration of the signal.</p>
 <p>This will be useful later on when we revisit convolution!</p>
 </div>
 <div class="section" id="sinusoids">
-<span id="example-sinusoids"></span><h2>Sinusoids<a class="headerlink" href="#sinusoids" title="Permalink to this headline">¶</a></h2>
+<span id="example-sinusoids"></span><h2><span class="section-number">1.6.2. </span>Sinusoids<a class="headerlink" href="#sinusoids" title="Permalink to this headline">¶</a></h2>
 <p>Since the DFT turns impulses into sinusoids, the next logical question to ask is what the DFT does to sinusoids?
 Luckily, we’ve already gone through the work of figuring this out in previous sections.</p>
 <p>Let <span class="math notranslate nohighlight">\(x[n]\)</span> be a sinusoid at analysis frequency index <span class="math notranslate nohighlight">\(k \notin \{0, N/2\}\)</span> with phase <span class="math notranslate nohighlight">\(\phi\)</span> and amplitude <span class="math notranslate nohighlight">\(A\)</span>:</p>
@@ -385,13 +581,13 @@ This gives us</p>
 <div class="figure align-default" id="wave-dft">
 <div class="cell_output docutils container">
 <img alt="../../_images/Examples_7_0.svg" src="../../_images/Examples_7_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 44 </span><span class="caption-text"><em>Left</em>: sinusoids at analysis frequency <span class="math notranslate nohighlight">\(k=3\)</span> with varying phase <span class="math notranslate nohighlight">\(\phi\)</span>.
+<p class="caption"><span class="caption-number">Fig. 1.33 </span><span class="caption-text"><em>Left</em>: sinusoids at analysis frequency <span class="math notranslate nohighlight">\(k=3\)</span> with varying phase <span class="math notranslate nohighlight">\(\phi\)</span>.
 <em>Right</em>: the DFT of a sinusoid is a pair of impulses located at <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(N-k\)</span>.
 The height of the impulses depends on the phase <span class="math notranslate nohighlight">\(\phi\)</span>.</span><a class="headerlink" href="#wave-dft" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="a-real-sound">
-<span id="trumpet-recording"></span><h2>A real sound<a class="headerlink" href="#a-real-sound" title="Permalink to this headline">¶</a></h2>
+<span id="trumpet-recording"></span><h2><span class="section-number">1.6.3. </span>A real sound<a class="headerlink" href="#a-real-sound" title="Permalink to this headline">¶</a></h2>
 <p>The examples above are helpful for building intuition about how the DFT behaves on idealized, synthetic signals.
 However, it’s also helpful to see how the DFT behaves on a real signal.
 Here, we’ll use the DFT to visualize a recording of a single note played on a trumpet.</p>
@@ -420,12 +616,19 @@ Here, we’ll use the DFT to visualize a recording of a single note played on a 
 <span class="c1"># and plot both the signal and its spectrum</span>
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax_time</span><span class="p">,</span> <span class="n">ax_freq</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">/</span> <span class="n">fs</span>  <span class="c1"># get the sample times for x</span>
-<span class="n">ax_time</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>  <span class="c1"># plot the signal</span>
+<span class="c1"># get the sample times for x</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">/</span> <span class="n">fs</span>
+
+<span class="c1"># plot the signal</span>
+<span class="n">ax_time</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>  
+
 <span class="n">ax_time</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Time [seconds]&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Signal $x[n]$&#39;</span><span class="p">)</span>
 
-<span class="n">ax_freq</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>  <span class="c1"># plot the magnitudes |X[m]|</span>
-<span class="n">ax_freq</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># We&#39;ll shade the negative frequency range</span>
+<span class="c1"># plot the magnitudes |X[m]|</span>
+<span class="n">ax_freq</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>  
+
+<span class="c1"># We&#39;ll shade the negative frequency range</span>
+<span class="n">ax_freq</span><span class="o">.</span><span class="n">axvspan</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>  
 <span class="n">ax_freq</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Frequencies $m$&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;DFT magnitude $|X[m]|$&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -458,16 +661,21 @@ So we can instead do:</p>
 <div class="figure align-default" id="trumpet-dft">
 <div class="cell_output docutils container">
 <img alt="../../_images/Examples_12_0.svg" src="../../_images/Examples_12_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 45 </span><span class="caption-text">The DFT spectrum <span class="math notranslate nohighlight">\(|X[m]|\)</span> of a trumpet playing D#5 = 622.25 Hz, plotted as a function of analysis frequency <span class="math notranslate nohighlight">\(f_m\)</span>.
-The middle and bottom plots contain the same information as the top, but zoomed into <span class="math notranslate nohighlight">\(\pm 5\)</span> KHz (middle) and <span class="math notranslate nohighlight">\([600, 700]\)</span> Hz (bottom).
+<p class="caption"><span class="caption-number">Fig. 1.34 </span><span class="caption-text">The DFT spectrum <span class="math notranslate nohighlight">\(|X[m]|\)</span> of a trumpet playing D#5 = 622.25 Hz, plotted as a function of analysis frequency <span class="math notranslate nohighlight">\(f_m\)</span>.
+The middle and bottom plots contain the same information as the top, but zoomed into <span class="math notranslate nohighlight">\(\pm 5\)</span> KHz (middle) and <span class="math notranslate nohighlight">\([500, 700]\)</span> Hz (bottom).
 A prominent peak can be observed near <span class="math notranslate nohighlight">\(f_m \approx 622.25\)</span> (and -622.25).</span><a class="headerlink" href="#trumpet-dft" title="Permalink to this image">¶</a></p>
 </div>
-<p>From <a class="reference internal" href="#trumpet-dft"><span class="std std-numref">Fig. 45</span></a> we can observe that the magnitude spectrum <span class="math notranslate nohighlight">\(|X[m]|\)</span> is very sparse: it has small magnitudes for most frequencies (near 0).
+<p>From <a class="reference internal" href="#trumpet-dft"><span class="std std-numref">Fig. 1.34</span></a> we can observe that the magnitude spectrum <span class="math notranslate nohighlight">\(|X[m]|\)</span> is very sparse: it has small magnitudes for most frequencies (near 0).
 The first prominent peak (starting from 0 and looking to the right) that we can see is very close to the frequency of the note: <span class="math notranslate nohighlight">\(D\sharp 5\)</span>.
 If we want to find the actual frequency of the peak in the spectrum we can do so as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frequencies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreqs</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mf">1.</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>  <span class="c1"># get our DFT frequencies</span>
-<span class="n">peak_m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>  <span class="c1"># find m index of largest magnitude</span>
-<span class="n">f0</span> <span class="o">=</span> <span class="n">frequencies</span><span class="p">[</span><span class="n">peak_m</span><span class="p">]</span>  <span class="c1"># Get the f0 </span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># get our DFT frequencies</span>
+<span class="n">frequencies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreqs</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mf">1.</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>  
+
+<span class="c1"># find m index of largest magnitude</span>
+<span class="n">peak_m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>  
+
+<span class="c1"># Get the f0</span>
+<span class="n">f0</span> <span class="o">=</span> <span class="n">frequencies</span><span class="p">[</span><span class="n">peak_m</span><span class="p">]</span>  
 </pre></div>
 </div>
 <p>Note that the peak is not <em>exactly</em> at the ideal pitch for <span class="math notranslate nohighlight">\(D\sharp 5 = 622.25\)</span>: it lands about 10 cents flat at 618.8 Hz, with energy spread out around neighboring frequencies.
@@ -489,7 +697,7 @@ The amount of energy at each harmonic of a fundamental frequency differs from on
 Do not be deceived by this example though: most signals are <em>not</em> simple, and a visual inspection of the DFT is not generally sufficient to understand all signals.</p>
 </div>
 <div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">1.6.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <p>We’ve now seen the DFT applied to several kinds of signals, producing very different behaviors.
 Sometimes we can reason about the DFT analytically, as in the first two examples.
 Impulses and delays look like sinusoids in the frequency domain.
@@ -500,6 +708,25 @@ With a little practice, one can learn to use the DFT to quickly get a sense of t
 </div>
 </div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "bloody"
+        },
+        kernelOptions: {
+            kernelName: "bloody",
+            path: "./content/ch04-fourier"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'bloody'</script>
 
               </div>
               
@@ -509,8 +736,8 @@ With a little practice, one can learn to use the DFT to quickly get a sense of t
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="DFT.html" title="previous page">The Discrete Fourier Transform</a>
-    <a class='right-next' id="next-link" href="Exercises.html" title="next page">Exercises</a>
+    <a class='left-prev' id="prev-link" href="DFT.html" title="previous page"><span class="section-number">1.5. </span>The Discrete Fourier Transform</a>
+    <a class='right-next' id="next-link" href="SummingSinusoids.html" title="next page"><span class="section-number">1.7. </span>Summing sinusoids</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
