@@ -343,6 +343,45 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
+  Part 3, Filtering
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch09-convtheorem/intro.html">
+   1. Frequency domain convolution
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-convtheorem/ConvolutionTheorem.html">
+     1.1. The Convolution Theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-convtheorem/Filtering.html">
+     1.2. Convolutional Filtering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-convtheorem/FilterDesign.html">
+     1.3. Filter Design and Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-convtheorem/Phase.html">
+     1.4. Phase and group delay
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-convtheorem/Exercises.html">
+     1.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
   Appendix
  </span>
 </p>
@@ -370,6 +409,18 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/Python.html">
    5. Programming in Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  References
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../zzzbibliography.html">
+   1. References
   </a>
  </li>
 </ul>
@@ -489,7 +540,8 @@
   <div class="section" id="audio-and-signals">
 <h1><span class="section-number">1.4. </span>Audio and signals<a class="headerlink" href="#audio-and-signals" title="Permalink to this headline">¶</a></h1>
 <p>We’ll finish this chapter off with a quick overview of acoustic signals: how waves propagate in an environment, and how we can reason about them as signals.</p>
-<p>This introduction is superficial, and will mainly become relevant much later on when we go into convolutional filtering, but it may help to ground some of the principals in physical reality.</p>
+<p>This introduction is superficial, and will mainly become relevant much later on when we go into convolutional filtering, but it may help to ground some of the principals in physical reality.
+For a more thorough introduction to acoustics, readers should consult <a class="bibtex reference internal" href="../zzzbibliography.html#everest-master-2015" id="id1">[EP15]</a>.</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">
 </div>
 <div class="section" id="sound-propagation">
@@ -510,11 +562,11 @@ If <span class="math notranslate nohighlight">\(x_m(t)\)</span> depended on <spa
 <p>We’ve written <span class="math notranslate nohighlight">\(\approx\)</span> here, and not <span class="math notranslate nohighlight">\(=\)</span>, because the signals will not be identical: the amplitude will also change!</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">
 </div>
-<div class="figure align-default" id="id1">
+<div class="figure align-default" id="id2">
 <div class="cell_output docutils container">
 <img alt="../../_images/Acoustics_3_0.svg" src="../../_images/Acoustics_3_0.svg" /></div>
 <p class="caption"><span class="caption-number">Fig. 1.14 </span><span class="caption-text">A signal <span class="math notranslate nohighlight">\(x_s\)</span> emitted by a source (<em>top</em>) and observed by a microphone as <span class="math notranslate nohighlight">\(x_m\)</span> (bottom).
-If the signal takes time <span class="math notranslate nohighlight">\(0.25\)</span> [seconds] to propagate from the source to microphone, then <span class="math notranslate nohighlight">\(x_m(t) = x_s(t-0.25)\)</span>.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+If the signal takes time <span class="math notranslate nohighlight">\(0.4\)</span> [seconds] to propagate from the source to microphone, then <span class="math notranslate nohighlight">\(x_m(t) = x_s(t-0.4)\)</span>.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="pressure-intensity-amplitude-and-loudness">
@@ -559,11 +611,11 @@ If you’re from one of the few countries using “standard” units, think of �
 <p>Human ears and microphones respond to <em>sound pressure</em> (<span class="math notranslate nohighlight">\(p\)</span>), the latter converting pressure to an electrical signal measured in Volts <span class="math notranslate nohighlight">\([\text{V}]\)</span>.</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">
 </div>
-<div class="figure align-default" id="id2">
+<div class="figure align-default" id="id3">
 <div class="cell_output docutils container">
 <img alt="../../_images/Acoustics_6_0.svg" src="../../_images/Acoustics_6_0.svg" /></div>
 <p class="caption"><span class="caption-number">Fig. 1.15 </span><span class="caption-text">An acoustic signal <span class="math notranslate nohighlight">\(x\)</span> causes air pressure to fluctuate around the ambient pressure.
-The amplitude of the signal is given by the maximum difference from the ambient pressure.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+The amplitude of the signal is given by the maximum difference from the ambient pressure.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <p>Sound power (<span class="math notranslate nohighlight">\(P\)</span>) and intensity (<span class="math notranslate nohighlight">\(I\)</span>) are useful for quantifying the transmission of sound through an environment.
 Intensity might seem a bit strange at first glance, as it divides a unit of power (Watts) by a unit of surface area (square-meters).
@@ -598,9 +650,8 @@ The resulting <em>amplitude</em> (<span class="math notranslate nohighlight">\(A
 <p class="admonition-title">Tip</p>
 <p>Signal amplitude <span class="math notranslate nohighlight">\(\propto\)</span> Voltage <span class="math notranslate nohighlight">\(\propto\)</span> Sound pressure</p>
 </div>
-<p>(decibels=)</p>
 <div class="section" id="decibels-db">
-<h3><span class="section-number">1.4.2.1. </span>Decibels (dB)<a class="headerlink" href="#decibels-db" title="Permalink to this headline">¶</a></h3>
+<span id="decibels"></span><h3><span class="section-number">1.4.2.1. </span>Decibels (dB)<a class="headerlink" href="#decibels-db" title="Permalink to this headline">¶</a></h3>
 <p>Human hearing is sensitive to sound pressure, but this sensitivity is not <em>linear</em>.
 A doubling of sound pressure does not result in the perception of being twice as loud!
 As mentioned above, perception of loudness is a complex phenomenon, but to a first approximation, it is fair to say that humans are sensitive to <em>ratios</em> of pressure (<span class="math notranslate nohighlight">\(p_1 / p_2\)</span>), not <em>differences</em> (<span class="math notranslate nohighlight">\(p_1 - p_2\)</span>).
@@ -623,7 +674,7 @@ When specifically applied to sound pressure measurements, we sometimes write <sp
 <p><strong>Some facts about decibels</strong></p>
 <ul class="simple">
 <li><p>Decibels can be positive or negative. A ratio <span class="math notranslate nohighlight">\(&lt;1\)</span> corresponds to negative dB; a ratio <span class="math notranslate nohighlight">\(&gt;1\)</span> corresponds to positive dB.  A ratio of exactly 1 gives 0 dB.</p></li>
-<li><p>A decibel is one tenth of a Bel.  (Nobody really measures things in Bels though.)</p></li>
+<li><p>A decibel is one tenth of a Bel.  (But nobody really measures things in Bels.)</p></li>
 <li><p>An amplitude (or pressure) ratio of 2 (doubling) corresponds to <span class="math notranslate nohighlight">\(20 \log_{10} 2 \approx +6 \left[\text{dB}\right]\)</span>.</p></li>
 <li><p>A pressure ratio of 1/2 (halving) gives <span class="math notranslate nohighlight">\(-6 \left[\text{dB}\right]\)</span>.</p></li>
 <li><p>The standard reference pressure is <span class="math notranslate nohighlight">\(p_0 = 20\)</span> micro-Pascals.</p></li>
@@ -660,11 +711,11 @@ However, the <em>ratio</em> of frequencies separated by an octave is always cons
 <p>One way to think about this multiplicative behavior from some <span class="math notranslate nohighlight">\(f\)</span> to <span class="math notranslate nohighlight">\(f_2 = 2\cdot f\)</span> is that <span class="math notranslate nohighlight">\(f_2\)</span> has 2 cycles for every 1 cycle in <span class="math notranslate nohighlight">\(f\)</span>, as depicted below.</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">
 </div>
-<div class="figure align-default" id="id3">
+<div class="figure align-default" id="id4">
 <div class="cell_output docutils container">
 <img alt="../../_images/Acoustics_13_0.svg" src="../../_images/Acoustics_13_0.svg" /></div>
 <p class="caption"><span class="caption-number">Fig. 1.16 </span><span class="caption-text">Waves at frequencies <span class="math notranslate nohighlight">\(f=2\)</span> [Hz], <span class="math notranslate nohighlight">\(2\cdot f\)</span>, and <span class="math notranslate nohighlight">\(3\cdot f\)</span>.
-Note that <span class="math notranslate nohighlight">\(2\cdot f\)</span> and <span class="math notranslate nohighlight">\(3\cdot f\)</span> complete whole cycles for each cycle of <span class="math notranslate nohighlight">\(f\)</span>, but not for each-other.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+Note that <span class="math notranslate nohighlight">\(2\cdot f\)</span> and <span class="math notranslate nohighlight">\(3\cdot f\)</span> complete whole cycles for each cycle of <span class="math notranslate nohighlight">\(f\)</span>, but not for each-other.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
 </div>
 <p>The multiplicative nature of frequency means that we need to consider ratios rather than differences when comparing frequencies.
 The octave relation <span class="math notranslate nohighlight">\((f, 2\cdot f)\)</span> gives a starting point for generating tuning systems, which map frequencies onto pitches and pitch-classes.</p>
@@ -678,10 +729,10 @@ This implies that each ratio must be <span class="math notranslate nohighlight">
 <p>Finally, to ground the notion of frequency in reality, the figure below illustrates familiar frequency ranges.</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">
 </div>
-<div class="figure align-default" id="id4">
+<div class="figure align-default" id="id5">
 <div class="cell_output docutils container">
 <img alt="../../_images/Acoustics_17_0.svg" src="../../_images/Acoustics_17_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 1.17 </span><span class="caption-text">A visual comparison of important (and not-so-important) frequency ranges.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.17 </span><span class="caption-text">A visual comparison of important (and not-so-important) frequency ranges.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>

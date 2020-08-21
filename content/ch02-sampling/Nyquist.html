@@ -343,6 +343,45 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
+  Part 3, Filtering
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch09-convtheorem/intro.html">
+   1. Frequency domain convolution
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-convtheorem/ConvolutionTheorem.html">
+     1.1. The Convolution Theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-convtheorem/Filtering.html">
+     1.2. Convolutional Filtering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-convtheorem/FilterDesign.html">
+     1.3. Filter Design and Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-convtheorem/Phase.html">
+     1.4. Phase and group delay
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-convtheorem/Exercises.html">
+     1.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
   Appendix
  </span>
 </p>
@@ -370,6 +409,18 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/Python.html">
    5. Programming in Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  References
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../zzzbibliography.html">
+   1. References
   </a>
  </li>
 </ul>
@@ -558,8 +609,13 @@ f_+ - f_-
 </div>
 <div class="section" id="id1">
 <h2><span class="section-number">2.3.3. </span>The Nyquist-Shannon sampling theorem<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>We can now formally state the sampling theorem due to <a class="reference external" href="https://en.wikipedia.org/wiki/Harry_Nyquist">Harry Nyquist</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Claude_Shannon">Claude Shannon</a>.
-(We’ll actually state a simpler form of their theorem that’s sufficient for our needs.)</p>
+<p>We can now formally state the sampling theorem, commonly attributed to <a class="reference external" href="https://en.wikipedia.org/wiki/Harry_Nyquist">Harry Nyquist</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Claude_Shannon">Claude Shannon</a> <a class="bibtex reference internal" href="../zzzbibliography.html#nyquist1928certain" id="id2">[Nyq28]</a><a class="bibtex reference internal" href="../zzzbibliography.html#shannon1949communication" id="id3">[Sha49]</a>.</p>
+<div class="margin sidebar">
+<p class="sidebar-title">Attribution</p>
+<p>Although the sampling theorem is named for Nyquist and Shannon, it was also previously discovered by <a class="reference external" href="https://en.wikipedia.org/wiki/E._T._Whittaker">E.T. Whittaker</a> in 1915 <a class="bibtex reference internal" href="../zzzbibliography.html#whittaker1915interpolation" id="id4">[Whi15]</a> and <a class="reference external" href="https://en.wikipedia.org/wiki/Vladimir_Kotelnikov">Vladimir Kotelnikov</a> in 1933 <a class="bibtex reference internal" href="../zzzbibliography.html#kotelnikov1933transmission" id="id5">[Kot33]</a> (among others).</p>
+<p>This is an unfortunate example of <a class="reference external" href="https://en.wikipedia.org/wiki/Stigler%27s_law_of_eponymy">Stigler’s Law</a>: discoveries are not always named for the people who make them.</p>
+</div>
+<p>We’ll actually state a simpler form of their theorem that’s sufficient for our needs.</p>
 <div class="important admonition">
 <p class="admonition-title">Nyquist-Shannon Theorem</p>
 <p>If <span class="math notranslate nohighlight">\(x(t)\)</span> band-limited to the range <span class="math notranslate nohighlight">\(f_- \dots f_+\)</span>, then any sampling rate <span class="math notranslate nohighlight">\(f_s \geq f_+ - f_-\)</span> is sufficient to prevent aliasing.</p>
@@ -570,11 +626,11 @@ f_+ - f_-
 Because the space between aliases is at least <span class="math notranslate nohighlight">\(f_s\)</span>, and the bandwidth of the signal is at most <span class="math notranslate nohighlight">\(f_s\)</span>, any aliasing frequency <span class="math notranslate nohighlight">\(f'\)</span> must reside outside the frequency range of <span class="math notranslate nohighlight">\(x(t)\)</span> as depicted below.</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">
 </div>
-<div class="figure align-default" id="id2">
+<div class="figure align-default" id="id6">
 <div class="cell_output docutils container">
 <img alt="../../_images/Nyquist_8_0.svg" src="../../_images/Nyquist_8_0.svg" /></div>
 <p class="caption"><span class="caption-number">Fig. 2.4 </span><span class="caption-text">The shaded region indicates frequencies within the band limits of the signal.
-If the sampling rate <span class="math notranslate nohighlight">\(f_s\)</span> is sufficiently high, then aliases of <span class="math notranslate nohighlight">\(f\)</span> inside the band limits must land outside.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+If the sampling rate <span class="math notranslate nohighlight">\(f_s\)</span> is sufficiently high, then aliases of <span class="math notranslate nohighlight">\(f\)</span> inside the band limits must land outside.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
 <p>As a result, the discrete sampled signal <span class="math notranslate nohighlight">\(x[n]\)</span> will depend only on those frequencies within the band limits <span class="math notranslate nohighlight">\(f_- &lt; f &lt; f_+\)</span>, which cannot be aliases of each other.</p>
 </div>
@@ -599,10 +655,10 @@ x_2(t) &amp;= \cos\left(2\pi \cdot (-5) \cdot t\right).
 \end{split}\]</div>
 <div class="cell tag_remove_input tag_remove_output docutils container">
 </div>
-<div class="figure align-default" id="id3">
+<div class="figure align-default" id="id7">
 <div class="cell_output docutils container">
 <img alt="../../_images/Nyquist_13_0.svg" src="../../_images/Nyquist_13_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 2.5 </span><span class="caption-text">Two cosine waves, one with positive frequency and one with negative frequency.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.5 </span><span class="caption-text">Two cosine waves, one with positive frequency and one with negative frequency.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 <div class="dropdown tip admonition">
 <p class="admonition-title">Can you tell which is which?</p>
