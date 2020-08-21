@@ -41,7 +41,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="2. Algebra" href="Algebra.html" />
-    <link rel="prev" title="5.3. Exercises" href="../ch08-stft/Exercises.html" />
+    <link rel="prev" title="1.5. Exercises" href="../ch09-convtheorem/Exercises.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -343,6 +343,45 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
+  Part 3, Filtering
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch09-convtheorem/intro.html">
+   1. Frequency domain convolution
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-convtheorem/ConvolutionTheorem.html">
+     1.1. The Convolution Theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-convtheorem/Filtering.html">
+     1.2. Convolutional Filtering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-convtheorem/FilterDesign.html">
+     1.3. Filter Design and Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-convtheorem/Phase.html">
+     1.4. Phase and group delay
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-convtheorem/Exercises.html">
+     1.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
   Appendix
  </span>
 </p>
@@ -370,6 +409,18 @@
  <li class="toctree-l1">
   <a class="reference internal" href="Python.html">
    5. Programming in Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  References
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../zzzbibliography.html">
+   1. References
   </a>
  </li>
 </ul>
@@ -636,7 +687,7 @@ Note that this is different from powers <span class="math notranslate nohighligh
 <div class="figure align-default" id="id1">
 <div class="cell_output docutils container">
 <img alt="../../_images/Fundamentals_8_0.svg" src="../../_images/Fundamentals_8_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 1.35 </span><span class="caption-text">A quadratic curve <span class="math notranslate nohighlight">\(y=x^2\)</span> and an exponential curve <span class="math notranslate nohighlight">\(y=2^x\)</span> behave very differently.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.46 </span><span class="caption-text">A quadratic curve <span class="math notranslate nohighlight">\(y=x^2\)</span> and an exponential curve <span class="math notranslate nohighlight">\(y=2^x\)</span> behave very differently.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <p>Often, when we refer to an <em>exponential</em>, we really mean a specific base <span class="math notranslate nohighlight">\(e = 2.71828\dots\)</span>, known alternately as “Euler’s number”, or “the base of the natural logarithm”.</p>
 <div class="section" id="rules-for-working-with-exponentials">
@@ -668,7 +719,7 @@ c^{a\cdot b} = {\left(c^a\right)}^b = {\left(c^b\right)}^a
 <h3><span class="section-number">1.6.2. </span>The exponential function<a class="headerlink" href="#the-exponential-function" title="Permalink to this headline">¶</a></h3>
 <p>While it is convenient to regard <span class="math notranslate nohighlight">\(e\)</span> as the number <span class="math notranslate nohighlight">\(2.71828\dots\)</span>, there is an alternative (and more general) definition for <span class="math notranslate nohighlight">\(e\)</span> given by the following infinite summation</p>
 <div class="math notranslate nohighlight" id="equation-exp">
-<span class="eqno">(1.21)<a class="headerlink" href="#equation-exp" title="Permalink to this equation">¶</a></span>\[e := \sum_{n=0}^\infty \frac{1}{n!}\]</div>
+<span class="eqno">(1.27)<a class="headerlink" href="#equation-exp" title="Permalink to this equation">¶</a></span>\[e := \sum_{n=0}^\infty \frac{1}{n!}\]</div>
 <p>where</p>
 <div class="math notranslate nohighlight">
 \[n! := 1\cdot 2 \cdot 3 \cdot \dots \cdot n\]</div>
@@ -680,9 +731,9 @@ c^{a\cdot b} = {\left(c^a\right)}^b = {\left(c^b\right)}^a
 <div class="figure align-default" id="id2">
 <div class="cell_output docutils container">
 <img alt="../../_images/Fundamentals_13_0.svg" src="../../_images/Fundamentals_13_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 1.36 </span><span class="caption-text">The exponential function <span class="math notranslate nohighlight">\(e^x\)</span>.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.47 </span><span class="caption-text">The exponential function <span class="math notranslate nohighlight">\(e^x\)</span>.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
-<p>Note that summation in <a class="reference internal" href="#equation-exp">(1.21)</a> depends on <em>infinitely</em> many terms, and is not something you could explicitly compute.
+<p>Note that summation in <a class="reference internal" href="#equation-exp">(1.27)</a> depends on <em>infinitely</em> many terms, and is not something you could explicitly compute.
 While this could be a problem in some cases, it’s okay here because the terms are getting smaller at a very fast rate:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -781,7 +832,7 @@ Note that <span class="math notranslate nohighlight">\(k\)</span> need not be an
 <div class="figure align-default" id="id3">
 <div class="cell_output docutils container">
 <img alt="../../_images/Fundamentals_20_0.svg" src="../../_images/Fundamentals_20_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 1.37 </span><span class="caption-text">A comparison of the base-2, natural (base-<span class="math notranslate nohighlight">\(e\)</span>), and base-10 logarithms of <span class="math notranslate nohighlight">\(x\)</span>.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.48 </span><span class="caption-text">A comparison of the base-2, natural (base-<span class="math notranslate nohighlight">\(e\)</span>), and base-10 logarithms of <span class="math notranslate nohighlight">\(x\)</span>.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -815,7 +866,7 @@ Note that <span class="math notranslate nohighlight">\(k\)</span> need not be an
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../ch08-stft/Exercises.html" title="previous page"><span class="section-number">5.3. </span>Exercises</a>
+    <a class='left-prev' id="prev-link" href="../ch09-convtheorem/Exercises.html" title="previous page"><span class="section-number">1.5. </span>Exercises</a>
     <a class='right-next' id="next-link" href="Algebra.html" title="next page"><span class="section-number">2. </span>Algebra</a>
 
     </div>

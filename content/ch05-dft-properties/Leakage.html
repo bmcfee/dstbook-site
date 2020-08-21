@@ -343,6 +343,45 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
+  Part 3, Filtering
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch09-convtheorem/intro.html">
+   1. Frequency domain convolution
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-convtheorem/ConvolutionTheorem.html">
+     1.1. The Convolution Theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-convtheorem/Filtering.html">
+     1.2. Convolutional Filtering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-convtheorem/FilterDesign.html">
+     1.3. Filter Design and Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-convtheorem/Phase.html">
+     1.4. Phase and group delay
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-convtheorem/Exercises.html">
+     1.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
   Appendix
  </span>
 </p>
@@ -370,6 +409,18 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/Python.html">
    5. Programming in Python
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  References
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../zzzbibliography.html">
+   1. References
   </a>
  </li>
 </ul>
@@ -479,9 +530,8 @@
         
               <div>
                 
-  <p>(leakage=)</p>
-<div class="section" id="spectral-leakage-and-windowing">
-<h1><span class="section-number">2.4. </span>Spectral leakage and windowing<a class="headerlink" href="#spectral-leakage-and-windowing" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="spectral-leakage-and-windowing">
+<span id="leakage"></span><h1><span class="section-number">2.4. </span>Spectral leakage and windowing<a class="headerlink" href="#spectral-leakage-and-windowing" title="Permalink to this headline">¶</a></h1>
 <div class="cell tag_remove_input docutils container">
 </div>
 <p>In this section, we’ll take a more in-depth look at how the DFT responds to non-analysis frequencies, and how we might counteract these effects.</p>
@@ -491,13 +541,13 @@ If we were to listen to a signal like this on a repeating loop, these discontinu
 This produces the following wave:</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">
 </div>
-<div class="figure align-default" id="id1">
+<div class="figure align-default" id="id2">
 <div class="cell_output docutils container">
 <img alt="../../_images/Leakage_4_0.svg" src="../../_images/Leakage_4_0.svg" /></div>
 <p class="caption"><span class="caption-number">Fig. 2.13 </span><span class="caption-text"><em>Top</em>: A wave at frequency <span class="math notranslate nohighlight">\(f=111\)</span>, with sampling rate <span class="math notranslate nohighlight">\(f_s=500\)</span> and duration of 1/4 second (<span class="math notranslate nohighlight">\(N=f_s/4\)</span>).
 <span class="math notranslate nohighlight">\(f=111\)</span> is not an integer multiple of <span class="math notranslate nohighlight">\(f_s/N = 4\)</span>, so it is not an analysis frequency.
 Note the large gap between samples when the signal repeats at <span class="math notranslate nohighlight">\(t=0.25\)</span>.
-<em>Bottom</em>: The DFT spectrum of <span class="math notranslate nohighlight">\(x[n]\)</span>, displayed on a logarithmic scale.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<em>Bottom</em>: The DFT spectrum of <span class="math notranslate nohighlight">\(x[n]\)</span>, displayed on a logarithmic scale.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p>Looping this sample 8 times produces a signal of duration <span class="math notranslate nohighlight">\(N= 2\cdot f_s = 2\)</span> seconds, with audible glitches every 1/4 second:</p>
 <div class="cell tag_remove_input docutils container">
@@ -515,9 +565,8 @@ Impulses—and more generally, sharp discontinuities—are not easy to express w
 <p>The bad news is that spectral leakage cannot be avoided in general.  The energy in a signal associated with each frequency has to go somewhere in the DFT, and if the frequency does not correspond to one of our analysis frequencies, then it will spread out.</p>
 <p>The good news is that we can, to some extent, control leakage to direct the leaked energy in various ways.
 This is accomplished by a technique called <strong>windowing</strong>.</p>
-<p>(windowing=)</p>
 <div class="section" id="windowing">
-<h2><span class="section-number">2.4.1. </span>Windowing<a class="headerlink" href="#windowing" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2><span class="section-number">2.4.1. </span>Windowing<a class="headerlink" href="#windowing" title="Permalink to this headline">¶</a></h2>
 <p>The idea of windowing a signal is to force continuity at the boundaries, prior to performing the DFT:</p>
 <div class="math notranslate nohighlight">
 \[X \leftarrow \text{DFT}(x[n] \cdot w[n])\]</div>
