@@ -41,7 +41,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="2. Algebra" href="Algebra.html" />
-    <link rel="prev" title="1.5. Exercises" href="../ch09-convtheorem/Exercises.html" />
+    <link rel="prev" title="2.4. Exercises" href="../ch10-iir/Exercises.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -379,6 +379,33 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch10-iir/intro.html">
+   2. Infinite impulse response filters
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-iir/Feedback.html">
+     2.1. Feedback filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-iir/UsingIIR.html">
+     2.2. Using IIR filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-iir/IIRFilters.html">
+     2.3. Common IIR filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-iir/Exercises.html">
+     2.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -399,16 +426,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="Complex.html">
    3. Complex numbers
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Trigonometry.html">
-   4. Trigonometry
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Python.html">
-   5. Programming in Python
   </a>
  </li>
 </ul>
@@ -687,7 +704,7 @@ Note that this is different from powers <span class="math notranslate nohighligh
 <div class="figure align-default" id="id1">
 <div class="cell_output docutils container">
 <img alt="../../_images/Fundamentals_8_0.svg" src="../../_images/Fundamentals_8_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 1.46 </span><span class="caption-text">A quadratic curve <span class="math notranslate nohighlight">\(y=x^2\)</span> and an exponential curve <span class="math notranslate nohighlight">\(y=2^x\)</span> behave very differently.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.47 </span><span class="caption-text">A quadratic curve <span class="math notranslate nohighlight">\(y=x^2\)</span> and an exponential curve <span class="math notranslate nohighlight">\(y=2^x\)</span> behave very differently.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 <p>Often, when we refer to an <em>exponential</em>, we really mean a specific base <span class="math notranslate nohighlight">\(e = 2.71828\dots\)</span>, known alternately as “Euler’s number”, or “the base of the natural logarithm”.</p>
 <div class="section" id="rules-for-working-with-exponentials">
@@ -731,7 +748,7 @@ c^{a\cdot b} = {\left(c^a\right)}^b = {\left(c^b\right)}^a
 <div class="figure align-default" id="id2">
 <div class="cell_output docutils container">
 <img alt="../../_images/Fundamentals_13_0.svg" src="../../_images/Fundamentals_13_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 1.47 </span><span class="caption-text">The exponential function <span class="math notranslate nohighlight">\(e^x\)</span>.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.48 </span><span class="caption-text">The exponential function <span class="math notranslate nohighlight">\(e^x\)</span>.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p>Note that summation in <a class="reference internal" href="#equation-exp">(1.27)</a> depends on <em>infinitely</em> many terms, and is not something you could explicitly compute.
 While this could be a problem in some cases, it’s okay here because the terms are getting smaller at a very fast rate:</p>
@@ -832,7 +849,7 @@ Note that <span class="math notranslate nohighlight">\(k\)</span> need not be an
 <div class="figure align-default" id="id3">
 <div class="cell_output docutils container">
 <img alt="../../_images/Fundamentals_20_0.svg" src="../../_images/Fundamentals_20_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 1.48 </span><span class="caption-text">A comparison of the base-2, natural (base-<span class="math notranslate nohighlight">\(e\)</span>), and base-10 logarithms of <span class="math notranslate nohighlight">\(x\)</span>.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.49 </span><span class="caption-text">A comparison of the base-2, natural (base-<span class="math notranslate nohighlight">\(e\)</span>), and base-10 logarithms of <span class="math notranslate nohighlight">\(x\)</span>.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -866,7 +883,7 @@ Note that <span class="math notranslate nohighlight">\(k\)</span> need not be an
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="../ch09-convtheorem/Exercises.html" title="previous page"><span class="section-number">1.5. </span>Exercises</a>
+    <a class='left-prev' id="prev-link" href="../ch10-iir/Exercises.html" title="previous page"><span class="section-number">2.4. </span>Exercises</a>
     <a class='right-next' id="next-link" href="Algebra.html" title="next page"><span class="section-number">2. </span>Algebra</a>
 
     </div>

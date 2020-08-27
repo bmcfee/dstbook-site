@@ -379,6 +379,33 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch10-iir/intro.html">
+   2. Infinite impulse response filters
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-iir/Feedback.html">
+     2.1. Feedback filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-iir/UsingIIR.html">
+     2.2. Using IIR filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-iir/IIRFilters.html">
+     2.3. Common IIR filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-iir/Exercises.html">
+     2.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -399,16 +426,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/Complex.html">
    3. Complex numbers
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../appendix/Trigonometry.html">
-   4. Trigonometry
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../appendix/Python.html">
-   5. Programming in Python
   </a>
  </li>
 </ul>
@@ -538,13 +555,13 @@ We then saw that the ideal low-pass filter produced some less-than-ideal results
 <p>For a low-pass filter with cutoff <span class="math notranslate nohighlight">\(f_c\)</span>, the <strong>pass band</strong> is the set of frequencies <span class="math notranslate nohighlight">\(0 \leq f \leq f_c\)</span> that pass through the filter.</p>
 <p>The set of frequencies which are blocked by the filter is referred to as the <strong>stop band</strong>.</p>
 <p>In general, there is a region between the pass and stop bands where frequencies are attenuated, but still audible, which is known as the <strong>transition band</strong>.</p>
-<p>These regions are illustrated below for an example filter in <a class="reference internal" href="#freqresponse"><span class="std std-numref">Fig. 1.39</span></a>.</p>
+<p>These regions are illustrated below for an example filter in <a class="reference internal" href="#freqresponse"><span class="std std-numref">Fig. 1.40</span></a>.</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">
 </div>
 <div class="figure align-default" id="freqresponse">
 <div class="cell_output docutils container">
 <img alt="../../_images/FilterDesign_4_0.svg" src="../../_images/FilterDesign_4_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 1.39 </span><span class="caption-text">The <em>frequency response</em> plot of a filter <span class="math notranslate nohighlight">\(h\)</span> is the magnitude of its DFT <span class="math notranslate nohighlight">\(H\)</span>.
+<p class="caption"><span class="caption-number">Fig. 1.40 </span><span class="caption-text">The <em>frequency response</em> plot of a filter <span class="math notranslate nohighlight">\(h\)</span> is the magnitude of its DFT <span class="math notranslate nohighlight">\(H\)</span>.
 This filter was designed to have a cutoff of <span class="math notranslate nohighlight">\(f_c = 6000\)</span> Hz and a transition band of <span class="math notranslate nohighlight">\(300\)</span> Hz.</span><a class="headerlink" href="#freqresponse" title="Permalink to this image">¶</a></p>
 </div>
 <p>Within the pass-band, a filter may not have perfectly flat response.
@@ -552,7 +569,7 @@ The amount of variation within the pass-band (max-min) is known as <strong>pass-
 An ideal filter would have 0 pass-band ripple, which amounts to no change in amplitude for passing frequencies.</p>
 <p>Similarly, the difference from the peak response of the pass-band to the peak of the stop-band is the <strong>stop-band attenuation</strong>.
 This measures how audible the presumably stopped frequencies will be in the output.
-An ideal filter would have infinite attenuation, but the filter in <a class="reference internal" href="#freqresponse"><span class="std std-numref">Fig. 1.39</span></a> has only about 16dB, which is well within the range of human hearing.  (This is probably not a very good filter!)</p>
+An ideal filter would have infinite attenuation, but the filter in <a class="reference internal" href="#freqresponse"><span class="std std-numref">Fig. 1.40</span></a> has only about 16dB, which is well within the range of human hearing.  (This is probably not a very good filter!)</p>
 <div class="section" id="what-makes-a-good-filter">
 <h3><span class="section-number">1.3.1.1. </span>What makes a good filter?<a class="headerlink" href="#what-makes-a-good-filter" title="Permalink to this headline">¶</a></h3>
 <p>The diagram above gives us a way to compare different filters.
@@ -578,13 +595,13 @@ Rather than force the filter to be periodic, windowing here simply forces the fi
 Finally, a window <span class="math notranslate nohighlight">\(w\)</span> (e.g., Hann) is constructed for length <span class="math notranslate nohighlight">\(K\)</span> and multiplied by <span class="math notranslate nohighlight">\(h\)</span> to produce the windowed filter:</p>
 <div class="math notranslate nohighlight">
 \[h_w[k] = w[k] \cdot h[k].\]</div>
-<p>This process is visually demonstrated by <a class="reference internal" href="#window-lpf"><span class="std std-numref">Fig. 1.40</span></a>.</p>
+<p>This process is visually demonstrated by <a class="reference internal" href="#window-lpf"><span class="std std-numref">Fig. 1.41</span></a>.</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">
 </div>
 <div class="figure align-default" id="window-lpf">
 <div class="cell_output docutils container">
 <img alt="../../_images/FilterDesign_8_0.svg" src="../../_images/FilterDesign_8_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 1.40 </span><span class="caption-text"><strong>Left</strong>: the impulse response of an ideal low-pass filter is multiplied by a window function to produce the windowed low-pass filter (<strong>right</strong>).</span><a class="headerlink" href="#window-lpf" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.41 </span><span class="caption-text"><strong>Left</strong>: the impulse response of an ideal low-pass filter is multiplied by a window function to produce the windowed low-pass filter (<strong>right</strong>).</span><a class="headerlink" href="#window-lpf" title="Permalink to this image">¶</a></p>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">scipy</span></code> package helpfully implements all of this (and more) for us in one place: <code class="docutils literal notranslate"><span class="pre">scipy.signal.firwin</span></code> (finite impulse response + window).
 For example, we could construct a Hann-windowed low-pass filter at <span class="math notranslate nohighlight">\(f_c=500\)</span> by the following code:</p>
@@ -600,7 +617,7 @@ For example, we could construct a Hann-windowed low-pass filter at <span class="
 <span class="n">y</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">hw</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The examples below demonstrate this process for Hann-windowed filters with <span class="math notranslate nohighlight">\(p=1,2,\)</span> and <span class="math notranslate nohighlight">\(4\)</span> cycles of the cutoff frequency, and the filters are visualized in <a class="reference internal" href="#firwin"><span class="std std-numref">Fig. 1.41</span></a>.</p>
+<p>The examples below demonstrate this process for Hann-windowed filters with <span class="math notranslate nohighlight">\(p=1,2,\)</span> and <span class="math notranslate nohighlight">\(4\)</span> cycles of the cutoff frequency, and the filters are visualized in <a class="reference internal" href="#firwin"><span class="std std-numref">Fig. 1.42</span></a>.</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">
 </div>
 <div class="cell docutils container">
@@ -676,11 +693,11 @@ For example, we could construct a Hann-windowed low-pass filter at <span class="
 <div class="figure align-default" id="firwin">
 <div class="cell_output docutils container">
 <img alt="../../_images/FilterDesign_13_0.svg" src="../../_images/FilterDesign_13_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 1.41 </span><span class="caption-text"><strong>Left</strong>: Hann-windowed low-pass filters for <span class="math notranslate nohighlight">\(p=2,4,8,16\)</span> cycles of the cutoff frequency <span class="math notranslate nohighlight">\(f_c=500\)</span> (with <span class="math notranslate nohighlight">\(f_s=44100\)</span>).
+<p class="caption"><span class="caption-number">Fig. 1.42 </span><span class="caption-text"><strong>Left</strong>: Hann-windowed low-pass filters for <span class="math notranslate nohighlight">\(p=2,4,8,16\)</span> cycles of the cutoff frequency <span class="math notranslate nohighlight">\(f_c=500\)</span> (with <span class="math notranslate nohighlight">\(f_s=44100\)</span>).
 <strong>Middle</strong>: the frequency domain representation of the windowed filters (decibel-scaled).
 <strong>Right</strong>: a zoomed-in view of the filter DFTs, covering the range <span class="math notranslate nohighlight">\([0, 1000]\)</span>.  Note that as the filter length increases, so does the slope of the filter for frequencies above <span class="math notranslate nohighlight">\(f_c\)</span>.</span><a class="headerlink" href="#firwin" title="Permalink to this image">¶</a></p>
 </div>
-<p>From <a class="reference internal" href="#firwin"><span class="std std-numref">Fig. 1.41</span></a>, we can see that taking longer filters (higher order) results in a better approximation to the ideal LPF, and the output of the filters in each case does not have the ringing artifacts of the ideal LPF.</p>
+<p>From <a class="reference internal" href="#firwin"><span class="std std-numref">Fig. 1.42</span></a>, we can see that taking longer filters (higher order) results in a better approximation to the ideal LPF, and the output of the filters in each case does not have the ringing artifacts of the ideal LPF.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p><code class="docutils literal notranslate"><span class="pre">scipy.signal.firwin</span></code> can do much more than just low-pass filters!</p>
@@ -690,7 +707,7 @@ For example, we could construct a Hann-windowed low-pass filter at <span class="
 However, when the cutoff frequency is low (like in this example) this method requires very long filters to achieve narrow transition bands.</p>
 </div>
 <div class="section" id="the-parks-mcclellan-method">
-<h2><span class="section-number">1.3.3. </span>The Parks-McClellan method<a class="headerlink" href="#the-parks-mcclellan-method" title="Permalink to this headline">¶</a></h2>
+<span id="parks-mcclellan"></span><h2><span class="section-number">1.3.3. </span>The Parks-McClellan method<a class="headerlink" href="#the-parks-mcclellan-method" title="Permalink to this headline">¶</a></h2>
 <p>The window method is not the only way to create a filter.
 Probably the next most commonly used method is due to Parks and McClellan <a class="bibtex reference internal" href="../zzzbibliography.html#parks1972chebyshev" id="id1">[PM72]</a>, and it attempts to minimize ripple in both the pass and stop bands.
 The algorithm is known alternately as <em>Parks-McClellan</em> or <em>Remez</em>, the latter after Evgeny Remez, who developed the underlying method to solve the optimization problem several decades earlier <a class="bibtex reference internal" href="../zzzbibliography.html#remez1934determination" id="id2">[Rem34]</a>.</p>
@@ -717,7 +734,7 @@ In Python, this can be done as follows:</p>
 <span class="n">y</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">hpm</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This example starts the transition band before <span class="math notranslate nohighlight">\(f_c\)</span>, allowing a flat frequency response in the stop band as demonstrated below in <a class="reference internal" href="#pmfir"><span class="std std-numref">Fig. 1.42</span></a>.
+<p>This example starts the transition band before <span class="math notranslate nohighlight">\(f_c\)</span>, allowing a flat frequency response in the stop band as demonstrated below in <a class="reference internal" href="#pmfir"><span class="std std-numref">Fig. 1.43</span></a>.
 The following example outputs demonstrate this filter design applied to our example at multiple orders.
 Just as with the window method, higher orders are more precise, but less computationally efficient.</p>
 <div class="cell docutils container">
@@ -813,10 +830,10 @@ Just as with the window method, higher orders are more precise, but less computa
 <div class="figure align-default" id="pmfir">
 <div class="cell_output docutils container">
 <img alt="../../_images/FilterDesign_18_0.svg" src="../../_images/FilterDesign_18_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 1.42 </span><span class="caption-text">Parks-McClellan filters with transition band <span class="math notranslate nohighlight">\([3/4 \cdot f_c, f_c] = [375, 500]\)</span> Hz (shaded regions) at multiple orders (<span class="math notranslate nohighlight">\(p=2,4,8,16\)</span> cycles of <span class="math notranslate nohighlight">\(f_c\)</span>).
-As in <a class="reference internal" href="#firwin"><span class="std std-numref">Fig. 1.41</span></a>, increasing the order improves the attenuation of the filter.</span><a class="headerlink" href="#pmfir" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.43 </span><span class="caption-text">Parks-McClellan filters with transition band <span class="math notranslate nohighlight">\([3/4 \cdot f_c, f_c] = [375, 500]\)</span> Hz (shaded regions) at multiple orders (<span class="math notranslate nohighlight">\(p=2,4,8,16\)</span> cycles of <span class="math notranslate nohighlight">\(f_c\)</span>).
+As in <a class="reference internal" href="#firwin"><span class="std std-numref">Fig. 1.42</span></a>, increasing the order improves the attenuation of the filter.</span><a class="headerlink" href="#pmfir" title="Permalink to this image">¶</a></p>
 </div>
-<p>Comparing the frequency responses of window-method filters <a class="reference internal" href="#firwin"><span class="std std-numref">Fig. 1.41</span></a> to those of the Parks-McClellan filters <a class="reference internal" href="#pmfir"><span class="std std-numref">Fig. 1.42</span></a>, we can see that the windowed filters have gentler slope, and the Parks-McClellan filters have a steeper transition with a flat response in the stop-band.
+<p>Comparing the frequency responses of window-method filters <a class="reference internal" href="#firwin"><span class="std std-numref">Fig. 1.42</span></a> to those of the Parks-McClellan filters <a class="reference internal" href="#pmfir"><span class="std std-numref">Fig. 1.43</span></a>, we can see that the windowed filters have gentler slope, and the Parks-McClellan filters have a steeper transition with a flat response in the stop-band.
 Both are effective at suppressing high-frequency content, though neither method will completely eliminate frequencies above <span class="math notranslate nohighlight">\(f_c\)</span>.
 That’s okay though — usually all we care about when filtering is reducing the stop-band energy to the point where it is not perceptible.</p>
 </div>

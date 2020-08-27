@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>4. Trigonometry &#8212; Digital Signals Theory</title>
+    <title>Trigonometry &#8212; Digital Signals Theory</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
@@ -40,8 +40,6 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="5. Programming in Python" href="Python.html" />
-    <link rel="prev" title="3. Complex numbers" href="Complex.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -379,13 +377,40 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch10-iir/intro.html">
+   2. Infinite impulse response filters
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-iir/Feedback.html">
+     2.1. Feedback filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-iir/UsingIIR.html">
+     2.2. Using IIR filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-iir/IIRFilters.html">
+     2.3. Common IIR filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-iir/Exercises.html">
+     2.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
   Appendix
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="Fundamentals.html">
    1. Mathematical fundamentals
@@ -399,16 +424,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="Complex.html">
    3. Complex numbers
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   4. Trigonometry
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="Python.html">
-   5. Programming in Python
   </a>
  </li>
 </ul>
@@ -495,22 +510,22 @@
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sines-and-cosines">
-   4.1. Sines and cosines
+   Sines and cosines
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#basic-properties">
-   4.2. Basic properties
+   Basic properties
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#product-to-sum-rules">
-   4.3. Product-to-sum rules
+   Product-to-sum rules
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#complex-exponentials">
-   4.4. Complex exponentials
+   Complex exponentials
   </a>
  </li>
 </ul>
@@ -524,23 +539,23 @@
               <div>
                 
   <div class="section" id="trigonometry">
-<h1><span class="section-number">4. </span>Trigonometry<a class="headerlink" href="#trigonometry" title="Permalink to this headline">¶</a></h1>
+<h1>Trigonometry<a class="headerlink" href="#trigonometry" title="Permalink to this headline">¶</a></h1>
 <div class="cell tag_remove_input tag_remove_output docutils container">
 </div>
 <div class="section" id="sines-and-cosines">
-<h2><span class="section-number">4.1. </span>Sines and cosines<a class="headerlink" href="#sines-and-cosines" title="Permalink to this headline">¶</a></h2>
+<h2>Sines and cosines<a class="headerlink" href="#sines-and-cosines" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="basic-properties">
-<h2><span class="section-number">4.2. </span>Basic properties<a class="headerlink" href="#basic-properties" title="Permalink to this headline">¶</a></h2>
+<h2>Basic properties<a class="headerlink" href="#basic-properties" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="product-to-sum-rules">
-<h2><span class="section-number">4.3. </span>Product-to-sum rules<a class="headerlink" href="#product-to-sum-rules" title="Permalink to this headline">¶</a></h2>
+<h2>Product-to-sum rules<a class="headerlink" href="#product-to-sum-rules" title="Permalink to this headline">¶</a></h2>
 <p>Two useful trigonometric identities are the “product-to-sum” formulae, for angles <span class="math notranslate nohighlight">\(\theta\)</span> and <span class="math notranslate nohighlight">\(\phi\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-cos-product-sum">
-<span class="eqno">(4.2)<a class="headerlink" href="#equation-cos-product-sum" title="Permalink to this equation">¶</a></span>\[\cos\left(\theta\right) \cdot \cos\left(\phi\right) = \frac{1}{2} \cdot \left(\cos\left(\theta + \phi\right) + \cos\left(\theta - \phi\right) \right)\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-cos-product-sum" title="Permalink to this equation">¶</a></span>\[\cos\left(\theta\right) \cdot \cos\left(\phi\right) = \frac{1}{2} \cdot \left(\cos\left(\theta + \phi\right) + \cos\left(\theta - \phi\right) \right)\]</div>
 <p>and</p>
 <div class="math notranslate nohighlight" id="equation-sin-product-sum">
-<span class="eqno">(4.3)<a class="headerlink" href="#equation-sin-product-sum" title="Permalink to this equation">¶</a></span>\[\cos\left(\theta\right) \cdot \sin\left(\phi\right) = \frac{1}{2} \cdot \left(\sin\left(\theta + \phi\right) - \sin\left(\theta - \phi\right) \right)\]</div>
+<span class="eqno">()<a class="headerlink" href="#equation-sin-product-sum" title="Permalink to this equation">¶</a></span>\[\cos\left(\theta\right) \cdot \sin\left(\phi\right) = \frac{1}{2} \cdot \left(\sin\left(\theta + \phi\right) - \sin\left(\theta - \phi\right) \right)\]</div>
 <p>These rules are primarily used when comparing two sinusoids by the <a class="reference internal" href="../ch04-fourier/Similarity.html#similarity-score"><span class="std std-ref">multiply-and-add method</span></a>.
 These rules also have an interesting interpretation when applied to audio signals: loosely speaking, they say that if you multiply two pure tones with frequencies <span class="math notranslate nohighlight">\(f_1\)</span> and <span class="math notranslate nohighlight">\(f_2\)</span> together (sample by sample), the resulting signal is the <em>average</em> of two pure tones, one at frequency <span class="math notranslate nohighlight">\(f_1 + f_2\)</span> and the other at frequency <span class="math notranslate nohighlight">\(f_1 - f_2\)</span>.</p>
 <p>Proving rules like this can be a tedious exercise, but the diagram below provide a partial visual proof to help build intuition.
@@ -554,7 +569,7 @@ We’ll give a more rigorous derivation a little later by using complex exponent
 </div>
 </div>
 <div class="section" id="complex-exponentials">
-<h2><span class="section-number">4.4. </span>Complex exponentials<a class="headerlink" href="#complex-exponentials" title="Permalink to this headline">¶</a></h2>
+<h2>Complex exponentials<a class="headerlink" href="#complex-exponentials" title="Permalink to this headline">¶</a></h2>
 <p>Euler’s formula <a class="reference internal" href="Complex.html#equation-euler">(3.10)</a> gives us the identity</p>
 <div class="math notranslate nohighlight">
 \[
@@ -624,8 +639,6 @@ Neither is necessarily better than the other, so use whichever works for you!</p
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="Complex.html" title="previous page"><span class="section-number">3. </span>Complex numbers</a>
-    <a class='right-next' id="next-link" href="Python.html" title="next page"><span class="section-number">5. </span>Programming in Python</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

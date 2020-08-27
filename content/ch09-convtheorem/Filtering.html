@@ -379,6 +379,33 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch10-iir/intro.html">
+   2. Infinite impulse response filters
+  </a>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-iir/Feedback.html">
+     2.1. Feedback filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-iir/UsingIIR.html">
+     2.2. Using IIR filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-iir/IIRFilters.html">
+     2.3. Common IIR filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-iir/Exercises.html">
+     2.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -399,16 +426,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../appendix/Complex.html">
    3. Complex numbers
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../appendix/Trigonometry.html">
-   4. Trigonometry
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../appendix/Python.html">
-   5. Programming in Python
   </a>
  </li>
 </ul>
@@ -566,7 +583,7 @@ We can define the impulse response of this filter as</p>
 <div class="figure align-default" id="id1">
 <div class="cell_output docutils container">
 <img alt="../../_images/Filtering_4_0.svg" src="../../_images/Filtering_4_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 1.35 </span><span class="caption-text"><strong>Left</strong> two waves at frequencies <span class="math notranslate nohighlight">\(f=6\)</span> (top) and <span class="math notranslate nohighlight">\(f=2\)</span> (bottom) are sampled at <span class="math notranslate nohighlight">\(f_s = 32\)</span> for one second.
+<p class="caption"><span class="caption-number">Fig. 1.36 </span><span class="caption-text"><strong>Left</strong> two waves at frequencies <span class="math notranslate nohighlight">\(f=6\)</span> (top) and <span class="math notranslate nohighlight">\(f=2\)</span> (bottom) are sampled at <span class="math notranslate nohighlight">\(f_s = 32\)</span> for one second.
 A moving average filter of order <span class="math notranslate nohighlight">\(K=5\)</span> (shaded region) is applied to produce the output signals <span class="math notranslate nohighlight">\(y=h*x\)</span> on the right via circular convolution.
 The solid horizontal lines (left) correspond to the average value over the window (marked points in the right plots).
 The high frequency signal (top) is significantly attenuated, while the lower frequency signal is not.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
@@ -586,7 +603,7 @@ So if <span class="math notranslate nohighlight">\(h\)</span> is an order-<span 
 <div class="figure align-default" id="id2">
 <div class="cell_output docutils container">
 <img alt="../../_images/Filtering_7_0.svg" src="../../_images/Filtering_7_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 1.36 </span><span class="caption-text">An order-5 moving average filter <span class="math notranslate nohighlight">\(h\)</span> (<strong>left</strong>) can be constructed as the average of 5 delay filters (<strong>second column</strong>).
+<p class="caption"><span class="caption-number">Fig. 1.37 </span><span class="caption-text">An order-5 moving average filter <span class="math notranslate nohighlight">\(h\)</span> (<strong>left</strong>) can be constructed as the average of 5 delay filters (<strong>second column</strong>).
 Each delay’s DFT is a sinusoid (<strong>third column</strong>), and their sample-wise average produces the DFT of the moving average (<strong>right column</strong>).</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p>To understand the effect of this filter, we can focus on the spectral magnitudes <span class="math notranslate nohighlight">\(|H[m]|\)</span>, as these control how much each frequency will be attenuated.</p>
@@ -595,10 +612,10 @@ Each delay’s DFT is a sinusoid (<strong>third column</strong>), and their samp
 <div class="figure align-default" id="filter-mag">
 <div class="cell_output docutils container">
 <img alt="../../_images/Filtering_10_0.svg" src="../../_images/Filtering_10_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 1.37 </span><span class="caption-text"><strong>Left</strong>: an order-5 moving average filter <span class="math notranslate nohighlight">\(h\)</span>.
+<p class="caption"><span class="caption-number">Fig. 1.38 </span><span class="caption-text"><strong>Left</strong>: an order-5 moving average filter <span class="math notranslate nohighlight">\(h\)</span>.
 <strong>Right</strong>: its DFT <span class="math notranslate nohighlight">\(H\)</span> (real and imaginary components), as well as its magnitude spectrum <span class="math notranslate nohighlight">\(|H|\)</span>.</span><a class="headerlink" href="#filter-mag" title="Permalink to this image">¶</a></p>
 </div>
-<p>As <a class="reference internal" href="#filter-mag"><span class="std std-numref">Fig. 1.37</span></a> shows, some frequencies are attenuated substantially, but the effect is not monotonic: the magnitude curve <span class="math notranslate nohighlight">\(|H|\)</span> has <em>ripples</em>, and some higher frequencies are less attenuated than lower frequencies.</p>
+<p>As <a class="reference internal" href="#filter-mag"><span class="std std-numref">Fig. 1.38</span></a> shows, some frequencies are attenuated substantially, but the effect is not monotonic: the magnitude curve <span class="math notranslate nohighlight">\(|H|\)</span> has <em>ripples</em>, and some higher frequencies are less attenuated than lower frequencies.</p>
 <p>This is why the moving average filter is not particularly good, and should not be used in practice!
 Note, however, that we learned this entirely by analyzing the filter itself through the lens of the convolution theorem.</p>
 </div>
@@ -630,7 +647,7 @@ For example, if we want to apply an ideal low-pass filter <span class="math notr
 <p>The result of this process is visualized below.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<p>Note that in <a class="reference internal" href="#brickwall"><span class="std std-numref">Fig. 1.38</span></a>, the impulse response <span class="math notranslate nohighlight">\(h\)</span> peaks at the beginning and end of the filter, and is relatively low in the middle.
+<p>Note that in <a class="reference internal" href="#brickwall"><span class="std std-numref">Fig. 1.39</span></a>, the impulse response <span class="math notranslate nohighlight">\(h\)</span> peaks at the beginning and end of the filter, and is relatively low in the middle.
 It can be easier to visualize if we circularly shift the filter so that it peaks in the center.
 This will change the delay characteristics of the filter, but not its frequency response.</p>
 <p>This can be done manually by <code class="docutils literal notranslate"><span class="pre">np.fft.fftshift(h)</span></code>.
@@ -647,16 +664,16 @@ Note that most FIR filter constructors, like those covered in the next section, 
 <div class="figure align-default" id="brickwall">
 <div class="cell_output docutils container">
 <img alt="../../_images/Filtering_15_0.svg" src="../../_images/Filtering_15_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 1.38 </span><span class="caption-text"><strong>Left</strong>: an ideal low-pass filter <span class="math notranslate nohighlight">\(H\)</span> is constructed for <span class="math notranslate nohighlight">\(f_s=32\)</span>, <span class="math notranslate nohighlight">\(N=32\)</span>, and <span class="math notranslate nohighlight">\(f_c = 5\)</span>.
+<p class="caption"><span class="caption-number">Fig. 1.39 </span><span class="caption-text"><strong>Left</strong>: an ideal low-pass filter <span class="math notranslate nohighlight">\(H\)</span> is constructed for <span class="math notranslate nohighlight">\(f_s=32\)</span>, <span class="math notranslate nohighlight">\(N=32\)</span>, and <span class="math notranslate nohighlight">\(f_c = 5\)</span>.
 <strong>Right</strong>: the time-domain filter is recovered by <span class="math notranslate nohighlight">\(h = \text{IDFT}(H)\)</span>.</span><a class="headerlink" href="#brickwall" title="Permalink to this image">¶</a></p>
 </div>
-<p><a class="reference internal" href="#brickwall"><span class="std std-numref">Fig. 1.38</span></a> illustrates the time-domain representation (impulse response) <span class="math notranslate nohighlight">\(h\)</span> of the “ideal” low-pass filter <span class="math notranslate nohighlight">\(H\)</span> constructed in the frequency domain.
+<p><a class="reference internal" href="#brickwall"><span class="std std-numref">Fig. 1.39</span></a> illustrates the time-domain representation (impulse response) <span class="math notranslate nohighlight">\(h\)</span> of the “ideal” low-pass filter <span class="math notranslate nohighlight">\(H\)</span> constructed in the frequency domain.
 It may be surprising that <span class="math notranslate nohighlight">\(h\)</span> appears to be periodic, and oscillates around 0.
 However, this can be understood by reasoning about its inverse DFT as a sum of cosines (since the imaginary parts of <span class="math notranslate nohighlight">\(H\)</span> are all 0):</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>The range of the summation here is -4 to +4.
-Note that <a class="reference internal" href="#brickwall"><span class="std std-numref">Fig. 1.38</span></a> shows only the non-negative frequencies.
+Note that <a class="reference internal" href="#brickwall"><span class="std std-numref">Fig. 1.39</span></a> shows only the non-negative frequencies.
 The terms <span class="math notranslate nohighlight">\(m=0,\dots,4\)</span> come from the non-negative frequencies, and terms <span class="math notranslate nohighlight">\(m=-4,\dots,-1 \equiv N-4,\cdots,N-1\)</span> come from DFT conjugate symmetry.</p>
 </div>
 <div class="math notranslate nohighlight">
