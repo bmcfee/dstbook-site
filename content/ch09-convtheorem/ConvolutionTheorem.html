@@ -573,7 +573,7 @@
 <p>Before we can properly apply the DFT to convolution, we’ll first need to deal with the differing assumptions of how negative sample indices are handled.
 When we first saw convolution, it was defined using the assumption that <span class="math notranslate nohighlight">\(x[n-k] = 0\)</span> if <span class="math notranslate nohighlight">\(n &lt; k\)</span>, i.e., that the signal <span class="math notranslate nohighlight">\(x\)</span> is silent before the 0th sample.
 Different ways of interpreting this assumption gave rise to the different <a class="reference internal" href="../ch03-convolution/Modes.html#convolution-modes"><span class="std std-ref">convolution modes</span></a> (full, valid, same).</p>
-<p>The DFT, on the other hand, assumes that signals <em>repeat</em> indefinitely, so that <span class="math notranslate nohighlight">\(x[n-k] = x[N-k]\)</span>.</p>
+<p>The DFT, on the other hand, assumes that signals <em>repeat</em> indefinitely, so that <span class="math notranslate nohighlight">\(x[n-k] = x[n-k + N]\)</span>.</p>
 <p>If we define convolution using the repetition assumption, we get what is known as <strong>circular convolution</strong>.
 The equation is exactly the same as <a class="reference internal" href="../ch03-convolution/Convolution.html#equation-convolution">(3.1)</a>; all that has changed is the interpretation of negative sample indices, which now wrap around to the end of the signal.</p>
 </div>
@@ -593,7 +593,7 @@ The equation is exactly the same as <a class="reference internal" href="../ch03-
 <p>Let <span class="math notranslate nohighlight">\(h\)</span> and <span class="math notranslate nohighlight">\(x\)</span> be sequences of length <span class="math notranslate nohighlight">\(N\)</span>, and let <span class="math notranslate nohighlight">\(y=h*x\)</span> denote the circular convolution between them.</p>
 <p>The DFT of the convolution is the product of the DFTs:</p>
 <div class="math notranslate nohighlight" id="equation-eq-conv-thm">
-<span class="eqno">(1.21)<a class="headerlink" href="#equation-eq-conv-thm" title="Permalink to this equation">¶</a></span>\[y = h * x \quad \quad \Leftrightarrow \quad\quad Y[m] = H[m] \cdot X[n].\]</div>
+<span class="eqno">(1.21)<a class="headerlink" href="#equation-eq-conv-thm" title="Permalink to this equation">¶</a></span>\[y = h * x \quad \quad \Leftrightarrow \quad\quad Y[m] = H[m] \cdot X[m].\]</div>
 </div>
 <div class="section" id="proof">
 <h3><span class="section-number">1.1.2.1. </span>Proof<a class="headerlink" href="#proof" title="Permalink to this headline">¶</a></h3>
