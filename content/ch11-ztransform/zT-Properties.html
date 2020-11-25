@@ -1,0 +1,520 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>3.2. Properties of the z-transform &#8212; Digital Signals Theory</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.3. Transfer functions" href="Transfer.html" />
+    <link rel="prev" title="3.1. The z-transform" href="ZT.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/dstlogo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Digital Signals Theory</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Preface
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 1, Signals and systems
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch01-signals/Intro.html">
+   1. Signals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch02-sampling/intro.html">
+   2. Digital sampling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch03-convolution/intro.html">
+   3. Convolution
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 2, The frequency domain
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch04-fourier/intro.html">
+   1. The Discrete Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch05-dft-properties/intro.html">
+   2. Properties of the DFT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch06-inverse-dft/intro.html">
+   3. DFT Invertibility
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch07-fft/intro.html">
+   4. Fast Fourier Transform
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch08-stft/intro.html">
+   5. Time-frequency representation
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 3, Filtering
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch09-convtheorem/intro.html">
+   1. Frequency domain convolution
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ch10-iir/intro.html">
+   2. Infinite impulse response filters
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="intro.html">
+   3. Analyzing IIR filters
+  </a>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="ZT.html">
+     3.1. The z-transform
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     3.2. Properties of the z-transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Transfer.html">
+     3.3. Transfer functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="PoleZero.html">
+     3.4. Poles and zeros
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Exercises.html">
+     3.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Fundamentals.html">
+   1. Mathematical fundamentals
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../appendix/Complex.html">
+   2. Complex numbers
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  References
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../zzzbibliography.html">
+   1. References
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/content/ch11-ztransform/zT-Properties.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linearity">
+   3.2.1. Linearity
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#proof">
+     3.2.1.1. Proof
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#shifting-theorem">
+   3.2.2. Shifting theorem
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     3.2.2.1. Proof
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remark-the-dft-shifting-theorem">
+     3.2.2.2. Remark: the DFT shifting theorem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convolution-theorem">
+   3.2.3. Convolution theorem
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     3.2.3.1. Proof
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   3.2.4. Summary
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="properties-of-the-z-transform">
+<h1><span class="section-number">3.2. </span>Properties of the z-transform<a class="headerlink" href="#properties-of-the-z-transform" title="Permalink to this headline">¶</a></h1>
+<div class="math notranslate nohighlight">
+\[
+\require{color}\notag%
+\]</div>
+<p>Like the discrete Fourier transform, the z-Transform has many convenient mathematical properties.
+In this section, we’ll establish the most important ones: linearity, shifting, and convolution.
+These properties should all be conceptually familiar from our earlier study of the DFT, however they may look a little different in our new context.</p>
+<div class="cell tag_remove_input tag_remove_output docutils container">
+</div>
+<div class="section" id="linearity">
+<h2><span class="section-number">3.2.1. </span>Linearity<a class="headerlink" href="#linearity" title="Permalink to this headline">¶</a></h2>
+<div class="information admonition">
+<p class="admonition-title">The z-Transform is linear.</p>
+<p>Let <span class="math notranslate nohighlight">\(x[n] = c_1\cdot x_1[n] + c_2 \cdot x_2[n]\)</span> denote a combination of two signals <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span>, each with gain coefficients <span class="math notranslate nohighlight">\(c_1, c_2 \in \mathbb{R}\)</span>.</p>
+<p>Then the z-Transform of <span class="math notranslate nohighlight">\(x[n]\)</span> is equivalent to</p>
+<div class="math notranslate nohighlight">
+\[X(z) = c_1\cdot X_1(z) + c_2\cdot X_2(z),\]</div>
+<p>where <span class="math notranslate nohighlight">\(X_1(z)\)</span> and <span class="math notranslate nohighlight">\(X_2(z)\)</span> are the z-transforms of <span class="math notranslate nohighlight">\(x_1[n]\)</span> and <span class="math notranslate nohighlight">\(x_2[n]\)</span> respectively.</p>
+</div>
+<p>Or, in plain language: the z-Transform of a weighted combination of signals is equivalent to the weighted combination of their individual z-Transforms.</p>
+<div class="section" id="proof">
+<h3><span class="section-number">3.2.1.1. </span>Proof<a class="headerlink" href="#proof" title="Permalink to this headline">¶</a></h3>
+<p>The proof of z-Transform linearity is almost identical to our earlier proof of DFT <a class="reference internal" href="../ch05-dft-properties/Linearity.html#dft-linearity"><span class="std std-ref">Linearity</span></a>, but now using an arbitrary complex number <span class="math notranslate nohighlight">\(z\)</span> in place of the complex sinusoid of the DFT.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+X(z) &amp;= \sum_{n=0}^{\infty} x[n] \cdot z^{-n} &amp; \text{definition of z-Transform}\\
+&amp;= \sum_{n=0}^{\infty} \left(c_1 \cdot x_1[n] + c_2 \cdot x_2[n] \right) \cdot z^{-n} &amp; \text{definition of } x[n]\\
+&amp;= \sum_{n=0}^{\infty} \left(c_1 \cdot x_1[n]\cdot z^{-n}\right) + \left(c_2 \cdot x_2[n] \cdot z^{-n}\right) &amp; \text{distributing } z^{-n} \text{ over sum}\\
+&amp;=  c_1 \cdot  \left(\sum_{n=0}^{\infty}x_1[n]\cdot z^{-n}\right) + c_2 \cdot\left(\sum_{n=0}^{\infty}  x_2[n] \cdot z^{-n}\right) &amp; c_1, c_2 \text{ do not depend on } n\\
+&amp;= c_1 \cdot X_1(z) + c_2 \cdot X_2(z) &amp; \text{definition of z-Transform}
+\end{align*}\end{split}\]</div>
+</div>
+</div>
+<div class="section" id="shifting-theorem">
+<h2><span class="section-number">3.2.2. </span>Shifting theorem<a class="headerlink" href="#shifting-theorem" title="Permalink to this headline">¶</a></h2>
+<p>The shifting theorem for z-Transforms looks a little different from the DFT shifting theorem, but it’s conceptually quite similar.
+The main distinction is that we no longer have the circular / repetition assumption, and instead assume silence outside the observed samples.</p>
+<div class="information admonition">
+<p class="admonition-title">z-Transform shifting theorem</p>
+<p>Let <span class="math notranslate nohighlight">\(y[n] = x[n-k]\)</span> denote a <span class="math notranslate nohighlight">\(k\)</span>-step delay of a signal <span class="math notranslate nohighlight">\(x[n]\)</span>, with the assumption that <span class="math notranslate nohighlight">\(x[n&lt;0] = x[n \geq N] = 0\)</span>.</p>
+<p>Then the z-Transform of <span class="math notranslate nohighlight">\(y[n]\)</span> is given by</p>
+<div class="math notranslate nohighlight" id="equation-zt-shifting">
+<span class="eqno">(3.12)<a class="headerlink" href="#equation-zt-shifting" title="Permalink to this equation">¶</a></span>\[Y(z) = z^{-k} \cdot X(z).\]</div>
+</div>
+<div class="section" id="id1">
+<h3><span class="section-number">3.2.2.1. </span>Proof<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(y[n] = x[n-k]\)</span>.
+Since we’re assuming <span class="math notranslate nohighlight">\(x[n&lt;0] = 0\)</span> (silence before the signal starts), we must have <span class="math notranslate nohighlight">\(y[n&lt;k] = 0\)</span>.</p>
+<p>The z-Transform is then given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+Y(z) &amp;= \sum_{n=0}^\infty y[n] \cdot z^{-n} &amp; \text{definition of z-Transform}\\
+&amp;= \sum_{n=k}^\infty y[n] \cdot z^{-n} &amp; \text{since } y[n &lt; k] = 0\\
+&amp;= \sum_{n=k}^\infty x[n-k] \cdot z^{-n} &amp; \text{definition of } y[n]\\
+&amp;= \sum_{n=0}^\infty x[n] \cdot z^{-(n+k)}\\
+\end{align*}\end{split}\]</div>
+<p>This last step follows from the observation that each <span class="math notranslate nohighlight">\(z^{-n}\)</span> pairs with the sample <span class="math notranslate nohighlight">\(x[n-k]\)</span>.
+For example, <span class="math notranslate nohighlight">\(z^{-k}\)</span> pairs with <span class="math notranslate nohighlight">\(x[k-k] = x[0]\)</span>, <span class="math notranslate nohighlight">\(z^{-(k+1)}\)</span> pairs with <span class="math notranslate nohighlight">\(x[k+1-1] = x[1]\)</span>, and so on.
+In general, we have <span class="math notranslate nohighlight">\(z^{-(n+k)}\)</span> pairing with <span class="math notranslate nohighlight">\(x[n+k-k] = x[n]\)</span>.</p>
+<p>Continuing the proof, we can factor <span class="math notranslate nohighlight">\(z^{-(n+k)} = z^{-n-k} = z^{-n} \cdot z^{-k}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+Y(z) &amp;= \sum_{n=0}^\infty x[n] \cdot z^{-(n+k)}\\
+&amp;= \sum_{n=0}^\infty x[n] \cdot z^{-n} \cdot z^{-k}\\
+&amp;= z^{-k} \cdot \sum_{n=0}^\infty x[n] \cdot z^{-n} &amp; z^{-k} \text{ does not depend on } n\\
+&amp;= z^{-k} \cdot X(z) &amp; \text{definition of z-Transform}.
+\end{align*}\end{split}\]</div>
+</div>
+<div class="section" id="remark-the-dft-shifting-theorem">
+<h3><span class="section-number">3.2.2.2. </span>Remark: the DFT shifting theorem<a class="headerlink" href="#remark-the-dft-shifting-theorem" title="Permalink to this headline">¶</a></h3>
+<p>Remember that the DFT can be derived from the z-Transform by letting <span class="math notranslate nohighlight">\(z = \exp\left(2\pi\cdot \mathrm{j} \cdot m / N\right)\)</span>.
+If we plug this into the z-Transform shifting theorem, then a delay <span class="math notranslate nohighlight">\(k\)</span> results in multiplication by <span class="math notranslate nohighlight">\(z^{-k}\)</span>, which in this case gives us</p>
+<div class="math notranslate nohighlight">
+\[
+\left(\exp\left(2\pi\cdot \mathrm{j} \cdot m / N\right)\right)^{-k} = \exp\left(- 2\pi\cdot \mathrm{j} \cdot k \cdot m / N\right),
+\]</div>
+<p>exactly as stated by the DFT shifting theorem!</p>
+</div>
+</div>
+<div class="section" id="convolution-theorem">
+<h2><span class="section-number">3.2.3. </span>Convolution theorem<a class="headerlink" href="#convolution-theorem" title="Permalink to this headline">¶</a></h2>
+<p>Just like the DFT, we also have a convolution theorem for the z-Transform, and its proof follows basically the same form as that of the DFT convolution theorem, except relying on the z-Transform shifting theorem where appropriate.</p>
+<div class="admonition-z-transform-convolution-theorem admonition">
+<p class="admonition-title">z-Transform convolution theorem</p>
+<p>Let</p>
+<div class="math notranslate nohighlight">
+\[y[n] = \sum_{k=0}^{K-1} h[k] \cdot x[n-k]\]</div>
+<p>denote the convolution of a signal <span class="math notranslate nohighlight">\(x[n]\)</span> with an impulse response <span class="math notranslate nohighlight">\(h[k]\)</span> of length <span class="math notranslate nohighlight">\(K\)</span>.
+We will assume that <span class="math notranslate nohighlight">\(h[k &lt; 0] = h[k \geq K] = 0\)</span>.</p>
+<p>The z-Transform of the convolution <span class="math notranslate nohighlight">\(y\)</span> is equal to the product of the z-Transforms:</p>
+<div class="math notranslate nohighlight" id="equation-zt-convolution">
+<span class="eqno">(3.13)<a class="headerlink" href="#equation-zt-convolution" title="Permalink to this equation">¶</a></span>\[Y(z) = H(z) \cdot X(z),\]</div>
+<p>where <span class="math notranslate nohighlight">\(Y(z)\)</span>, <span class="math notranslate nohighlight">\(H(z)\)</span>, and <span class="math notranslate nohighlight">\(X(z)\)</span> are the z-Transforms of <span class="math notranslate nohighlight">\(y[n]\)</span>, <span class="math notranslate nohighlight">\(h[k]\)</span>, and <span class="math notranslate nohighlight">\(x[n]\)</span> respectively.</p>
+</div>
+<div class="section" id="id2">
+<h3><span class="section-number">3.2.3.1. </span>Proof<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(y[n] = \sum_{k=0}^{K-1} h[k] \cdot x[n-k]\)</span>.  Taking the z-Transform of both sides gives us:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+Y(z) &amp;= \text{ZT}\left(\sum_{k=0}^{K-1} h[k] \cdot x[n-k]\right)\\
+&amp;= \sum_{k=0}^{K-1} h[k] \cdot \text{ZT}(x[n-k]) &amp; \text{by linearity of the z-Transform}\\
+&amp;= \sum_{k=0}^{K-1} h[k] \cdot z^{-k} \cdot X(z) &amp; \text{by the z-Transform shifting theorem}\\
+&amp;= X(z) \cdot \sum_{k=0}^{K-1} h[k] \cdot z^{-k} &amp; X(z) \text{ does not depend on } k\\
+&amp;= X(z) \cdot \sum_{k=0}^\infty h[k] \cdot z^{-k} &amp; h[k\geq K] = 0, \text{ so summands past } k=K \text{ add 0 to the total}\\
+&amp;= X(z) \cdot H(z) &amp; \text{by definition of z-Transform}. 
+\end{align*}\end{split}\]</div>
+</div>
+</div>
+<div class="section" id="summary">
+<h2><span class="section-number">3.2.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>In this section, we’ve revisited the core properties of the DFT that are necessary for understanding FIR filters: linearity, shifting, and convolution.
+The derivations for the z-Transform versions of these theorems are not substantially different from what we’ve seen previously with the DFT, though some of the notation and underlying assumptions have changed to fit our new setting.</p>
+<p>In the next section, we’ll see how to apply these properties in the analysis of IIR filters.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "bloody"
+        },
+        kernelOptions: {
+            kernelName: "bloody",
+            path: "./content/ch11-ztransform"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'bloody'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="ZT.html" title="previous page"><span class="section-number">3.1. </span>The z-transform</a>
+    <a class='right-next' id="next-link" href="Transfer.html" title="next page"><span class="section-number">3.3. </span>Transfer functions</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Brian McFee<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-89057641-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>
