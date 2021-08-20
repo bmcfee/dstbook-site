@@ -1,0 +1,879 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12.2. Properties of the z-transform &#8212; Digital Signals Theory</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"extensions": ["cancel.js", "color.js", "HTML.js"], "Macros": {"blue": ["\\class{blue}{#1}", 1], "red": ["\\class{red}{#1}", 1], "orange": ["\\class{orange}{#1}", 1], "purple": ["\\class{purple}{#1}", 1], "green": ["\\class{green}{#1}", 1], "dkorange": ["\\class{dkorange}{#1}", 1], "cyan": ["\\class{cyan}{#1}", 1], "magenta": ["\\class{magenta}{#1}", 1], "yellow": ["\\class{yellow}{#1}", 1], "peagreen": ["\\class{peagreen}{#1}", 1], "darkblue": ["\\class{darkblue}{#1}", 1], "darkorange": ["\\class{darkorange}{#1}", 1]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="12.3. Transfer functions" href="Transfer.html" />
+    <link rel="prev" title="12.1. The z-transform" href="ZT.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/dstlogo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Digital Signals Theory</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Time-domain signals
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch01-signals/Intro.html">
+   1. Signals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Preliminaries.html">
+     1.1. Preliminaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Waves.html">
+     1.2. Periodicity and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Units.html">
+     1.3. Units and dimensional analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Acoustics.html">
+     1.4. Audio and signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Exercises.html">
+     1.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch02-sampling/intro.html">
+   2. Digital sampling
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Sampling.html">
+     2.1. Sampling period and rate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Aliasing.html">
+     2.2. Aliasing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Nyquist.html">
+     2.3. The Nyquist-Shannon sampling theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Quantization.html">
+     2.4. Quantization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Exercises.html">
+     2.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch03-convolution/intro.html">
+   3. Convolution
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Building.html">
+     3.1. Delay, gain, and mix
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Convolution.html">
+     3.2. Defining convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/IR.html">
+     3.3. Impulse Response
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Modes.html">
+     3.4. Convolution modes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Properties.html">
+     3.5. Properties of convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/LSI.html">
+     3.6. Linearity and Shift-invariance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Exercises.html">
+     3.7. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The frequency domain
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch04-complex/Intro.html">
+   4. Complex numbers
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Definition.html">
+     4.1. Defining complex numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Basic-Operations.html">
+     4.2. Basic operations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Exponentials.html">
+     4.3. Complex exponentials
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Multiplication-and-division.html">
+     4.4. Multiplication and division
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Powers-and-waves.html">
+     4.5. Powers and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Exercises.html">
+     4.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch05-fourier/intro.html">
+   5. The Discrete Fourier Transform
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Similarity.html">
+     5.1. Similarity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Cosine.html">
+     5.2. Comparing to sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/AnalysisFrequencies.html">
+     5.3. Analysis frequencies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Phase.html">
+     5.4. Phase
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/DFT.html">
+     5.5. The Discrete Fourier Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Examples.html">
+     5.6. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/SummingSinusoids.html">
+     5.7. Summing sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Exercises.html">
+     5.8. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch06-dft-properties/intro.html">
+   6. Properties of the DFT
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Linearity.html">
+     6.1. Linearity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Shifting.html">
+     6.2. The DFT shifting theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Conjugate-Symmetry.html">
+     6.3. Conjugate Symmetry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Leakage.html">
+     6.4. Spectral leakage and windowing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Exercises.html">
+     6.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch07-inverse-dft/intro.html">
+   7. DFT Invertibility
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/Sinusoid.html">
+     7.1. Warm-up: a single sinusoid
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/InverseDFT.html">
+     7.2. The Inverse DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/Synthesis.html">
+     7.3. Synthesis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/Exercises.html">
+     7.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch08-fft/intro.html">
+   8. Fast Fourier Transform
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-fft/DFT-Analysis.html">
+     8.1. Time-analysis of the DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-fft/FFT.html">
+     8.2. Radix-2 Cooley-Tukey
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-fft/Exercises.html">
+     8.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch09-stft/intro.html">
+   9. Time-frequency representation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-stft/Framing.html">
+     9.1. Framing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-stft/STFT.html">
+     9.2. The Short-time Fourier Transform (STFT)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-stft/Exercises.html">
+     9.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Filtering
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch10-convtheorem/intro.html">
+   10. Frequency domain convolution
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/ConvolutionTheorem.html">
+     10.1. The Convolution Theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/Filtering.html">
+     10.2. Convolutional Filtering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/FilterDesign.html">
+     10.3. Filter Design and Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/Phase.html">
+     10.4. Phase and group delay
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/Exercises.html">
+     10.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch11-iir/intro.html">
+   11. Infinite impulse response filters
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/Feedback.html">
+     11.1. Feedback filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/UsingIIR.html">
+     11.2. Using IIR filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/IIRFilters.html">
+     11.3. Common IIR filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/Exercises.html">
+     11.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
+   12. Analyzing IIR filters
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="ZT.html">
+     12.1. The z-transform
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     12.2. Properties of the z-transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Transfer.html">
+     12.3. Transfer functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="PoleZero.html">
+     12.4. Stability, poles, and zeros
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Exercises.html">
+     12.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../appendixA/Fundamentals.html">
+   13. Mathematical fundamentals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/Sets.html">
+     13.1. Sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/Sequences.html">
+     13.2. Sequences
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/ModularArithmetic.html">
+     13.3. Modular arithmetic
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/Exponents.html">
+     13.5. Exponentials
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#linearity">
+   12.2.1. Linearity
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#proof">
+     12.2.1.1. Proof
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#shifting-theorem">
+   12.2.2. Shifting theorem
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     12.2.2.1. Proof
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#remark-the-dft-shifting-theorem">
+     12.2.2.2. Remark: the DFT shifting theorem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convolution-theorem">
+   12.2.3. Convolution theorem
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     12.2.3.1. Proof
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   12.2.4. Summary
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="properties-of-the-z-transform">
+<h1><span class="section-number">12.2. </span>Properties of the z-transform<a class="headerlink" href="#properties-of-the-z-transform" title="Permalink to this headline">¶</a></h1>
+<p>Like the discrete Fourier transform, the z-Transform has many convenient mathematical properties.
+In this section, we’ll establish the most important ones: linearity, shifting, and convolution.
+These properties should all be conceptually familiar from our earlier study of the DFT, however they may look a little different in our new context.</p>
+<div class="cell tag_remove_input tag_remove_output docutils container">
+</div>
+<div class="section" id="linearity">
+<h2><span class="section-number">12.2.1. </span>Linearity<a class="headerlink" href="#linearity" title="Permalink to this headline">¶</a></h2>
+<div class="information admonition">
+<p class="admonition-title">The z-Transform is linear.</p>
+<p>Let <span class="math notranslate nohighlight">\(\purple{y[n]} = \red{c_1}\cdot \blue{x_1[n]} + \red{c_2} \cdot \blue{x_2[n]}\)</span> denote a combination of two signals <span class="math notranslate nohighlight">\(\blue{x_1}\)</span> and <span class="math notranslate nohighlight">\(\blue{x_2}\)</span>, each with gain coefficients <span class="math notranslate nohighlight">\(\red{c_1, c_2} \in \mathbb{R}\)</span>.</p>
+<p>Then the z-Transform of <span class="math notranslate nohighlight">\(\purple{y[n]}\)</span> is equivalent to</p>
+<div class="math notranslate nohighlight">
+\[\magenta{Y(z)} = \red{c_1}\cdot \darkblue{X_1(z)} + \red{c_2}\cdot \darkblue{X_2(z)},\]</div>
+<p>where <span class="math notranslate nohighlight">\(\darkblue{X_1(z)}\)</span> and <span class="math notranslate nohighlight">\(\darkblue{X_2(z)}\)</span> are the z-transforms of <span class="math notranslate nohighlight">\(\blue{x_1[n]}\)</span> and <span class="math notranslate nohighlight">\(\blue{x_2[n]}\)</span> respectively.</p>
+</div>
+<p>Or, in plain language: the z-Transform of a weighted combination of signals is equivalent to the weighted combination of their individual z-Transforms.</p>
+<div class="section" id="proof">
+<h3><span class="section-number">12.2.1.1. </span>Proof<a class="headerlink" href="#proof" title="Permalink to this headline">¶</a></h3>
+<p>The proof of z-Transform linearity is almost identical to our earlier proof of DFT <a class="reference internal" href="../ch06-dft-properties/Linearity.html#dft-linearity"><span class="std std-ref">Linearity</span></a>, but now using an arbitrary complex number <span class="math notranslate nohighlight">\(\purple{z}\)</span> in place of the complex sinusoid of the DFT.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\magenta{Y(z)} &amp;= \sum_{n=0}^{\infty} \purple{y[n]} \cdot \purple{z^{-n}} &amp; \text{definition of z-Transform}\\
+&amp;= \sum_{n=0}^{\infty} \left(\red{c_1} \cdot \blue{x_1[n]} + \red{c_2} \cdot \blue{x_2[n]} \right) \cdot \purple{z^{-n}} &amp; \text{definition of } \blue{y[n]}\\
+&amp;= \sum_{n=0}^{\infty} \red{c_1} \cdot \blue{x_1[n]}\cdot \purple{z^{-n}} +\red{c_2} \cdot \blue{x_2[n]} \cdot \purple{z^{-n}} &amp; \text{distributing } \purple{z^{-n}} \text{ over sum}\\
+&amp;=  \red{c_1} \cdot  \left(\sum_{n=0}^{\infty}\blue{x_1[n]}\cdot \purple{z^{-n}}\right) + \red{c_2} \cdot\left(\sum_{n=0}^{\infty} \blue{x_2[n]} \cdot \purple{z^{-n}}\right) &amp; \red{c_1, c_2} \text{ do not depend on } n\\
+&amp;= \red{c_1} \cdot \darkblue{X_1(z)} + \red{c_2} \cdot \darkblue{X_2(z)} &amp; \text{definition of z-Transform}
+\end{align*}\]</div>
+</div>
+</div>
+<div class="section" id="shifting-theorem">
+<h2><span class="section-number">12.2.2. </span>Shifting theorem<a class="headerlink" href="#shifting-theorem" title="Permalink to this headline">¶</a></h2>
+<p>The shifting theorem for z-Transforms looks a little different from the DFT shifting theorem, but it’s conceptually quite similar.
+The main distinction is that we no longer have the circular / repetition assumption, and instead assume silence outside the observed samples.</p>
+<div class="information admonition">
+<p class="admonition-title">z-Transform shifting theorem</p>
+<p>Let <span class="math notranslate nohighlight">\(\purple{y[n]} = \blue{x[n-k]}\)</span> denote a <span class="math notranslate nohighlight">\(\red{k}\)</span>-step delay of a signal <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span>, with the assumption that <span class="math notranslate nohighlight">\(\blue{x[n&lt;0] = 0}\)</span>.</p>
+<p>Then the z-Transform of <span class="math notranslate nohighlight">\(\purple{y[n]}\)</span> is given by</p>
+<div class="math notranslate nohighlight" id="equation-zt-shifting">
+<span class="eqno">(12.3)<a class="headerlink" href="#equation-zt-shifting" title="Permalink to this equation">¶</a></span>\[\magenta{Y(z)} = \red{z^{-k}} \cdot \darkblue{X(z)}.\]</div>
+</div>
+<div class="section" id="id1">
+<h3><span class="section-number">12.2.2.1. </span>Proof<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(\purple{y[n]} = \blue{x[n-k]}\)</span>.
+Since we’re assuming <span class="math notranslate nohighlight">\(\blue{x[n&lt;0] = 0}\)</span> (silence before the signal starts), we must have <span class="math notranslate nohighlight">\(\purple{y[n&lt;k] = 0}\)</span>.</p>
+<p>The z-Transform is then given by</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\magenta{Y(z)} &amp;= \sum_{n=0}^\infty \purple{y[n]} \cdot \purple{z^{-n}} &amp; \text{definition of z-Transform}\\
+&amp;= \sum_{\red{n=k}}^\infty \purple{y[n]} \cdot \purple{z^{-n}} &amp; \text{since } \purple{y[n &lt; k] = 0}\\
+&amp;= \sum_{n=k}^\infty \blue{x[n-k]} \cdot \purple{z^{-n}} &amp; \text{definition of } \purple{y[n]}\\
+&amp;= \sum_{\red{n=0}}^\infty \blue{x[n]} \cdot \purple{z^{-(n+k)}}\\
+\end{align*}\]</div>
+<p>This last step follows from the observation that each <span class="math notranslate nohighlight">\(\purple{z^{-n}}\)</span> pairs with the sample <span class="math notranslate nohighlight">\(\blue{x[n-k]}\)</span>, which means that each <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> pairs with <span class="math notranslate nohighlight">\(\purple{z^{-(n+k)}}\)</span>.</p>
+<p>Continuing the proof, we can factor</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\purple{z^{-(n+k)}} &amp;= \purple{z^{-n-k}}\\ 
+&amp;= \purple{z^{-n}} \cdot \red{z^{-k}},
+\end{align*}\]</div>
+<p>so that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\magenta{Y(z)} &amp;= \sum_{n=0}^\infty \blue{x[n]} \cdot \purple{z^{-(n+k)}}\\
+&amp;= \sum_{n=0}^\infty \blue{x[n]} \cdot \purple{z^{-n}} \cdot \red{z^{-k}}\\
+&amp;= \red{z^{-k}} \cdot \sum_{n=0}^\infty \blue{x[n]} \cdot \purple{z^{-n}} &amp; \red{z^{-k}} \text{ does not depend on } n\\
+&amp;= \red{z^{-k}} \cdot \darkblue{X(z)} &amp; \text{definition of z-Transform}.
+\end{align*}\]</div>
+</div>
+<div class="section" id="remark-the-dft-shifting-theorem">
+<h3><span class="section-number">12.2.2.2. </span>Remark: the DFT shifting theorem<a class="headerlink" href="#remark-the-dft-shifting-theorem" title="Permalink to this headline">¶</a></h3>
+<p>Remember that the DFT can be derived from the z-Transform by letting <span class="math notranslate nohighlight">\(\purple{z = \exp\left(2\pi\cdot \mathrm{j} \cdot m / N\right)}\)</span>.
+If we plug this into the z-Transform shifting theorem, then a delay <span class="math notranslate nohighlight">\(\red{k}\)</span> results in multiplication by <span class="math notranslate nohighlight">\(\red{z^{-k}}\)</span>, which in this case gives us</p>
+<div class="math notranslate nohighlight">
+\[
+\purple{\left(\exp\left(2\pi\cdot \mathrm{j} \cdot m / N\right)\right)}^{\red{-k}} = \exp\left(- 2\pi\cdot \mathrm{j} \cdot \red{k} \cdot m / N\right),
+\]</div>
+<p>exactly as stated by the DFT shifting theorem!</p>
+</div>
+</div>
+<div class="section" id="convolution-theorem">
+<h2><span class="section-number">12.2.3. </span>Convolution theorem<a class="headerlink" href="#convolution-theorem" title="Permalink to this headline">¶</a></h2>
+<p>Just like the DFT, we also have a convolution theorem for the z-Transform, and its proof follows basically the same form as that of the DFT convolution theorem, except relying on the z-Transform shifting theorem where appropriate.</p>
+<div class="admonition-z-transform-convolution-theorem admonition">
+<p class="admonition-title">z-Transform convolution theorem</p>
+<p>Let</p>
+<div class="math notranslate nohighlight">
+\[\purple{y[n]} = \sum_{k=0}^{K-1} \red{h[k]} \cdot \blue{x[n-k]}\]</div>
+<p>denote the convolution of a signal <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> with an impulse response <span class="math notranslate nohighlight">\(\red{h[k]}\)</span> of length <span class="math notranslate nohighlight">\(K\)</span>.
+We will assume that <span class="math notranslate nohighlight">\(\red{h[k &lt; 0] = h[k \geq K] = 0}\)</span>.</p>
+<p>The z-Transform of the convolution <span class="math notranslate nohighlight">\(\purple{y}\)</span> is equal to the product of the z-Transforms:</p>
+<div class="math notranslate nohighlight" id="equation-zt-convolution">
+<span class="eqno">(12.4)<a class="headerlink" href="#equation-zt-convolution" title="Permalink to this equation">¶</a></span>\[\magenta{Y(z)} = \red{H(z)} \cdot \darkblue{X(z)},\]</div>
+<p>where <span class="math notranslate nohighlight">\(\magenta{Y(z)}\)</span>, <span class="math notranslate nohighlight">\(\red{H(z)}\)</span>, and <span class="math notranslate nohighlight">\(\darkblue{X(z)}\)</span> are the z-Transforms of <span class="math notranslate nohighlight">\(\purple{y[n]}\)</span>, <span class="math notranslate nohighlight">\(\red{h[k]}\)</span>, and <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> respectively.</p>
+</div>
+<div class="section" id="id2">
+<h3><span class="section-number">12.2.3.1. </span>Proof<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(\purple{y[n]} = \sum_{k=0}^{K-1} \red{h[k]} \cdot \blue{x[n-k]}\)</span>.  Taking the z-Transform of both sides gives us:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\magenta{Y(z)} &amp;= \text{ZT}\left(\sum_{k=0}^{K-1} \red{h[k]} \cdot \blue{x[n-k]}\right)\\
+&amp;= \sum_{k=0}^{K-1} \red{h[k]} \cdot \text{ZT}(\blue{x[n-k]}) &amp; \text{by linearity of the z-Transform}\\
+&amp;= \sum_{k=0}^{K-1} \red{h[k]} \cdot \darkblue{z^{-k}} \cdot \darkblue{X(z)} &amp; \text{by the z-Transform shifting theorem}\\
+&amp;= \darkblue{X(z)} \cdot \sum_{k=0}^{K-1} \red{h[k]} \cdot \darkblue{z^{-k}} &amp; \darkblue{X(z)} \text{ does not depend on } k\\
+&amp;= \darkblue{X(z)} \cdot \sum_{k=0}^\infty \red{h[k]} \cdot \darkblue{z^{-k}} &amp; \red{h[k\geq K] = 0}, \text{ so summands past } k=K \text{ add 0 to the total}\\
+&amp;= \darkblue{X(z)} \cdot \red{H(z)} &amp; \text{by definition of z-Transform}. 
+\end{align*}\]</div>
+</div>
+</div>
+<div class="section" id="summary">
+<h2><span class="section-number">12.2.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>In this section, we’ve revisited the core properties of the DFT that are necessary for understanding FIR filters: linearity, shifting, and convolution.
+The derivations for the z-Transform versions of these theorems are not substantially different from what we’ve seen previously with the DFT, though some of the notation and underlying assumptions have changed to fit our new setting.</p>
+<p>In the next section, we’ll see how to apply these properties in the analysis of IIR filters.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "dstbook"
+        },
+        kernelOptions: {
+            kernelName: "dstbook",
+            path: "./content/ch12-ztransform"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'dstbook'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="ZT.html" title="previous page"><span class="section-number">12.1. </span>The z-transform</a>
+    <a class='right-next' id="next-link" href="Transfer.html" title="next page"><span class="section-number">12.3. </span>Transfer functions</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Brian McFee<br/>
+        
+            &copy; Copyright 2020-2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

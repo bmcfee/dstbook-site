@@ -1,36 +1,48 @@
 
-
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3.6. Linearity and Shift-invariance &#8212; Digital Signals Theory</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/language_data.js"></script>
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
-    <script src="../../_static/sphinx-book-theme.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -38,18 +50,20 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"extensions": ["cancel.js", "color.js", "HTML.js"], "Macros": {"blue": ["\\class{blue}{#1}", 1], "red": ["\\class{red}{#1}", 1], "orange": ["\\class{orange}{#1}", 1], "purple": ["\\class{purple}{#1}", 1], "green": ["\\class{green}{#1}", 1], "dkorange": ["\\class{dkorange}{#1}", 1], "cyan": ["\\class{cyan}{#1}", 1], "magenta": ["\\class{magenta}{#1}", 1], "yellow": ["\\class{yellow}{#1}", 1], "peagreen": ["\\class{peagreen}{#1}", 1], "darkblue": ["\\class{darkblue}{#1}", 1], "darkorange": ["\\class{darkorange}{#1}", 1]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="3.7. Exercises" href="Exercises.html" />
     <link rel="prev" title="3.5. Properties of convolution" href="Properties.html" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
-
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -58,39 +72,34 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../../index.html">
-  
-  <img src="../../_static/dstlogo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Digital Signals Theory</h1>
-  
-</a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/dstlogo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Digital Signals Theory</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  <ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../intro.html">
-   Preface
-  </a>
- </li>
-</ul>
-<p class="caption">
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
  <span class="caption-text">
-  Part 1, Signals and systems
+  Time-domain signals
  </span>
 </p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../ch01-signals/Intro.html">
    1. Signals
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../ch01-signals/Preliminaries.html">
@@ -119,10 +128,15 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../ch02-sampling/intro.html">
    2. Digital sampling
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../ch02-sampling/Sampling.html">
@@ -151,10 +165,15 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="intro.html">
    3. Convolution
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="Building.html">
@@ -196,146 +215,223 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Part 2, The frequency domain
+  The frequency domain
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../ch04-fourier/intro.html">
-   1. The Discrete Fourier Transform
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch04-complex/Intro.html">
+   4. Complex numbers
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch04-fourier/Similarity.html">
-     1.1. Similarity
+    <a class="reference internal" href="../ch04-complex/Definition.html">
+     4.1. Defining complex numbers
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch04-fourier/Cosine.html">
-     1.2. Comparing to sinusoids
+    <a class="reference internal" href="../ch04-complex/Basic-Operations.html">
+     4.2. Basic operations
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch04-fourier/AnalysisFrequencies.html">
-     1.3. Analysis frequencies
+    <a class="reference internal" href="../ch04-complex/Exponentials.html">
+     4.3. Complex exponentials
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch04-fourier/Phase.html">
-     1.4. Phase
+    <a class="reference internal" href="../ch04-complex/Multiplication-and-division.html">
+     4.4. Multiplication and division
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch04-fourier/DFT.html">
-     1.5. The Discrete Fourier Transform
+    <a class="reference internal" href="../ch04-complex/Powers-and-waves.html">
+     4.5. Powers and waves
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch04-fourier/Examples.html">
-     1.6. Examples
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ch04-fourier/SummingSinusoids.html">
-     1.7. Summing sinusoids
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ch04-fourier/Exercises.html">
-     1.8. Exercises
+    <a class="reference internal" href="../ch04-complex/Exercises.html">
+     4.6. Exercises
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../ch05-dft-properties/intro.html">
-   2. Properties of the DFT
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch05-fourier/intro.html">
+   5. The Discrete Fourier Transform
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch05-dft-properties/Linearity.html">
-     2.1. Linearity
+    <a class="reference internal" href="../ch05-fourier/Similarity.html">
+     5.1. Similarity
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch05-dft-properties/Shifting.html">
-     2.2. The DFT shifting theorem
+    <a class="reference internal" href="../ch05-fourier/Cosine.html">
+     5.2. Comparing to sinusoids
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch05-dft-properties/Conjugate-Symmetry.html">
-     2.3. Conjugate Symmetry
+    <a class="reference internal" href="../ch05-fourier/AnalysisFrequencies.html">
+     5.3. Analysis frequencies
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch05-dft-properties/Leakage.html">
-     2.4. Spectral leakage and windowing
+    <a class="reference internal" href="../ch05-fourier/Phase.html">
+     5.4. Phase
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch05-dft-properties/Exercises.html">
-     2.5. Exercises
+    <a class="reference internal" href="../ch05-fourier/DFT.html">
+     5.5. The Discrete Fourier Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Examples.html">
+     5.6. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/SummingSinusoids.html">
+     5.7. Summing sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Exercises.html">
+     5.8. Exercises
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../ch06-inverse-dft/intro.html">
-   3. DFT Invertibility
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch06-dft-properties/intro.html">
+   6. Properties of the DFT
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch06-inverse-dft/InverseDFT.html">
-     3.1. The Inverse DFT
+    <a class="reference internal" href="../ch06-dft-properties/Linearity.html">
+     6.1. Linearity
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch06-inverse-dft/Exercises.html">
-     3.2. Exercises
+    <a class="reference internal" href="../ch06-dft-properties/Shifting.html">
+     6.2. The DFT shifting theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Conjugate-Symmetry.html">
+     6.3. Conjugate Symmetry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Leakage.html">
+     6.4. Spectral leakage and windowing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Exercises.html">
+     6.5. Exercises
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../ch07-fft/intro.html">
-   4. Fast Fourier Transform
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch07-inverse-dft/intro.html">
+   7. DFT Invertibility
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch07-fft/DFT-Analysis.html">
-     4.1. Time-analysis of the DFT
+    <a class="reference internal" href="../ch07-inverse-dft/Sinusoid.html">
+     7.1. Warm-up: a single sinusoid
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch07-fft/FFT.html">
-     4.2. Radix-2 Cooley-Tukey
+    <a class="reference internal" href="../ch07-inverse-dft/InverseDFT.html">
+     7.2. The Inverse DFT
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch07-fft/Exercises.html">
-     4.3. Exercises
+    <a class="reference internal" href="../ch07-inverse-dft/Synthesis.html">
+     7.3. Synthesis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/Exercises.html">
+     7.4. Exercises
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../ch08-stft/intro.html">
-   5. Time-frequency representation
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch08-fft/intro.html">
+   8. Fast Fourier Transform
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch08-stft/Framing.html">
-     5.1. Framing
+    <a class="reference internal" href="../ch08-fft/DFT-Analysis.html">
+     8.1. Time-analysis of the DFT
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch08-stft/STFT.html">
-     5.2. The Short-time Fourier Transform (STFT)
+    <a class="reference internal" href="../ch08-fft/FFT.html">
+     8.2. Radix-2 Cooley-Tukey
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch08-stft/Exercises.html">
-     5.3. Exercises
+    <a class="reference internal" href="../ch08-fft/Exercises.html">
+     8.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch09-stft/intro.html">
+   9. Time-frequency representation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-stft/Framing.html">
+     9.1. Framing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-stft/STFT.html">
+     9.2. The Short-time Fourier Transform (STFT)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-stft/Exercises.html">
+     9.3. Exercises
     </a>
    </li>
   </ul>
@@ -343,97 +439,112 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Part 3, Filtering
+  Filtering
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../ch09-convtheorem/intro.html">
-   1. Frequency domain convolution
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch10-convtheorem/intro.html">
+   10. Frequency domain convolution
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch09-convtheorem/ConvolutionTheorem.html">
-     1.1. The Convolution Theorem
+    <a class="reference internal" href="../ch10-convtheorem/ConvolutionTheorem.html">
+     10.1. The Convolution Theorem
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch09-convtheorem/Filtering.html">
-     1.2. Convolutional Filtering
+    <a class="reference internal" href="../ch10-convtheorem/Filtering.html">
+     10.2. Convolutional Filtering
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch09-convtheorem/FilterDesign.html">
-     1.3. Filter Design and Analysis
+    <a class="reference internal" href="../ch10-convtheorem/FilterDesign.html">
+     10.3. Filter Design and Analysis
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch09-convtheorem/Phase.html">
-     1.4. Phase and group delay
+    <a class="reference internal" href="../ch10-convtheorem/Phase.html">
+     10.4. Phase and group delay
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch09-convtheorem/Exercises.html">
-     1.5. Exercises
+    <a class="reference internal" href="../ch10-convtheorem/Exercises.html">
+     10.5. Exercises
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../ch10-iir/intro.html">
-   2. Infinite impulse response filters
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch11-iir/intro.html">
+   11. Infinite impulse response filters
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch10-iir/Feedback.html">
-     2.1. Feedback filters
+    <a class="reference internal" href="../ch11-iir/Feedback.html">
+     11.1. Feedback filters
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch10-iir/UsingIIR.html">
-     2.2. Using IIR filters
+    <a class="reference internal" href="../ch11-iir/UsingIIR.html">
+     11.2. Using IIR filters
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch10-iir/IIRFilters.html">
-     2.3. Common IIR filters
+    <a class="reference internal" href="../ch11-iir/IIRFilters.html">
+     11.3. Common IIR filters
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch10-iir/Exercises.html">
-     2.4. Exercises
+    <a class="reference internal" href="../ch11-iir/Exercises.html">
+     11.4. Exercises
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../ch11-ztransform/intro.html">
-   3. Analyzing IIR filters
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch12-ztransform/intro.html">
+   12. Analyzing IIR filters
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch11-ztransform/ZT.html">
-     3.1. The z-transform
+    <a class="reference internal" href="../ch12-ztransform/ZT.html">
+     12.1. The z-transform
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch11-ztransform/zT-Properties.html">
-     3.2. Properties of the z-transform
+    <a class="reference internal" href="../ch12-ztransform/zT-Properties.html">
+     12.2. Properties of the z-transform
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch11-ztransform/Transfer.html">
-     3.3. Transfer functions
+    <a class="reference internal" href="../ch12-ztransform/Transfer.html">
+     12.3. Transfer functions
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch11-ztransform/PoleZero.html">
-     3.4. Stability, poles, and zeros
+    <a class="reference internal" href="../ch12-ztransform/PoleZero.html">
+     12.4. Stability, poles, and zeros
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../ch11-ztransform/Exercises.html">
-     3.5. Exercises
+    <a class="reference internal" href="../ch12-ztransform/Exercises.html">
+     12.5. Exercises
     </a>
    </li>
   </ul>
@@ -444,37 +555,53 @@
   Appendix
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../appendix/Fundamentals.html">
-   1. Mathematical fundamentals
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../appendixA/Fundamentals.html">
+   13. Mathematical fundamentals
   </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../appendix/Complex.html">
-   2. Complex numbers
-  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/Sets.html">
+     13.1. Sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/Sequences.html">
+     13.2. Sequences
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/ModularArithmetic.html">
+     13.3. Modular arithmetic
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/Exponents.html">
+     13.5. Exponentials
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
-<p class="caption">
- <span class="caption-text">
-  References
- </span>
-</p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../zzzbibliography.html">
-   1. References
+  <a class="reference internal" href="../references.html">
+   References
   </a>
  </li>
 </ul>
 
-</nav>
-
- <!-- To handle the deprecated key -->
+    </div>
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
 </div>
 
 </div>
@@ -486,57 +613,42 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        <div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
 
-    
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/ch03-convolution/LSI.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-    
-</div>
-        <!-- Source interaction buttons -->
+            <!-- Full screen (wrap in <a> to have style consistency -->
 
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Launch buttons -->
 
-        <!-- Launch buttons -->
-
-    </div>
-
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
         </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#shift-invariance">
    3.6.1. Shift-invariance
@@ -555,8 +667,13 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#special-cases-of-linearity">
+     3.6.2.1. Special cases of linearity
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#all-convolutional-systems-are-linear">
-     3.6.2.1. All convolutional systems are linear
+     3.6.2.2. All convolutional systems are linear
     </a>
    </li>
   </ul>
@@ -599,7 +716,8 @@
  </li>
 </ul>
 
-        </nav>
+            </nav>
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -609,17 +727,12 @@
                 
   <div class="section" id="linearity-and-shift-invariance">
 <h1><span class="section-number">3.6. </span>Linearity and Shift-invariance<a class="headerlink" href="#linearity-and-shift-invariance" title="Permalink to this headline">¶</a></h1>
-<div class="math notranslate nohighlight">
-\[
-\require{cancel}\notag%
-\require{color}\notag%
-\require{amsmath}\notag%%
-\]</div>
 <div class="cell tag_remove_input tag_remove_output docutils container">
 </div>
 <p>We’ll end this chapter with a discussion of two of the more advanced properties of convolutional filters: linearity and shift-invariance.
 These are general concepts which can be applied to more than just convolutional filters, but for now, we’ll focus on the specific case of convolution.</p>
 <p>Taken together, these two conditions (linearity and shift-invariance) are often referred to as <em>LSI</em>, and a system satisfying these properties is called an <em>LSI system</em>.</p>
+<p>These properties might seem abstract for now, but they will become important later on when we need to analyze the behavior of filters by using the Fourier transform.</p>
 <div class="section" id="shift-invariance">
 <h2><span class="section-number">3.6.1. </span>Shift-invariance<a class="headerlink" href="#shift-invariance" title="Permalink to this headline">¶</a></h2>
 <p>The idea of shift-invariance is that delay can be applied either before or after a system <span class="math notranslate nohighlight">\(g\)</span>, and produce the same result.</p>
@@ -635,7 +748,7 @@ These are general concepts which can be applied to more than just convolutional 
 <p class="admonition-title">Definition: shift-invariance</p>
 <p>A filter <span class="math notranslate nohighlight">\(g\)</span> is <strong>shift-invariant</strong> if for all delays <span class="math notranslate nohighlight">\(d\)</span> (implemented by delay filter <span class="math notranslate nohighlight">\(\Delta\)</span>) and all input signals <span class="math notranslate nohighlight">\(x\)</span>, the following is true:</p>
 <div class="math notranslate nohighlight" id="equation-shift-invariance">
-<span class="eqno">(3.8)<a class="headerlink" href="#equation-shift-invariance" title="Permalink to this equation">¶</a></span>\[g(\Delta * x) = \Delta * g(x).\]</div>
+<span class="eqno">(3.8)<a class="headerlink" href="#equation-shift-invariance" title="Permalink to this equation">¶</a></span>\[\red{g}(\purple{\Delta} * \blue{x}) = \purple{\Delta} * \red{g}(\blue{x}).\]</div>
 </div>
 <p>In plain language, equation <a class="reference internal" href="#equation-shift-invariance">(3.8)</a> says that if we delay <span class="math notranslate nohighlight">\(x\)</span> by <span class="math notranslate nohighlight">\(d\)</span> samples, and then process the delayed signal by the system <span class="math notranslate nohighlight">\(g\)</span>, we will get the exact same result as if we had first applied <span class="math notranslate nohighlight">\(g\)</span> to <span class="math notranslate nohighlight">\(x\)</span> (without delay) and then delayed the result.</p>
 <div class="margin sidebar">
@@ -653,20 +766,16 @@ There are two reasons why shift-invariance is a more precise term:</p>
 <p>Let <span class="math notranslate nohighlight">\(g(x) = h *x\)</span> be a convolutional system for some fixed <span class="math notranslate nohighlight">\(h\)</span> and any input signal <span class="math notranslate nohighlight">\(x\)</span>, and let <span class="math notranslate nohighlight">\(\Delta\)</span> be the impulse response of a <span class="math notranslate nohighlight">\(d\)</span>-step delay for any fixed <span class="math notranslate nohighlight">\(d \geq 0\)</span>.
 To prove that <span class="math notranslate nohighlight">\(g\)</span> is shift-invariant, we need to verify that</p>
 <div class="math notranslate nohighlight">
-\[
-g(\Delta * x) = \Delta * g(x).
-\]</div>
+\[\red{g}(\purple{\Delta} * \blue{x}) = \purple{\Delta} * \red{g}(\blue{x}).\]</div>
 <p>We’ll do this by the following argument:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
-g(\Delta * x) &amp;= h * (\Delta * x) &amp; \text{ apply }g\text{ to delayed input}\\
-&amp;= (h * \Delta) * x &amp; \text { associative rule}\\
-&amp;= (\Delta * h) * x &amp; \text { commutative rule}\\
-&amp;= \Delta * (h * x) &amp; \text { associative rule}\\
-&amp;= \Delta * g(x) &amp; \text { definition of }g.
-\end{align*}
-\end{split}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\red{g}(\purple{\Delta} * \blue{x}) &amp;= \red{h} * (\purple{\Delta} * \blue{x}) &amp; \text{ apply }g\text{ to delayed input}\\
+&amp;= (\red{h} * \purple{\Delta}) * \blue{x} &amp; \text { associative rule}\\
+&amp;= (\purple{\Delta} * \red{h}) * \blue{x} &amp; \text { commutative rule}\\
+&amp;= \purple{\Delta} * (\red{h} * \blue{x}) &amp; \text { associative rule}\\
+&amp;= \purple{\Delta} * \red{g}(\blue{x}) &amp; \text { definition of }g.
+\end{align*}\]</div>
 <p>This can give us a shortcut to showing shift-invariance: if you can implement a system <span class="math notranslate nohighlight">\(g\)</span> in terms of convolution, it automatically satisfies shift-invariance!</p>
 </div>
 </div>
@@ -676,23 +785,21 @@ g(\Delta * x) &amp;= h * (\Delta * x) &amp; \text{ apply }g\text{ to delayed inp
 Broadly speaking, it encapsulates our notions of <em>gain</em> and <em>mixing</em> of signals.</p>
 <div class="admonition-definition-linearity admonition" id="id1">
 <p class="admonition-title">Definition: linearity</p>
-<p>A system <span class="math notranslate nohighlight">\(g\)</span> is <strong>linear</strong> if for any two signals <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span>, and for any pair of numbers <span class="math notranslate nohighlight">\(c_1\)</span> and <span class="math notranslate nohighlight">\(c_2\)</span>, the following holds:</p>
+<p>A system <span class="math notranslate nohighlight">\(\red{g}\)</span> is <strong>linear</strong> if for any two <span class="math notranslate nohighlight">\(\blue{\text{signals}}\)</span> <span class="math notranslate nohighlight">\(\blue{x_1}\)</span> and <span class="math notranslate nohighlight">\(\blue{x_2}\)</span>, and for any pair of <span class="math notranslate nohighlight">\(\purple{\text{numbers}}\)</span> <span class="math notranslate nohighlight">\(\purple{c_1}\)</span> and <span class="math notranslate nohighlight">\(\purple{c_2}\)</span>, the following holds:</p>
 <div class="math notranslate nohighlight" id="equation-linearity">
-<span class="eqno">(3.9)<a class="headerlink" href="#equation-linearity" title="Permalink to this equation">¶</a></span>\[g(c_1 \cdot x_1 + c_2 \cdot x_2) = c_1 \cdot g(x_1) + c_2 \cdot g(x_2).\]</div>
+<span class="eqno">(3.9)<a class="headerlink" href="#equation-linearity" title="Permalink to this equation">¶</a></span>\[\red{g}(\purple{c_1} \cdot \blue{x_1} + \purple{c_2} \cdot \blue{x_2}) = \purple{c_1} \cdot \red{g}(\blue{x_1}) + \purple{c_2} \cdot \red{g}(\blue{x_2}).\]</div>
 </div>
+<div class="section" id="special-cases-of-linearity">
+<h3><span class="section-number">3.6.2.1. </span>Special cases of linearity<a class="headerlink" href="#special-cases-of-linearity" title="Permalink to this headline">¶</a></h3>
 <p>This might look like a tangle of symbols, so it helps to think about a few special cases.
-For instance, if we take <span class="math notranslate nohighlight">\(x_2\)</span> to be a silent (all zeros) signal, and <span class="math notranslate nohighlight">\(c_2 = 0\)</span>, then we get the simpler case</p>
+For instance, if we take an example where <span class="math notranslate nohighlight">\(\blue{x_2[n] = 0}\)</span> is a silent (all zeros) signal, and <span class="math notranslate nohighlight">\(\purple{c_2} = 0\)</span>, then we get the simpler case</p>
 <div class="math notranslate nohighlight">
-\[
-g(c_1 \cdot x_1) = c_1 \cdot g(x_1),
-\]</div>
-<p>which is also known as <em>homogeneity</em>.  This says that gain can be applied before or after the system <span class="math notranslate nohighlight">\(g\)</span> with no difference in the output.</p>
-<p>Similarly, if we take <span class="math notranslate nohighlight">\(c_1 = c_2 = 1\)</span>, then we get</p>
+\[\red{g}(\purple{c_1} \cdot \blue{x_1}) = \purple{c_1} \cdot \red{g}(\blue{x_1}),\]</div>
+<p>which is also known as <em>homogeneity</em>.  This says that gain can be applied before or after the system <span class="math notranslate nohighlight">\(\red{g}\)</span> with no difference in the output.</p>
+<p>Similarly, if we take <span class="math notranslate nohighlight">\(\purple{c_1 = c_2 = 1}\)</span>, then we get</p>
 <div class="math notranslate nohighlight">
-\[
-g(x_1 + x_2) = g(x_1) + g(x_2),
-\]</div>
-<p>which is also known as <em>additivity</em>.  This says that signals can be mixed before applying <span class="math notranslate nohighlight">\(g\)</span>, or after, and the result will be the same.  We’ve already seen this particular case before, when discussing how convolution <a class="reference internal" href="Properties.html#convolution-distributive"><span class="std std-ref">distributes over addition</span></a>.</p>
+\[\red{g}(\blue{x_1 + x_2}) = \red{g}(\blue{x_1}) + \red{g}(\blue{x_2}),\]</div>
+<p>which is also known as <em>additivity</em>.  This says that signals can be mixed before applying <span class="math notranslate nohighlight">\(\red{g}\)</span>, or after, and the result will be the same.  We’ve already seen this particular case before, when discussing how convolution <a class="reference internal" href="Properties.html#convolution-distributive"><span class="std std-ref">distributes over addition</span></a>.</p>
 <p>The linearity definition <a class="reference internal" href="#equation-linearity">(3.9)</a> combines these two ideas into one compact form.</p>
 <div class="margin sidebar">
 <p class="sidebar-title">Aside: why <em>linear</em>?</p>
@@ -700,33 +807,31 @@ g(x_1 + x_2) = g(x_1) + g(x_2),
 <p>Like many parts of our mathematical vocabulary, the term is borrowed from the theory of <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_algebra"><em>linear algebra</em></a>, where operators like rotation or translation are defined to ensure that the shapes of straight lines are preserved after application.</p>
 <p>The idea is much more general though, and in our context, <em>linearity</em> should be interpreted as preserving <em>gain</em> and <em>mixture</em> of signals.</p>
 </div>
+</div>
 <div class="section" id="all-convolutional-systems-are-linear">
-<h3><span class="section-number">3.6.2.1. </span>All convolutional systems are linear<a class="headerlink" href="#all-convolutional-systems-are-linear" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">3.6.2.2. </span>All convolutional systems are linear<a class="headerlink" href="#all-convolutional-systems-are-linear" title="Permalink to this headline">¶</a></h3>
 <p>As before, let <span class="math notranslate nohighlight">\(g(x) = h*x\)</span> be an arbitrary convolutional system, and let <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span> denote arbitrary signals, and <span class="math notranslate nohighlight">\(c_1, c_2\)</span> denote arbitrary numbers.</p>
 <p>We could prove that <span class="math notranslate nohighlight">\(g\)</span> is linear by brute force, using the definition of convolution and working through the algebra directly.  (If this sounds like fun, please feel free to give it a shot!)</p>
 <p>We’ll take a slightly different route here though, relying on facts we already know about convolution.</p>
 <p>Recall that we can implement gain as a convolutional system by creating an impulse response with only one element: <a class="reference internal" href="Convolution.html#convolution-gain"><span class="std std-ref">Gain</span></a>.
 Let <span class="math notranslate nohighlight">\(C_1 = [c_1]\)</span> and <span class="math notranslate nohighlight">\(C_2 = [c_2]\)</span>, so that</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
-c_1 \cdot x_1[n] &amp;= (C_1 * x_1)[n]\\
-c_2 \cdot x_2[n] &amp;= (C_2 * x_2)[n].
-\end{align*}
-\end{split}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\purple{c_1} \cdot \blue{x_1[n]} &amp;= (\purple{C_1} * \blue{x_1})[n]\\
+\purple{c_2} \cdot \blue{x_2[n]} &amp;= (\purple{C_2} * \blue{x_2})[n].
+\end{align*}\]</div>
 <p>Then, we can show linearity in terms of associative, commutative, and distributive properties:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
-g(c_1 \cdot x_1 + c_2 \cdot x_2) &amp;= h * (c_1 \cdot x_1 + c_2 \cdot x_2) &amp; \text{ apply }g\\
-&amp;= h * (C_1 * x_1 + C_2 * x_2) &amp; \text { use definition of } C_1, C_2\\
-&amp;= (h * C_1 * x_1) + (h * C_2 * x_2) &amp; \text { distributive rule}\\
-&amp;= (C_1 * h * x_1) + (C_2 * h * x_2) &amp; \text { commutative rule (twice)}\\
-&amp;= C_1 * (h * x_1) + C_2 * (h * x_2) &amp; \text { associative rule (twice)}\\
-&amp;= C_1 * g(x_1) + C_2 * g(x_2) &amp; \text { definition of }g\\
-&amp;= c_1 \cdot g(x_1) + c_2 \cdot g(x_2) &amp; \text { definition of }C_1, C_2\\
-\end{align*}
-\end{split}\]</div>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\red{g}(\purple{c_1} \cdot \blue{x_1} + \purple{c_2} \cdot \blue{x_2}) 
+&amp;= \red{h} * (\purple{c_1} \cdot \blue{x_1} + \purple{c_2} \cdot \blue{x_2}) &amp; \text{ apply }g(x) = h*x\\
+&amp;= \red{h} * (\purple{C_1} * \blue{x_1} + \purple{C_2} * \blue{x_2}) &amp; \text { use definition of } C_1, C_2\\
+&amp;= (\red{h} * \purple{C_1} * \blue{x_1}) + (\red{h} * \purple{C_2} * \blue{x_2}) &amp; \text { distributive rule}\\
+&amp;= (\purple{C_1} * \red{h} * \blue{x_1}) + (\purple{C_2} * \red{h} * \blue{x_2}) &amp; \text { commutative rule (twice)}\\
+&amp;= \purple{C_1} * (\red{h} * \blue{x_1}) + \purple{C_2} * (\red{h} * \blue{x_2}) &amp; \text { associative rule (twice)}\\
+&amp;= \purple{C_1} * \red{g}(\blue{x_1}) + \purple{C_2} * \red{g}(\blue{x_2}) &amp; \text { definition of }g\\
+&amp;= \purple{c_1} \cdot \red{g}(\blue{x_1}) + \purple{c_2} \cdot \red{g}(\blue{x_2}) &amp; \text { definition of }C_1, C_2\\
+\end{align*}\]</div>
 <p>Note that the use of convolution to implement gain here is mainly for convenience: having all operations expressed as either sums or convolutions buys us a bit of notational simplicity.
 That said, it is still completely valid to prove this from first principles, but the derivation would be longer.</p>
 </div>
@@ -788,13 +893,12 @@ This is because clipping models what happens to amplifier circuits when pushed p
 </div>
 <p>Remember that if a system is linear, it must be linear for <em>all</em> signals <span class="math notranslate nohighlight">\(x_1,x_2\)</span> and scalars <span class="math notranslate nohighlight">\(c_1,c_2\)</span>.
 To show that clipping is not linear, we only need to find one counter-example case: a setting of <span class="math notranslate nohighlight">\(x_1, x_2, c_1, c_2\)</span> for which it fails to hold.</p>
-<p>Imagine taking a signal <span class="math notranslate nohighlight">\(x_1[n] = v_+\)</span> (for all <span class="math notranslate nohighlight">\(n\)</span>), letting <span class="math notranslate nohighlight">\(x_2 = 0\)</span>, and setting <span class="math notranslate nohighlight">\(c_1=2\)</span>.
+<p>Imagine taking a signal <span class="math notranslate nohighlight">\(\blue{x_1[n]} = v_+ &gt; 0\)</span> (for all <span class="math notranslate nohighlight">\(n\)</span>), letting <span class="math notranslate nohighlight">\(\blue{x_2 = 0}\)</span>, and setting <span class="math notranslate nohighlight">\(\purple{c_1=2}\)</span>.
 Then</p>
 <div class="math notranslate nohighlight">
-\[
-g(c_1 \cdot x_1) = g(2 \cdot v_+) = v_+
-\]</div>
-<p>but this is not equal to <span class="math notranslate nohighlight">\(c_1 \cdot g(x_1) = 2 \cdot v_+\)</span>.</p>
+\[\red{g}(\purple{c_1} \cdot \blue{x_1}) = \red{g}(\purple{2} \cdot \blue{v_+}) = v_+\]</div>
+<p>but this is not equal to <span class="math notranslate nohighlight">\(\purple{c_1} \cdot \red{g}(\blue{x_1}) = \purple{2} \cdot \blue{v_+}\)</span>.
+We can then conclude that the system cannot be linear because it does not preserve gain.</p>
 <p>In general, showing that a system is not linear requires some insight about how the system operates.  In this case, we exploited the fact that the behavior of <span class="math notranslate nohighlight">\(g\)</span> changes when the input is above <span class="math notranslate nohighlight">\(v_+\)</span>, and used that to construct a counter-example.
 This type of argument often seems obvious in hindsight, but creating counter-examples is a skill that takes practice to develop.</p>
 </div>
@@ -808,9 +912,7 @@ In this case, the dependence to look at is on the sample indices.</p>
 <p>A <em>time-reversal</em> system does exactly what it sounds like: it plays the signal backward.
 Mathematically, this is done by swapping the sample at index <span class="math notranslate nohighlight">\(n\)</span> with the one at index <span class="math notranslate nohighlight">\(N-1-n\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[
-y[n] = x[N - 1 - n]
-\]</div>
+\[y[n] = x[N - 1 - n]\]</div>
 <p>or in code,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reverse</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="c1"># This could be equivalently done with the one-liner:</span>
@@ -824,8 +926,8 @@ y[n] = x[N - 1 - n]
     <span class="k">return</span> <span class="n">y</span>
 </pre></div>
 </div>
-<p>Note that the previous example (clipping) can operate independently on each sample, and do not need to know the entire signal at once to operate correctly.
-However, this system needs to know the entire signal in advance.</p>
+<p>Note that the previous example (clipping) can operate independently on each sample, and it does not need access to the entire signal at once to operate correctly.
+However, the time-reversal system does need to see the entire signal in advance.</p>
 <p>To show that time-reversal is not shift-invariant, we again must construct a counter-example.
 Here the key property that we’re looking at is symmetry (in time), so we should probably consider signals which do not look the same forwards as backwards.
 Sinusoids and square waves probably won’t work, but a sawtooth will do nicely!</p>
@@ -861,28 +963,28 @@ However, the equivalence between convolutions and LSI systems is one of the most
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "bloody"
+            mode: "dstbook"
         },
         kernelOptions: {
-            kernelName: "bloody",
+            kernelName: "dstbook",
             path: "./content/ch03-convolution"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'bloody'</script>
+    <script>kernelName = 'dstbook'</script>
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="Properties.html" title="previous page"><span class="section-number">3.5. </span>Properties of convolution</a>
     <a class='right-next' id="next-link" href="Exercises.html" title="next page"><span class="section-number">3.7. </span>Exercises</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -890,7 +992,7 @@ However, the equivalence between convolutions and LSI systems is one of the most
         
           By Brian McFee<br/>
         
-            &copy; Copyright 2020.<br/>
+            &copy; Copyright 2020-2021.<br/>
       </p>
     </div>
   </footer>
@@ -899,18 +1001,9 @@ However, the equivalence between convolutions and LSI systems is one of the most
 
       </div>
     </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    <script src="../../_static/js/index.js"></script>
-    
-    <!-- Google Analytics -->
-    <script>
-      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-      ga('create', 'UA-89057641-1', 'auto');
-      ga('set', 'anonymizeIp', true);
-      ga('send', 'pageview');
-    </script>
-    <script async src='https://www.google-analytics.com/analytics.js'></script>
-    <!-- End Google Analytics -->
-    
+  
   </body>
 </html>

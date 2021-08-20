@@ -1,0 +1,873 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>12.1. The z-transform &#8212; Digital Signals Theory</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"extensions": ["cancel.js", "color.js", "HTML.js"], "Macros": {"blue": ["\\class{blue}{#1}", 1], "red": ["\\class{red}{#1}", 1], "orange": ["\\class{orange}{#1}", 1], "purple": ["\\class{purple}{#1}", 1], "green": ["\\class{green}{#1}", 1], "dkorange": ["\\class{dkorange}{#1}", 1], "cyan": ["\\class{cyan}{#1}", 1], "magenta": ["\\class{magenta}{#1}", 1], "yellow": ["\\class{yellow}{#1}", 1], "peagreen": ["\\class{peagreen}{#1}", 1], "darkblue": ["\\class{darkblue}{#1}", 1], "darkorange": ["\\class{darkorange}{#1}", 1]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="12.2. Properties of the z-transform" href="zT-Properties.html" />
+    <link rel="prev" title="12. Analyzing IIR filters" href="intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/dstlogo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Digital Signals Theory</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Time-domain signals
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch01-signals/Intro.html">
+   1. Signals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Preliminaries.html">
+     1.1. Preliminaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Waves.html">
+     1.2. Periodicity and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Units.html">
+     1.3. Units and dimensional analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Acoustics.html">
+     1.4. Audio and signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Exercises.html">
+     1.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch02-sampling/intro.html">
+   2. Digital sampling
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Sampling.html">
+     2.1. Sampling period and rate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Aliasing.html">
+     2.2. Aliasing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Nyquist.html">
+     2.3. The Nyquist-Shannon sampling theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Quantization.html">
+     2.4. Quantization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Exercises.html">
+     2.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch03-convolution/intro.html">
+   3. Convolution
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Building.html">
+     3.1. Delay, gain, and mix
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Convolution.html">
+     3.2. Defining convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/IR.html">
+     3.3. Impulse Response
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Modes.html">
+     3.4. Convolution modes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Properties.html">
+     3.5. Properties of convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/LSI.html">
+     3.6. Linearity and Shift-invariance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Exercises.html">
+     3.7. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The frequency domain
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch04-complex/Intro.html">
+   4. Complex numbers
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Definition.html">
+     4.1. Defining complex numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Basic-Operations.html">
+     4.2. Basic operations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Exponentials.html">
+     4.3. Complex exponentials
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Multiplication-and-division.html">
+     4.4. Multiplication and division
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Powers-and-waves.html">
+     4.5. Powers and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Exercises.html">
+     4.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch05-fourier/intro.html">
+   5. The Discrete Fourier Transform
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Similarity.html">
+     5.1. Similarity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Cosine.html">
+     5.2. Comparing to sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/AnalysisFrequencies.html">
+     5.3. Analysis frequencies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Phase.html">
+     5.4. Phase
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/DFT.html">
+     5.5. The Discrete Fourier Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Examples.html">
+     5.6. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/SummingSinusoids.html">
+     5.7. Summing sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Exercises.html">
+     5.8. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch06-dft-properties/intro.html">
+   6. Properties of the DFT
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Linearity.html">
+     6.1. Linearity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Shifting.html">
+     6.2. The DFT shifting theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Conjugate-Symmetry.html">
+     6.3. Conjugate Symmetry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Leakage.html">
+     6.4. Spectral leakage and windowing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Exercises.html">
+     6.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch07-inverse-dft/intro.html">
+   7. DFT Invertibility
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/Sinusoid.html">
+     7.1. Warm-up: a single sinusoid
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/InverseDFT.html">
+     7.2. The Inverse DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/Synthesis.html">
+     7.3. Synthesis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/Exercises.html">
+     7.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch08-fft/intro.html">
+   8. Fast Fourier Transform
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-fft/DFT-Analysis.html">
+     8.1. Time-analysis of the DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-fft/FFT.html">
+     8.2. Radix-2 Cooley-Tukey
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-fft/Exercises.html">
+     8.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch09-stft/intro.html">
+   9. Time-frequency representation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-stft/Framing.html">
+     9.1. Framing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-stft/STFT.html">
+     9.2. The Short-time Fourier Transform (STFT)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-stft/Exercises.html">
+     9.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Filtering
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch10-convtheorem/intro.html">
+   10. Frequency domain convolution
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/ConvolutionTheorem.html">
+     10.1. The Convolution Theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/Filtering.html">
+     10.2. Convolutional Filtering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/FilterDesign.html">
+     10.3. Filter Design and Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/Phase.html">
+     10.4. Phase and group delay
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/Exercises.html">
+     10.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch11-iir/intro.html">
+   11. Infinite impulse response filters
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/Feedback.html">
+     11.1. Feedback filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/UsingIIR.html">
+     11.2. Using IIR filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/IIRFilters.html">
+     11.3. Common IIR filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/Exercises.html">
+     11.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
+   12. Analyzing IIR filters
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     12.1. The z-transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="zT-Properties.html">
+     12.2. Properties of the z-transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Transfer.html">
+     12.3. Transfer functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="PoleZero.html">
+     12.4. Stability, poles, and zeros
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Exercises.html">
+     12.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../appendixA/Fundamentals.html">
+   13. Mathematical fundamentals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/Sets.html">
+     13.1. Sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/Sequences.html">
+     13.2. Sequences
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/ModularArithmetic.html">
+     13.3. Modular arithmetic
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/Exponents.html">
+     13.5. Exponentials
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-can-t-we-use-the-dft">
+   12.1.1. Why can’t we use the DFT?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#defining-the-z-transform">
+   12.1.2. Defining the z-transform
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#relating-the-z-transform-to-the-dft">
+   12.1.3. Relating the z-transform to the DFT
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aside-continuous-frequency-and-the-dtft">
+   12.1.4. Aside: continuous frequency and the DTFT
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   12.1.5. Summary
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="the-z-transform">
+<h1><span class="section-number">12.1. </span>The z-transform<a class="headerlink" href="#the-z-transform" title="Permalink to this headline">¶</a></h1>
+<p>The infinite impulse response filters that we’ve encountered in the previous chapter can be thought of as a generalization of convolutional, finite impulse response filters.
+We first saw convolution in the time domain, where it has the interpretation of mixing delayed and gained copies of the input signal.
+We then saw how in the frequency domain, this is equivalent to taking the element-wise product of the Fourier transforms of the signal and filter coefficients.
+This observation provided the tools we need to understand the effect that any given convolutional filter will have when applied to an input signal.</p>
+<p>This leads us to the central question of this chapter: <strong>can we analyze IIR filters in the frequency domain as well?</strong></p>
+<p>It turns out that the answer is <strong>yes</strong>, but <em>not with the discrete Fourier transform</em>.
+We’ll need a new tool, which is known as the <strong>z-transform</strong>!</p>
+<div class="cell tag_remove_input tag_remove_output docutils container">
+</div>
+<div class="section" id="why-can-t-we-use-the-dft">
+<h2><span class="section-number">12.1.1. </span>Why can’t we use the DFT?<a class="headerlink" href="#why-can-t-we-use-the-dft" title="Permalink to this headline">¶</a></h2>
+<p>It’s worth taking a step back, and reconstructing the chain of reasoning that led us to the discrete Fourier transform and the convolution theorem.</p>
+<p>The DFT is defined in terms of <strong>analysis frequencies</strong>: those which complete an integral number of cycles over a fixed duration of time (<span class="math notranslate nohighlight">\(N\)</span> samples).
+The DFT is then constructed by comparing the similarity (sum-product) of the input signal <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> to a collection of complex exponentials at the chosen analysis frequencies.
+Remember: the DFT always has the same number of analysis frequencies <span class="math notranslate nohighlight">\(N\)</span> as input samples.</p>
+<p>The convolution theorem provides a way to understand convolution <span class="math notranslate nohighlight">\(\purple{y} = \red{h} * \blue{x}\)</span> in terms of the per-frequency DFT products <span class="math notranslate nohighlight">\(\darkblue{X[m]} \cdot \red{H[m]}\)</span>.
+For this to work, the two DFT sequences <span class="math notranslate nohighlight">\(\darkblue{X[m]}\)</span> and <span class="math notranslate nohighlight">\(\red{H[m]}\)</span> must have the same (finite) length <span class="math notranslate nohighlight">\(N\)</span>.
+This is not a significant barrier: both <span class="math notranslate nohighlight">\(\blue{x}\)</span> and <span class="math notranslate nohighlight">\(\red{h}\)</span> must be finite length for the DFT to be defined in the first place, and we can always zero-pad the shorter signal to match the longer signal.</p>
+<p>However, when we have an IIR filter, this does not work.
+Even for relatively simple filters, like the exponential moving average</p>
+<div class="math notranslate nohighlight">
+\[\purple{y[n]} = \red{1/2} \cdot \blue{x[n]} + \cyan{1/2} \cdot \purple{y[n-1]},\]</div>
+<p>the impulse response can be infinite in length: there is no finite <span class="math notranslate nohighlight">\(N\)</span> for which all <span class="math notranslate nohighlight">\(\purple{y[n &gt; N]} = 0\)</span>.
+As a result, there is no finite <span class="math notranslate nohighlight">\(N\)</span> from which we can determine the analysis frequencies, which we would need to construct the DFT!</p>
+</div>
+<div class="section" id="defining-the-z-transform">
+<h2><span class="section-number">12.1.2. </span>Defining the z-transform<a class="headerlink" href="#defining-the-z-transform" title="Permalink to this headline">¶</a></h2>
+<p>The limitations of the DFT ultimately all come from the dependence on knowing the length of the signal <span class="math notranslate nohighlight">\(N\)</span>.
+Therefore, to remove these limitations, we will need to modify the DFT definition everywhere the length <span class="math notranslate nohighlight">\(N\)</span> appears.</p>
+<p>Recall the definition of the DFT for frequency index <span class="math notranslate nohighlight">\(m\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\darkblue{X[m]} = \sum_{n=0}^{N-1} \blue{x[n]} \cdot \purple{e^{-\mathrm{j}\cdot 2\pi \cdot \frac{m}{N} \cdot n}}.\]</div>
+<p>The length <span class="math notranslate nohighlight">\(\blue{N}\)</span> appears in two places here: once in the limit of the summation (<span class="math notranslate nohighlight">\(\blue{N-1}\)</span>), and once in the complex exponential.</p>
+<p>The first step we will take is to rewrite the DFT definition by using the exponent multiplication rule</p>
+<div class="math notranslate nohighlight">
+\[e^{a\cdot b} = {(e^a)}^b.\]</div>
+<div class="cell tag_remove_input tag_remove_output docutils container">
+</div>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="figure align-default" id="id1">
+<div class="cell_output docutils container">
+<img alt="../../_images/ZT_4_0.svg" src="../../_images/ZT_4_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 12.1 </span><span class="caption-text">When the complex number <span class="math notranslate nohighlight">\(z_{1/8} = \exp(\mathrm{j}\cdot 2\pi \cdot 1/8)\)</span> is raised to successive powers <span class="math notranslate nohighlight">\(z_{1/8}^{-n}\)</span> for <span class="math notranslate nohighlight">\(n=0, 1, 2, \dots\)</span>, the resulting effect is to move the point clockwise around the unit circle by steps of <span class="math notranslate nohighlight">\(2\pi\cdot 1/8\)</span> radians.
+This general pattern holds for any <span class="math notranslate nohighlight">\(z_{m/N}\)</span> with integers <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(N\)</span>, which provide the basis for the discrete Fourier transform.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<p>Specifically, we can rewrite the complex exponential by factoring out <span class="math notranslate nohighlight">\(-n\)</span> as a power:</p>
+<div class="math notranslate nohighlight">
+\[\purple{e^{-\mathrm{j}\cdot 2\pi \cdot \frac{m}{N} \cdot n}} = \left(\purple{e^{2\pi \cdot \mathrm{j} \cdot \frac{m }{ N}}}\right)^{-n}.\]</div>
+<p>We can now interpret this as a sequence (parametrized by sample index <span class="math notranslate nohighlight">\(n\)</span>) generated by a complex number <span class="math notranslate nohighlight">\(z_{m/N}\)</span> on the unit circle at angle <span class="math notranslate nohighlight">\(\theta = 2\pi \cdot m / N\)</span>, or</p>
+<div class="math notranslate nohighlight" id="equation-zm">
+<span class="eqno">(12.1)<a class="headerlink" href="#equation-zm" title="Permalink to this equation">¶</a></span>\[\purple{z_{m/N}} = \purple{e^{2\pi \cdot \mathrm{j} \cdot \frac{m }{ N}}}.\]</div>
+<p>The ratio <span class="math notranslate nohighlight">\(m/N\)</span> can thus be interpreted as the fraction of the circle we travel in each step <span class="math notranslate nohighlight">\(n\)</span> of the sequence: when <span class="math notranslate nohighlight">\(m\)</span> is a small integer, the steps are small, so it will take more steps to traverse the entire circle.
+That is, small <span class="math notranslate nohighlight">\(m\)</span> corresponds to low frequency, as we should expect.
+The length <span class="math notranslate nohighlight">\(N\)</span> determines the smallest non-zero step (<span class="math notranslate nohighlight">\(1/N\)</span>), and as <span class="math notranslate nohighlight">\(N\)</span> increases, we can take smaller steps.</p>
+<p>If we take <a class="reference internal" href="#equation-zm">(12.1)</a>, we can rewrite the DFT calculation as a polynomial in <span class="math notranslate nohighlight">\(z_{m/N}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\darkblue{X[m]} = \sum_{n=0}^{N-1} \blue{x[n]} \cdot  \purple{(z_{m/N})}^{-n}.\]</div>
+<p>If we now define <span class="math notranslate nohighlight">\(x[n &lt; 0] = x[n \geq N] = 0\)</span>, so that the input signal is assumed to be silent outside the observed set of samples, we can relax the finite summation for <span class="math notranslate nohighlight">\(n=0 \dots N-1\)</span> to an infinite summation:</p>
+<div class="math notranslate nohighlight">
+\[\darkblue{X[m]} = \sum_{n=0}^\infty \blue{x[n]} \cdot  \purple{(z_{m/N})}^{-n}.\]</div>
+<p>This form is still equivalent to the DFT, but under the assumption of silence after <span class="math notranslate nohighlight">\(\blue{N}\)</span> samples, rather than infinite repetition.</p>
+<p>The final step is to replace <span class="math notranslate nohighlight">\(\purple{z_{m/N}}\)</span> (which correspond to our analysis frequencies for <span class="math notranslate nohighlight">\(m=0,1,2,\dots,N-1\)</span>) by <em>any</em> complex number <span class="math notranslate nohighlight">\(z\)</span>.
+In doing so, we have completely eliminated the dependence on the signal duration <span class="math notranslate nohighlight">\(\blue{N}\)</span>.
+The resulting transformation of <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> is no longer a sequence of <span class="math notranslate nohighlight">\(\blue{N}\)</span> complex numbers <span class="math notranslate nohighlight">\(\darkblue{X[0], X[1], \dots, X[N-1]}\)</span>, but instead defines a continuous function <span class="math notranslate nohighlight">\(\darkblue{X(z)}\)</span> which can be evaluated for <em>any</em> complex number <span class="math notranslate nohighlight">\(\purple{z}\)</span>, hence the name: <strong>z-transform</strong>.</p>
+<div class="information admonition">
+<p class="admonition-title">Definition: The z-transform</p>
+<p>Given a sequence <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> (of possibly infinite length), the z-transform is a function <span class="math notranslate nohighlight">\(\darkblue{X(z)}\)</span> over complex numbers <span class="math notranslate nohighlight">\(\purple{z}\)</span> defined as follows:</p>
+<div class="math notranslate nohighlight" id="equation-ztransform">
+<span class="eqno">(12.2)<a class="headerlink" href="#equation-ztransform" title="Permalink to this equation">¶</a></span>\[\darkblue{X(z)} = \sum_{n=0}^\infty \blue{x[n]} \cdot  \purple{z}^{-n}.\]</div>
+</div>
+</div>
+<div class="section" id="relating-the-z-transform-to-the-dft">
+<h2><span class="section-number">12.1.3. </span>Relating the z-transform to the DFT<a class="headerlink" href="#relating-the-z-transform-to-the-dft" title="Permalink to this headline">¶</a></h2>
+<p>The first thing to be absolutely clear about is that the z-transform does not “replace” the DFT exactly.
+In particular, we don’t typically use the z-transform to analyze a signal <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> directly.
+As we’ll see shortly, the z-transform is more useful for analyzing filters, and this works essentially by comparing the z-transforms of the input <span class="math notranslate nohighlight">\(\darkblue{X(z)}\)</span> and the output <span class="math notranslate nohighlight">\(\magenta{Y(z)}\)</span>.</p>
+<p>Unlike the DFT, the z-transform does not produce a finite sequence of coefficients.
+Instead, it produces a <em>function</em> that can be evaluated for any complex number <span class="math notranslate nohighlight">\(\purple{z}\)</span>.
+This function <span class="math notranslate nohighlight">\(\darkblue{X(z)}\)</span> — note the use of parentheses <span class="math notranslate nohighlight">\((z)\)</span> instead of square brackets <span class="math notranslate nohighlight">\([n]\)</span> — is not really an object you would use directly, and it is primarily a conceptual device that we use for analysis.
+For this reason, you are unlikely to encounter software implementations that compute <a class="reference internal" href="#equation-ztransform">(12.2)</a> for you.</p>
+<p>However, the DFT can be recovered from the z-transform by evaluating <span class="math notranslate nohighlight">\(\darkblue{X(z)}\)</span> at carefully chosen points <span class="math notranslate nohighlight">\(\purple{z}\)</span>.
+Specifically, the DFT coefficients <span class="math notranslate nohighlight">\(\darkblue{X[m]}\)</span> can be extracted from the z-transform <span class="math notranslate nohighlight">\(\darkblue{X(z)}\)</span> as follows:</p>
+<div class="math notranslate nohighlight">
+\[\darkblue{X[m]} = \darkblue{X}\left(\purple{e^{2\pi\cdot \mathrm{j} \cdot m / N}} \right).\]</div>
+</div>
+<div class="section" id="aside-continuous-frequency-and-the-dtft">
+<h2><span class="section-number">12.1.4. </span>Aside: continuous frequency and the DTFT<a class="headerlink" href="#aside-continuous-frequency-and-the-dtft" title="Permalink to this headline">¶</a></h2>
+<p>Another special case of the z-transform is known as the <em>discrete-time Fourier transform</em> (DTFT).
+The DTFT is similar to our conventional DFT, except that instead of using <span class="math notranslate nohighlight">\(\blue{N}\)</span> analysis frequencies <span class="math notranslate nohighlight">\(0, f_s/N, 2\cdot f_s/N, \cdots\)</span>, it is defined for <strong>any</strong> frequency <span class="math notranslate nohighlight">\(f\)</span>.
+The DTFT gets its name from the fact that it is continuous in frequency, but still discrete in time.</p>
+<p>The DTFT for any frequency <span class="math notranslate nohighlight">\(f\)</span> is obtained by evaluating the z-transform at a point on the unit circle with angle <span class="math notranslate nohighlight">\(2\pi \cdot f / f_s\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\text{DTFT}(x)(f) = \darkblue{X}\left( \purple{e^{\mathrm{j}\cdot 2\pi \cdot f / f_s}} \right).\]</div>
+<p>For our purposes, the DTFT is primarily useful as a way to use the z-transform for arbitrary frequencies, not just analysis frequencies.
+Note that the DTFT also makes the connection between frequency and angle precise: a frequency <span class="math notranslate nohighlight">\(\purple{f}\)</span> with sampling rate <span class="math notranslate nohighlight">\(f_s\)</span> is associated with a complex number of unit magnitude and angle <span class="math notranslate nohighlight">\(2\pi \cdot \purple{f} / f_s\)</span>.
+For example:</p>
+<ul class="simple">
+<li><p>frequency <span class="math notranslate nohighlight">\(f=0\)</span> is associated with angle 0;</p></li>
+<li><p>aliasing frequencies map to the same angle, since</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[2\pi \cdot \frac{\purple{f} + \red{k\cdot f_s}}{f_s} = 2\pi \cdot \frac{\purple{f}}{f_s} + 2\pi \cdot \red{k} \equiv 2\pi \cdot \frac{\purple{f}}{f_s},\]</div>
+<ul class="simple">
+<li><p>and the Nyquist frequency <span class="math notranslate nohighlight">\(\purple{f} = f_s / 2\)</span> is associated with angle <span class="math notranslate nohighlight">\(2\pi \cdot (f_s/2) / f_s = \pi \equiv -\pi\)</span>.</p></li>
+</ul>
+<p>This generalizes the DFT’s analysis frequencies, in that using <span class="math notranslate nohighlight">\(\purple{f = m \cdot f_s / N}\)</span> exactly recovers the points <span class="math notranslate nohighlight">\(\purple{z_{m/N}}\)</span> defined above in <a class="reference internal" href="#equation-zm">(12.1)</a>.
+More generally, the range of frequencies <span class="math notranslate nohighlight">\(0 \leq f \leq f_s\)</span> are mapped continuously to the range of angles <span class="math notranslate nohighlight">\(0 \leq \theta \leq 2\pi\)</span>.
+This will become useful later on, when we use the z-transform to understand frequency response of feedback filters.</p>
+<div class="cell tag_remove_input tag_remove_output docutils container">
+</div>
+<div class="figure align-default" id="id2">
+<div class="cell_output docutils container">
+<img alt="../../_images/ZT_11_0.svg" src="../../_images/ZT_11_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 12.2 </span><span class="caption-text">The z-transform (and discrete-time Fourier transform) associates each continuous frequency <span class="math notranslate nohighlight">\(\purple{f}\)</span> with a specific angle <span class="math notranslate nohighlight">\(\purple{\theta = 2\pi \cdot f / f_s}\)</span>.
+Angles in the upper half of the complex plane correspond to positive frequencies between <span class="math notranslate nohighlight">\(\red{0}\)</span> and <span class="math notranslate nohighlight">\(\red{f_s/2}\)</span> (the Nyquist frequency).
+Angles in the lower half correspond to negative frequencies between <span class="math notranslate nohighlight">\(\red{0}\)</span> and <span class="math notranslate nohighlight">\(\red{-f_s/2} \equiv \red{f_s/2}\)</span>.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="summary">
+<h2><span class="section-number">12.1.5. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>We’ve now introduced the fundamental tool that we’ll need to analyze IIR filters.
+At this point, you might be wondering how or why this idea is useful.
+On the one hand, we’ve generalized the DFT in a way that no longer depends on the signal length.
+On the other hand, the resulting transformation doesn’t actually produce a finite representation of the signal, and is not something that we could explicitly compute anyway, since it encodes a function <span class="math notranslate nohighlight">\(\darkblue{X(z)}\)</span> on the entire complex plane <span class="math notranslate nohighlight">\(\mathbb{C}\)</span>.</p>
+<p>As we will see in the coming sections, the power of the z-transform is that it allows us to reason algebraically about signals and filters — even infinitely long signals — in terms of polynomials (e.g., <span class="math notranslate nohighlight">\(z^2 - z + 1\)</span>).
+In the next section, we’ll establish the properties of the z-transform that make this work.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "dstbook"
+        },
+        kernelOptions: {
+            kernelName: "dstbook",
+            path: "./content/ch12-ztransform"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'dstbook'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page"><span class="section-number">12. </span>Analyzing IIR filters</a>
+    <a class='right-next' id="next-link" href="zT-Properties.html" title="next page"><span class="section-number">12.2. </span>Properties of the z-transform</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Brian McFee<br/>
+        
+            &copy; Copyright 2020-2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

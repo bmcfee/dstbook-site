@@ -1,0 +1,846 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.3. Analysis frequencies &#8212; Digital Signals Theory</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"extensions": ["cancel.js", "color.js", "HTML.js"], "Macros": {"blue": ["\\class{blue}{#1}", 1], "red": ["\\class{red}{#1}", 1], "orange": ["\\class{orange}{#1}", 1], "purple": ["\\class{purple}{#1}", 1], "green": ["\\class{green}{#1}", 1], "dkorange": ["\\class{dkorange}{#1}", 1], "cyan": ["\\class{cyan}{#1}", 1], "magenta": ["\\class{magenta}{#1}", 1], "yellow": ["\\class{yellow}{#1}", 1], "peagreen": ["\\class{peagreen}{#1}", 1], "darkblue": ["\\class{darkblue}{#1}", 1], "darkorange": ["\\class{darkorange}{#1}", 1]}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="5.4. Phase" href="Phase.html" />
+    <link rel="prev" title="5.2. Comparing to sinusoids" href="Cosine.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/dstlogo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Digital Signals Theory</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Time-domain signals
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch01-signals/Intro.html">
+   1. Signals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Preliminaries.html">
+     1.1. Preliminaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Waves.html">
+     1.2. Periodicity and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Units.html">
+     1.3. Units and dimensional analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Acoustics.html">
+     1.4. Audio and signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Exercises.html">
+     1.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch02-sampling/intro.html">
+   2. Digital sampling
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Sampling.html">
+     2.1. Sampling period and rate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Aliasing.html">
+     2.2. Aliasing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Nyquist.html">
+     2.3. The Nyquist-Shannon sampling theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Quantization.html">
+     2.4. Quantization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Exercises.html">
+     2.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch03-convolution/intro.html">
+   3. Convolution
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Building.html">
+     3.1. Delay, gain, and mix
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Convolution.html">
+     3.2. Defining convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/IR.html">
+     3.3. Impulse Response
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Modes.html">
+     3.4. Convolution modes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Properties.html">
+     3.5. Properties of convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/LSI.html">
+     3.6. Linearity and Shift-invariance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Exercises.html">
+     3.7. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  The frequency domain
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch04-complex/Intro.html">
+   4. Complex numbers
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Definition.html">
+     4.1. Defining complex numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Basic-Operations.html">
+     4.2. Basic operations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Exponentials.html">
+     4.3. Complex exponentials
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Multiplication-and-division.html">
+     4.4. Multiplication and division
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Powers-and-waves.html">
+     4.5. Powers and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Exercises.html">
+     4.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
+   5. The Discrete Fourier Transform
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Similarity.html">
+     5.1. Similarity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Cosine.html">
+     5.2. Comparing to sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     5.3. Analysis frequencies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Phase.html">
+     5.4. Phase
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="DFT.html">
+     5.5. The Discrete Fourier Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Examples.html">
+     5.6. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="SummingSinusoids.html">
+     5.7. Summing sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Exercises.html">
+     5.8. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch06-dft-properties/intro.html">
+   6. Properties of the DFT
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Linearity.html">
+     6.1. Linearity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Shifting.html">
+     6.2. The DFT shifting theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Conjugate-Symmetry.html">
+     6.3. Conjugate Symmetry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Leakage.html">
+     6.4. Spectral leakage and windowing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Exercises.html">
+     6.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch07-inverse-dft/intro.html">
+   7. DFT Invertibility
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/Sinusoid.html">
+     7.1. Warm-up: a single sinusoid
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/InverseDFT.html">
+     7.2. The Inverse DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/Synthesis.html">
+     7.3. Synthesis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/Exercises.html">
+     7.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch08-fft/intro.html">
+   8. Fast Fourier Transform
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-fft/DFT-Analysis.html">
+     8.1. Time-analysis of the DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-fft/FFT.html">
+     8.2. Radix-2 Cooley-Tukey
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-fft/Exercises.html">
+     8.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch09-stft/intro.html">
+   9. Time-frequency representation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-stft/Framing.html">
+     9.1. Framing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-stft/STFT.html">
+     9.2. The Short-time Fourier Transform (STFT)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-stft/Exercises.html">
+     9.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Filtering
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch10-convtheorem/intro.html">
+   10. Frequency domain convolution
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/ConvolutionTheorem.html">
+     10.1. The Convolution Theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/Filtering.html">
+     10.2. Convolutional Filtering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/FilterDesign.html">
+     10.3. Filter Design and Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/Phase.html">
+     10.4. Phase and group delay
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/Exercises.html">
+     10.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch11-iir/intro.html">
+   11. Infinite impulse response filters
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/Feedback.html">
+     11.1. Feedback filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/UsingIIR.html">
+     11.2. Using IIR filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/IIRFilters.html">
+     11.3. Common IIR filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/Exercises.html">
+     11.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch12-ztransform/intro.html">
+   12. Analyzing IIR filters
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch12-ztransform/ZT.html">
+     12.1. The z-transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch12-ztransform/zT-Properties.html">
+     12.2. Properties of the z-transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch12-ztransform/Transfer.html">
+     12.3. Transfer functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch12-ztransform/PoleZero.html">
+     12.4. Stability, poles, and zeros
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch12-ztransform/Exercises.html">
+     12.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../appendixA/Fundamentals.html">
+   13. Mathematical fundamentals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/Sets.html">
+     13.1. Sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/Sequences.html">
+     13.2. Sequences
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/ModularArithmetic.html">
+     13.3. Modular arithmetic
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/Exponents.html">
+     13.5. Exponentials
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparing-analysis-frequencies">
+   5.3.1. Comparing analysis frequencies
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#understanding-analysis-frequencies">
+     5.3.1.1. Understanding analysis frequencies
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#non-analysis-frequencies">
+   5.3.2. Non-analysis frequencies
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="analysis-frequencies">
+<h1><span class="section-number">5.3. </span>Analysis frequencies<a class="headerlink" href="#analysis-frequencies" title="Permalink to this headline">¶</a></h1>
+<p>In the previous section, we saw how to setup comparisons between an input signal <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> and a collection of reference signals <span class="math notranslate nohighlight">\(\red{y_m}\)</span> defined to be sinusoids (cosine waves) with analysis frequencies determined by the length <span class="math notranslate nohighlight">\(\blue{N}\)</span> of the signal (and the sampling rate <span class="math notranslate nohighlight">\(f_s\)</span>).</p>
+<p>In this section, we’ll dig a little deeper, and see how this kind of comparison behaves for specific choices of <span class="math notranslate nohighlight">\(\blue{x}\)</span>.
+This will both solidify our understanding of the process, and also illustrate some short-comings of the method that we’ll need to improve.</p>
+<div class="cell tag_remove_input tag_remove_output docutils container">
+</div>
+<div class="section" id="comparing-analysis-frequencies">
+<h2><span class="section-number">5.3.1. </span>Comparing analysis frequencies<a class="headerlink" href="#comparing-analysis-frequencies" title="Permalink to this headline">¶</a></h2>
+<p>Let’s see what happens when <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> is also a sinusoid at one of our chosen analysis frequencies.</p>
+<p>For this example, we’ll take <span class="math notranslate nohighlight">\(f_s = 20\)</span>, <span class="math notranslate nohighlight">\(N = 40\)</span> (2 seconds), and take <span class="math notranslate nohighlight">\(\blue{x}\)</span> to be be the analysis frequency for <span class="math notranslate nohighlight">\(\red{m=3}\)</span> <code class="docutils literal notranslate"><span class="pre">[cycles</span> <span class="pre">/</span> <span class="pre">signal-duration]</span></code>.
+Since the signal duration is 2 seconds, this corresponds to a frequency of <span class="math notranslate nohighlight">\(3/2\)</span> <code class="docutils literal notranslate"><span class="pre">[Hz]</span></code>.
+Our sampled wave will be given by</p>
+<div class="math notranslate nohighlight" id="equation-xcosexample">
+<span class="eqno">(5.6)<a class="headerlink" href="#equation-xcosexample" title="Permalink to this equation">¶</a></span>\[\blue{x[n] = \cos\left(2\pi \cdot \frac{3}{40} \cdot n \right)}.\]</div>
+<div class="cell tag_remove_input tag_hide_input tag_remove_output docutils container">
+</div>
+<div class="figure align-default" id="analysis-example">
+<div class="cell_output docutils container">
+<img alt="../../_images/AnalysisFrequencies_3_0.svg" src="../../_images/AnalysisFrequencies_3_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 5.9 </span><span class="caption-text">Comparing a sinusoid <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> at an analysis frequency to each reference signal <span class="math notranslate nohighlight">\(\red{y_m[n]}\)</span>.</span><a class="headerlink" href="#analysis-example" title="Permalink to this image">¶</a></p>
+</div>
+<p><a class="reference internal" href="#analysis-example"><span class="std std-numref">Fig. 5.9</span></a> shows the similarity comparisons and resulting scores for the first five reference signals.
+In this case, all scores are 0 except for <span class="math notranslate nohighlight">\(\red{m=3}\)</span>, which corresponds exactly to the frequency of our test signal <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span>.</p>
+<p><em>Why does this happen?</em></p>
+<div class="section" id="understanding-analysis-frequencies">
+<h3><span class="section-number">5.3.1.1. </span>Understanding analysis frequencies<a class="headerlink" href="#understanding-analysis-frequencies" title="Permalink to this headline">¶</a></h3>
+<p>Our definitions of <em>similarity</em> <a class="reference internal" href="Similarity.html#equation-similarity">(5.1)</a> and <em>reference signal</em> <a class="reference internal" href="Cosine.html#equation-reference-signal">(5.5)</a> lead to the following equation when <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> is the cosine wave given above in <a class="reference internal" href="#equation-xcosexample">(5.6)</a>:</p>
+<div class="math notranslate nohighlight" id="equation-compare-analysis">
+<span class="eqno">(5.7)<a class="headerlink" href="#equation-compare-analysis" title="Permalink to this equation">¶</a></span>\[\begin{split}\purple{S}(\blue{x}, \red{y_m}) &amp;= \sum_{n=0}^{N-1} \blue{x[n]} \cdot \red{y_m[n]} \\
+&amp;= \sum_{n=0}^{N-1} \blue{\cos\left(2\pi \cdot \frac{3}{N} \cdot n \right)} \cdot \red{\cos\left(2\pi \cdot \frac{m}{N} \cdot n \right)}\end{split}\]</div>
+<p>We can simplify <a class="reference internal" href="#equation-compare-analysis">(5.7)</a> with a bit of trigonometry.
+The <strong>product-to-sum</strong> rule for cosines gives us for any angles <span class="math notranslate nohighlight">\(\theta\)</span> and <span class="math notranslate nohighlight">\(\phi\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\cos(\theta) \cdot \cos(\phi) = \frac{1}{2}\left(\cos(\theta + \phi) + \cos(\theta - \phi)\right)\]</div>
+<p>If for each sample index <span class="math notranslate nohighlight">\(n\)</span>, we let</p>
+<div class="math notranslate nohighlight">
+\[\theta = 2\pi \cdot \frac{3}{N} \cdot n\]</div>
+<p>be the angle of the first factor in the summation (the <span class="math notranslate nohighlight">\(x\)</span> part), and let</p>
+<div class="math notranslate nohighlight">
+\[\phi = 2\pi \cdot \frac{m}{N} \cdot n\]</div>
+<p>be the angle of the second factor (the <span class="math notranslate nohighlight">\(y\)</span> part), we would get</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\theta + \phi &amp;= 2\pi \cdot \frac{3 + m}{N} \cdot n\\
+\theta - \phi &amp;= 2\pi \cdot \frac{3 - m}{N} \cdot n,
+\end{align*}\]</div>
+<p>and each term of the summation in <a class="reference internal" href="#equation-compare-analysis">(5.7)</a> can be rewritten as:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\blue{\cos\left(2\pi \cdot \frac{3}{N} \cdot n \right)} \cdot \red{\cos\left(2\pi \cdot \frac{m}{N} \cdot n \right)}
+&amp;=\frac{1}{2} \cdot \left( \cos \left(2\pi \cdot \frac{3+ m}{N} \cdot n \right) + \cos\left(2\pi \cdot \frac{3-m}{N}\cdot n \right) \right)\\
+&amp;= \frac{1}{2} \left(  \red{y_{3+m}[n]} +  \red{y_{3-m}[n]} \right).
+\end{align*}\]</div>
+<p>This tells us that in this case, <span class="math notranslate nohighlight">\(\purple{S}\)</span> can be computed by averaging the samples of reference signals <span class="math notranslate nohighlight">\(\red{y_{3+m}}\)</span> and <span class="math notranslate nohighlight">\(\red{y_{3-m}}\)</span>.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>More generally, if <span class="math notranslate nohighlight">\(\blue{x}\)</span> was the <span class="math notranslate nohighlight">\(\red{k}\)</span>’th analysis frequency, we would have <span class="math notranslate nohighlight">\(\red{y_{k+m}}\)</span> and <span class="math notranslate nohighlight">\(\red{y_{k-m}}\)</span>.</p>
+</div>
+<p>Plugging this back into Equation <a class="reference internal" href="#equation-compare-analysis">(5.7)</a>, we get</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\purple{S}(\blue{x}, \red{y_m}) &amp;= \sum_{n=0}^{N-1} \frac{1}{2} \left(  \red{y_{3+m}[n]} +  \red{y_{3-m}[n]} \right)\\
+&amp;= \frac{1}{2} \left(\sum_{n=0}^{N-1} \red{y_{3+m}[n]} \right) +
+\frac{1}{2} \left(\sum_{n=0}^{N-1} \red{y_{3-m}[n]} \right)\\
+\end{align*}\]</div>
+<p>where the second step follows by breaking the summation into pieces only concerned with <span class="math notranslate nohighlight">\(\red{y_{3+m}}\)</span> or <span class="math notranslate nohighlight">\(\red{y_{3-m}}\)</span>.</p>
+<p>Now, let’s consider two cases.  If <span class="math notranslate nohighlight">\(\red{m \neq 3}\)</span>, then both of these signals will have non-zero frequency.
+Because they are both analysis frequencies, they will complete a whole number of cycles in the duration of the signal.
+Though we haven’t proven it yet, this means that the sample values will <span class="xref std std-ref">sum to zero</span>.
+(We’ll prove this fact and a slightly more powerful theorem a few sections from now.)</p>
+<p>Since both summations will sum to zero, the full similarity score <span class="math notranslate nohighlight">\(\purple{S(x, y_m) = 0}\)</span>.</p>
+<p>On the other hand, if <span class="math notranslate nohighlight">\(\red{m = 3}\)</span>, then our two signals will be <span class="math notranslate nohighlight">\(\red{y_{3+3}=y_{6}}\)</span> and <span class="math notranslate nohighlight">\(\red{y_{3-3} = y_0}\)</span>.
+The first signal <span class="math notranslate nohighlight">\(\red{y_6}\)</span> will total to zero by the argument above.
+The second signal, <span class="math notranslate nohighlight">\(\red{y_0}\)</span> however will <em>not</em> total to zero, because <span class="math notranslate nohighlight">\(\red{y_0[n] = 1}\)</span> for all <span class="math notranslate nohighlight">\(n\)</span>.
+As a result,</p>
+<div class="math notranslate nohighlight">
+\[\purple{S}(\blue{x}, \red{y_3}) = \frac{1}{2}\sum_{n=0}^{N-1} \red{y_0[n]} = \frac{1}{2} \cdot N.\]</div>
+<p>There is a third case that can happen (but not in the example above), where <span class="math notranslate nohighlight">\(\blue{x}\)</span> is generated by either the highest analysis frequency <span class="math notranslate nohighlight">\(\blue{k=N/2}\)</span> (the Nyquist frequency) or if <span class="math notranslate nohighlight">\(\blue{k=0}\)</span> (constant signal).
+If this happens, and <span class="math notranslate nohighlight">\(\red{m=k}\)</span>, then</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\red{y_{k+m}} = \red{y_{2\cdot N/2}} = \red{y_N} &amp;= \red{y_0} &amp; \text{if } \blue{k} = \red{m} = \frac{N}{2}\\
+\red{y_{k+m}} = \red{y_{0+0}} &amp;= \red{y_0} &amp; \text{if } \blue{k} = \red{m} = 0.
+\end{align*}\]</div>
+<p>In either event, both terms in the summation become <span class="math notranslate nohighlight">\(N/2\)</span> and the total score is <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<p>This explains the observation above: similarity between analysis frequencies is either <span class="math notranslate nohighlight">\(0\)</span>, <span class="math notranslate nohighlight">\(\frac{N}{2}\)</span>, or <span class="math notranslate nohighlight">\(N\)</span>, and the latter cases only occur when the reference signal <span class="math notranslate nohighlight">\(\red{y_m}\)</span> has the same frequency as the input <span class="math notranslate nohighlight">\(\blue{x}\)</span>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This cancellation <strong>only</strong> happens if <span class="math notranslate nohighlight">\(\blue{x}\)</span> is a wave at an analysis frequency.</p>
+<p>Waves at non-analysis frequencies will not generally share this property.</p>
+</div>
+</div>
+</div>
+<div class="section" id="non-analysis-frequencies">
+<h2><span class="section-number">5.3.2. </span>Non-analysis frequencies<a class="headerlink" href="#non-analysis-frequencies" title="Permalink to this headline">¶</a></h2>
+<p>If instead of an analysis frequency, we had chosen <span class="math notranslate nohighlight">\(x\)</span> to be a sinusoid at a frequency that <strong>does not</strong> complete a whole number of cycles over the signal duration, we could still try to apply the reasoning above, but it’s not going to work out.</p>
+<p>For example, if we take <span class="math notranslate nohighlight">\(m = 1.5\)</span> <code class="docutils literal notranslate"><span class="pre">[cycles</span> <span class="pre">/</span> <span class="pre">signal-duration]</span></code> — which is not an analysis frequency because 1.5 is not an integer — we would have a wave <span class="math notranslate nohighlight">\(x[n]\)</span> at <span class="math notranslate nohighlight">\(1.5/2 = 3/4\)</span> <code class="docutils literal notranslate"><span class="pre">[Hz]</span></code>:</p>
+<div class="math notranslate nohighlight">
+\[\blue{x[n]} = \cos\left(2\pi \cdot \frac{1.5}{40} \cdot n \right).\]</div>
+<div class="cell tag_remove_input tag_hide_input tag_remove_output docutils container">
+</div>
+<div class="figure align-default" id="non-analysis-example">
+<div class="cell_output docutils container">
+<img alt="../../_images/AnalysisFrequencies_9_0.svg" src="../../_images/AnalysisFrequencies_9_0.svg" /></div>
+<p class="caption"><span class="caption-number">Fig. 5.10 </span><span class="caption-text">Comparing a sinusoid <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> at a non-analysis frequency to each reference signal <span class="math notranslate nohighlight">\(\red{y_m}\)</span> results in non-zero similarities <span class="math notranslate nohighlight">\(\purple{S}\)</span>.</span><a class="headerlink" href="#non-analysis-example" title="Permalink to this image">¶</a></p>
+</div>
+<p>Like before, <a class="reference internal" href="#non-analysis-example"><span class="std std-numref">Fig. 5.10</span></a> shows the similarity comparisons and resulting scores for the first five reference signals.
+In this case, the scores are all non-zero because the wave doesn’t precisely line up with itself at <span class="math notranslate nohighlight">\(N\)</span> samples.</p>
+<p>This phenomenon is known as <strong>spectral leakage</strong>: a wave at a non-analysis frequency will <em>leak</em> across the entire frequency range, and appear to be a little similar to each analysis frequency.</p>
+<p>We’ll have more to say about this in subsequent chapters, but for now, it’s important to understand that waves of different frequencies can still produce a non-zero similarity score.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "dstbook"
+        },
+        kernelOptions: {
+            kernelName: "dstbook",
+            path: "./content/ch05-fourier"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'dstbook'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="Cosine.html" title="previous page"><span class="section-number">5.2. </span>Comparing to sinusoids</a>
+    <a class='right-next' id="next-link" href="Phase.html" title="next page"><span class="section-number">5.4. </span>Phase</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Brian McFee<br/>
+        
+            &copy; Copyright 2020-2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
