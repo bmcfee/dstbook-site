@@ -729,7 +729,7 @@ If the signal takes time <span class="math notranslate nohighlight">\(0.4\)</spa
 <div class="section" id="pressure-intensity-amplitude-and-loudness">
 <span id="pressure-intensity"></span><h2><span class="section-number">1.4.2. </span>Pressure, intensity, amplitude, and loudness<a class="headerlink" href="#pressure-intensity-amplitude-and-loudness" title="Permalink to this headline">¶</a></h2>
 <p>The first property of audio signals that we often think of is <em>loudness</em>.
-This turns out to be a surprisingly subtle property: loudness is ultimately a psychoacoustic phenomenon (something that happens in our brains), and not a physically measurable phenomenon.
+This turns out to be a surprisingly subtle property: loudness is ultimately a psycho-acoustic phenomenon (something that happens in our brains), and not a physically measurable phenomenon.
 There are, however, numerous physical quantities that we <em>can</em> and do measure that relate to loudness.
 We’ll briefly summarize the most important ones here, as described in the <a class="reference external" href="https://www.iso.org/standard/64978.html">ISO 80000-8:2020 standards</a>:</p>
 <div class="margin sidebar">
@@ -771,7 +771,7 @@ If you’re from one of the few countries using “standard” units, think of �
 <div class="figure align-default" id="id3">
 <div class="cell_output docutils container">
 <img alt="../../_images/Acoustics_6_0.svg" src="../../_images/Acoustics_6_0.svg" /></div>
-<p class="caption"><span class="caption-number">Fig. 1.15 </span><span class="caption-text">An acoustic signal <span class="math notranslate nohighlight">\(x\)</span> causes air pressure to fluctuate around the ambient pressure.
+<p class="caption"><span class="caption-number">Fig. 1.15 </span><span class="caption-text">An acoustic signal <span class="math notranslate nohighlight">\(\blue{x}\)</span> causes air pressure to fluctuate around the ambient pressure.
 The amplitude of the signal is given by the maximum difference from the ambient pressure.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
 </div>
 <p>Sound power (<span class="math notranslate nohighlight">\(P\)</span>) and intensity (<span class="math notranslate nohighlight">\(I\)</span>) are useful for quantifying the transmission of sound through an environment.
@@ -799,7 +799,7 @@ However, we could <em>not</em> write <span class="math notranslate nohighlight">
 \[I \propto p^2\]</div>
 <p>Equivalently, this implies that sound pressure is inversely proportional to distance:</p>
 <div class="math notranslate nohighlight">
-\[p \propto \sqrt{I} = \sqrt{\frac{P}{4\pi \cdot r^2}} = \frac{1}{r} \cdot \sqrt{\frac{P}{2\pi}} \propto \frac{1}{r}\]</div>
+\[p \propto \sqrt{I} = \sqrt{\frac{P}{4\pi \cdot r^2}} = \frac{1}{r} \cdot \sqrt{\frac{P}{4\pi}} \propto \frac{1}{r}\]</div>
 <p>This tells us that if the power <span class="math notranslate nohighlight">\(P\)</span> is held constant, and we move a microphone away from the source, the output voltage will decay like <span class="math notranslate nohighlight">\(1/r\)</span>.
 In the context of this text, the voltage output of a microphone is not observed directly, but is instead post-processed and amplified before being digitized.
 The resulting <em>amplitude</em> (<span class="math notranslate nohighlight">\(A\)</span>) of the signal is generally proportional to the microphone’s output voltage, which is in turn proportional to pressure:</p>
@@ -847,6 +847,7 @@ When specifically applied to sound pressure measurements, we sometimes write <sp
 <li><p>Typical speaking volume is in the range 40-60 dB.</p></li>
 </ul>
 </li>
+<li><p>The range of typical human hearing (quietest sound to loudest sound) is a complex phenomenon and depends on frequency, but is in the neighborhood of <span class="math notranslate nohighlight">\(100 \left[\text{dB}\right]\)</span>.</p></li>
 </ul>
 </div>
 </div>
