@@ -736,8 +736,8 @@ Luckily, we’ve already gone through the work of figuring this out in previous 
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 \darkblue{X[k]}
-&amp;= \frac{N}{2}\cdot A \cdot \left( \red{\cos\left(\phi\right)} - \green{\mathrm{j}\cdot\sin(\phi)} \right)\\
-&amp;= \frac{N}{2}\cdot A \cdot \purple{\exp\left(-\mathrm{j}\phi\right)}. &amp; \text{By Euler's formula}
+&amp;= \frac{N}{2}\cdot A \cdot \left( \red{\cos\left(\phi\right)} + \green{\mathrm{j}\cdot\sin(\phi)} \right)\\
+&amp;= \frac{N}{2}\cdot A \cdot \purple{\exp\left(\mathrm{j}\phi\right)}. &amp; \text{By Euler's formula}
 \end{align*}\]</div>
 <p>But what about the rest of the spectrum?</p>
 <p>First, let’s look at <span class="math notranslate nohighlight">\(\red{m=N-k}\)</span>.
@@ -773,9 +773,9 @@ This gives us</p>
 \[\begin{align*}
 \darkblue{X[N-k]}
 &amp;= \frac{N}{2}\cdot A \cdot \left( \red{\cos\left(\phi\right)}
-+ \green{\mathrm{j}\cdot\sin(\phi)}
+- \green{\mathrm{j}\cdot\sin(\phi)}
 \right)\\
-&amp;= \frac{N}{2}\cdot A \cdot \purple{\exp\left(+\mathrm{j}\phi\right)}. &amp; \text{By Euler's formula}
+&amp;= \frac{N}{2}\cdot A \cdot \purple{\exp\left(-\mathrm{j}\phi\right)}. &amp; \text{By Euler's formula}
 \end{align*}\]</div>
 <p>For all other <span class="math notranslate nohighlight">\(\red{m \neq k}\)</span>, we will get <span class="math notranslate nohighlight">\(\darkblue{X[m] = 0}\)</span>.</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">
