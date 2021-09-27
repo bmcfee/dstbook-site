@@ -853,7 +853,7 @@ Here, we’ll use the DFT to visualize a recording of a single note played on a 
 <div class="math notranslate nohighlight">
 \[\begin{split}f_m = \begin{cases}
 \frac{m}{N} \cdot f_s &amp; \text{if } 0 \leq m &lt; N/2\\
-\frac{N-m}{N} \cdot f_s &amp; \text{if } N/2 \leq m &lt; N.
+\frac{m-N}{N} \cdot f_s &amp; \text{if } N/2 \leq m &lt; N.
 \end{cases}\end{split}\]</div>
 <p>Fortunately, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> gives a function that does exactly this for us: <code class="docutils literal notranslate"><span class="pre">np.fft.fftfreq</span></code>.
 It takes as input the number of samples <span class="math notranslate nohighlight">\(N\)</span> and the sample period <span class="math notranslate nohighlight">\(t_s = 1/f_s\)</span>.
