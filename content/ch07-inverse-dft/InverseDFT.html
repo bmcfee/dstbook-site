@@ -710,26 +710,26 @@ Plugging in the definition of the DFT <span class="math notranslate nohighlight"
 &amp;=
 \frac{1}{N} \sum_{n'=0}^{N-1} \blue{x[n']} \cdot \sum_{m=0}^{N-1}  \purple{e^{-2\pi\cdot\mathrm{j}\cdot \frac{m}{N} \cdot n'}}  \cdot \green{e^{+2\pi\cdot\mathrm{j} \cdot \frac{m}{N}\cdot n}} &amp; \text{Rearranging summation}\\
 &amp;= \frac{1}{N} \sum_{n'=0}^{N-1} \blue{x[n']} \cdot  \sum_{m=0}^{N-1}  e^{\purple{-2\pi\cdot\mathrm{j}\cdot \frac{m}{N} \cdot n'}+\green{2\pi\cdot\mathrm{j} \cdot \frac{m}{N}\cdot n}}&amp; e^a\cdot e^b = e^{a + b}\\
-&amp;= \frac{1}{N} \sum_{n'=0}^{N-1} \blue{x[n']} \cdot \sum_{m=0}^{N-1}  e^{-2\pi\cdot\mathrm{j}\cdot \frac{\green{n}-\purple{n'}}{N} \cdot m}
+&amp;= \frac{1}{N} \sum_{n'=0}^{N-1} \blue{x[n']} \cdot \sum_{m=0}^{N-1}  e^{2\pi\cdot\mathrm{j}\cdot \frac{\green{n}-\purple{n'}}{N} \cdot m}
 \end{align*}\]</div>
 <p>Now, there are two cases to consider.  If <span class="math notranslate nohighlight">\(\purple{n'} = \green{n}\)</span>, then the inner summation simplifies:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-\sum_{m=0}^{N-1}  e^{-2\pi\cdot\mathrm{j}\cdot \frac{\green{n}-\purple{n'}}{N} \cdot m} &amp;= 
-\sum_{m=0}^{N-1}  e^{-2\pi\cdot\mathrm{j}\cdot \frac{0}{N} \cdot m}
+\sum_{m=0}^{N-1}  e^{2\pi\cdot\mathrm{j}\cdot \frac{\green{n}-\purple{n'}}{N} \cdot m} &amp;= 
+\sum_{m=0}^{N-1}  e^{2\pi\cdot\mathrm{j}\cdot \frac{0}{N} \cdot m}
 = \sum_{m=0}^{N-1}  1 = N &amp; \text{if } n' = n.
 \end{align*}\]</div>
 <p>If <span class="math notranslate nohighlight">\(\purple{n'} \neq \green{n}\)</span>, then the inner summation cancels totals to zero.
 This is because <span class="math notranslate nohighlight">\(\purple{n'}\)</span> and <span class="math notranslate nohighlight">\(\green{n}\)</span> are both integers, and we can use the result of <a class="reference internal" href="../ch05-fourier/SummingSinusoids.html#summing-sinusoids"><span class="std std-numref">Section 5.7</span></a>, except now with <span class="math notranslate nohighlight">\(n-n'\)</span> taking the place of the frequency index, and <span class="math notranslate nohighlight">\(m\)</span> taking the place of the sample position:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-\sum_{m=0}^{N-1}  e^{-2\pi\cdot\mathrm{j}\cdot \frac{\green{n}-\purple{n'}}{N} \cdot m} 
+\sum_{m=0}^{N-1}  e^{2\pi\cdot\mathrm{j}\cdot \frac{\green{n}-\purple{n'}}{N} \cdot m} 
 &amp;= 0 &amp; \text{ if }  n-n' \neq 0.
 \end{align*}\]</div>
 <p>The entire summation, therefore, has <span class="math notranslate nohighlight">\(N-1\)</span> terms contributing 0 and one term contributing <span class="math notranslate nohighlight">\(\blue{x[n]} \cdot N\)</span>.
 Combining these cases, we can finish the derivation above:</p>
 <div class="math notranslate nohighlight">
-\[\frac{1}{N} \sum_{n'=0}^{N-1} \blue{x[n']} \cdot \sum_{m=0}^{N-1}  e^{-2\pi\cdot\mathrm{j}\cdot \frac{\green{n}-\purple{n'}}{N} \cdot m}
+\[\frac{1}{N} \sum_{n'=0}^{N-1} \blue{x[n']} \cdot \sum_{m=0}^{N-1}  e^{2\pi\cdot\mathrm{j}\cdot \frac{\green{n}-\purple{n'}}{N} \cdot m}
 =
 \frac{1}{N} \cdot \blue{x[n]} \cdot N
 = \blue{x[n]}.\]</div>
