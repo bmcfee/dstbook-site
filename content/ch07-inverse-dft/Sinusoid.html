@@ -696,9 +696,9 @@ We’ll answer this by showing that there exists an <em>inverse</em> DFT, which 
 <p>Each of these components can be used to produce a complex sinusoid <span class="math notranslate nohighlight">\(z_m[n]\)</span> as follows:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-z_m[n] &amp;= \darkblue{X[m]} \cdot e^{-2\pi \cdot \mathrm{j} \cdot \frac{m}{N} \cdot n}\\
-&amp;= A \cdot \frac{N}{2} \cdot e^{\mathrm{j}\cdot \phi} \cdot e^{-2\pi \cdot \mathrm{j} \cdot \frac{m}{N} \cdot n}\\
-&amp;= A \cdot \frac{N}{2} \cdot e^{-\mathrm{j}\cdot \left(2\pi \cdot \frac{m}{N} \cdot n - \phi\right)}
+z_m[n] &amp;= \darkblue{X[m]} \cdot e^{2\pi \cdot \mathrm{j} \cdot \frac{m}{N} \cdot n}\\
+&amp;= A \cdot \frac{N}{2} \cdot e^{\mathrm{j}\cdot \phi} \cdot e^{2\pi \cdot \mathrm{j} \cdot \frac{m}{N} \cdot n}\\
+&amp;= A \cdot \frac{N}{2} \cdot e^{\mathrm{j}\cdot \left(2\pi \cdot \frac{m}{N} \cdot n + \phi\right)}
 \end{align*}\]</div>
 <p>This is demonstrated visually in <a class="reference internal" href="#recons"><span class="std std-numref">Fig. 7.1</span></a>.</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">
@@ -711,11 +711,8 @@ z_m[n] &amp;= \darkblue{X[m]} \cdot e^{-2\pi \cdot \mathrm{j} \cdot \frac{m}{N} 
 <em>Bottom</em>: the complex sinusoid corresponding to <span class="math notranslate nohighlight">\(\darkblue{X[N-5]}\)</span>.  For complex sinusoids, the real and imaginary parts are plotted separately.</span><a class="headerlink" href="#recons" title="Permalink to this image">¶</a></p>
 </div>
 <p>Because the imaginary parts of <span class="math notranslate nohighlight">\(\darkblue{X[m]}\)</span> and <span class="math notranslate nohighlight">\(\darkblue{X[N-m]}\)</span> are opposite (<span class="math notranslate nohighlight">\(\darkblue{X[m] = \overline{X[N-m]}}\)</span>), summing the two doubles the real part and cancels the imaginary part, and we’ll be left with a cosine wave at the appropriate phase:</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{align*}
-z_m[n] + z_{N-m}[n] &amp;= A \cdot N \cdot \red{\cos\left(-2\pi \cdot \frac{m}{N} \cdot n - \phi \right)}\\
-&amp;= A \cdot N \cdot \red{\cos\left(2\pi \cdot \frac{m}{N} \cdot n + \phi \right)}\\
-\end{align*}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}z_m[n] + z_{N-m}[n] = A \cdot N \cdot \red{\cos\left(2\pi \cdot \frac{m}{N} \cdot n + \phi \right)}\\\end{split}\]</div>
 <p>This is exactly what we started with (<span class="math notranslate nohighlight">\(\blue{x[n]}\)</span>), except there’s an additional scaling of <span class="math notranslate nohighlight">\(N\)</span> in front.
 So, for at least this simple case of a single sinusoid, we can recover the input signal by generating the corresponding sinusoids with the parameters encoded by the magnitude and phase in the DFT, and dividing out the length of the signal <span class="math notranslate nohighlight">\(N\)</span>.</p>
 <p>As we’ll see in the next section, this strategy works in general: we don’t need to assume that <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> is a single sinusoid!</p>
