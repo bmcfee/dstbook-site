@@ -733,7 +733,7 @@ e^{\mathrm{j}\cdot n \cdot \theta} = \left(e^{\mathrm{j}\cdot \theta}\right)^n.
 \]</div>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<p>This trick of turning waves into polynomials is one of the most useful tools in signal processing!
+<p>This trick of turning waves into polynomials is one of the most useful tools in signal processing.
 We’ll see more of it later on when we cover filtering.</p>
 </div>
 <p>This will allow us to turn a summation of wave samples into a summation of the form <span class="math notranslate nohighlight">\(z^n\)</span>, which is also known as a <em>geometric series</em>.
@@ -757,7 +757,7 @@ Then</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="o">**</span><span class="n">N</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The latter will be much faster!</p>
+<p>The latter will be much faster, and the time it takes to compute the result will not depend on <code class="docutils literal notranslate"><span class="pre">N</span></code>.</p>
 </div>
 <p>In plain language, this lemma says that summing up increasing powers of a number <span class="math notranslate nohighlight">\(z\)</span> (even a complex number <span class="math notranslate nohighlight">\(z\)</span>) can be equivalently expressed as a ratio, rather than adding up individual terms.</p>
 <div class="section" id="proof-of-geometric-series-identity">
@@ -4022,7 +4022,7 @@ Because the phase offset does not change with the sample index <span class="math
 &amp;= e^{\mathrm{j}\cdot \phi} \cdot \sum_{n=0}^{N-1} e^{\mathrm{j}\cdot\theta\cdot n} \\
 &amp;= e^{\mathrm{j}\cdot \phi} \cdot \frac{1 - e^{\mathrm{j}\cdot N \cdot \theta}}{1 - e^{\mathrm{j}\cdot \theta}}.\end{split}\]</div>
 <p>This says that when a wave is shifted by <span class="math notranslate nohighlight">\(\phi\)</span>, the summation is multiplied by <span class="math notranslate nohighlight">\(e^{\mathrm{j}\cdot \phi}\)</span>.
-Note that this is a pure rotation, so if the summation was 0 (i.e., we had an analysis frequency), then it will still be zero under <em>any</em> phase shift!
+Note that this is a pure rotation, so if the summation was 0 (i.e., we had an analysis frequency), then it will still be zero under <em>any</em> phase shift.
 Likewise, if the summation was non-zero, it will remain non-zero under any shift.</p>
 </div>
 <div class="section" id="back-to-the-original-question">

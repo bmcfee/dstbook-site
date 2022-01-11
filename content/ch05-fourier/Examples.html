@@ -871,8 +871,8 @@ So we can instead do:</p>
 The middle and bottom plots contain the same information as the top, but zoomed into <span class="math notranslate nohighlight">\(\pm 5\)</span> KHz (middle) and <span class="math notranslate nohighlight">\([500, 700]\)</span> Hz (bottom).
 A prominent peak can be observed near <span class="math notranslate nohighlight">\(f_m \approx 622.25\)</span> (and -622.25).</span><a class="headerlink" href="#trumpet-dft" title="Permalink to this image">¶</a></p>
 </div>
-<p>From <a class="reference internal" href="#trumpet-dft"><span class="std std-numref">Fig. 5.17</span></a> we can observe that the magnitude spectrum <span class="math notranslate nohighlight">\(|X[m]|\)</span> is very sparse: it has small magnitudes for most frequencies (near 0).
-The first prominent peak (starting from 0 and looking to the right) that we can see is very close to the frequency of the note: <span class="math notranslate nohighlight">\(D\sharp 5\)</span>.
+<p>From <a class="reference internal" href="#trumpet-dft"><span class="std std-numref">Fig. 5.17</span></a> we can observe that the magnitude spectrum <span class="math notranslate nohighlight">\(|X[m]|\)</span> is sparse: it has small magnitudes for most frequencies (near 0).
+The first prominent peak (starting from 0 and looking to the right) that we can see is close to the frequency of the note: <span class="math notranslate nohighlight">\(D\sharp 5\)</span>.
 If we want to find the actual frequency of the peak in the spectrum we can do so as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># get our DFT frequencies</span>
 <span class="n">frequencies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mf">1.</span><span class="o">/</span><span class="n">fs</span><span class="p">)</span>  
@@ -904,7 +904,7 @@ Do not be deceived by this example though: most signals are <em>not</em> simple,
 </div>
 <div class="section" id="summary">
 <h2><span class="section-number">5.6.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
-<p>We’ve now seen the DFT applied to several kinds of signals, producing very different behaviors.
+<p>We’ve now seen the DFT applied to several kinds of signals, producing different behaviors.
 Sometimes we can reason about the DFT analytically, as in the first two examples.
 Impulses and delays look like sinusoids in the frequency domain.
 Sinusoids look like (pairs of) impulses.</p>

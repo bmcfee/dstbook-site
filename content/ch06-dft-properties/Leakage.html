@@ -769,7 +769,7 @@ Multiplying the sinusoid by a window function <span class="math notranslate nohi
 <p class="caption"><span class="caption-number">Fig. 6.10 </span><span class="caption-text"><em>Top</em>: repeating a sinusoid <span class="math notranslate nohighlight">\(\blue{x}\)</span> at a non-analysis frequency produces discontinuities when the signal repeats (<span class="math notranslate nohighlight">\(t=2, 4\)</span>).
 <em>Bottom</em>: windowing the sinusoid prior to repetition eliminates discontinuities, but introduces low-frequency modulation.</span><a class="headerlink" href="#window-repeating" title="Permalink to this image">¶</a></p>
 </div>
-<p>As shown in <a class="reference internal" href="#window-repeating"><span class="std std-numref">Fig. 6.10</span></a>, the elimination of discontinuities does not come for free: we have also introduced a low-frequency amplitude modulation to the looped signal.</p>
+<p>As shown in <a class="reference internal" href="#window-repeating"><span class="std std-numref">Fig. 6.10</span></a>, the elimination of discontinuities does change the signal: we have also introduced a low-frequency amplitude modulation to the looped signal.</p>
 <p>This effect is certainly audible.
 If we apply windowing to the previous example (<span class="math notranslate nohighlight">\(f=111\)</span> Hz sampled at <span class="math notranslate nohighlight">\(f_s=1000\)</span>), and listen to the repeating signal as before, each loop of the signal now has a <em>pulse</em> due to the window.</p>
 <div class="cell tag_remove_input docutils container">
@@ -786,7 +786,7 @@ In this example, we have traded off transient discontinuities for a smoothly var
 </div>
 <div class="section" id="choosing-a-window">
 <h2><span class="section-number">6.4.2. </span>Choosing a window<a class="headerlink" href="#choosing-a-window" title="Permalink to this headline">¶</a></h2>
-<p>In our first example, we used a Hann window, which is essentially a carefully tuned cosine wave, but there are many, many, many other options!
+<p>In our first example, we used a Hann window, which is essentially a carefully tuned cosine wave, but there are many, many, many other options.
 Most window functions have non-linear curves, and often end up resembling a “bell curve”.</p>
 <p>We won’t go into the details of how each of these window functions are defined, but <a class="reference internal" href="#window-examples"><span class="std std-numref">Fig. 6.11</span></a> demonstrates a handful of commonly used windows.</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">
@@ -799,9 +799,9 @@ Most window functions have non-linear curves, and often end up resembling a “b
 <p><a class="reference internal" href="#window-examples"><span class="std std-numref">Fig. 6.11</span></a> demonstrates two key properties of windowing functions.
 First, different window functions will attenuate distant frequencies differently.
 The height of the spectrum in the last plot (Blackman-Harris) is around <span class="math notranslate nohighlight">\(10^{-4}\)</span>, while the Hamming window is approximately 100x higher at <span class="math notranslate nohighlight">\(10^{-2}\)</span>.
-From this, we might conclude that the Blackman-Harris window is “better” than the Hamming window, but we shouldn’t be too hasty!</p>
+From this, we might conclude that the Blackman-Harris window is “better” than the Hamming window, but we shouldn’t be too hasty.</p>
 <p>The second property has to do with how much the energy spreads around its peak in the spectrum, the so-called “main lobe” width.
-From this perspective, the Blackman-Harris window has a broader main-lobe (around the peak frequency 2.25) than the other windows, making it a less ideal choice if our goal is to distinguish between nearby frequencies.</p>
+From this perspective, the Blackman-Harris window has a broader main-lobe (around the peak frequency 2.25) than the other windows, so it might not be the best choice if our goal is to distinguish between nearby frequencies.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>As a general rule, the Hann window is a good default choice for most audio applications.</p>
@@ -820,7 +820,7 @@ What happens to signals that actually do contain analysis frequencies?</p>
 <p class="caption"><span class="caption-number">Fig. 6.12 </span><span class="caption-text">Different choices of window function <span class="math notranslate nohighlight">\(w\)</span> and the corresponding DFT magnitude spectrum after applying each window to a sinusoid at <strong>analysis</strong> frequency <span class="math notranslate nohighlight">\(f=3\)</span> Hz.</span><a class="headerlink" href="#window-analysis-examples" title="Permalink to this image">¶</a></p>
 </div>
 <p>The spectral plots in <a class="reference internal" href="#window-analysis-examples"><span class="std std-numref">Fig. 6.12</span></a> illustrate another price that we must pay to counteract leakage: if we do have analysis frequencies in the signal, applying windowing will spread some of their energy across the spectrum.
-Although in all cases, the energy far from the fundamental frequency (<span class="math notranslate nohighlight">\(f=3\)</span>) is very small (numerically close to 0), the energy in the windowed signals is dispersed around the peak, rather than being concentrated like in the un-windowed case.</p>
+Although in all cases, the energy far from the fundamental frequency (<span class="math notranslate nohighlight">\(f=3\)</span>) is small (numerically close to 0), the energy in the windowed signals is dispersed around the peak, rather than being concentrated like in the un-windowed case.</p>
 <p>One way to view this trade-off is that windowing reduces the distinction between analysis and non-analysis frequencies: both end up leaking across the spectrum, but the choice of window function allows us to control this behavior.
 In reality, almost no naturally occurring signals will line up precisely to the parameters of your signal analysis, so it’s safer to assume that all energy is coming from non-analysis frequencies anyway.</p>
 </div>

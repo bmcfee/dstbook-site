@@ -720,7 +720,7 @@ If <span class="math notranslate nohighlight">\(x_m(t)\)</span> depended on <spa
 </div>
 <div class="math notranslate nohighlight" id="equation-distance-delay">
 <span class="eqno">(1.7)<a class="headerlink" href="#equation-distance-delay" title="Permalink to this equation">¶</a></span>\[x_m(t) \approx x_s(t - D/C).\]</div>
-<p>We’ve written <span class="math notranslate nohighlight">\(\approx\)</span> here, and not <span class="math notranslate nohighlight">\(=\)</span>, because the signals will not be identical: the amplitude will also change!</p>
+<p>We’ve written <span class="math notranslate nohighlight">\(\approx\)</span> here, and not <span class="math notranslate nohighlight">\(=\)</span>, because the signals will not be identical: the amplitude will also change.</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">
 </div>
 <div class="figure align-default" id="id2">
@@ -738,7 +738,7 @@ There are, however, numerous physical quantities that we <em>can</em> and do mea
 We’ll briefly summarize the most important ones here, as described in the <a class="reference external" href="https://www.iso.org/standard/64978.html">ISO 80000-8:2020 standards</a>:</p>
 <div class="margin sidebar">
 <p class="sidebar-title">Physical units</p>
-<p>If you’re a little out of practice with physical units, don’t worry about it!
+<p>If you’re a little out of practice with physical units, <strong>don’t worry about it</strong>.
 We include this information here for completeness, but it mostly won’t matter too much when working with digital signals.</p>
 <p>For reference though, a Pascal [Pa] is a unit of pressure: force spread over a surface area.
 If you’re from one of the few countries using “standard” units, think of “pounds per square-inch (PSI)” used to measure air pressure in tires: it’s the same idea.</p>
@@ -814,7 +814,7 @@ The resulting <em>amplitude</em> (<span class="math notranslate nohighlight">\(A
 <div class="section" id="decibels-db">
 <span id="decibels"></span><h3><span class="section-number">1.4.2.1. </span>Decibels (dB)<a class="headerlink" href="#decibels-db" title="Permalink to this headline">¶</a></h3>
 <p>Human hearing is sensitive to sound pressure, but this sensitivity is not <em>linear</em>.
-A doubling of sound pressure does not result in the perception of being twice as loud!
+A <em>doubling</em> of sound pressure <strong>does not</strong> result in the perception of being <em>twice as loud</em>.
 As mentioned above, perception of loudness is a complex phenomenon, but to a first approximation, it is fair to say that humans are sensitive to <em>ratios</em> of pressure (<span class="math notranslate nohighlight">\(p_1 / p_2\)</span>), not <em>differences</em> (<span class="math notranslate nohighlight">\(p_1 - p_2\)</span>).
 Logarithms allow us to convert ratios into differences:</p>
 <div class="margin sidebar">
@@ -878,9 +878,9 @@ For example, if we have a note at frequency <span class="math notranslate nohigh
 If we again add <span class="math notranslate nohighlight">\(440\)</span> to <span class="math notranslate nohighlight">\(A_5\)</span>, we do not get <span class="math notranslate nohighlight">\(A_6\)</span>, but rather something close to <span class="math notranslate nohighlight">\(E_6 \approx 1319[\mathrm{Hz}] \approx 3\times 440= 1320\)</span>.
 To get <span class="math notranslate nohighlight">\(A_6\)</span>, we would have to <em>double</em> <span class="math notranslate nohighlight">\(A_5 = 880 + 880 = A_4 \cdot 4\)</span>.</p>
 <p>This observation is perhaps most intuitive to players of fretted string instruments (e.g., guitar), as it explains why the distance between frets gets narrower as one moves up the neck: frequency of a vibrating string is inversely proportional to its length.
-Players of fret-less stringed instruments also learn this, but it’s not so easy without frets!</p>
-<p>More generally, the size of an octave (measured in Hz) is not constant!  Instead, the size doubles each time we go up by an octave.
-Similarly, the size of the octave <span class="math notranslate nohighlight">\(B_4\)</span>–<span class="math notranslate nohighlight">\(B_5\)</span> is not the same as the octave <span class="math notranslate nohighlight">\(A_4\)</span>–<span class="math notranslate nohighlight">\(A_5\)</span>!
+Players of fret-less stringed instruments also learn this, but frets make it much easier.</p>
+<p>More generally, the size of an octave (measured in Hz) is <em>not constant</em>.  Instead, the size doubles each time we go up by an octave.
+Similarly, the size of the octave <span class="math notranslate nohighlight">\(B_4\)</span>–<span class="math notranslate nohighlight">\(B_5\)</span> is not the same as the octave <span class="math notranslate nohighlight">\(A_4\)</span>–<span class="math notranslate nohighlight">\(A_5\)</span>.
 However, the <em>ratio</em> of frequencies separated by an octave is always constant (2) regardless of which octave or specific frequency we’re talking about.</p>
 <p>One way to think about this multiplicative behavior from some <span class="math notranslate nohighlight">\(f\)</span> to <span class="math notranslate nohighlight">\(f_2 = 2\cdot f\)</span> is that <span class="math notranslate nohighlight">\(f_2\)</span> has 2 cycles for every 1 cycle in <span class="math notranslate nohighlight">\(f\)</span>, as depicted below.</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">

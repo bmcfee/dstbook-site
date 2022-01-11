@@ -716,10 +716,10 @@ What DFT linearity says is that if we can represent an arbitrary signal <span cl
 <div class="section" id="magnitude-is-not-linear">
 <h2><span class="section-number">6.1.1. </span>Magnitude is not linear<a class="headerlink" href="#magnitude-is-not-linear" title="Permalink to this headline">¶</a></h2>
 <p>Note that DFT linearity applies to the <strong>complex numbers</strong> <span class="math notranslate nohighlight">\(\darkblue{X[m]}\)</span> which encode both magnitude and phase.
-There is nothing wrong with adding complex numbers: it’s a fine and wholesome pastime!</p>
+There is nothing wrong with adding complex numbers, provided it is done correctly, keeping the real and imaginary parts separate.</p>
 <p>However, it is a common mistake to add <strong>magnitudes</strong> rather than the full complex numbers.</p>
 <div class="warning admonition">
-<p class="admonition-title">Magnitude is not linear!</p>
+<p class="admonition-title">Magnitude is not linear.</p>
 <p>If signals <span class="math notranslate nohighlight">\(\blue{x_1[n]}\)</span> and <span class="math notranslate nohighlight">\(\blue{x_2[n]}\)</span> have DFT series <span class="math notranslate nohighlight">\(\darkblue{X_1[m]}\)</span> and <span class="math notranslate nohighlight">\(\darkblue{X_2[m]}\)</span>, then the sum <span class="math notranslate nohighlight">\(\purple{y[n]} = \blue{x_1[n] + x_2[n]}\)</span> has DFT series <span class="math notranslate nohighlight">\(\darkblue{Y[m] = X_1[m] + X_2[m]}\)</span>.</p>
 <p>But remember,</p>
 <div class="amsmath math notranslate nohighlight">

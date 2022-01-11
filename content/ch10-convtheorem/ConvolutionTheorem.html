@@ -728,7 +728,7 @@ The equation is exactly the same as <a class="reference internal" href="../ch03-
 </div>
 <div class="section" id="id1">
 <h2><span class="section-number">10.1.2. </span>The convolution theorem<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p>Now that we’ve defined circular convolution, we can formally state the <strong>convolution theorem</strong>, which is one of the most important theorems in signal processing!</p>
+<p>Now that we’ve defined circular convolution, we can formally state the <strong>convolution theorem</strong>, which is one of the most important theorems in signal processing.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
@@ -796,7 +796,7 @@ The direct convolution has an outer loop of <span class="math notranslate nohigh
 <li><p>One inverse DFT calculation</p></li>
 </ol>
 <p>Steps 2 and 4 can be performed with <span class="math notranslate nohighlight">\(\sim N + N \cdot \log N\)</span> steps.
-The total computation time will therefore scale like <span class="math notranslate nohighlight">\(N\cdot \log N \ll N^2\)</span>!</p>
+The total computation time will therefore scale like <span class="math notranslate nohighlight">\(N\cdot \log N \ll N^2\)</span>.</p>
 <p>However, if <span class="math notranslate nohighlight">\(h\)</span> is much shorter than <span class="math notranslate nohighlight">\(N\)</span>, this may not be worth it, as the direct method would take <span class="math notranslate nohighlight">\(N\cdot K\)</span> steps.
 Standard convolution implementations like <code class="docutils literal notranslate"><span class="pre">scipy.signal.convolve</span></code> typically compare the lengths of the signal to determine the most efficient means of computing the result.</p>
 </div>
@@ -808,13 +808,13 @@ Standard convolution implementations like <code class="docutils literal notransl
 <p>and associative:</p>
 <div class="math notranslate nohighlight">
 \[\red{h}*\purple{(g*x)} = \red{(h*g)}*\blue{x},\]</div>
-<p>but we did not prove those properties.  (We could have, but it would have been pretty tedious!)</p>
+<p>but we did not prove those properties.  (We could have, but it would have been pretty tedious.)</p>
 <p>The convolution theorem provides a more direct and intuitive way to see these properties:</p>
 <ul class="simple">
 <li><p>Commutativity must exist because complex multiplication is commutative: <span class="math notranslate nohighlight">\(\darkblue{X[m]}\cdot \red{H[m]} = \red{H[m]} \cdot \darkblue{X[m]}\)</span>.</p></li>
 <li><p>Likewise for associativity: <span class="math notranslate nohighlight">\(\red{H[m]} \cdot \darkblue{(G[m] \cdot X[m])} = \red{(H[m] \cdot G[m])} \cdot \darkblue{X[m]}\)</span>.</p></li>
 </ul>
-<p>Inheriting these properties from multiplication is much easier than deriving them from scratch!</p>
+<p>Inheriting these properties from multiplication is much easier than deriving them from scratch.</p>
 </div>
 <div class="section" id="filter-analysis">
 <h3><span class="section-number">10.1.3.3. </span>Filter analysis<a class="headerlink" href="#filter-analysis" title="Permalink to this headline">¶</a></h3>
@@ -826,7 +826,7 @@ Initially, we thought of each <span class="math notranslate nohighlight">\(\red{
 <p>where <span class="math notranslate nohighlight">\(A \geq 0\)</span> is the magnitude and <span class="math notranslate nohighlight">\(\phi\)</span> is the phase.</p>
 <p>Using the inverse DFT, we can interpret <span class="math notranslate nohighlight">\(\darkblue{X[m]} = B \cdot e^{\mathrm{j} \cdot \theta}\)</span> as encoding the magnitude <span class="math notranslate nohighlight">\(B\)</span> and phase <span class="math notranslate nohighlight">\(\theta\)</span> of a particular sinusoid present in the signal <span class="math notranslate nohighlight">\(x\)</span>.</p>
 <p>Multiplying these two together, we see that <span class="math notranslate nohighlight">\(\magenta{Y[m]}\)</span> has magnitude <span class="math notranslate nohighlight">\(A \cdot B\)</span> and phase <span class="math notranslate nohighlight">\(\phi + \theta\)</span>.
-That is, <span class="math notranslate nohighlight">\(\red{H[m]}\)</span> encodes how much each sinusoidal component of <span class="math notranslate nohighlight">\(\blue{x}\)</span> is amplified (or attenuated) (by <span class="math notranslate nohighlight">\(A\)</span>) and delayed (by <span class="math notranslate nohighlight">\(\phi\)</span>) when convolved with <span class="math notranslate nohighlight">\(\red{h}\)</span>!</p>
+That is, <span class="math notranslate nohighlight">\(\red{H[m]}\)</span> encodes how much each sinusoidal component of <span class="math notranslate nohighlight">\(\blue{x}\)</span> is amplified (or attenuated) (by <span class="math notranslate nohighlight">\(A\)</span>) and delayed (by <span class="math notranslate nohighlight">\(\phi\)</span>) when convolved with <span class="math notranslate nohighlight">\(\red{h}\)</span>.</p>
 <p>In the following sections, we’ll see how to put this idea into practice for filtering signals.</p>
 </div>
 <div class="section" id="dual-convolution-theorem">

@@ -733,7 +733,7 @@ Combining these cases, we can finish the derivation above:</p>
 =
 \frac{1}{N} \cdot \blue{x[n]} \cdot N
 = \blue{x[n]}.\]</div>
-<p>This is exactly what we needed to show: the <span class="math notranslate nohighlight">\(n\)</span>th sample is recovered exactly!</p>
+<p>This is exactly what we needed to show: the <span class="math notranslate nohighlight">\(n\)</span>th sample is recovered exactly.</p>
 </div>
 <div class="section" id="the-idft-in-practice">
 <h2><span class="section-number">7.2.2. </span>The IDFT in practice<a class="headerlink" href="#the-idft-in-practice" title="Permalink to this headline">¶</a></h2>
@@ -764,7 +764,7 @@ So what does this actually tell us about the DFT?</p>
 <li><p>The coefficient <span class="math notranslate nohighlight">\(\darkblue{X[m]}\)</span> encodes the amplitude and phase of the <span class="math notranslate nohighlight">\(m\)</span>th sinusoid;</p></li>
 <li><p>The complex exponential <span class="math notranslate nohighlight">\(\green{e^{2\pi\cdot\mathrm{j} \cdot m \cdot n / N}}\)</span> represents the <span class="math notranslate nohighlight">\(m\)</span>th sinusoid itself.</p></li>
 </ul>
-<p>Up until this point, we’ve occasionally had to assume that such a representation exists.  But now we’ve proven that it exists!</p>
+<p>Up until this point, we’ve occasionally had to assume that such a representation exists.  <strong>But now we’ve proven that it exists</strong>.</p>
 <p>Aside from analysis and theoretical properties, the inverse DFT gives us tools to <em>modify</em> signals.
 Rather than operating on individual samples, we can alter the DFT coefficients to produce desired effects, and then take the inverse DFT to recover the time-domain signal.
 We’ll have more to say about the frequency domain view of filtering in later chapters, but in the next section, we’ll see how to use this insight for synthesizing signals directly.</p>

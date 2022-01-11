@@ -706,7 +706,7 @@
 In this section, we’ll see one of the earliest methods, (re-)discovered in 1965 by Cooley and Tukey <span id="id1">[<a class="reference internal" href="../references.html#id8">CT65</a>]</span>, which can accelerate DFT calculations when <span class="math notranslate nohighlight">\(N\)</span> is an integral power of 2: <span class="math notranslate nohighlight">\(N = 2^K\)</span>.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<p>The Cooley-Tukey method for DFT calculation was known to Gauss all the way back in the early 19th century!</p>
+<p>The Cooley-Tukey method for DFT calculation was known to Gauss all the way back in the early 19th century.</p>
 <p>What a clever chap.</p>
 </div>
 <p>Modern FFT implementations use many tricks to speed up calculation, and generalize to arbitrary values for <span class="math notranslate nohighlight">\(N\)</span>.
@@ -721,8 +721,6 @@ Specifically, we can separate the summation into <em>even indices</em> <span cla
 <div class="cell tag_remove_input tag_remove_output docutils container">
 </div>
 <div class="figure align-default" id="id2">
-<div class="cell_output docutils container">
-<img alt="../../_images/FFT_4_0.svg" src="../../_images/FFT_4_0.svg" /></div>
 <p class="caption"><span class="caption-number">Fig. 8.2 </span><span class="caption-text">A discrete signal <span class="math notranslate nohighlight">\(x[n]\)</span> of <span class="math notranslate nohighlight">\(N=32\)</span> samples (top row) is divided into its <em>even</em> and <em>odd</em> samples (middle-left and middle-right).
 The even and odd signals themselves can be similarly divided (bottom row).
 This process can repeat up to <span class="math notranslate nohighlight">\(\log_2 N\)</span> times.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
@@ -754,7 +752,7 @@ The second factor, <span class="math notranslate nohighlight">\(\red{e^{-2\pi \c
 <p>Combining these two observations, we can express the original DFT of <span class="math notranslate nohighlight">\(N\)</span> samples in terms of two DFTs of <span class="math notranslate nohighlight">\(N/2\)</span> samples:</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<p>Note that the multiplicative factor <span class="math notranslate nohighlight">\(\red{e^{-2\pi\cdot\mathrm{j}\cdot m / N}}\)</span> is exactly what we would get from the <a class="reference internal" href="../ch06-dft-properties/Shifting.html#shifting-theorem"><span class="std std-ref">DFT shifting theorem</span></a> when <span class="math notranslate nohighlight">\(\purple{x_O}\)</span> is delayed by one sample!</p>
+<p>Note that the multiplicative factor <span class="math notranslate nohighlight">\(\red{e^{-2\pi\cdot\mathrm{j}\cdot m / N}}\)</span> is exactly what we would get from the <a class="reference internal" href="../ch06-dft-properties/Shifting.html#shifting-theorem"><span class="std std-ref">DFT shifting theorem</span></a> when <span class="math notranslate nohighlight">\(\purple{x_O}\)</span> is delayed by one sample.</p>
 </div>
 <div class="math notranslate nohighlight" id="equation-eq-fft">
 <span class="eqno">(8.1)<a class="headerlink" href="#equation-eq-fft" title="Permalink to this equation">¶</a></span>\[\darkblue{X[m]} = \magenta{X_E[m]} + \red{\left({e^{-2\pi \cdot \mathrm{j} \cdot m / N}}\;\;\right)} \cdot \magenta{X_O[m]}\]</div>
@@ -763,11 +761,11 @@ When given a large problem to solve, it sometimes helps to break it into smaller
 <div class="section" id="why-is-this-helpful">
 <h3><span class="section-number">8.2.1.1. </span>Why is this helpful?<a class="headerlink" href="#why-is-this-helpful" title="Permalink to this headline">¶</a></h3>
 <p>So far, all we’ve done is express a single component of the DFT <span class="math notranslate nohighlight">\(\darkblue{X[m]}\)</span> <em>recursively</em> in terms of two smaller DFT’s, <span class="math notranslate nohighlight">\(\magenta{X_E[m]}\)</span> and <span class="math notranslate nohighlight">\(\magenta{X_O[m]}\)</span>.
-If we only cared about computing a single frequency index <span class="math notranslate nohighlight">\(m\)</span>, this wouldn’t help us very much.
+If we only cared about computing a single frequency index <span class="math notranslate nohighlight">\(m\)</span>, this recursive formulation wouldn’t help us.
 Remember, we can compute a single DFT coefficient <span class="math notranslate nohighlight">\(\darkblue{X[m]}\)</span> in <span class="math notranslate nohighlight">\(N\)</span> steps (the inner loop of the naive algorithm in the previous section), and we know that it can’t be done in fewer than <span class="math notranslate nohighlight">\(N\)</span> steps because each sample <span class="math notranslate nohighlight">\(x[n]\)</span> must be looked at.</p>
 <p>Of course, we’re usually interested in computing the full DFT (all <span class="math notranslate nohighlight">\(N\)</span> frequencies).
 The recursive decomposition of <span class="math notranslate nohighlight">\(\darkblue{X[m]}\)</span> is helpful here because it applies simultaneously to <em>all frequencies</em> <span class="math notranslate nohighlight">\(m = 0, 1, 2, \dots, N-1\)</span>.
-That is, if someone gave us for free the entire DFT calculations for <span class="math notranslate nohighlight">\(\magenta{X_E}\)</span> and <span class="math notranslate nohighlight">\(\magenta{X_O}\)</span>, we could compute the entire DFT <span class="math notranslate nohighlight">\(\magenta{X}\)</span> in <span class="math notranslate nohighlight">\(N\)</span> additional steps by applying <a class="reference internal" href="#equation-eq-fft">(8.1)</a> (once for each <span class="math notranslate nohighlight">\(m=0,1,2,\dots,N-1\)</span>).
+That is, if someone gave us the entire DFT calculations for <span class="math notranslate nohighlight">\(\magenta{X_E}\)</span> and <span class="math notranslate nohighlight">\(\magenta{X_O}\)</span>, we could compute the entire DFT <span class="math notranslate nohighlight">\(\magenta{X}\)</span> in <span class="math notranslate nohighlight">\(N\)</span> additional steps by applying <a class="reference internal" href="#equation-eq-fft">(8.1)</a> (once for each <span class="math notranslate nohighlight">\(m=0,1,2,\dots,N-1\)</span>).
 In principle, we should be able to do something like the following:</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -810,7 +808,7 @@ However, if the total work taken to get <span class="math notranslate nohighligh
 <h2><span class="section-number">8.2.2. </span>How many frequencies?<a class="headerlink" href="#how-many-frequencies" title="Permalink to this headline">¶</a></h2>
 <p>A careful look at <a class="reference internal" href="#equation-eq-fft">(8.1)</a> reveals something a little strange: the DFT <span class="math notranslate nohighlight">\(\darkblue{X[m]}\)</span> involves <span class="math notranslate nohighlight">\(N\)</span> frequencies (<span class="math notranslate nohighlight">\(m=0,1,2,\dots, N-1\)</span>), while the smaller DFTs <span class="math notranslate nohighlight">\(\magenta{X_E[m]}\)</span> and <span class="math notranslate nohighlight">\(\magenta{X_O[m]}\)</span> should have only <span class="math notranslate nohighlight">\(N/2\)</span> frequencies (<span class="math notranslate nohighlight">\(m=0,1,2,\dots,N/2-1\)</span>) since they are derived from signals of length <span class="math notranslate nohighlight">\(N/2\)</span>.
 This introduces a problem for lines 9–10 in the code block above: how do we recover all <span class="math notranslate nohighlight">\(N\)</span> frequencies when only <span class="math notranslate nohighlight">\(N/2\)</span> are present in <span class="math notranslate nohighlight">\(\magenta{X_E}\)</span> and <span class="math notranslate nohighlight">\(\magenta{X_O}\)</span>?</p>
-<p>Once again, <strong>aliasing</strong> can come to the rescue!</p>
+<p>Once again, <strong>aliasing</strong> can come to the rescue.</p>
 <p>Recall that each <span class="math notranslate nohighlight">\(\darkblue{X[m]}\)</span> is the result of a comparison to a wave that completes <span class="math notranslate nohighlight">\(\red{m}\)</span> cycles in <span class="math notranslate nohighlight">\(\blue{N}\)</span> samples, or in units of Hz:</p>
 <div class="math notranslate nohighlight">
 \[\red{f_m} = \frac{\red{m}}{\blue{N}} \cdot f_s.\]</div>
@@ -848,7 +846,7 @@ Due to aliasing, the resulting sequence is equivalent to a wave at <span class="
 \red{\left({e^{-2\pi \cdot \mathrm{j} \cdot m / N}}\;\;\right)} \cdot \magenta{X_O\left[m \mod \frac{N}{2}\right]}.\]</div>
 <p>The benefit of this form is that we only rely on <span class="math notranslate nohighlight">\(N/2\)</span> coefficients in both <span class="math notranslate nohighlight">\(\magenta{X_E}\)</span> and <span class="math notranslate nohighlight">\(\magenta{X_O}\)</span>, but we are still able to recover all <span class="math notranslate nohighlight">\(N\)</span> coefficients <span class="math notranslate nohighlight">\(\darkblue{X[m]}\)</span>.
 This, ultimately, is the source of the efficiency gains in FFT algorithms: the solutions to smaller sub-problems can be used multiple times to produce different parts of the output. <span class="math notranslate nohighlight">\(\darkblue{X[m]}\)</span> and <span class="math notranslate nohighlight">\(\darkblue{X[m + N/2]}\)</span> both depend on <span class="math notranslate nohighlight">\(\magenta{X_E[m]}\)</span> and <span class="math notranslate nohighlight">\(\magenta{X_O[m]}\)</span>.
-We compute <span class="math notranslate nohighlight">\(\magenta{X_E}\)</span> and <span class="math notranslate nohighlight">\(\magenta{X_O}\)</span> once, but we get to use them twice!</p>
+We compute <span class="math notranslate nohighlight">\(\magenta{X_E}\)</span> and <span class="math notranslate nohighlight">\(\magenta{X_O}\)</span> once, but we get to use them twice.</p>
 </div>
 <div class="section" id="a-radix-2-algorithm">
 <h2><span class="section-number">8.2.3. </span>A radix-2 algorithm<a class="headerlink" href="#a-radix-2-algorithm" title="Permalink to this headline">¶</a></h2>
@@ -857,9 +855,9 @@ We compute <span class="math notranslate nohighlight">\(\magenta{X_E}\)</span> a
 To compute <span class="math notranslate nohighlight">\(\magenta{X_E}\)</span> and <span class="math notranslate nohighlight">\(\magenta{X_O}\)</span>, the algorithm will <strong>call itself</strong> on the appropriately sub-sampled signal.
 Once it has <span class="math notranslate nohighlight">\(\magenta{X_E}\)</span> and <span class="math notranslate nohighlight">\(\magenta{X_O}\)</span>, it then combines the results and returns the output spectrum.</p>
 <div class="margin sidebar">
-<p class="sidebar-title">Recursion is weird!</p>
+<p class="sidebar-title">Recursion is weird.</p>
 <p>If you’ve never seen recursion before, don’t panic.</p>
-<p>Yes, it’s weird, but it’s not magic!</p>
+<p>Yes, it’s weird, but it’s not magic.</p>
 <p>If it helps, think of a simpler recursive algorithm for adding up a list of numbers.
 You can think of any such sum as “the first number, plus whatever the sum of the rest is”.
 That definition also applies to the “sum of the rest” part, and every subsequent sum until there is only a single number left.</p>
@@ -960,7 +958,7 @@ Multiplying the per-level work by the number of levels gives us a total upper bo
 Since <span class="math notranslate nohighlight">\(1 + \log_2 N &lt; 2 \cdot \log_2 N\)</span>, this means that we would ignore any linear dependencies on <span class="math notranslate nohighlight">\(N\)</span>.</p>
 <p>The common notation for this is <span class="math notranslate nohighlight">\(T(N) \in \mathcal{O}(N \cdot \log N)\)</span>, which we read as “<span class="math notranslate nohighlight">\(T(N)\)</span> is <a class="reference external" href="https://en.wikipedia.org/wiki/Big_O_notation">big-Oh</a> (order of) <span class="math notranslate nohighlight">\(N\cdot \log N\)</span>”.</p>
 </div>
-<p>Since <span class="math notranslate nohighlight">\(\log_2 N &lt; N\)</span>, this comes out to be substantially more efficient than the <span class="math notranslate nohighlight">\(d \cdot N^2\)</span> work performed by the naive approach!</p>
+<p>Since <span class="math notranslate nohighlight">\(\log_2 N &lt; N\)</span>, this comes out to be substantially more efficient than the <span class="math notranslate nohighlight">\(d \cdot N^2\)</span> work performed by the naive approach.</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">
 </div>
 <div class="figure align-default" id="id3">

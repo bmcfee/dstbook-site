@@ -709,7 +709,7 @@ This leads us to the notion of a <strong>circular shift</strong>.</p>
 <p>to be the <strong>circular shift</strong> of <span class="math notranslate nohighlight">\(\blue{x}\)</span> by <span class="math notranslate nohighlight">\(\red{d}\)</span> samples.</p>
 </div>
 <p>When it is clear from context that shifting is circular, we may drop the “<span class="math notranslate nohighlight">\(\mod N\)</span>” notation and simply write <span class="math notranslate nohighlight">\(\purple{y[n] = x[n-d]}\)</span>.</p>
-<p>Circular shifting can seem like a strange thing to do: taking samples from the end of the signal and putting them at the beginning? <em>Surely you jest!</em></p>
+<p>Circular shifting can seem like a strange thing to do: taking samples from the end of the signal and putting them at the beginning?</p>
 <p>However, it is a natural consequence of combining our <a class="reference internal" href="../ch05-fourier/Cosine.html#dft-periodicity"><span class="std std-ref">periodicity assumption</span></a> with the definition of delay.</p>
 <p>Indeed, it can lead to some strange behaviors if <span class="math notranslate nohighlight">\(x[n]\)</span> is discontinuous at the repetition boundaries.</p>
 <div class="cell tag_remove_input tag_hide_input tag_remove_output docutils container">
@@ -728,7 +728,7 @@ Because <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> is dis
 <div class="math notranslate nohighlight">
 \[\magenta{Y[m]} = \darkblue{X[m]} \cdot \exp\left(-\mathrm{j} \cdot 2\pi \cdot \frac{m}{N} \cdot \red{d}\right).\]</div>
 </div>
-<p>This says that no matter what delay we use, it’s always possible to exactly predict the spectrum of the delayed signal from the spectrum of the input signal.  <em>That’s kind of awesome!</em></p>
+<p>This says that no matter what delay we use, it’s always possible to exactly predict the spectrum of the delayed signal from the spectrum of the input signal.</p>
 <div class="section" id="proof">
 <h2><span class="section-number">6.2.1. </span>Proof<a class="headerlink" href="#proof" title="Permalink to this headline">¶</a></h2>
 <p>The proof of the shifting theorem is purely algebraic, and relies on the periodicity assumption of <span class="math notranslate nohighlight">\(\blue{x}\)</span> to allow a change of variables in the similarity calculation.
@@ -9877,7 +9877,7 @@ These observations are all instances of a general property of <a class="referenc
 <p>The shifting theorem implies that if a signal is circularly shifted, its magnitude spectrum is unchanged:</p>
 <div class="math notranslate nohighlight">
 \[\purple{y[n] = x[n-d]} \quad\quad\Rightarrow\quad\quad |\magenta{Y[m]}| = |\darkblue{X[m]}|.\]</div>
-<p>However, the converse is <strong>not true</strong>: two signals with the same magnitude spectrum may not be related by a circular shift of one another!</p>
+<p>However, the converse is <strong>not true</strong>: two signals with the same magnitude spectrum may not be related by a circular shift of one another.</p>
 <div class="section" id="id1">
 <h3><span class="section-number">6.2.3.1. </span>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <p>Let <span class="math notranslate nohighlight">\(\blue{x[n] = 1, 0, 0, 0, 0, \dots}\)</span> denote an impulse with <span class="math notranslate nohighlight">\(N\)</span> samples, and let <span class="math notranslate nohighlight">\(\purple{y = -x}\)</span> denote its negation.
@@ -9887,7 +9887,7 @@ As a result, we have that</p>
 <div class="math notranslate nohighlight">
 \[|\magenta{Y[m]}| = |\darkblue{-X[m]}| = |\darkblue{X[m]}| = 1 \quad \text{for } m = 0, 1, \dots, N-1\]</div>
 <p>so the two signals have the same magnitude spectrum.
-However, there is no delay <span class="math notranslate nohighlight">\(\red{d}\)</span> that turns <span class="math notranslate nohighlight">\(\blue{x}\)</span> into <span class="math notranslate nohighlight">\(\purple{y}\)</span>!</p>
+However, there is no delay <span class="math notranslate nohighlight">\(\red{d}\)</span> that turns <span class="math notranslate nohighlight">\(\blue{x}\)</span> into <span class="math notranslate nohighlight">\(\purple{y}\)</span>.</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">
 </div>
 <div class="figure align-default" id="magnitude-shifting">
@@ -9899,7 +9899,7 @@ However, there is no delay <span class="math notranslate nohighlight">\(\red{d}\
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Phase is important.  Having the same magnitude spectrum is not enough to ensure that two signals are the same except for a phase shift!</p>
+<p>Phase is important.  Having the same magnitude spectrum is not enough to ensure that two signals are the same except for a phase shift.</p>
 </div>
 </div>
 </div>

@@ -694,15 +694,16 @@ This section covers the following</p>
 Later on, we’ll make use of more advanced concepts (complex numbers, polynomials, and exponentials), but those will be introduced as needed.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>I sometimes use the term <em>basic</em> in reference to certain ideas.  By this, I mean that these ideas are the <em>base level</em> upon which we will build.  This is <strong>not</strong> the same thing as being <em>easy</em>.  Many basic ideas can be complicated, and take quite some time to thoroughly understand.</p>
+<p>I sometimes use the term <em>basic</em> when describing certain ideas.  By this, I mean that these ideas are the <em>base level</em> upon which we will build.  This is <strong>not</strong> the same thing as being <em>easy</em>.  Many basic ideas can be complicated, and take quite some time to thoroughly understand.</p>
 </div>
-<p>If the mathematical concepts start to seem overwhelming at some point, don’t worry!  Just take it slow, and don’t move on to the next section too soon.  None of the contents here are magical: it all builds on basic ideas.</p>
+<p>If the mathematical concepts start to seem overwhelming at some point, <strong>don’t worry</strong>.
+Just take it slow, and don’t move on to the next section too soon.  None of the contents here are magical: it all builds on basic ideas.</p>
 <hr class="docutils" />
 <div class="section" id="what-is-a-signal">
 <h2><span class="section-number">1.1.1. </span>What is a signal?<a class="headerlink" href="#what-is-a-signal" title="Permalink to this headline">¶</a></h2>
 <p>At a high level, a <strong>signal</strong> is a way of conveying information.
 There unfortunately isn’t a simple, concise, technical definition of <em>signal</em> that provides us with much insight.
-The most intuitive example of a signal, at least for acoustically-minded folks, is the voltage on a wire connected to a microphone.
+The most intuitive example of a signal, at least for acoustically inclined people, is the voltage on a wire connected to a microphone.
 If you were to watch the voltage change over time, you might see something like the figure below:</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">
 </div>
@@ -759,8 +760,8 @@ As stated above, time should be understood to be continuously valued.
 Time will be measured starting from 0.</p>
 <p>Discrete (i.e., integer-valued) quantities will be referred to by the letters <span class="math notranslate nohighlight">\(n\)</span>, <span class="math notranslate nohighlight">\(m\)</span>, or <span class="math notranslate nohighlight">\(k\)</span>.
 These also will be measured starting from 0.
-This means that a sequence of length <span class="math notranslate nohighlight">\(N\)</span> has indices <span class="math notranslate nohighlight">\(0, 1, 2, ..., N-1\)</span>.
-If you’re not used to this, it can seem a bit awkward at first, but trust me: this convention will make the math much easier later on!</p>
+This means that a sequence of length <span class="math notranslate nohighlight">\(N\)</span> has indices <span class="math notranslate nohighlight">\(0, 1, 2, \dots, N-1\)</span>.
+If you’re not used to this, it can seem a bit awkward at first, but trust me: this convention will make the math much easier later on.</p>
 <p>Unless otherwise stated, we will by default assume that signals are 0-valued when <span class="math notranslate nohighlight">\(t\)</span> (for continuous-time) or <span class="math notranslate nohighlight">\(n\)</span> (for discrete-time) are negative:</p>
 <div class="math notranslate nohighlight" id="equation-negative-time">
 <span class="eqno">(1.1)<a class="headerlink" href="#equation-negative-time" title="Permalink to this equation">¶</a></span>\[\begin{split}\begin{split}
@@ -775,7 +776,7 @@ n &lt; 0 &amp;\Rightarrow x[n] = 0.
 <img alt="../../_images/Preliminaries_8_0.svg" src="../../_images/Preliminaries_8_0.svg" /></div>
 <p class="caption"><span class="caption-number">Fig. 1.2 </span><span class="caption-text">An example signal showing that voltage <span class="math notranslate nohighlight">\(x(t) = 0\)</span> for all <span class="math notranslate nohighlight">\(t &lt; 0\)</span> (negative time).</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
-<p>Angles will be denoted by the Greek letters <span class="math notranslate nohighlight">\(\theta\)</span> (<em>theta</em>) or <span class="math notranslate nohighlight">\(\phi\)</span> (<em>phi</em>), and measured in units of <em>radians</em>, <strong>not degrees!</strong>
+<p>Angles will be denoted by the Greek letters <span class="math notranslate nohighlight">\(\theta\)</span> (<em>theta</em>) or <span class="math notranslate nohighlight">\(\phi\)</span> (<em>phi</em>), and measured in units of <em>radians</em>, <strong>not degrees</strong>.
 There are <span class="math notranslate nohighlight">\(2\pi\)</span> radians in a full rotation (<span class="math notranslate nohighlight">\(360^\circ\)</span>); <span class="math notranslate nohighlight">\(\pi\)</span> radians in a half rotation (<span class="math notranslate nohighlight">\(180^\circ\)</span>), and <span class="math notranslate nohighlight">\(\pi/2\)</span> radians in a right angle (<span class="math notranslate nohighlight">\(90^\circ\)</span>).</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">
 </div>
@@ -793,7 +794,7 @@ In general, <span class="math notranslate nohighlight">\(x\)</span> and <span cl
 <p>Finally, we will occasionally see snippets of code that implement the abstract concepts being described in the text.
 This code will be written in the Python programming language, and will be typeset as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
-    <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>  <span class="c1"># Hurray! Now x is twice as big!</span>
+    <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>  <span class="c1"># Hurray! Now y is twice as big as x</span>
 </pre></div>
 </div>
 <p>More specifically, I will assume Python 3.6 or later, and will make use of the <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> package for numerical computation.

@@ -718,7 +718,7 @@
 &amp;\dots\\
 \purple{y[n]} &amp;= 2^n
 \end{align*}\]</div>
-<p>which grows exponentially and without bound.  This system is <strong>unstable</strong>!</p>
+<p>which grows exponentially and without bound.  This system is <strong>unstable</strong>.</p>
 <p>While it is relatively straightforward to determine that <a class="reference internal" href="#equation-doubling">(12.9)</a> is unstable, it is not always so easy.
 This leads us to the question: how can we determine in general whether a given system is stable?</p>
 <div class="section" id="transfer-functions-and-polynomials">
@@ -768,7 +768,7 @@ However, if we factor the polynomial, it turns out that the solutions are not un
 <div class="math notranslate nohighlight">
 \[x^2 - 6x + 9 = (x-3)\cdot(x-3).\]</div>
 <p>In this case, we say that there is one solution <span class="math notranslate nohighlight">\(x=3\)</span> <em>of multiplicity 2</em> (because it occurs twice).</p>
-<p><strong>The fundamental theorem of algebra does not require that all solutions be unique!</strong></p>
+<p><strong>The fundamental theorem of algebra does not require that all solutions be unique.</strong></p>
 <p>As a final example, take</p>
 <div class="math notranslate nohighlight">
 \[x^3 + 1 = 0\]</div>
@@ -827,7 +827,7 @@ All zeros of this filter have unit magnitude, and come in conjugate pairs: 4 wit
 <strong>Right</strong>: The frequency response curve of this filter <span class="math notranslate nohighlight">\(|H(z)|\)</span>.  Each zero in the left plot corresponds to a particular frequency, which coincide with the minima of the frequency response curve as indicated by the dashed lines.</span><a class="headerlink" href="#zerosplot" title="Permalink to this image">¶</a></p>
 </div>
 <p>From <a class="reference internal" href="#zerosplot"><span class="std std-numref">Fig. 12.5</span></a>, we can observe that the minima in the frequency response curve line up exactly with the zeros of the transfer function.
-More generally, frequencies <em>near</em> the zeros are also attenuated!
+More generally, frequencies <em>near</em> the zeros are also attenuated.
 You can think of the zeros as physical weights that drag down the frequency response.</p>
 <p>This is only part of the story though: we’ll also need to look at the feedback coefficients to get the full picture.</p>
 </div>
@@ -835,7 +835,7 @@ You can think of the zeros as physical weights that drag down the frequency resp
 <h2><span class="section-number">12.4.3. </span>Poles<a class="headerlink" href="#poles" title="Permalink to this headline">¶</a></h2>
 <p>So far, we’ve found that the zeros of <span class="math notranslate nohighlight">\(\red{B(z)}\)</span> can tell us about the frequency response of a filter.  But what about the zeros of <span class="math notranslate nohighlight">\(\cyan{A(z)}\)</span>?</p>
 <p>The roots of <span class="math notranslate nohighlight">\(\cyan{A(z)}\)</span> are known as <strong>poles</strong> of the filter, and are denoted by <span class="math notranslate nohighlight">\(p_0, p_1, \dots, p_{K-1} \in \mathbb{C}\)</span>.
-For any pole <span class="math notranslate nohighlight">\(p\)</span> (that is not also a root of <span class="math notranslate nohighlight">\(\red{B(z)}\)</span>), <span class="math notranslate nohighlight">\(\red{H(p)} = \red{B(p)} / \cyan{A(p)}\)</span> would divide by zero, which is a very bad thing indeed!
+For any pole <span class="math notranslate nohighlight">\(p\)</span> (that is not also a root of <span class="math notranslate nohighlight">\(\red{B(z)}\)</span>), <span class="math notranslate nohighlight">\(\red{H(p)} = \red{B(p)} / \cyan{A(p)}\)</span> would divide by zero.
 Without getting too far into the technical details, it is possible to make sense of this division by looking at the behavior of <span class="math notranslate nohighlight">\(\red{H(z)}\)</span> in a neighborhood around a pole.</p>
 <p>The intuition behind the name “pole” derives from the idea of the function <span class="math notranslate nohighlight">\(|\red{H(z)}|\)</span> (the magnitude of <span class="math notranslate nohighlight">\(\red{H(z)}\)</span>) can be thought of as a sheet draped over the complex plane, which is held up by (tent) poles.
 A simplified illustration of this is provided below in <a class="reference internal" href="#asymptote"><span class="std std-numref">Fig. 12.6</span></a>.</p>
@@ -917,12 +917,11 @@ Most commonly, this is done by the <em>second-order sections</em> (SOS) method, 
 <div class="margin sidebar">
 <p class="sidebar-title">Canceling poles and zeros</p>
 <p>Technically, if a point is both a pole and a zero, this produces a factor of 0/0 in the transfer function.
-0/0 is usually a sign that something bad is happening!</p>
-<p>However, in this specific case, it does work out.
-If <span class="math notranslate nohighlight">\(p_k = z_\ell\)</span>, then <span class="math notranslate nohighlight">\((1-z_k z^{-1}) / (1-p_k^{-1})\)</span></p>
+0/0 is usually a sign that something bad is happening.</p>
+<p>However, in this specific case, it does work out.</p>
 </div>
 <p>Second, it provides a way to reason about the interactions between poles and zeros.
-Notably, if we have a pole which is also a zero, that is, <span class="math notranslate nohighlight">\(p_k = z_\ell\)</span>, then both of their corresponding factors can be removed from the filter without changing its behavior!
+Notably, if we have a pole which is also a zero, that is, <span class="math notranslate nohighlight">\(p_k = z_\ell\)</span>, then both of their corresponding factors can be removed from the filter without changing its behavior.
 Concretely, this means that if a pole and a zero coincide, then their effects cancel each other out.</p>
 </div>
 <div class="section" id="stability">
@@ -938,7 +937,7 @@ This is <em>unstable</em> because the output can diverge when given an input sig
 <p>The transfer function of this system is</p>
 <div class="math notranslate nohighlight">
 \[\red{H(z)} = \frac{\red{b[0]} \cdot z^0}{\cyan{a[0]} \cdot z^0 + \cyan{a[1]} \cdot z^{-1}} = \frac{\red{1}}{\cyan{1} - \cyan{2}\cdot z^{-1}}\]</div>
-<p>Because the the numerator is degree 0, this system has no zeros.
+<p>Because the numerator has degree 0, this system has no zeros.
 It has one pole, which we can find by solving <span class="math notranslate nohighlight">\(1 - 2z^{-1} = 0\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[1 - 2z^{-1} = 0 \quad \Rightarrow \frac{2}{z} = 1 \quad \Rightarrow \cyan{z} = 2.\]</div>
@@ -967,7 +966,7 @@ Or, equivalently, if all poles lie within the unit circle in the complex plane.<
 </ol>
 <p>As a corollary to this observation, note that FIR filters have no poles (since <span class="math notranslate nohighlight">\(\cyan{A(z)= a[0] = 1 \neq 0}\)</span>).
 Since they have no poles, they also have no poles with magnitude larger than 1.
-This is how we can say that any FIR filter is stable!</p>
+This is how we can say that any FIR filter is stable.</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">
 </div>
 <div class="figure align-default" id="id1">

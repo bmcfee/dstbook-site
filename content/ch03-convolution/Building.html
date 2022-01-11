@@ -709,7 +709,7 @@ If our input signal is <span class="math notranslate nohighlight">\(x[n]\)</span
 Bottom: the sum of the two signals.</span><a class="headerlink" href="#ex1" title="Permalink to this image">¶</a></p>
 </div>
 <p>Before we move on, there are already a couple of observations we can make.</p>
-<p>First, the output <span class="math notranslate nohighlight">\(y[n]\)</span> looks very different from the input <span class="math notranslate nohighlight">\(x[n]\)</span>.
+<p>First, the output <span class="math notranslate nohighlight">\(y[n]\)</span> looks substantially different from the input <span class="math notranslate nohighlight">\(x[n]\)</span>.
 Wherever both <span class="math notranslate nohighlight">\(x[n]\)</span> and <span class="math notranslate nohighlight">\(x[n-3]\)</span> are both positive (or negative), <span class="math notranslate nohighlight">\(y[n]\)</span> becomes larger (or smaller), reaching a peak amplitude of 2.
 When <span class="math notranslate nohighlight">\(x[n]\)</span> and <span class="math notranslate nohighlight">\(x[n-3]\)</span> have opposite signs, they cancel each-other out, resulting in <span class="math notranslate nohighlight">\(y[n]=0\)</span> (e.g., at 0.2 seconds).
 Overall, the resulting <span class="math notranslate nohighlight">\(y\)</span> signal has a different shape than the input <span class="math notranslate nohighlight">\(x\)</span>, more akin to a triangle wave than the square wave we started with.
@@ -745,7 +745,7 @@ We’ll discuss this in more detail in <a class="reference internal" href="Modes
         <span class="n">y</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>A more complete code example is given below.</p>
+<p>A complete code example is given below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -810,7 +810,7 @@ We’ll discuss this in more detail in <a class="reference internal" href="Modes
 </div>
 <div class="section" id="example-2-delay-gain">
 <h2><span class="section-number">3.1.2. </span>Example 2: delay + gain<a class="headerlink" href="#example-2-delay-gain" title="Permalink to this headline">¶</a></h2>
-<p>In this example, we’ll mix together three different delays with different <em>gain</em> coefficients:</p>
+<p>In this example, we’ll mix three different delays, each with a different <em>gain</em> coefficient:</p>
 <div class="math notranslate nohighlight">
 \[
 y[n] = \frac{1}{2} x[n] - \frac{1}{2} x[n-1].

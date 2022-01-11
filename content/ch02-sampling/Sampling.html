@@ -718,7 +718,7 @@ resulting in the following (equivalent) form for discretely sampled signals:</p>
 <h2><span class="section-number">2.1.1. </span>Discrete signals and visualization<a class="headerlink" href="#discrete-signals-and-visualization" title="Permalink to this headline">¶</a></h2>
 <p>A signal <span class="math notranslate nohighlight">\(x[n]\)</span> which has been sampled is said to be a <em>discrete-time</em> signal (or sometimes, just <em>discrete signal</em>), to distinguish it from <em>continuous-time</em> signals <span class="math notranslate nohighlight">\(x(t)\)</span>.</p>
 <p>Properly speaking, we do not have sample values at non-integer indices (e.g., <span class="math notranslate nohighlight">\(x[n+1/2]\)</span>), but it is often helpful for understanding to connect sample values in visualizations.
-When visualizing discrete-time signals, we adopt the convention of using <em>step-plots</em> rather than continuously-varying curves (like <span class="math notranslate nohighlight">\(x(t)\)</span> in the figure above), to emphasize the fact that the signal has been discretized.
+When visualizing discrete-time signals, we adopt the convention of using <em>step-plots</em> rather than continuously varying curves (like <span class="math notranslate nohighlight">\(x(t)\)</span> in the figure above), to emphasize the fact that the signal has been discretized.
 Step plots, as demonstrated below, preserve the sample value <span class="math notranslate nohighlight">\(x[n]\)</span> up to the next sample position <span class="math notranslate nohighlight">\(x[n+1]\)</span>.</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">
 </div>
@@ -730,7 +730,7 @@ The discrete-time signal is illustrated as a step plot.
 At sufficiently high sampling rates, the continuous and discrete signals appear visually similar.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
 </div>
 <p>For most practical applications, we tend to have sampling rates that are sufficiently high to guarantee that a step plot and a continuous plot look visually identical.
-However, throughout this text, we will often use examples generated at very low sampling rates because they are easier to understand.</p>
+However, throughout this text, we will often use examples generated at low sampling rates because they are easier to understand.</p>
 </div>
 <div class="section" id="example-tone-generation">
 <h2><span class="section-number">2.1.2. </span>Example: tone generation<a class="headerlink" href="#example-tone-generation" title="Permalink to this headline">¶</a></h2>

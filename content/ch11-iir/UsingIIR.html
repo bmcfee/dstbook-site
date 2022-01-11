@@ -768,7 +768,7 @@ Padding the input with trailing zeros gives us time to observe more of the respo
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>In this section, we’re investigating the behavior of an IIR filter by analyzing a finite bit of its output in response to a particular input signal.
-This should not be confused with analyzing the filter directly!
+This should not be confused with analyzing the filter directly.
 We’ll see how to do that in the next chapter.</p>
 </div>
 </div>
@@ -809,7 +809,7 @@ We’ll see how to do that in the next chapter.</p>
 </div>
 <p>We can immediately observe a couple of interesting things in <code class="xref std std-numref docutils literal notranslate"><span class="pre">butter</span></code>, especially when compared to the FIR filters demonstrated in <a class="reference internal" href="../ch10-convtheorem/FilterDesign.html#firwin"><span class="std std-numref">Fig. 10.7</span></a> and <a class="reference internal" href="../ch10-convtheorem/FilterDesign.html#pmfir"><span class="std std-numref">Fig. 10.8</span></a>.
 First, the time-domain output <span class="math notranslate nohighlight">\(y\)</span> is delayed relative to the input—it peaks much later—with asymmetric ripples that decay to 0.</p>
-<p>Second, even though the filter has only order 10, its stop-band attenuation is comparable to the FIR filters, which have much higher order (in the hundreds)!</p>
+<p>Second, even though the filter has only order 10, its stop-band attenuation is comparable to the FIR filters, which have much higher order (in the hundreds).</p>
 <p>Third, the phase response looks <em>approximately</em> linear in the pass-band, but it turns out to not be <em>exactly</em> linear.
 As a result, different frequencies present in <span class="math notranslate nohighlight">\(x\)</span> have been delayed by slightly different amounts to create <span class="math notranslate nohighlight">\(y\)</span>, which we perhaps could have anticipated from the fact that <span class="math notranslate nohighlight">\(x\)</span> is symmetric in time (after padding) but <span class="math notranslate nohighlight">\(y\)</span> is asymmetric.</p>
 <p>These observations point to general features of IIR filters (not just Butterworth): they can be much more efficient than FIR filters, but they rarely have linear phase.
@@ -831,13 +831,13 @@ The <code class="docutils literal notranslate"><span class="pre">scipy</span></c
 <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">fc</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If you recall how <a class="reference internal" href="../ch10-convtheorem/FilterDesign.html#parks-mcclellan"><span class="std std-ref">The Parks-McClellan method</span></a> optimizes the filter coefficients subject to constraints on ripple, attenuation, and transition bandwidth, the idea is very similar here (although the underlying optimization is quite different).
+<p>If you recall how <a class="reference internal" href="../ch10-convtheorem/FilterDesign.html#parks-mcclellan"><span class="std std-ref">The Parks-McClellan method</span></a> optimizes the filter coefficients subject to constraints on ripple, attenuation, and transition bandwidth, the idea is similar here (although the underlying optimization is quite different).
 In general, when using IIR filters, it’s a good idea to look for helper functions (like order selection) which can help you determine the best settings to satisfy your constraints.</p>
 </div>
 <div class="section" id="compensating-for-phase-distortion">
 <h2><span class="section-number">11.2.4. </span>Compensating for phase distortion<a class="headerlink" href="#compensating-for-phase-distortion" title="Permalink to this headline">¶</a></h2>
 <p>The example above illustrates two things: 1) that IIR filters induce delay, just like FIR filters, and 2) IIR filters are often not linear-phase, resulting in phase distortion (see margin <a class="reference internal" href="#buttergd"><span class="std std-numref">Fig. 11.4</span></a>).</p>
-<p>There is a nice trick for dealing with both of these issues: filter the signal twice, but in opposite directions!
+<p>There is a nice trick for dealing with both of these issues: filter the signal twice, but in <em>opposite directions</em>.
 More specifically, we do the following:</p>
 <ol class="simple">
 <li><p>Apply the filter once: <code class="docutils literal notranslate"><span class="pre">y1</span> <span class="pre">=</span> <span class="pre">filter(b,</span> <span class="pre">a,</span> <span class="pre">x)</span></code></p></li>
@@ -846,19 +846,19 @@ More specifically, we do the following:</p>
 <li><p>Reverse again to obtain the final output: <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">y2_rev[::-1]</span></code></p></li>
 </ol>
 <p>The key idea here is that if filtering the signal once (forward in time) induces some delay, then filtering it again in the opposite direction (backward in time) should undo that delay exactly.
-This even works if the delay is different for each frequency, so even if a filter has non-linear phase, we can undo any distortion artifacts.  <strong>Awesome!</strong></p>
+This even works if the delay is different for each frequency, so even if a filter has non-linear phase, we can undo any distortion artifacts.</p>
 <p>There are two caveats to be aware of.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>If you plan to use double-filtering, design your filters to have half the target gain!
+<p>If you plan to use double-filtering, design your filters to have half the target gain.
 That is, if you want your total stop-band attenuation to be 80dB, design your filter to achieve 40dB.</p>
 </div>
 </div>
 <ol class="simple">
 <li><p>Any gain that would be applied by the filter will be applied <em>twice</em>.  If a frequency is attenuated by 40 dB in one pass, it will be attenuated by 80 dB in two passes.  This also goes for gain and pass-band ripple, not just stop-band attenuation.</p></li>
-<li><p>Double-filtering can only be applied if we can observe the entire input signal in advance: it is <strong>non-causal</strong>! This is fine for pre-recorded signals, but cannot work for real-time audio streams.</p></li>
+<li><p>Double-filtering can only be applied if we can observe the entire input signal in advance: it is <strong>non-causal</strong>. This is fine for pre-recorded signals, but cannot work for real-time audio streams.</p></li>
 </ol>
 <p>Caveats aside, this technique is so common that it is also provided by most signal processing frameworks.
 In <code class="docutils literal notranslate"><span class="pre">scipy</span></code>, it is called <code class="docutils literal notranslate"><span class="pre">scipy.signal.filtfilt</span></code>, and we can use it just like we would use <code class="docutils literal notranslate"><span class="pre">lfilter</span></code>.
@@ -894,7 +894,7 @@ Note that the phase of <span class="math notranslate nohighlight">\(\magenta{Y_2
 <p><a class="reference internal" href="#butter2"><span class="std std-numref">Fig. 11.5</span></a> illustrates that the double-filtering approach does effectively align the final output <span class="math notranslate nohighlight">\(y_2\)</span> to the input <span class="math notranslate nohighlight">\(x\)</span>: their time-domain representations peak in exactly the same position.
 Note, however, that reverse-filtering does introduce <em>pre-echo</em>: the oscillations in <span class="math notranslate nohighlight">\(y_2\)</span> preceding the peak at <span class="math notranslate nohighlight">\(n=249\)</span>.
 In this respect, the result is similar to the FIR filter outputs in <a class="reference internal" href="../ch10-convtheorem/FilterDesign.html#pmfir"><span class="std std-numref">Fig. 10.8</span></a>, and is to some extent unavoidable if we’re applying low-pass filtering to signals with strong transients.
-Remember: although the outputs are similar, we got there with much less work: an order-6 IIR filter applied twice, compares well to FIR filters with order in the hundreds!</p>
+Remember: although the outputs are similar, we got there with much less work: an order-6 IIR filter applied twice, compares well to FIR filters with order in the hundreds.</p>
 <p>Butterworth filters are just the beginning: in the next section, we’ll meet a few more types of IIR filters.</p>
 </div>
 </div>

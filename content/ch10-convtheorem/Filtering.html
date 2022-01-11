@@ -697,7 +697,7 @@ Intuitively, if the magnitude <span class="math notranslate nohighlight">\(A\)</
 <p>then <span class="math notranslate nohighlight">\(|\magenta{Y[m]}|\)</span> must be small as well, regardless of <span class="math notranslate nohighlight">\(\darkblue{X[m]}\)</span>.
 This gives us a way to attenuate or eliminate frequencies in <span class="math notranslate nohighlight">\(\darkblue{X}\)</span> when constructing <span class="math notranslate nohighlight">\(\magenta{Y}\)</span>!</p>
 <p>Alternately, if <span class="math notranslate nohighlight">\(A\)</span> is large, then the corresponding frequency will be amplified.
-We’ll focus in this section primarily on the attenuation case, which often has more practical relevance.</p>
+This section will focus primarily on the attenuation case, which often has more practical relevance.</p>
 <div class="section" id="low-pass-filters">
 <h2><span class="section-number">10.2.1. </span>Low-pass filters<a class="headerlink" href="#low-pass-filters" title="Permalink to this headline">¶</a></h2>
 <p>To begin, we’ll create a <strong>low-pass filter</strong>, meaning that the filter allows low frequencies to pass through to the output, and stops high frequencies.</p>
@@ -710,7 +710,7 @@ We’ll focus in this section primarily on the attenuation case, which often has
 </div>
 <div class="section" id="moving-average-filters">
 <h3><span class="section-number">10.2.1.1. </span>Moving average filters<a class="headerlink" href="#moving-average-filters" title="Permalink to this headline">¶</a></h3>
-<p>One way to create a low-pass filter (though not a very good one) is to average sample values together over a short window of time:</p>
+<p>One way to create a low-pass filter (though not a good one) is to average sample values together over a short window of time:</p>
 <div class="math notranslate nohighlight">
 \[\purple{y[n]} =  \sum_{k=0}^{K-1} \red{\frac{1}{K}} \cdot \blue{x[n-k]},\]</div>
 <p>which is known as a <strong>moving average filter</strong>.

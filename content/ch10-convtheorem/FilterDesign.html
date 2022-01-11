@@ -713,7 +713,7 @@ The amount of variation within the pass-band (max-min) is known as <strong>pass-
 An ideal filter would have 0 pass-band ripple, which amounts to no change in amplitude for passing frequencies.</p>
 <p>Similarly, the difference from the peak response of the pass-band to the peak of the stop-band is the <strong>stop-band attenuation</strong>.
 This measures how audible the presumably stopped frequencies will be in the output.
-An ideal filter would have infinite attenuation, but the filter in <a class="reference internal" href="#freqresponse"><span class="std std-numref">Fig. 10.5</span></a> has only about 16dB, which is well within the range of human hearing.  (This is probably not a very good filter!)</p>
+An ideal filter would have infinite attenuation, but the filter in <a class="reference internal" href="#freqresponse"><span class="std std-numref">Fig. 10.5</span></a> has only about 16dB, which is well within the range of human hearing.  (This is probably not a good filter.)</p>
 <div class="section" id="what-makes-a-good-filter">
 <h3><span class="section-number">10.3.1.1. </span>What makes a good filter?<a class="headerlink" href="#what-makes-a-good-filter" title="Permalink to this headline">¶</a></h3>
 <p>The diagram above gives us a way to compare different filters.
@@ -730,7 +730,7 @@ Designing filters isn’t easy, but this section will give you some pointers to 
 <div class="section" id="the-window-method">
 <h2><span class="section-number">10.3.2. </span>The window method<a class="headerlink" href="#the-window-method" title="Permalink to this headline">¶</a></h2>
 <p>One of the most common approaches to making low-pass filters is known as the <em>window method</em>, and it works by applying a window to the impulse response of the ideal low-pass filter.
-This is very similar to the approach taken earlier to combat <a class="reference internal" href="../ch06-dft-properties/Leakage.html#leakage"><span class="std std-ref">spectral leakage</span></a>, though for a slightly different reason here.
+This is similar to the approach taken earlier to combat <a class="reference internal" href="../ch06-dft-properties/Leakage.html#leakage"><span class="std std-ref">spectral leakage</span></a>, though for a slightly different reason here.
 Rather than force the filter to be periodic, windowing here simply forces the filter to depend only on a finite number of samples, and reduces ringing artifacts.</p>
 <p>The window method proceeds by first determining the order <span class="math notranslate nohighlight">\(K\)</span> of the filter, which is typically an integer <span class="math notranslate nohighlight">\(p\)</span> multiple of the cutoff frequency <span class="math notranslate nohighlight">\(f_c\)</span> (measured in samples):</p>
 <div class="math notranslate nohighlight">
@@ -844,11 +844,11 @@ For example, we could construct a Hann-windowed low-pass filter at <span class="
 <p>From <a class="reference internal" href="#firwin"><span class="std std-numref">Fig. 10.7</span></a>, we can see that taking longer filters (higher order) results in a better approximation to the ideal LPF, and the output of the filters in each case does not have the ringing artifacts of the ideal LPF.</p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
-<p><code class="docutils literal notranslate"><span class="pre">scipy.signal.firwin</span></code> can do much more than just low-pass filters!</p>
+<p><code class="docutils literal notranslate"><span class="pre">scipy.signal.firwin</span></code> can do much more than just low-pass filters.</p>
 <p>It can directly construct high-pass, band-pass, multi-band filters, and more.</p>
 </div>
 <p>When the cutoff frequency <span class="math notranslate nohighlight">\(f_c\)</span> is high, the window method can work well.
-However, when the cutoff frequency is low (like in this example) this method requires very long filters to achieve narrow transition bands.</p>
+However, when the cutoff frequency is low (like in this example) this method requires extremely long filters to achieve narrow transition bands.</p>
 </div>
 <div class="section" id="the-parks-mcclellan-method">
 <span id="parks-mcclellan"></span><h2><span class="section-number">10.3.3. </span>The Parks-McClellan method<a class="headerlink" href="#the-parks-mcclellan-method" title="Permalink to this headline">¶</a></h2>
@@ -978,7 +978,7 @@ Just as with the window method, higher orders are more precise, but less computa
 As in <a class="reference internal" href="#firwin"><span class="std std-numref">Fig. 10.7</span></a>, increasing the order improves the attenuation of the filter.</span><a class="headerlink" href="#pmfir" title="Permalink to this image">¶</a></p>
 </div>
 <p>Comparing the frequency responses of window-method filters <a class="reference internal" href="#firwin"><span class="std std-numref">Fig. 10.7</span></a> to those of the Parks-McClellan filters <a class="reference internal" href="#pmfir"><span class="std std-numref">Fig. 10.8</span></a>, we can see that the windowed filters have gentler slope, and the Parks-McClellan filters have a steeper transition with a flat response in the stop-band.
-Both are effective at suppressing high-frequency content, though neither method will completely eliminate frequencies above <span class="math notranslate nohighlight">\(f_c\)</span>.
+Both are effective at suppressing high-frequency content, though neither method will completely remove energy at frequencies above <span class="math notranslate nohighlight">\(f_c\)</span>.
 That’s okay though — usually all we care about when filtering is reducing the stop-band energy to the point where it is not perceptible.</p>
 </div>
 </div>

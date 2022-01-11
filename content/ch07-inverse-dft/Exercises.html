@@ -684,13 +684,13 @@
 <p class="admonition-title">Hint</p>
 <p>Check your synthesis against a signal generated purely in the time-domain.
 Your IDFT should be numerically identical to the time-domain signal, including amplitude and phase.</p>
-<p>Make sure to construct your DFT so that the output is real-valued!</p>
+<p>Make sure to construct your DFT so that the output is real-valued.</p>
 </div>
 </li>
 <li><p>A <em>low-pass filter</em> allows frequencies below some cut-off <span class="math notranslate nohighlight">\(f_T\)</span> to propagate through, and blocks all frequencies above the cut-off.  Try implementing this on a signal of your choice by setting any DFT coefficients <span class="math notranslate nohighlight">\(X[m]\)</span> to 0 if the corresponding frequency is above 500 Hz.  Apply the inverse DFT and listen to the results.  How does it sound?  Do you notice any artifacts?</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>It is best to try this on a few different sounds, including natural and synthetic signals.  Hand claps might be particularly interesting!</p>
+<p>It is best to try this on a few different sounds, including natural and synthetic signals.  Hand claps might be particularly interesting.</p>
 </div>
 </li>
 <li><p>Using a signal <code class="docutils literal notranslate"><span class="pre">x</span></code> of your choice (ideally a single pitched note or isolated sound), compute its DFT:</p>

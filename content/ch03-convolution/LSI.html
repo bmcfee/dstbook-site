@@ -754,7 +754,7 @@ These are general concepts which can be applied to more than just convolutional 
 <div class="math notranslate nohighlight" id="equation-shift-invariance">
 <span class="eqno">(3.8)<a class="headerlink" href="#equation-shift-invariance" title="Permalink to this equation">¶</a></span>\[\red{g}(\purple{\Delta} * \blue{x}) = \purple{\Delta} * \red{g}(\blue{x}).\]</div>
 </div>
-<p>In plain language, equation <a class="reference internal" href="#equation-shift-invariance">(3.8)</a> says that if we delay <span class="math notranslate nohighlight">\(x\)</span> by <span class="math notranslate nohighlight">\(d\)</span> samples, and then process the delayed signal by the system <span class="math notranslate nohighlight">\(g\)</span>, we will get the exact same result as if we had first applied <span class="math notranslate nohighlight">\(g\)</span> to <span class="math notranslate nohighlight">\(x\)</span> (without delay) and then delayed the result.</p>
+<p>In plain language, equation <a class="reference internal" href="#equation-shift-invariance">(3.8)</a> says that if we delay <span class="math notranslate nohighlight">\(x\)</span> by <span class="math notranslate nohighlight">\(d\)</span> samples, and then process the delayed signal by the system <span class="math notranslate nohighlight">\(g\)</span>, we will get the same result as if we had first applied <span class="math notranslate nohighlight">\(g\)</span> to <span class="math notranslate nohighlight">\(x\)</span> (without delay) and then delayed the result.</p>
 <div class="margin sidebar">
 <p class="sidebar-title">Shift-invariance or time-invariance?</p>
 <p>The term <em>time-invariant</em> is also commonly used to describe the property above.
@@ -780,7 +780,7 @@ To prove that <span class="math notranslate nohighlight">\(g\)</span> is shift-i
 &amp;= \purple{\Delta} * (\red{h} * \blue{x}) &amp; \text { associative rule}\\
 &amp;= \purple{\Delta} * \red{g}(\blue{x}) &amp; \text { definition of }g.
 \end{align*}\]</div>
-<p>This can give us a shortcut to showing shift-invariance: if you can implement a system <span class="math notranslate nohighlight">\(g\)</span> in terms of convolution, it automatically satisfies shift-invariance!</p>
+<p>This can give us a shortcut to showing shift-invariance: if you can implement a system <span class="math notranslate nohighlight">\(g\)</span> in terms of convolution, it automatically satisfies shift-invariance.</p>
 </div>
 </div>
 <div class="section" id="linearity">
@@ -815,7 +815,8 @@ For instance, if we take an example where <span class="math notranslate nohighli
 <div class="section" id="all-convolutional-systems-are-linear">
 <h3><span class="section-number">3.6.2.2. </span>All convolutional systems are linear<a class="headerlink" href="#all-convolutional-systems-are-linear" title="Permalink to this headline">¶</a></h3>
 <p>As before, let <span class="math notranslate nohighlight">\(g(x) = h*x\)</span> be an arbitrary convolutional system, and let <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span> denote arbitrary signals, and <span class="math notranslate nohighlight">\(c_1, c_2\)</span> denote arbitrary numbers.</p>
-<p>We could prove that <span class="math notranslate nohighlight">\(g\)</span> is linear by brute force, using the definition of convolution and working through the algebra directly.  (If this sounds like fun, please feel free to give it a shot!)</p>
+<p>We could prove that <span class="math notranslate nohighlight">\(g\)</span> is linear by brute force, using the definition of convolution and working through the algebra directly.
+Many people will find this exercise somewhat tedious, but it is possible.</p>
 <p>We’ll take a slightly different route here though, relying on facts we already know about convolution.</p>
 <p>Recall that we can implement gain as a convolutional system by creating an impulse response with only one element: <a class="reference internal" href="Convolution.html#convolution-gain"><span class="std std-ref">Gain</span></a>.
 Let <span class="math notranslate nohighlight">\(C_1 = [c_1]\)</span> and <span class="math notranslate nohighlight">\(C_2 = [c_2]\)</span>, so that</p>
@@ -845,7 +846,7 @@ That said, it is still completely valid to prove this from first principles, but
 <p>Not all filtering operations you might want to do satisfy the LSI conditions.
 Some might be only linear, some might be only shift-invariant, and some might be neither.
 Identifying these properties can be helpful for understanding both how a particular system behaves, and how it can be combined with others.
-In particular, since all convolutional systems are LSI, we can infer that any system which is <em>not</em> LSI cannot be implemented by a convolution!</p>
+In particular, since all convolutional systems are LSI, we can infer that any system which is <em>not</em> LSI cannot be implemented by a convolution.</p>
 <div class="section" id="shift-invariant-but-not-linear">
 <h3><span class="section-number">3.6.3.1. </span>Shift-invariant, but not linear<a class="headerlink" href="#shift-invariant-but-not-linear" title="Permalink to this headline">¶</a></h3>
 <p>There are many systems which are shift-invariant, but not linear.
@@ -934,7 +935,7 @@ Mathematically, this is done by swapping the sample at index <span class="math n
 However, the time-reversal system does need to see the entire signal in advance.</p>
 <p>To show that time-reversal is not shift-invariant, we again must construct a counter-example.
 Here the key property that we’re looking at is symmetry (in time), so we should probably consider signals which do not look the same forwards as backwards.
-Sinusoids and square waves probably won’t work, but a sawtooth will do nicely!</p>
+Sinusoids and square waves probably won’t work, but a sawtooth will do nicely.</p>
 <p>After that, we need only check what happens when we delay the input by some number of samples.  Here, we’ll take a 5-step delay, but any positive number would do.</p>
 <div class="cell tag_remove_input tag_hide_input tag_remove_output docutils container">
 </div>
@@ -952,7 +953,7 @@ From this example, we can conclude that time-reversal is <em>not</em> shift-inva
 <div class="section" id="summary">
 <h2><span class="section-number">3.6.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <p>What we’ve seen here is that all convolutional systems are both linear and shift-invariant, and if a system fails to satisfy either of these conditions, then it cannot be implemented by convolution.</p>
-<p>The connection here is even stronger than that: all LSI systems are convolutions as well!
+<p>The connection here is even stronger than that: <em>all LSI systems are convolutions as well</em>.
 Proving that this is true is beyond the scope of this text, and requires some slightly more sophisticated mathematics.
 However, the equivalence between convolutions and LSI systems is one of the most powerful concepts in all of signal processing.</p>
 </div>

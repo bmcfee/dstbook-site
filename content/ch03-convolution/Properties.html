@@ -719,7 +719,7 @@ Associativity says that we could equivalently convolve <span class="math notrans
 Formally, we have</p>
 <div class="math notranslate nohighlight" id="equation-conv-associative">
 <span class="eqno">(3.5)<a class="headerlink" href="#equation-conv-associative" title="Permalink to this equation">¶</a></span>\[\red{g}*(\purple{h*x}) = \red{(g*h)}*\blue{x}\]</div>
-<p>Why does this matter?  Imagine that <span class="math notranslate nohighlight">\(h\)</span> and <span class="math notranslate nohighlight">\(g\)</span> are both short (maybe a dozen samples) and <span class="math notranslate nohighlight">\(x\)</span> is very long (millions of samples).
+<p>Why does this matter?  Imagine that <span class="math notranslate nohighlight">\(h\)</span> and <span class="math notranslate nohighlight">\(g\)</span> are both short (maybe a dozen samples) and <span class="math notranslate nohighlight">\(x\)</span> is long (millions of samples).
 Computing <span class="math notranslate nohighlight">\(h*x\)</span> would take work proportional to the length of <span class="math notranslate nohighlight">\(x\)</span>, as would convolving the output with <span class="math notranslate nohighlight">\(g\)</span>: you’d have to step through large arrays twice.
 However, if you convolve <span class="math notranslate nohighlight">\(g*h\)</span> first, that only takes work proportional to the length of the filters (which are small), and then you’d only have to step through the large array once.
 Reasoning about filters in this way can help you develop more efficient processing chains without changing the calculations.</p>
@@ -728,7 +728,7 @@ This fact can be exploited to find the most efficient possible order (e.g. by or
 </div>
 <div class="section" id="distributive-over-addition">
 <span id="convolution-distributive"></span><h2><span class="section-number">3.5.3. </span>Distributive over addition<a class="headerlink" href="#distributive-over-addition" title="Permalink to this headline">¶</a></h2>
-<p>Imagine we have two signals <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span> that we’d like to filter by <span class="math notranslate nohighlight">\(h\)</span> and then mix together.
+<p>Imagine we have two signals <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span> that we’d like to filter by <span class="math notranslate nohighlight">\(h\)</span> and then mix.
 The <strong>distributive</strong> property says that we can equivalently mix the signals first, and then convolve by <span class="math notranslate nohighlight">\(h\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-conv-distribute">
 <span class="eqno">(3.6)<a class="headerlink" href="#equation-conv-distribute" title="Permalink to this equation">¶</a></span>\[\red{h}*\blue{x_1} + \red{h}*\blue{x_2} = \red{h}*\blue{(x_1 + x_2)}.\]</div>

@@ -692,7 +692,7 @@
 </div>
 <p>In words, this says that the DFT component <span class="math notranslate nohighlight">\(\darkblue{X[m]}\)</span> is the complex conjugate of component <span class="math notranslate nohighlight">\(\darkblue{X[N-m]}\)</span> (and vice versa): their real parts are identical, and their imaginary parts are negatives of each-other.</p>
 <p>As it turns out, we’ve seen a version of this already when computing the DFT of <a class="reference internal" href="../ch05-fourier/Examples.html#example-sinusoids"><span class="std std-ref">sinusoids</span></a>.
-A careful look at how we approached the problem will reveal that none of the argument depended on the fact that the input signal <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> was a sinusoid, only that it was real-valued!
+A careful look at how we approached the problem will reveal that none of the argument depended on the fact that the input signal <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> was a sinusoid, only that it was real-valued.
 Here, we can give a slightly more streamlined proof using the complex exponential.</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">
 </div>
@@ -744,7 +744,7 @@ e^{-\mathrm{j}\cdot\theta} &amp;= \red{\cos(-\theta)} + \mathrm{j}\cdot\purple{\
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>The last step hinges upon the fact that <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> is real-valued, so <span class="math notranslate nohighlight">\(\blue{x[n]}\cdot\overline{z} = \overline{\blue{x[n]} \cdot z}\)</span> for any complex <span class="math notranslate nohighlight">\(z\)</span>.
-If <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> was complex-valued, this step would not go through, and we would not have conjugate symmetry!</p>
+If <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> was complex-valued, this step would not go through, and we would not have conjugate symmetry.</p>
 </div>
 </div>
 <div class="section" id="which-frequencies-do-we-need-to-compute">
@@ -805,7 +805,7 @@ This is also beneficial in real-time audio applications, where there can be tigh
 <p>Additionally, conjugate symmetry teaches us two facts about the DFT:</p>
 <ol class="simple">
 <li><p>Because the DC component (<span class="math notranslate nohighlight">\(m=0\)</span>) is its own conjugate, <span class="math notranslate nohighlight">\(\darkblue{X[0]} = \overline{\darkblue{X[0]}}\)</span>, we know that it must be real-valued.  This shouldn’t be surprising, given that it must also equal the sum of the (real-valued) input samples contained in <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span>.</p></li>
-<li><p>If <span class="math notranslate nohighlight">\(N\)</span> is even, then the Nyquist component <span class="math notranslate nohighlight">\(m=N/2\)</span> is also self-conjugate: <span class="math notranslate nohighlight">\(\darkblue{X[N/2]} = \overline{\darkblue{X[N/2]}}\)</span>.  It must also be real-valued if <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> is.  This is much less obvious from the DFT definition!</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(N\)</span> is even, then the Nyquist component <span class="math notranslate nohighlight">\(m=N/2\)</span> is also self-conjugate: <span class="math notranslate nohighlight">\(\darkblue{X[N/2]} = \overline{\darkblue{X[N/2]}}\)</span>.  It must also be real-valued if <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> is.  This is much less obvious from the DFT definition.</p></li>
 </ol>
 </div>
 </div>

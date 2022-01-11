@@ -718,7 +718,7 @@ This is what the Nyquist-Shannon theorem is all about: establishing the conditio
 <div class="margin sidebar">
 <p class="sidebar-title">Aside: what’s a ‘theorem’?</p>
 <p>Readers who don’t spend a lot of time with mathematical terminology are often confused by the word “theorem”, and think it’s equivalent to the word “theory”.
-It is not!</p>
+<strong>It is not</strong>.</p>
 <p>A “theorem” is a mathematical fact that logically follows from a set of assumptions.</p>
 <p>Some other vocabulary for mathematical facts that you might not be familiar with:</p>
 <ul class="simple">
@@ -733,7 +733,7 @@ It is not!</p>
 <div class="section" id="sampling-pure-tones-and-combinations">
 <h2><span class="section-number">2.3.1. </span>Sampling pure tones and combinations<a class="headerlink" href="#sampling-pure-tones-and-combinations" title="Permalink to this headline">¶</a></h2>
 <p>The sampling theorem is most easily understood in terms of pure tones (sinusoids).
-While most any signal you encounter out in the world is unlikely to be a pure sinusoid, it turns out that under very mild conditions, <strong>every</strong> continuous signal can be expressed as a <strong>combination of sinusoids</strong>.
+While most any signal you encounter out in the world is unlikely to be a pure sinusoid, it turns out that under mild conditions, <strong>every</strong> continuous signal can be expressed as a <strong>combination of sinusoids</strong>.
 By <strong>combination</strong>, we specifically mean a weighted sum, possibly with different phase offsets for each frequency:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
@@ -797,7 +797,7 @@ If the sampling rate <span class="math notranslate nohighlight">\(f_s\)</span> i
 <p>The Nyquist-Shannon theorem tells us how to choose a sampling rate, provided we know the band limits of the signal(s) we’d like to sample.
 But how do we ensure that <span class="math notranslate nohighlight">\(x(t)\)</span> is actually band-limited?</p>
 <p>In hardware analog-to-digital converters (ADCs), this is done by using an analog circuit to filter the continuous signal and remove any frequencies above <span class="math notranslate nohighlight">\(f_+\)</span> prior to sampling.
-If you’ve ever seen a tone knob on an electric guitar, the principle is very much the same.</p>
+If you’ve ever seen a tone knob on an electric guitar, the principle is much the same.</p>
 <div class="section" id="setting-the-bandwidth">
 <h3><span class="section-number">2.3.4.1. </span>Setting the bandwidth<a class="headerlink" href="#setting-the-bandwidth" title="Permalink to this headline">¶</a></h3>
 <p>At a first glance, the Nyquist-Shannon theorem might suggest to set <span class="math notranslate nohighlight">\(f_- = 0\)</span> and <span class="math notranslate nohighlight">\(f_+\)</span> to some reasonable maximum frequency, e.g. for audio, the upper range of human hearing (about 20000 Hz).
@@ -817,7 +817,7 @@ x_2(t) &amp;= \cos\left(2\pi \cdot (-5) \cdot t\right).
 </div>
 <div class="dropdown tip admonition">
 <p class="admonition-title">Can you tell which is which?</p>
-<p>No!  These two frequencies produce identical signals.
+<p><strong>No</strong>.  These two frequencies produce identical signals.
 In general, any wave with a negative frequency can be equivalently represented as a wave with positive frequency and a different phase.</p>
 </div>
 <div class="margin sidebar">
