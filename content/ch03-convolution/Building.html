@@ -43,7 +43,7 @@
     <script src="../../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"loader": {"load": ["[tex]/configMacros", "[tex]/html"]}, "tex": {"packages": {"+": ["configMacros", "html"]}, "macros": {"blue": ["\\class{blue}{#1}", 1], "red": ["\\class{red}{#1}", 1], "orange": ["\\class{orange}{#1}", 1], "purple": ["\\class{purple}{#1}", 1], "green": ["\\class{green}{#1}", 1], "dkorange": ["\\class{dkorange}{#1}", 1], "cyan": ["\\class{cyan}{#1}", 1], "magenta": ["\\class{magenta}{#1}", 1], "yellow": ["\\class{yellow}{#1}", 1], "peagreen": ["\\class{peagreen}{#1}", 1], "darkblue": ["\\class{darkblue}{#1}", 1], "darkorange": ["\\class{darkorange}{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
@@ -741,7 +741,7 @@ Bottom: the sum of the two signals.</span><a class="headerlink" href="#ex1" titl
 </div>
 <p>Before we move on, there are already a couple of observations we can make.</p>
 <p>First, the output <span class="math notranslate nohighlight">\(y[n]\)</span> looks substantially different from the input <span class="math notranslate nohighlight">\(x[n]\)</span>.
-Wherever both <span class="math notranslate nohighlight">\(x[n]\)</span> and <span class="math notranslate nohighlight">\(x[n-3]\)</span> are both positive (or negative), <span class="math notranslate nohighlight">\(y[n]\)</span> becomes larger (or smaller), reaching a peak amplitude of 2.
+Wherever <span class="math notranslate nohighlight">\(x[n]\)</span> and <span class="math notranslate nohighlight">\(x[n-3]\)</span> are both positive (or both negative), <span class="math notranslate nohighlight">\(y[n]\)</span> becomes larger (or smaller), reaching a peak amplitude of 2.
 When <span class="math notranslate nohighlight">\(x[n]\)</span> and <span class="math notranslate nohighlight">\(x[n-3]\)</span> have opposite signs, they cancel each-other out, resulting in <span class="math notranslate nohighlight">\(y[n]=0\)</span> (e.g., at 0.2 seconds).
 Overall, the resulting <span class="math notranslate nohighlight">\(y\)</span> signal has a different shape than the input <span class="math notranslate nohighlight">\(x\)</span>, more akin to a triangle wave than the square wave we started with.
 Different delays will produce different shapes, which we will perceive as changes in timbre.</p>
@@ -841,7 +841,7 @@ We’ll discuss this in more detail in <a class="reference internal" href="Modes
 </div>
 <div class="section" id="example-2-delay-gain">
 <h2><span class="section-number">3.1.2. </span>Example 2: delay + gain<a class="headerlink" href="#example-2-delay-gain" title="Permalink to this headline">¶</a></h2>
-<p>In this example, we’ll mix three different delays, each with a different <em>gain</em> coefficient:</p>
+<p>In this example, we’ll mix two different delays, each with a different <em>gain</em> coefficient:</p>
 <div class="math notranslate nohighlight">
 \[
 y[n] = \frac{1}{2} x[n] - \frac{1}{2} x[n-1].

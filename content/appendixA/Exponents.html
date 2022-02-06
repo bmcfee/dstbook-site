@@ -43,7 +43,7 @@
     <script src="../../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>window.MathJax = {"loader": {"load": ["[tex]/configMacros", "[tex]/html"]}, "tex": {"packages": {"+": ["configMacros", "html"]}, "macros": {"blue": ["\\class{blue}{#1}", 1], "red": ["\\class{red}{#1}", 1], "orange": ["\\class{orange}{#1}", 1], "purple": ["\\class{purple}{#1}", 1], "green": ["\\class{green}{#1}", 1], "dkorange": ["\\class{dkorange}{#1}", 1], "cyan": ["\\class{cyan}{#1}", 1], "magenta": ["\\class{magenta}{#1}", 1], "yellow": ["\\class{yellow}{#1}", 1], "peagreen": ["\\class{peagreen}{#1}", 1], "darkblue": ["\\class{darkblue}{#1}", 1], "darkorange": ["\\class{darkorange}{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
@@ -729,7 +729,9 @@
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="exponentials">
 <span id="id1"></span><h1><span class="section-number">13.5. </span>Exponentials<a class="headerlink" href="#exponentials" title="Permalink to this headline">¶</a></h1>
-<p>An exponential, generally speaking, is an expression of the form <span class="math notranslate nohighlight">\(c^x\)</span> for some constant <span class="math notranslate nohighlight">\(c\)</span>, and should be read as “<span class="math notranslate nohighlight">\(c\)</span> to the <span class="math notranslate nohighlight">\(x\)</span>th power”.
+<blockquote>
+<div></div></blockquote>
+<p id="index-0">An exponential, generally speaking, is an expression of the form <span class="math notranslate nohighlight">\(c^x\)</span> for some constant <span class="math notranslate nohighlight">\(c\)</span>, and should be read as “<span class="math notranslate nohighlight">\(c\)</span> to the <span class="math notranslate nohighlight">\(x\)</span>th power”.
 Note that this is different from powers <span class="math notranslate nohighlight">\(x^n\)</span>, in that exponentials keep the base <span class="math notranslate nohighlight">\(c\)</span> fixed and vary <span class="math notranslate nohighlight">\(x\)</span>, while powers do the opposite.</p>
 <p><strong>Example</strong>: <span class="math notranslate nohighlight">\(2^x \neq x^2\)</span>.</p>
 <div class="cell tag_remove_input tag_remove_output docutils container">
@@ -742,7 +744,9 @@ Note that this is different from powers <span class="math notranslate nohighligh
 <p>Often, when we refer to an <em>exponential</em>, we really mean a specific base <span class="math notranslate nohighlight">\(e = 2.71828\dots\)</span>, known alternately as “Euler’s number”, or “the base of the natural logarithm”.</p>
 <div class="section" id="rules-for-working-with-exponentials">
 <h2><span class="section-number">13.5.1. </span>Rules for working with exponentials<a class="headerlink" href="#rules-for-working-with-exponentials" title="Permalink to this headline">¶</a></h2>
-<p>The following rules are useful when manipulating expressions involving exponentials.
+<blockquote>
+<div></div></blockquote>
+<p id="index-1">The following rules are useful when manipulating expressions involving exponentials.
 All of these rules work for any base <span class="math notranslate nohighlight">\(c \neq 0\)</span>, including the special case <span class="math notranslate nohighlight">\(c=e\)</span>.</p>
 <p><strong>Rule 1</strong>: Any <span class="math notranslate nohighlight">\(c\)</span> raised to the 0 power is 1, and specifically:</p>
 <div class="math notranslate nohighlight">
@@ -767,7 +771,9 @@ c^{a\cdot b} = {\left(c^a\right)}^b = {\left(c^b\right)}^a
 </div>
 <div class="section" id="the-exponential-function">
 <h2><span class="section-number">13.5.2. </span>The exponential function<a class="headerlink" href="#the-exponential-function" title="Permalink to this headline">¶</a></h2>
-<p>While it is convenient to regard <span class="math notranslate nohighlight">\(e\)</span> as the number <span class="math notranslate nohighlight">\(2.71828\dots\)</span>, there is an alternative (and more general) definition for <span class="math notranslate nohighlight">\(e\)</span> given by the following infinite summation</p>
+<blockquote>
+<div></div></blockquote>
+<p id="index-2">While it is convenient to regard <span class="math notranslate nohighlight">\(e\)</span> as the number <span class="math notranslate nohighlight">\(2.71828\dots\)</span>, there is an alternative (and more general) definition for <span class="math notranslate nohighlight">\(e\)</span> given by the following infinite summation</p>
 <div class="math notranslate nohighlight" id="equation-exp">
 <span class="eqno">(13.1)<a class="headerlink" href="#equation-exp" title="Permalink to this equation">¶</a></span>\[e := \sum_{n=0}^\infty \frac{1}{n!}\]</div>
 <p>where</p>
