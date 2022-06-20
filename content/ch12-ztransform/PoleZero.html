@@ -1,0 +1,1150 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>12.4. Stability, poles, and zeros &#8212; Digital Signals Theory</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"loader": {"load": ["[tex]/configMacros", "[tex]/html"]}, "tex": {"packages": {"+": ["configMacros", "html"]}, "macros": {"blue": ["\\class{blue}{#1}", 1], "red": ["\\class{red}{#1}", 1], "orange": ["\\class{orange}{#1}", 1], "purple": ["\\class{purple}{#1}", 1], "green": ["\\class{green}{#1}", 1], "dkorange": ["\\class{dkorange}{#1}", 1], "cyan": ["\\class{cyan}{#1}", 1], "magenta": ["\\class{magenta}{#1}", 1], "yellow": ["\\class{yellow}{#1}", 1], "peagreen": ["\\class{peagreen}{#1}", 1], "darkblue": ["\\class{darkblue}{#1}", 1], "darkorange": ["\\class{darkorange}{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="12.5. Exercises" href="Exercises.html" />
+    <link rel="prev" title="12.3. Transfer functions" href="Transfer.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/dstlogo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Digital Signals Theory</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Time-domain signals
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch01-signals/Intro.html">
+   1. Signals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Preliminaries.html">
+     1.1. Preliminaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Waves.html">
+     1.2. Periodicity and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Units.html">
+     1.3. Units and dimensional analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Acoustics.html">
+     1.4. Audio and signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Exercises.html">
+     1.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch02-sampling/intro.html">
+   2. Digital sampling
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Sampling.html">
+     2.1. Sampling period and rate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Aliasing.html">
+     2.2. Aliasing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Nyquist.html">
+     2.3. The Nyquist-Shannon sampling theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Quantization.html">
+     2.4. Quantization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Exercises.html">
+     2.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch03-convolution/intro.html">
+   3. Convolution
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Building.html">
+     3.1. Delay, gain, and mix
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Convolution.html">
+     3.2. Defining convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/IR.html">
+     3.3. Impulse Response
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Modes.html">
+     3.4. Convolution modes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Properties.html">
+     3.5. Properties of convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/LSI.html">
+     3.6. Linearity and Shift-invariance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Exercises.html">
+     3.7. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  The frequency domain
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch04-complex/Intro.html">
+   4. Complex numbers
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Definition.html">
+     4.1. Defining complex numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Basic-Operations.html">
+     4.2. Basic operations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Exponentials.html">
+     4.3. Complex exponentials
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Multiplication-and-division.html">
+     4.4. Multiplication and division
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Powers-and-waves.html">
+     4.5. Powers and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Exercises.html">
+     4.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch05-fourier/intro.html">
+   5. The Discrete Fourier Transform
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Similarity.html">
+     5.1. Similarity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Cosine.html">
+     5.2. Comparing to sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/AnalysisFrequencies.html">
+     5.3. Analysis frequencies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Phase.html">
+     5.4. Phase
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/DFT.html">
+     5.5. The Discrete Fourier Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Examples.html">
+     5.6. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/SummingSinusoids.html">
+     5.7. Summing sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Exercises.html">
+     5.8. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch06-dft-properties/intro.html">
+   6. Properties of the DFT
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Linearity.html">
+     6.1. Linearity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Shifting.html">
+     6.2. The DFT shifting theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Conjugate-Symmetry.html">
+     6.3. Conjugate Symmetry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Leakage.html">
+     6.4. Spectral leakage and windowing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Exercises.html">
+     6.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch07-inverse-dft/intro.html">
+   7. DFT Invertibility
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/Sinusoid.html">
+     7.1. Warm-up: a single sinusoid
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/InverseDFT.html">
+     7.2. The Inverse DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/Synthesis.html">
+     7.3. Synthesis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/Exercises.html">
+     7.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch08-fft/intro.html">
+   8. Fast Fourier Transform
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-fft/DFT-Analysis.html">
+     8.1. Time-analysis of the DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-fft/FFT.html">
+     8.2. Radix-2 Cooley-Tukey
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-fft/Exercises.html">
+     8.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch09-stft/intro.html">
+   9. The Short-time Fourier Transform
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-stft/Framing.html">
+     9.1. Framing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-stft/STFT.html">
+     9.2. Defining the STFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-stft/Exercises.html">
+     9.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Filtering
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch10-convtheorem/intro.html">
+   10. Frequency domain convolution
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/ConvolutionTheorem.html">
+     10.1. The Convolution Theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/Filtering.html">
+     10.2. Convolutional Filtering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/FilterDesign.html">
+     10.3. Filter Design and Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/Phase.html">
+     10.4. Phase and group delay
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/Exercises.html">
+     10.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch11-iir/intro.html">
+   11. Infinite impulse response filters
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/Feedback.html">
+     11.1. Feedback filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/UsingIIR.html">
+     11.2. Using IIR filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/IIRFilters.html">
+     11.3. Common IIR filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/Exercises.html">
+     11.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
+   12. Analyzing IIR filters
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="ZT.html">
+     12.1. The z-transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="zT-Properties.html">
+     12.2. Properties of the z-transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Transfer.html">
+     12.3. Transfer functions
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     12.4. Stability, poles, and zeros
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Exercises.html">
+     12.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../appendixA/Fundamentals.html">
+   Mathematical fundamentals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/Sets.html">
+     Sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/Sequences.html">
+     Sequences
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/ModularArithmetic.html">
+     Modular arithmetic
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/Exponents.html">
+     Exponentials
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transfer-functions-and-polynomials">
+   12.4.1. Transfer functions and polynomials
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#roots-and-algebra">
+     12.4.1.1. Roots and algebra
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zeros">
+   12.4.2. Zeros
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#poles">
+   12.4.3. Poles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#factored-transfer-functions">
+   12.4.4. Factored transfer functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stability">
+   12.4.5. Stability
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   12.4.6. Summary
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Stability, poles, and zeros</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#transfer-functions-and-polynomials">
+   12.4.1. Transfer functions and polynomials
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#roots-and-algebra">
+     12.4.1.1. Roots and algebra
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zeros">
+   12.4.2. Zeros
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#poles">
+   12.4.3. Poles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#factored-transfer-functions">
+   12.4.4. Factored transfer functions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stability">
+   12.4.5. Stability
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   12.4.6. Summary
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="stability-poles-and-zeros">
+<h1><span class="section-number">12.4. </span>Stability, poles, and zeros<a class="headerlink" href="#stability-poles-and-zeros" title="Permalink to this headline">#</a></h1>
+<p>Most of the filters we’ve encountered so far have been <em>stable</em>, in the sense that if an input signal <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> has bounded values, so too will the output <span class="math notranslate nohighlight">\(\purple{y[n]}\)</span>.</p>
+<p>As an example of an unstable system, consider</p>
+<div class="math notranslate nohighlight" id="equation-doubling">
+<span class="eqno">(12.9)<a class="headerlink" href="#equation-doubling" title="Permalink to this equation">#</a></span>\[\purple{y[n]} = \blue{x[n]} + 2\cdot \purple{y[n-1]}.\]</div>
+<p>Plugging <span class="math notranslate nohighlight">\(\blue{x[n] = [1, 0, 0, 0, \dots]}\)</span> into this definition produces the impulse response</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\purple{y[0]} &amp;= \blue{x[0]} + 2\cdot \purple{0} &amp;= 1\\
+\purple{y[1]} &amp;= \blue{x[1]} + 2\cdot \purple{y[0]} &amp;= 2\\
+\purple{y[2]} &amp;= \blue{x[2]} + 2\cdot \purple{y[1]} &amp;= 4\\
+&amp;\dots\\
+\purple{y[n]} &amp;= 2^n
+\end{align*}\]</div>
+<p>which grows exponentially and without bound.  This system is <strong>unstable</strong>.</p>
+<p>While it is relatively straightforward to determine that <a class="reference internal" href="#equation-doubling">(12.9)</a> is unstable, it is not always so easy.
+This leads us to the question: how can we determine in general whether a given system is stable?</p>
+<section id="transfer-functions-and-polynomials">
+<h2><span class="section-number">12.4.1. </span>Transfer functions and polynomials<a class="headerlink" href="#transfer-functions-and-polynomials" title="Permalink to this headline">#</a></h2>
+<p>Recall that for a linear IIR filter with feed-forward coefficients <span class="math notranslate nohighlight">\(\red{b[k]}\)</span> and feed-back coefficients <span class="math notranslate nohighlight">\(\cyan{a[k]}\)</span>, the transfer function is given by the ratio of the z-transform of sequences <span class="math notranslate nohighlight">\(\red{b[k]}\)</span> and <span class="math notranslate nohighlight">\(\cyan{a[k]}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\red{H(z)} = \frac{\red{B(z)}}{\cyan{A(z)}} = \frac{\displaystyle\sum_{k=0}^{K-1} \red{b[k]} \cdot z^{-k}}{\displaystyle\sum_{k=0}^{K-1} \cyan{a[k]} \cdot z^{-k}}.\]</div>
+<aside class="margin sidebar">
+<p class="sidebar-title">Polynomials</p>
+<p>You may remember polynomials from an algebra class in the distant past.
+For example, solving quadratic forms like the following</p>
+<div class="math notranslate nohighlight">
+\[2x^2 - x - 1 = 0\]</div>
+<p>either by factoring or by using the quadratic formula.</p>
+<p>Quadratics are a special case of polynomials where the largest <em>degree</em> is 2.
+The polynomials that come up in signal processing are usually of much larger degree (given by the order of the filter), and we’ll generally be using the computer to find the roots automatically.</p>
+</aside>
+<p>More specifically, <span class="math notranslate nohighlight">\(H(z)\)</span> is the result of dividing two <strong>polynomials</strong> <span class="math notranslate nohighlight">\(\red{B(z)}\)</span> and <span class="math notranslate nohighlight">\(\cyan{A(z)}\)</span>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\red{B(z)} &amp;= \red{b[0]} \cdot z^0 + \red{b[1]} \cdot z^{-1} + \red{b[2]} \cdot z^{-2} + \dots + \red{b[K-1]} \cdot z^{-(K-1)}\\
+\cyan{A(z)} &amp;= \cyan{a[0]} \cdot z^0 + \cyan{a[1]} \cdot z^{-1} + \cyan{a[2]} \cdot z^{-2} + \dots + \cyan{a[K-1]} \cdot z^{-(K-1)}.
+\end{align*}\]</div>
+<p>Strictly speaking, these are polynomials in <span class="math notranslate nohighlight">\(z^{-1}\)</span> (since the powers have negative exponents instead of positive exponents), but the distinction is unimportant for our purposes.</p>
+<p>It turns out that we can learn quite a bit about a filter’s behavior by examining the properties of these polynomials, and specifically, finding their <strong>roots</strong> by solving <span class="math notranslate nohighlight">\(\red{B(z) = 0}\)</span> and <span class="math notranslate nohighlight">\(\cyan{A(z) = 0}\)</span>.</p>
+<section id="roots-and-algebra">
+<h3><span class="section-number">12.4.1.1. </span>Roots and algebra<a class="headerlink" href="#roots-and-algebra" title="Permalink to this headline">#</a></h3>
+<p>From the <a class="reference external" href="https://en.wikipedia.org/wiki/Fundamental_theorem_of_algebra">fundamental theorem of algebra</a>, we have that any polynomial</p>
+<div class="math notranslate nohighlight">
+\[Q(z) = \sum_{d=0}^{D} q[d] \cdot z^d\]</div>
+<p>has <span class="math notranslate nohighlight">\(D\)</span> (complex) roots, that is, solutions to the equation <span class="math notranslate nohighlight">\(Q(z) = 0\)</span>.</p>
+<p>For example, the polynomial <span class="math notranslate nohighlight">\(2x^2 - x - 1\)</span> has roots <span class="math notranslate nohighlight">\(x=1\)</span> and <span class="math notranslate nohighlight">\(x=-1/2\)</span>.
+These roots can be found by factoring the polynomial:</p>
+<div class="math notranslate nohighlight">
+\[2x^2 - x - 1 = (2x + 1) \cdot (x - 1)\]</div>
+<p>and then setting each factor to 0 independently (since either being 0 is sufficient to ensure the product is 0):</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+2x+1 = 0 &amp;\Rightarrow x = -\frac{1}{2}\\
+x-1 = 0 &amp;\Rightarrow x = 1\\
+\end{align*}\]</div>
+<p>As a second example, consider</p>
+<div class="math notranslate nohighlight">
+\[x^2 - 6x + 9 = 0.\]</div>
+<p>This also is a degree-2 polynomial, so it should have two solutions.
+However, if we factor the polynomial, it turns out that the solutions are not unique:</p>
+<div class="math notranslate nohighlight">
+\[x^2 - 6x + 9 = (x-3)\cdot(x-3).\]</div>
+<p>In this case, we say that there is one solution <span class="math notranslate nohighlight">\(x=3\)</span> <em>of multiplicity 2</em> (because it occurs twice).</p>
+<p><strong>The fundamental theorem of algebra does not require that all solutions be unique.</strong></p>
+<p>As a final example, take</p>
+<div class="math notranslate nohighlight">
+\[x^3 + 1 = 0\]</div>
+<p>or equivalently, <span class="math notranslate nohighlight">\(x^3 = -1\)</span>.
+In this case, there is only one <em>real-valued</em> solution (<span class="math notranslate nohighlight">\(x=-1\)</span>), but there are two more <em>complex-valued</em> solutions: <span class="math notranslate nohighlight">\(x = e^{\mathrm{j}\cdot \pi / 3}\)</span> and <span class="math notranslate nohighlight">\(x = e^{-\mathrm{j}\cdot \pi / 3}\)</span>.</p>
+<p><strong>The fundamental theorem of algebra allows for roots to be complex.</strong></p>
+</section>
+</section>
+<section id="zeros">
+<h2><span class="section-number">12.4.2. </span>Zeros<a class="headerlink" href="#zeros" title="Permalink to this headline">#</a></h2>
+<p>For the moment, let’s focus on the numerator of the transfer function, i.e., the polynomial <span class="math notranslate nohighlight">\(\red{B(z)}\)</span> derived from the feed-forward coefficients.
+By definition, if <span class="math notranslate nohighlight">\(z_0\)</span> is a root of <span class="math notranslate nohighlight">\(\red{B(z)}\)</span>, then <span class="math notranslate nohighlight">\(\red{B(z_0) = 0}\)</span>.
+As long as <span class="math notranslate nohighlight">\(z_0\)</span> is not also a root of <span class="math notranslate nohighlight">\(\cyan{A(z)}\)</span>, we will have</p>
+<div class="math notranslate nohighlight">
+\[\red{H(z_0)} = \frac{\red{B(z_0)}}{\cyan{A(z_0)}} = \frac{\red{0}}{\cyan{A(z_0)}} = 0.\]</div>
+<p>The location in the complex plane of the zeros (roots of <span class="math notranslate nohighlight">\(\red{B(z)}\)</span>) tells us about which frequencies are attenuated by the filter.
+This is because polynomials are <em>continuous</em>: if <span class="math notranslate nohighlight">\(\red{B(z_0) = 0}\)</span>, then other values of <span class="math notranslate nohighlight">\(z\)</span> near <span class="math notranslate nohighlight">\(z_0\)</span> will be small (<span class="math notranslate nohighlight">\(\red{B(z) \approx 0}\)</span>).</p>
+<p>Before going further, it may be helpful to visualize what we’re talking about.
+To make things concrete, we’ll analyze a Type-2 Chebyshev filter constructed by the following code block:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fs</span> <span class="o">=</span> <span class="mi">8000</span>  <span class="c1"># Sampling rate</span>
+<span class="n">fc</span> <span class="o">=</span> <span class="mi">1000</span>  <span class="c1"># Cutoff frequency</span>
+<span class="n">fstop</span> <span class="o">=</span> <span class="mi">1500</span> <span class="c1"># Stop-band 1KHz above cutoff</span>
+<span class="n">attenuation</span> <span class="o">=</span> <span class="mi">80</span>  <span class="c1"># we&#39;ll require 80 dB attenuation in the stop band</span>
+<span class="n">ripple</span> <span class="o">=</span> <span class="mi">6</span>  <span class="c1"># we&#39;ll allow 6 dB ripple in the passband</span>
+
+<span class="c1"># Compute the order for this filter, which in this case is 9</span>
+<span class="n">order</span><span class="p">,</span> <span class="n">wn</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">cheb2ord</span><span class="p">(</span><span class="n">fc</span><span class="p">,</span> <span class="n">fstop</span><span class="p">,</span> <span class="n">ripple</span><span class="p">,</span> <span class="n">attenuation</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>
+<span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">cheby2</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">attenuation</span><span class="p">,</span> <span class="n">wn</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Once we have the filter coefficients <code class="docutils literal notranslate"><span class="pre">b</span></code> and <code class="docutils literal notranslate"><span class="pre">a</span></code>, we can obtain the zeros of the filter by the following code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">zeros</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">tf2zpk</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The function <code class="docutils literal notranslate"><span class="pre">tf2zpk</span></code> takes in a transfer function (represented by <code class="docutils literal notranslate"><span class="pre">b</span></code> and <code class="docutils literal notranslate"><span class="pre">a</span></code>) and returns the zeros (z), poles (p), and gain (k) of the filter.
+We’ll come back to poles and gain later on, so for now we’ll retain just the zeros.</p>
+<p>If we print the zeros, we’ll see a sequence of 9 complex numbers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span> <span class="mf">0.38141995</span><span class="o">-</span><span class="mf">0.92440187</span><span class="n">j</span><span class="p">,</span>  <span class="mf">0.26658886</span><span class="o">-</span><span class="mf">0.96381034</span><span class="n">j</span><span class="p">,</span>
+       <span class="o">-</span><span class="mf">0.02490664</span><span class="o">-</span><span class="mf">0.99968978</span><span class="n">j</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.57559933</span><span class="o">-</span><span class="mf">0.81773187</span><span class="n">j</span><span class="p">,</span>
+       <span class="o">-</span><span class="mf">0.57559933</span><span class="o">+</span><span class="mf">0.81773187</span><span class="n">j</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.02490664</span><span class="o">+</span><span class="mf">0.99968978</span><span class="n">j</span><span class="p">,</span>
+        <span class="mf">0.26658886</span><span class="o">+</span><span class="mf">0.96381034</span><span class="n">j</span><span class="p">,</span>  <span class="mf">0.38141995</span><span class="o">+</span><span class="mf">0.92440187</span><span class="n">j</span><span class="p">,</span>
+       <span class="o">-</span><span class="mf">1.</span>        <span class="o">+</span><span class="mf">0.</span><span class="n">j</span>        <span class="p">])</span>
+</pre></div>
+</div>
+<p>We can then plot these values in the complex plane, and compare them to the frequency response of the filter (generated by <code class="docutils literal notranslate"><span class="pre">freqz</span></code> as in the previous section).</p>
+<figure class="align-default" id="zerosplot">
+<img alt="Zeros of an order-9 Chebyshev (II) filter" src="../../_images/d8d905070462885e06c1df937ccc85a587c68033282688246c0e10a0c9616407.svg" /><figcaption>
+<p><span class="caption-number">Fig. 12.5 </span><span class="caption-text"><strong>Left</strong>: The zeros of an order-9 Type-2 Chebyshev filter with cutoff frequency <span class="math notranslate nohighlight">\(\purple{f_c = 1000}\)</span>, sampling rate <span class="math notranslate nohighlight">\(f_s=8000\)</span>, transition bandwidth of 500 Hz, passband ripple of 6dB, and stop-band attenuation of 80dB.
+The angle <span class="math notranslate nohighlight">\(\purple{\theta = 2\pi / 8}\)</span> corresponds to the cutoff frequency divided by the sampling rate <span class="math notranslate nohighlight">\(\purple{f_c} / f_s = 1000 / 8000\)</span>.
+All zeros of this filter have unit magnitude, and come in conjugate pairs: 4 with positive imaginary component, 4 with negative, and one with zero (at Nyquist).
+<strong>Right</strong>: The frequency response curve of this filter <span class="math notranslate nohighlight">\(|H(z)|\)</span>.  Each zero in the left plot corresponds to a particular frequency, which coincide with the minima of the frequency response curve as indicated by the dashed lines.</span><a class="headerlink" href="#zerosplot" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>From <a class="reference internal" href="#zerosplot"><span class="std std-numref">Fig. 12.5</span></a>, we can observe that the minima in the frequency response curve line up exactly with the zeros of the transfer function.
+More generally, frequencies <em>near</em> the zeros are also attenuated.
+You can think of the zeros as physical weights that drag down the frequency response.</p>
+<p>This is only part of the story though: we’ll also need to look at the feedback coefficients to get the full picture.</p>
+</section>
+<section id="poles">
+<h2><span class="section-number">12.4.3. </span>Poles<a class="headerlink" href="#poles" title="Permalink to this headline">#</a></h2>
+<p>So far, we’ve found that the zeros of <span class="math notranslate nohighlight">\(\red{B(z)}\)</span> can tell us about the frequency response of a filter.  But what about the zeros of <span class="math notranslate nohighlight">\(\cyan{A(z)}\)</span>?</p>
+<p>The roots of <span class="math notranslate nohighlight">\(\cyan{A(z)}\)</span> are known as <strong>poles</strong> of the filter, and are denoted by <span class="math notranslate nohighlight">\(p_0, p_1, \dots, p_{K-1} \in \mathbb{C}\)</span>.
+For any pole <span class="math notranslate nohighlight">\(p\)</span> (that is not also a root of <span class="math notranslate nohighlight">\(\red{B(z)}\)</span>), <span class="math notranslate nohighlight">\(\red{H(p)} = \red{B(p)} / \cyan{A(p)}\)</span> would divide by zero.
+Without getting too far into the technical details, it is possible to make sense of this division by looking at the behavior of <span class="math notranslate nohighlight">\(\red{H(z)}\)</span> in a neighborhood around a pole.</p>
+<p>The intuition behind the name “pole” derives from the idea of the function <span class="math notranslate nohighlight">\(|\red{H(z)}|\)</span> (the magnitude of <span class="math notranslate nohighlight">\(\red{H(z)}\)</span>) can be thought of as a sheet draped over the complex plane, which is held up by (tent) poles.
+A simplified illustration of this is provided below in <a class="reference internal" href="#asymptote"><span class="std std-numref">Fig. 12.6</span></a>.</p>
+<figure class="align-default" id="asymptote">
+<img alt="illustration of a function with an asymptote toward positive infinity at x=2" src="../../_images/746ee88037fb0c0f064dab162ae11584c9239a3d435e3d9cd00a62a760e93c1f.svg" /><figcaption>
+<p><span class="caption-number">Fig. 12.6 </span><span class="caption-text">The function <span class="math notranslate nohighlight">\(y = \frac{1}{(x-2)^2}\)</span> has a pole at <span class="math notranslate nohighlight">\(x=2\)</span>.
+As <span class="math notranslate nohighlight">\(x\)</span> approaches 2 from either direction, <span class="math notranslate nohighlight">\(y\)</span> increases.</span><a class="headerlink" href="#asymptote" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>If the zeros of <span class="math notranslate nohighlight">\(\red{H(z)}\)</span> tell us where frequencies are <em>attenuated</em>, the poles tell us where frequencies are <strong>amplified</strong>.
+(This is a bit of a simplification, as both poles and zeros can affect both gain and attenuation, but let’s go with it for now.)</p>
+<p>Continuing our previous example, we’ll use the <code class="docutils literal notranslate"><span class="pre">tf2zpk</span></code> function to compute the zeros <em>and</em> poles for our filter:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title">Gain</p>
+<p>The feedback coefficient <span class="math notranslate nohighlight">\(\cyan{a[0]}\)</span> is known as the <em>gain</em> of the system, as it is used to scale up (or down) the output <span class="math notranslate nohighlight">\(\purple{y[n]}\)</span>.
+As we have noted before, there is some ambiguity in IIR filter design, as we can always divide the remaining coefficients by <span class="math notranslate nohighlight">\(\cyan{a[0]}\)</span> without changing the behavior of the system.</p>
+<p>This is why defining just the zeros and poles of a system isn’t quite enough to fully determine the coefficients.
+To reconcile this ambiguity, most implementations for zero and pole calculation (e.g., <code class="docutils literal notranslate"><span class="pre">tf2zpk</span></code>) will return the gain (<span class="math notranslate nohighlight">\(\cyan{a[0]}\)</span>) as a separate return value.</p>
+</aside>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">zeros</span><span class="p">,</span> <span class="n">poles</span><span class="p">,</span> <span class="n">gain</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">tf2zpk</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Again, this will produce an array of 9 complex numbers for <code class="docutils literal notranslate"><span class="pre">poles</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([</span><span class="mf">0.6640386</span> <span class="o">-</span><span class="mf">0.61973512</span><span class="n">j</span><span class="p">,</span> <span class="mf">0.54573487</span><span class="o">-</span><span class="mf">0.49475044</span><span class="n">j</span><span class="p">,</span>
+       <span class="mf">0.44310112</span><span class="o">-</span><span class="mf">0.35506889</span><span class="n">j</span><span class="p">,</span> <span class="mf">0.36783278</span><span class="o">-</span><span class="mf">0.18847207</span><span class="n">j</span><span class="p">,</span>
+       <span class="mf">0.3394446</span> <span class="o">+</span><span class="mf">0.</span><span class="n">j</span>        <span class="p">,</span> <span class="mf">0.36783278</span><span class="o">+</span><span class="mf">0.18847207</span><span class="n">j</span><span class="p">,</span>
+       <span class="mf">0.44310112</span><span class="o">+</span><span class="mf">0.35506889</span><span class="n">j</span><span class="p">,</span> <span class="mf">0.54573487</span><span class="o">+</span><span class="mf">0.49475044</span><span class="n">j</span><span class="p">,</span>
+       <span class="mf">0.6640386</span> <span class="o">+</span><span class="mf">0.61973512</span><span class="n">j</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>corresponding to the 9 roots of <span class="math notranslate nohighlight">\(\cyan{A(z)}\)</span>.
+Like we did above with the zeros plot, we can visualize the position of the poles in the complex plane.
+Typically, both the poles and zeros are illustrated in the same figure, which is helpfully known as a <strong>pole-zero plot</strong>.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title">Plotting poles and zeros</p>
+<p>Traditionally, poles are denoted by <span class="math notranslate nohighlight">\(\cyan{\times}\)</span> (crosses), and zeros are denoted by <span class="math notranslate nohighlight">\(\red{\circ}\)</span> (circles).</p>
+</aside>
+<figure class="align-default" id="polezero">
+<img alt="Poles and zeros of a type-II Chebyshev plot and corresponding frequency response curve" src="../../_images/9bccf260311e02b0a6775fc9975b89e3d91e94c3d8472150d1bc98132e6270da.svg" /><figcaption>
+<p><span class="caption-number">Fig. 12.7 </span><span class="caption-text"><strong>Left</strong>: The poles (<span class="math notranslate nohighlight">\(\cyan{\times}\)</span>) and zeros (<span class="math notranslate nohighlight">\(\red{\circ}\)</span>) of the filter previously analyzed in <a class="reference internal" href="#zerosplot"><span class="std std-numref">Fig. 12.5</span></a>.
+<strong>Right</strong>: the frequency response curve, now with both pole and zero angles (frequencies) marked.
+Note that the poles of this system are not on the unit circle, which is why the frequency response curve does not spike upward to infinity at each pole.</span><a class="headerlink" href="#polezero" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Once you learn how to read pole-zero plots, they can be a great way to quickly understand the behavior of a system.
+For example, in <a class="reference internal" href="#polezero"><span class="std std-numref">Fig. 12.7</span></a>, we have zeros at high frequencies (angles approaching <span class="math notranslate nohighlight">\(\pi\)</span>) and poles near low frequencies, so we can infer that this is a low-pass filter.
+A high-pass filter would exhibit the reverse behavior, with poles at larger angles and zeros at smaller angles.</p>
+<p>The fact that zeros land exactly on the unit circle tells us that some frequencies will be attenuated severely (practically to zero).</p>
+</section>
+<section id="factored-transfer-functions">
+<h2><span class="section-number">12.4.4. </span>Factored transfer functions<a class="headerlink" href="#factored-transfer-functions" title="Permalink to this headline">#</a></h2>
+<p>Once we have the zeros <span class="math notranslate nohighlight">\(z_k\)</span> and poles <span class="math notranslate nohighlight">\(p_k\)</span> of a system, these can be used to write down the transfer function <span class="math notranslate nohighlight">\(\red{H(z)}\)</span> equivalently in a <em>factored</em> form:</p>
+<div class="math notranslate nohighlight">
+\[\red{H(z)} = \frac{\left(z - \red{z_0}\right)\cdot \left(z - \red{z_1}\right) \dots \left(z - \red{z_{K-1}}\right)}{\left(z - \cyan{p_0}\right)\cdot \left(z - \cyan{p_1}\right) \dots \left(z - \cyan{p_{K-1}}\right)}\]</div>
+<p>While this doesn’t change the definition of the filter — it is just another way of writing the same transfer function — this form does have some benefits.</p>
+<p>First, it allows us to reason about high-order filters as a cascade of low-order filters:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\red{H(z)} &amp;= \left(\frac{z-\red{z_0}}{z-\cyan{p_0}} \right)\cdot \left( \frac{z-\red{z_1}}{z-\cyan{p_1}}\right) \dots \left( \frac{z-\red{z_{K-1}}}{z-\cyan{p_{K-1}}}\right)\\
+&amp;= H_0(z) \cdot H_1(z) \dots H_{K-1}(z).
+\end{align*}\]</div>
+<p>This observation is often used to simplify the implementation of IIR filters and improve numerical stability (without changing the filter’s behavior).
+Most commonly, this is done by the <em>second-order sections</em> (SOS) method, e.g.:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Construct a filter using second-order sections instead of</span>
+<span class="c1"># feed-forward / feed-back coefficients b and a</span>
+<span class="n">sos</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">cheby2</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">attenuation</span><span class="p">,</span> <span class="n">wn</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;sos&#39;</span><span class="p">)</span>
+
+<span class="c1"># Instead of lfilter with b and a, use sosfilt</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">sosfilt</span><span class="p">(</span><span class="n">sos</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Or for bidirectional filtering:</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">sosfiltfilt</span><span class="p">(</span><span class="n">sos</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<aside class="margin sidebar">
+<p class="sidebar-title">Canceling poles and zeros</p>
+<p>Technically, if a point is both a pole and a zero, this produces a factor of 0/0 in the transfer function.
+0/0 is usually a sign that something bad is happening.</p>
+<p>However, in this specific case, it does work out.</p>
+</aside>
+<p>Second, it provides a way to reason about the interactions between poles and zeros.
+Notably, if we have a pole which is also a zero, that is, <span class="math notranslate nohighlight">\(p_k = z_\ell\)</span>, then both of their corresponding factors can be removed from the filter without changing its behavior.
+Concretely, this means that if a pole and a zero coincide, then their effects cancel each other out.</p>
+</section>
+<section id="stability">
+<h2><span class="section-number">12.4.5. </span>Stability<a class="headerlink" href="#stability" title="Permalink to this headline">#</a></h2>
+<p>Let’s return to our first example of an unstable system, <span class="math notranslate nohighlight">\(\purple{y[n]} = \blue{x[n]} + 2\cdot \purple{y[n-1]}\)</span>.
+This is <em>unstable</em> because the output can diverge when given an input signal with finite values, e.g., a unit impulse produces a sequence <span class="math notranslate nohighlight">\(\purple{y[n]} = 2^n\)</span> that grows without bound and never settles down.</p>
+<p>In standard form, this system has coefficients</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\red{b} &amp;= [1]\\
+\cyan{a} &amp;= [1, -2].
+\end{align*}\]</div>
+<p>The transfer function of this system is</p>
+<div class="math notranslate nohighlight">
+\[\red{H(z)} = \frac{\red{b[0]} \cdot z^0}{\cyan{a[0]} \cdot z^0 + \cyan{a[1]} \cdot z^{-1}} = \frac{\red{1}}{\cyan{1} - \cyan{2}\cdot z^{-1}}\]</div>
+<p>Because the numerator has degree 0, this system has no zeros.
+It has one pole, which we can find by solving <span class="math notranslate nohighlight">\(1 - 2z^{-1} = 0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[1 - 2z^{-1} = 0 \quad \Rightarrow \frac{2}{z} = 1 \quad \Rightarrow \cyan{z} = 2.\]</div>
+<p>Contrast this filter with the first IIR filter we encountered in the previous chapter, the <em>exponential moving average</em> <a class="reference internal" href="../ch11-iir/Feedback.html#equation-ema">(11.1)</a>:</p>
+<div class="math notranslate nohighlight">
+\[\purple{y[n]} = \red{\frac{1}{2}}\cdot \blue{x[n]} + \cyan{\frac{1}{2}} \cdot \blue{y[n-1]},\]</div>
+<p>which has coefficients <span class="math notranslate nohighlight">\(\red{b = [1/2]}\)</span> and <span class="math notranslate nohighlight">\(\cyan{a= [1, -1/2]}\)</span>.
+This filter also has no zeros, and one pole, but the pole is located at <span class="math notranslate nohighlight">\(z = 1/2\)</span>.
+It turns out that the exponential moving average filter is <em>stable</em>: its output does not diverge for any input signal <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> with finite values.</p>
+<p><em>So what’s different about these two examples?</em></p>
+<p>It turns out that the stability of a filter depends on the location of the poles, and specifically, on their <em>magnitude</em>.</p>
+<div class="information admonition">
+<p class="admonition-title">IIR stability</p>
+<p>Let <span class="math notranslate nohighlight">\(\red{H(z)}\)</span> denote the transfer function of a linear, IIR filter with zeros <span class="math notranslate nohighlight">\(\red{z_0, z_1, \dots, z_{K-1}}\)</span> and poles <span class="math notranslate nohighlight">\(\cyan{p_0, p_1, \dots, p_{K-1}}\)</span>,
+and assume that no pole is also a zero.</p>
+<p>The filter is <strong>stable</strong> if <strong>all</strong> poles <span class="math notranslate nohighlight">\(\cyan{p}\)</span> have magnitude <span class="math notranslate nohighlight">\(|\cyan{p}| &lt; 1\)</span>.
+Or, equivalently, if all poles lie within the unit circle in the complex plane.</p>
+<p>The filter is <strong>unstable</strong> if <strong>any</strong> pole <span class="math notranslate nohighlight">\(\cyan{p}\)</span> has magnitude <span class="math notranslate nohighlight">\(|\cyan{p}| &gt; 1\)</span>.</p>
+</div>
+<p>This fact gives us a simple test for stability of a filter:</p>
+<ol class="arabic simple">
+<li><p>Compute the poles of the filter, e.g., by <code class="docutils literal notranslate"><span class="pre">scipy.signal.tf2zpk</span></code> or <code class="docutils literal notranslate"><span class="pre">scipy.signal.sos2zpk</span></code>.</p></li>
+<li><p>Discard any poles which are also zeros.</p></li>
+<li><p>Compute the magnitude of all remaining poles.</p></li>
+<li><p>If any pole has magnitude larger than 1, the filter is unstable.</p></li>
+</ol>
+<p>As a corollary to this observation, note that FIR filters have no poles (since <span class="math notranslate nohighlight">\(\cyan{A(z)= a[0] = 1 \neq 0}\)</span>).
+Since they have no poles, they also have no poles with magnitude larger than 1.
+This is how we can say that any FIR filter is stable.</p>
+<figure class="align-default" id="id1">
+<img alt="illustration of stable and unstable regions of a filter" src="../../_images/eef5a1bcb38940ba430fbf47476ecdbfd50ec291439722bd53f32c23c8f042da.svg" /><figcaption>
+<p><span class="caption-number">Fig. 12.8 </span><span class="caption-text">If all poles are contained within the unit circle, that is <span class="math notranslate nohighlight">\(|p| &lt; 1\)</span> whenever <span class="math notranslate nohighlight">\(A(p) = 0\)</span>, then the system is stable.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="summary">
+<h2><span class="section-number">12.4.6. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<p>In this section, we’ve seen how the z-transform allows us to reason about the behavior of a filter through its transfer function.
+Specifically, we examined the polynomials <span class="math notranslate nohighlight">\(\red{B(z)}\)</span> and <span class="math notranslate nohighlight">\(\cyan{A(z)}\)</span> which make up the transfer function <span class="math notranslate nohighlight">\(\red{H(z)} = \red{B(z)} / \cyan{A(z)}\)</span>.
+The roots of these polynomials determine when the transfer function goes to 0 (when <span class="math notranslate nohighlight">\(\red{B(z)} = 0\)</span>, the <em>zeros</em>) and when it diverges to infinity (<span class="math notranslate nohighlight">\(\cyan{A(z)} = 0\)</span>, the <em>poles</em>).
+Finally, the location of the poles of a filter (inside or outside the unit circle) determines whether the filter is stable or unstable.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "dstbook"
+        },
+        kernelOptions: {
+            kernelName: "dstbook",
+            path: "./content/ch12-ztransform"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'dstbook'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Transfer.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">12.3. </span>Transfer functions</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Exercises.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">12.5. </span>Exercises</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Brian McFee<br/>
+  
+      &copy; Copyright 2020-2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

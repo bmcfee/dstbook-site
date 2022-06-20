@@ -1,0 +1,965 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Preface &#8212; Digital Signals Theory</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/.ipynb_checkpoints/custom-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"loader": {"load": ["[tex]/configMacros", "[tex]/html"]}, "tex": {"packages": {"+": ["configMacros", "html"]}, "macros": {"blue": ["\\class{blue}{#1}", 1], "red": ["\\class{red}{#1}", 1], "orange": ["\\class{orange}{#1}", 1], "purple": ["\\class{purple}{#1}", 1], "green": ["\\class{green}{#1}", 1], "dkorange": ["\\class{dkorange}{#1}", 1], "cyan": ["\\class{cyan}{#1}", 1], "magenta": ["\\class{magenta}{#1}", 1], "yellow": ["\\class{yellow}{#1}", 1], "peagreen": ["\\class{peagreen}{#1}", 1], "darkblue": ["\\class{darkblue}{#1}", 1], "darkorange": ["\\class{darkorange}{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1. Signals" href="ch01-signals/Intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/dstlogo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Digital Signals Theory</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Time-domain signals
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="ch01-signals/Intro.html">
+   1. Signals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch01-signals/Preliminaries.html">
+     1.1. Preliminaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch01-signals/Waves.html">
+     1.2. Periodicity and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch01-signals/Units.html">
+     1.3. Units and dimensional analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch01-signals/Acoustics.html">
+     1.4. Audio and signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch01-signals/Exercises.html">
+     1.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="ch02-sampling/intro.html">
+   2. Digital sampling
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch02-sampling/Sampling.html">
+     2.1. Sampling period and rate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch02-sampling/Aliasing.html">
+     2.2. Aliasing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch02-sampling/Nyquist.html">
+     2.3. The Nyquist-Shannon sampling theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch02-sampling/Quantization.html">
+     2.4. Quantization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch02-sampling/Exercises.html">
+     2.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="ch03-convolution/intro.html">
+   3. Convolution
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch03-convolution/Building.html">
+     3.1. Delay, gain, and mix
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch03-convolution/Convolution.html">
+     3.2. Defining convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch03-convolution/IR.html">
+     3.3. Impulse Response
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch03-convolution/Modes.html">
+     3.4. Convolution modes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch03-convolution/Properties.html">
+     3.5. Properties of convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch03-convolution/LSI.html">
+     3.6. Linearity and Shift-invariance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch03-convolution/Exercises.html">
+     3.7. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  The frequency domain
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="ch04-complex/Intro.html">
+   4. Complex numbers
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch04-complex/Definition.html">
+     4.1. Defining complex numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch04-complex/Basic-Operations.html">
+     4.2. Basic operations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch04-complex/Exponentials.html">
+     4.3. Complex exponentials
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch04-complex/Multiplication-and-division.html">
+     4.4. Multiplication and division
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch04-complex/Powers-and-waves.html">
+     4.5. Powers and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch04-complex/Exercises.html">
+     4.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="ch05-fourier/intro.html">
+   5. The Discrete Fourier Transform
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch05-fourier/Similarity.html">
+     5.1. Similarity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch05-fourier/Cosine.html">
+     5.2. Comparing to sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch05-fourier/AnalysisFrequencies.html">
+     5.3. Analysis frequencies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch05-fourier/Phase.html">
+     5.4. Phase
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch05-fourier/DFT.html">
+     5.5. The Discrete Fourier Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch05-fourier/Examples.html">
+     5.6. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch05-fourier/SummingSinusoids.html">
+     5.7. Summing sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch05-fourier/Exercises.html">
+     5.8. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="ch06-dft-properties/intro.html">
+   6. Properties of the DFT
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch06-dft-properties/Linearity.html">
+     6.1. Linearity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch06-dft-properties/Shifting.html">
+     6.2. The DFT shifting theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch06-dft-properties/Conjugate-Symmetry.html">
+     6.3. Conjugate Symmetry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch06-dft-properties/Leakage.html">
+     6.4. Spectral leakage and windowing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch06-dft-properties/Exercises.html">
+     6.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="ch07-inverse-dft/intro.html">
+   7. DFT Invertibility
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch07-inverse-dft/Sinusoid.html">
+     7.1. Warm-up: a single sinusoid
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch07-inverse-dft/InverseDFT.html">
+     7.2. The Inverse DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch07-inverse-dft/Synthesis.html">
+     7.3. Synthesis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch07-inverse-dft/Exercises.html">
+     7.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="ch08-fft/intro.html">
+   8. Fast Fourier Transform
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch08-fft/DFT-Analysis.html">
+     8.1. Time-analysis of the DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch08-fft/FFT.html">
+     8.2. Radix-2 Cooley-Tukey
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch08-fft/Exercises.html">
+     8.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="ch09-stft/intro.html">
+   9. The Short-time Fourier Transform
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch09-stft/Framing.html">
+     9.1. Framing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch09-stft/STFT.html">
+     9.2. Defining the STFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch09-stft/Exercises.html">
+     9.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Filtering
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="ch10-convtheorem/intro.html">
+   10. Frequency domain convolution
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch10-convtheorem/ConvolutionTheorem.html">
+     10.1. The Convolution Theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch10-convtheorem/Filtering.html">
+     10.2. Convolutional Filtering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch10-convtheorem/FilterDesign.html">
+     10.3. Filter Design and Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch10-convtheorem/Phase.html">
+     10.4. Phase and group delay
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch10-convtheorem/Exercises.html">
+     10.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="ch11-iir/intro.html">
+   11. Infinite impulse response filters
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch11-iir/Feedback.html">
+     11.1. Feedback filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch11-iir/UsingIIR.html">
+     11.2. Using IIR filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch11-iir/IIRFilters.html">
+     11.3. Common IIR filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch11-iir/Exercises.html">
+     11.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="ch12-ztransform/intro.html">
+   12. Analyzing IIR filters
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch12-ztransform/ZT.html">
+     12.1. The z-transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch12-ztransform/zT-Properties.html">
+     12.2. Properties of the z-transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch12-ztransform/Transfer.html">
+     12.3. Transfer functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch12-ztransform/PoleZero.html">
+     12.4. Stability, poles, and zeros
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ch12-ztransform/Exercises.html">
+     12.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="appendixA/Fundamentals.html">
+   Mathematical fundamentals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="appendixA/Sets.html">
+     Sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="appendixA/Sequences.html">
+     Sequences
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="appendixA/ModularArithmetic.html">
+     Modular arithmetic
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="appendixA/Exponents.html">
+     Exponentials
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#who-is-this-book-for">
+   Who is this book for?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-another-book">
+   Why another book?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#supplemental-resources">
+   Supplemental resources
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mathematics">
+     Mathematics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#programming">
+     Programming
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-reading">
+     Further reading
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acknowledgments">
+   Acknowledgments
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Preface</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#who-is-this-book-for">
+   Who is this book for?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-another-book">
+   Why another book?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#supplemental-resources">
+   Supplemental resources
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mathematics">
+     Mathematics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#programming">
+     Programming
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#further-reading">
+     Further reading
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#acknowledgments">
+   Acknowledgments
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="preface">
+<h1>Preface<a class="headerlink" href="#preface" title="Permalink to this headline">#</a></h1>
+<p>This book is designed to follow the course syllabus of <em>Fundamentals of Digital Signals Theory (I)</em> (MPATE-GE 2599) at New York University.
+The focus here is on <em>digital</em> signals, meaning discrete time signals as represented in modern computers.
+Unlike many other books, we do not cover continuous time signals, except insofar as necessary to understand digital sampling.
+The scope of the book is limited to these general topics:</p>
+<ul class="simple">
+<li><p>Signals and systems,</p></li>
+<li><p>Sampling theory,</p></li>
+<li><p>Discrete Fourier analysis, and</p></li>
+<li><p>Discrete-time linear filtering.</p></li>
+</ul>
+<p>While certainly not a comprehensive treatment of signal processing, the topics covered here should provide a solid foundation upon which readers can develop in whichever direction they see fit.</p>
+<section id="who-is-this-book-for">
+<h2>Who is this book for?<a class="headerlink" href="#who-is-this-book-for" title="Permalink to this headline">#</a></h2>
+<p>This book is intended for students interested in learning digital signal processing from the ground up, but who may not have much mathematical or engineering training.
+Because we do not cover the continuous-time case, we will not need differential calculus.
+In some places we’ll have to gloss over a couple of technical details, but my hope is that students can still gain a sufficiently rich understanding of digital signals with minimal mathematical background.</p>
+<p>I’ve tried to make the contents of this book self-contained, and provide supplementary background material in the appendix.
+That said, we do have to start somewhere, and I generally expect readers to have familiarity with high-school level algebra and geometry.</p>
+</section>
+<section id="why-another-book">
+<h2>Why another book?<a class="headerlink" href="#why-another-book" title="Permalink to this headline">#</a></h2>
+<p>Put simply, I wasn’t happy with any of the existing digital signals textbooks that could be used for this class.
+While many of them are excellent reference books, they often assume a fairly sophisticated technical background, and are aimed at upper-division undergraduate students in engineering programs.
+After stubbornly trying to make do with existing books, I got frustrated enough to make my own!</p>
+</section>
+<section id="supplemental-resources">
+<h2>Supplemental resources<a class="headerlink" href="#supplemental-resources" title="Permalink to this headline">#</a></h2>
+<p>This book is meant to be fairly self-contained, but it certainly can’t cover everything.
+Depending on your background, you may find yourself wanting more foundational material (e.g., on mathematics or programming), or more advanced coverage of certain topics.</p>
+<section id="mathematics">
+<h3>Mathematics<a class="headerlink" href="#mathematics" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.khanacademy.org/math/algebra-home">Khan Academy - Algebra</a> is a good resource if you want to brush up on basic algebra.</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/c/3blue1brown/featured">3Blue1Brown</a> has several excellent videos on topics related to this material:</p>
+<ul>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=v0YEaeIClKY">Understanding <span class="math notranslate nohighlight">\(e^{i \cdot \pi}\)</span> in 3.14 minutes</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=spUNpyF58BY">A visual introduction to the Fourier transform</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="programming">
+<h3>Programming<a class="headerlink" href="#programming" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.pythontutor.com/">PythonTutor</a> is an excellent resource to learn the basics of program operation.</p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/user/numpy-for-matlab-users.html">NumPy for Matlab users</a> is helpful if you have prior experience with Matlab, and want some basic recipes to translate into Python.</p></li>
+<li><p>The <a class="reference external" href="https://software-carpentry.org/">Software Carpentry</a> organization has excellent tutorials for programming in Python:</p>
+<ul>
+<li><p><a class="reference external" href="https://swcarpentry.github.io/python-novice-inflammation/">Programming with Python</a></p></li>
+<li><p><a class="reference external" href="https://swcarpentry.github.io/python-novice-gapminder/">Plotting and Programming in Python</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="further-reading">
+<h3>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ccrma.stanford.edu/~jos/mdft/">Mathematics of the Discrete Fourier Transform</a> by Julius O. Smith III.</p></li>
+<li><p>Understanding Digital Signal Processing (3rd ed.) by Richard Lyons <span id="id1">[<a class="reference internal" href="references.html#id12" title="Richard G Lyons. Understanding Digital Signal Processing. Prentice Hall PTR, 2004.">Lyo04</a>]</span>.</p></li>
+<li><p>Discrete-Time Signal Processing by Alan Oppenheim and Ronald Schafer <span id="id2">[<a class="reference internal" href="references.html#id13" title="Alan V. 1937- Oppenheim. Discrete-Time Signal Processing. Pearson, Upper Saddle River, N.J., 2010. ISBN 9780131988422, 0131988425.">Opp10</a>]</span>.</p></li>
+<li><p><a class="reference external" href="https://www.audiolabs-erlangen.de/resources/MIR/FMP/C0/C0.html">Fundamentals of Music Processing</a> by Meinard Müller <span id="id3">[<a class="reference internal" href="references.html#id14" title="Meinard Müller. Fundamentals of Music Processing. Springer, Switzerland, 2015. ISBN 9783319219455, 3319219456.">Mul15</a>]</span>.</p></li>
+</ul>
+</section>
+</section>
+<section id="acknowledgments">
+<h2>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Permalink to this headline">#</a></h2>
+<p>I would like to thank several people for providing feedback on early versions of this text: Meinard Müller, Frank Zalkow, and Ernesto Valenzuela.</p>
+<p>This project would not have been possible without the tireless efforts of the open source software developers, especially contributors to the following projects:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://numpy.org/">NumPy</a></p></li>
+<li><p><a class="reference external" href="https://scipy.org/">SciPy</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/">Matplotlib</a></p></li>
+<li><p><a class="reference external" href="https://jupyter.org">Jupyter</a></p></li>
+<li><p><a class="reference external" href="https://jupyterbook.org">Jupyter-Book</a></p></li>
+<li><p><a class="reference external" href="https://www.sphinx-doc.org">Sphinx</a></p></li>
+<li><p><a class="reference external" href="https://freesound.org/">Freesound</a></p></li>
+<li><p><a class="reference external" href="https://pysoundfile.readthedocs.io/en/latest/">Soundfile</a></p></li>
+<li><p><a class="reference external" href="http://www.mega-nerd.com/libsndfile/">libsndfile</a></p></li>
+</ul>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='right-next' id="next-link" href="ch01-signals/Intro.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Signals</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Brian McFee<br/>
+  
+      &copy; Copyright 2020-2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

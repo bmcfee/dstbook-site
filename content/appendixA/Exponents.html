@@ -1,0 +1,1046 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Exponentials &#8212; Digital Signals Theory</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"loader": {"load": ["[tex]/configMacros", "[tex]/html"]}, "tex": {"packages": {"+": ["configMacros", "html"]}, "macros": {"blue": ["\\class{blue}{#1}", 1], "red": ["\\class{red}{#1}", 1], "orange": ["\\class{orange}{#1}", 1], "purple": ["\\class{purple}{#1}", 1], "green": ["\\class{green}{#1}", 1], "dkorange": ["\\class{dkorange}{#1}", 1], "cyan": ["\\class{cyan}{#1}", 1], "magenta": ["\\class{magenta}{#1}", 1], "yellow": ["\\class{yellow}{#1}", 1], "peagreen": ["\\class{peagreen}{#1}", 1], "darkblue": ["\\class{darkblue}{#1}", 1], "darkorange": ["\\class{darkorange}{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="References" href="../references.html" />
+    <link rel="prev" title="Modular arithmetic" href="ModularArithmetic.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/dstlogo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Digital Signals Theory</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Time-domain signals
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch01-signals/Intro.html">
+   1. Signals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Preliminaries.html">
+     1.1. Preliminaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Waves.html">
+     1.2. Periodicity and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Units.html">
+     1.3. Units and dimensional analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Acoustics.html">
+     1.4. Audio and signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Exercises.html">
+     1.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch02-sampling/intro.html">
+   2. Digital sampling
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Sampling.html">
+     2.1. Sampling period and rate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Aliasing.html">
+     2.2. Aliasing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Nyquist.html">
+     2.3. The Nyquist-Shannon sampling theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Quantization.html">
+     2.4. Quantization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Exercises.html">
+     2.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch03-convolution/intro.html">
+   3. Convolution
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Building.html">
+     3.1. Delay, gain, and mix
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Convolution.html">
+     3.2. Defining convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/IR.html">
+     3.3. Impulse Response
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Modes.html">
+     3.4. Convolution modes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Properties.html">
+     3.5. Properties of convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/LSI.html">
+     3.6. Linearity and Shift-invariance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Exercises.html">
+     3.7. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  The frequency domain
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch04-complex/Intro.html">
+   4. Complex numbers
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Definition.html">
+     4.1. Defining complex numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Basic-Operations.html">
+     4.2. Basic operations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Exponentials.html">
+     4.3. Complex exponentials
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Multiplication-and-division.html">
+     4.4. Multiplication and division
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Powers-and-waves.html">
+     4.5. Powers and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Exercises.html">
+     4.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch05-fourier/intro.html">
+   5. The Discrete Fourier Transform
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Similarity.html">
+     5.1. Similarity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Cosine.html">
+     5.2. Comparing to sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/AnalysisFrequencies.html">
+     5.3. Analysis frequencies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Phase.html">
+     5.4. Phase
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/DFT.html">
+     5.5. The Discrete Fourier Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Examples.html">
+     5.6. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/SummingSinusoids.html">
+     5.7. Summing sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Exercises.html">
+     5.8. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch06-dft-properties/intro.html">
+   6. Properties of the DFT
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Linearity.html">
+     6.1. Linearity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Shifting.html">
+     6.2. The DFT shifting theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Conjugate-Symmetry.html">
+     6.3. Conjugate Symmetry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Leakage.html">
+     6.4. Spectral leakage and windowing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Exercises.html">
+     6.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch07-inverse-dft/intro.html">
+   7. DFT Invertibility
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/Sinusoid.html">
+     7.1. Warm-up: a single sinusoid
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/InverseDFT.html">
+     7.2. The Inverse DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/Synthesis.html">
+     7.3. Synthesis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/Exercises.html">
+     7.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch08-fft/intro.html">
+   8. Fast Fourier Transform
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-fft/DFT-Analysis.html">
+     8.1. Time-analysis of the DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-fft/FFT.html">
+     8.2. Radix-2 Cooley-Tukey
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-fft/Exercises.html">
+     8.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch09-stft/intro.html">
+   9. The Short-time Fourier Transform
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-stft/Framing.html">
+     9.1. Framing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-stft/STFT.html">
+     9.2. Defining the STFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-stft/Exercises.html">
+     9.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Filtering
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch10-convtheorem/intro.html">
+   10. Frequency domain convolution
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/ConvolutionTheorem.html">
+     10.1. The Convolution Theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/Filtering.html">
+     10.2. Convolutional Filtering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/FilterDesign.html">
+     10.3. Filter Design and Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/Phase.html">
+     10.4. Phase and group delay
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/Exercises.html">
+     10.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch11-iir/intro.html">
+   11. Infinite impulse response filters
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/Feedback.html">
+     11.1. Feedback filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/UsingIIR.html">
+     11.2. Using IIR filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/IIRFilters.html">
+     11.3. Common IIR filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/Exercises.html">
+     11.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch12-ztransform/intro.html">
+   12. Analyzing IIR filters
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch12-ztransform/ZT.html">
+     12.1. The z-transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch12-ztransform/zT-Properties.html">
+     12.2. Properties of the z-transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch12-ztransform/Transfer.html">
+     12.3. Transfer functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch12-ztransform/PoleZero.html">
+     12.4. Stability, poles, and zeros
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch12-ztransform/Exercises.html">
+     12.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="Fundamentals.html">
+   Mathematical fundamentals
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Sets.html">
+     Sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Sequences.html">
+     Sequences
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ModularArithmetic.html">
+     Modular arithmetic
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Exponentials
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rules-for-working-with-exponentials">
+   Rules for working with exponentials
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-exponential-function">
+   The exponential function
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logarithms">
+   Logarithms
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#properties-of-logarithms">
+   Properties of logarithms
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Exponentials</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rules-for-working-with-exponentials">
+   Rules for working with exponentials
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-exponential-function">
+   The exponential function
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logarithms">
+   Logarithms
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#properties-of-logarithms">
+   Properties of logarithms
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="exponentials">
+<span id="id1"></span><h1>Exponentials<a class="headerlink" href="#exponentials" title="Permalink to this headline">#</a></h1>
+<blockquote>
+<div></div></blockquote>
+<p id="index-0">An exponential, generally speaking, is an expression of the form <span class="math notranslate nohighlight">\(c^x\)</span> for some constant <span class="math notranslate nohighlight">\(c\)</span>, and should be read as “<span class="math notranslate nohighlight">\(c\)</span> to the <span class="math notranslate nohighlight">\(x\)</span>th power”.
+Note that this is different from powers <span class="math notranslate nohighlight">\(x^n\)</span>, in that exponentials keep the base <span class="math notranslate nohighlight">\(c\)</span> fixed and vary <span class="math notranslate nohighlight">\(x\)</span>, while powers do the opposite.</p>
+<div class="proof example admonition" id="example-0">
+<p class="admonition-title"><span>Example </span></p>
+<section class="example-content" id="proof-content">
+<p><span class="math notranslate nohighlight">\(2^x \neq x^2\)</span>.</p>
+<figure class="align-default" id="id3">
+<img alt="Comparison of a quadratic curve and an exponential curve." src="../../_images/646793d80a208b7f017916d6fc3331a8d937d235fbb1c78fdd6558a1aeb5927b.svg" /><figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">A quadratic curve <span class="math notranslate nohighlight">\(y=x^2\)</span> and an exponential curve <span class="math notranslate nohighlight">\(y=2^x\)</span> behave differently.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</div><p>Often, when we refer to an <em>exponential</em>, we really mean a specific base <span class="math notranslate nohighlight">\(e = 2.71828\dots\)</span>, known alternately as “Euler’s number”, or “the base of the natural logarithm”.</p>
+<section id="rules-for-working-with-exponentials">
+<h2>Rules for working with exponentials<a class="headerlink" href="#rules-for-working-with-exponentials" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div></div></blockquote>
+<p id="index-1">The following rules (properties) are useful when manipulating expressions involving exponentials.
+All of these rules work for any base <span class="math notranslate nohighlight">\(c \neq 0\)</span>, including the special case <span class="math notranslate nohighlight">\(c=e\)</span>.</p>
+<div class="proof property admonition" id="property-1">
+<p class="admonition-title"><span class="caption-number">Property 1 </span></p>
+<section class="property-content" id="proof-content">
+<p>Any <span class="math notranslate nohighlight">\(c\)</span> raised to the 0 power is 1, and specifically:</p>
+<div class="math notranslate nohighlight">
+\[
+c^0 = 1
+\]</div>
+</section>
+</div><div class="proof property admonition" id="property-2">
+<p class="admonition-title"><span class="caption-number">Property 2 </span> (Exponentials turn negatives into inverses:)</p>
+<section class="property-content" id="proof-content">
+<div class="math notranslate nohighlight">
+\[
+c^{-a} = \frac{1}{c^a}
+\]</div>
+</section>
+</div><div class="proof property admonition" id="property-3">
+<p class="admonition-title"><span class="caption-number">Property 3 </span> (Exponentials turn sums into products:)</p>
+<section class="property-content" id="proof-content">
+<div class="math notranslate nohighlight">
+\[
+c^{a}\cdot c^{b} = c^{a+b}
+\]</div>
+</section>
+</div><div class="proof property admonition" id="property-4">
+<p class="admonition-title"><span class="caption-number">Property 4 </span> (Exponentials turn products into powers:)</p>
+<section class="property-content" id="proof-content">
+<div class="math notranslate nohighlight">
+\[
+c^{a\cdot b} = {\left(c^a\right)}^b = {\left(c^b\right)}^a
+\]</div>
+</section>
+</div></section>
+<section id="the-exponential-function">
+<h2>The exponential function<a class="headerlink" href="#the-exponential-function" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div></div></blockquote>
+<p id="index-2">While it is convenient to regard <span class="math notranslate nohighlight">\(e\)</span> as the number <span class="math notranslate nohighlight">\(2.71828\dots\)</span>, there is an alternative (and more general) definition for <span class="math notranslate nohighlight">\(e\)</span> given by the following infinite summation</p>
+<div class="math notranslate nohighlight" id="equation-exp">
+<span class="eqno">(1)<a class="headerlink" href="#equation-exp" title="Permalink to this equation">#</a></span>\[e := \sum_{n=0}^\infty \frac{1}{n!}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[n! := 1\cdot 2 \cdot 3 \cdot \dots \cdot n\]</div>
+<p>is the <em>factorial</em> function: the product of numbers 1 through <span class="math notranslate nohighlight">\(n\)</span>.
+(We define the special case <span class="math notranslate nohighlight">\(0! = 1\)</span>.)</p>
+<p>The exponential function <span class="math notranslate nohighlight">\(e^x\)</span>, sometimes also written <span class="math notranslate nohighlight">\(\exp(x)\)</span>, is equivalent to the number <span class="math notranslate nohighlight">\(e\)</span> raised to the <span class="math notranslate nohighlight">\(x\)</span>th power.</p>
+<figure class="align-default" id="id4">
+<img alt="Plot of the exponential function" src="../../_images/2713dacdf5bc08415ff690b2d010f48cccf6ec484eb4f1f8cc657611cc3513aa.svg" /><figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">The exponential function <span class="math notranslate nohighlight">\(e^x\)</span>.</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Note that summation in <a class="reference internal" href="#equation-exp">(1)</a> depends on <em>infinitely</em> many terms, and is not something you could explicitly compute.
+While this could be a problem in some cases, it’s okay here because the terms diminish quite rapidly:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+e = \sum_{n=0}^\infty \frac{1}{n!} &amp;= \frac{1}{0!} + \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \frac{1}{5!} + \dots\\
+&amp;= \frac{1}{1} + \frac{1}{1} + \frac{1}{2} + \frac{1}{6} + \frac{1}{24} + \frac{1}{120} + \dots
+\end{align*}\]</div>
+<p>and the summation <em>converges</em> to Euler’s number.
+Proving this sort of thing is out of scope for us here, but we can simulate it computationally by printing out the first few partial sums with a bit of python code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.special</span> <span class="kn">import</span> <span class="n">factorial</span>
+
+<span class="c1"># Initialize the partial sum</span>
+<span class="n">e_partial</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">):</span>
+    <span class="c1"># Add in 1/n!</span>
+    <span class="n">e_partial</span> <span class="o">+=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;First </span><span class="si">{:2d}</span><span class="s1"> term(s): </span><span class="si">{:0.12f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">e_partial</span><span class="p">))</span>
+    
+<span class="c1"># Print the actual constant to 12 decimals</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Euler&#39;s constant: </span><span class="si">{:0.12f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">e</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First  1 term(s): 1.000000000000
+First  2 term(s): 2.000000000000
+First  3 term(s): 2.500000000000
+First  4 term(s): 2.666666666667
+First  5 term(s): 2.708333333333
+First  6 term(s): 2.716666666667
+First  7 term(s): 2.718055555556
+First  8 term(s): 2.718253968254
+First  9 term(s): 2.718278769841
+First 10 term(s): 2.718281525573
+First 11 term(s): 2.718281801146
+First 12 term(s): 2.718281826198
+First 13 term(s): 2.718281828286
+First 14 term(s): 2.718281828447
+First 15 term(s): 2.718281828458
+---
+Euler&#39;s constant: 2.718281828459
+</pre></div>
+</div>
+</div>
+</div>
+<p>After only 15 terms of the summation, we already have a quite good approximation to <span class="math notranslate nohighlight">\(e\)</span> (accurate to 11 decimal places).</p>
+<p>This definition of <span class="math notranslate nohighlight">\(e\)</span> as an infinite summation can be generalized to depend on an arbitrary exponent <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+e^x := \sum_{n=0}^{\infty} \frac{x^n}{n!},
+\]</div>
+<p>where the first definition can be recovered by setting <span class="math notranslate nohighlight">\(x=1\)</span> in the second equation.</p>
+<p>While we rarely work with this form directly, it is useful because it provides a way to generalize the exponential to support <em>complex</em> exponents <span class="math notranslate nohighlight">\(e^z\)</span> for <span class="math notranslate nohighlight">\(z\in\mathbb{C}\)</span>.</p>
+</section>
+<section id="logarithms">
+<span id="id2"></span><h2>Logarithms<a class="headerlink" href="#logarithms" title="Permalink to this headline">#</a></h2>
+<p>Logarithms are the inverse of exponentials, similar to how square-root is the inverse of squaring.
+In general, logarithms have a “base” <span class="math notranslate nohighlight">\(b &gt; 0\)</span>, and define the following relationship for input <span class="math notranslate nohighlight">\(x &gt; 0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\log_b x = y \quad\quad \Leftrightarrow \quad\quad x = b^y.\]</div>
+<p>Intuitively, <span class="math notranslate nohighlight">\(\log_b x\)</span> measures the power <span class="math notranslate nohighlight">\(y\)</span> we would need to raise <span class="math notranslate nohighlight">\(b\)</span> to produce <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>When <span class="math notranslate nohighlight">\(x = 0\)</span>, there is no finite number <span class="math notranslate nohighlight">\(y\)</span> such that <span class="math notranslate nohighlight">\(b^y = 0\)</span>, and we say <span class="math notranslate nohighlight">\(\log_b x = -\infty\)</span>.</p>
+<p>The base can be any positive number, but among all logarithms, the <strong>natural logarithm</strong> (denoted <span class="math notranslate nohighlight">\(\ln\)</span>) uses <span class="math notranslate nohighlight">\(e\)</span> as the base:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Why, exactly, base-<span class="math notranslate nohighlight">\(e\)</span> is considered the most “natural” is a deep and fascinating topic, that we unfortunately do not have the space for here.</p>
+</aside>
+<div class="math notranslate nohighlight">
+\[\ln x = y \quad\quad \Leftrightarrow \quad\quad x = e^y.\]</div>
+<p>Other common choices for the base are <span class="math notranslate nohighlight">\(b=2\)</span> and <span class="math notranslate nohighlight">\(b=10\)</span>.
+In these cases, <span class="math notranslate nohighlight">\(\log_2 x\)</span> and <span class="math notranslate nohighlight">\(\log_{10} x\)</span> can be roughly thought of as measuring the “number” of bits (for <span class="math notranslate nohighlight">\(b=2\)</span>) or digits (for <span class="math notranslate nohighlight">\(b=10\)</span>) needed to represent a number <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<figure class="align-default" id="id5">
+<img alt="Plot of logarithms with different bases (2, e, 10)" src="../../_images/3b2978ab44aff5572bc7173d9ad0345fff3bb1e4a63ca1443f5bc0036b25ade4.svg" /><figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">A comparison of the base-2, natural (base-<span class="math notranslate nohighlight">\(e\)</span>), and base-10 logarithms of <span class="math notranslate nohighlight">\(x\)</span>.</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="properties-of-logarithms">
+<h2>Properties of logarithms<a class="headerlink" href="#properties-of-logarithms" title="Permalink to this headline">#</a></h2>
+<div class="proof property admonition" id="property-5">
+<p class="admonition-title"><span class="caption-number">Property 5 </span></p>
+<section class="property-content" id="proof-content">
+<p>For any base <span class="math notranslate nohighlight">\(b &gt; 0\)</span>, <span class="math notranslate nohighlight">\(\log_b 1 = 0\)</span>.</p>
+</section>
+</div><p>This is just another way of writing <span class="math notranslate nohighlight">\(b^0 = 1\)</span>.</p>
+<div class="proof property admonition" id="property-6">
+<p class="admonition-title"><span class="caption-number">Property 6 </span></p>
+<section class="property-content" id="proof-content">
+<p>For any base <span class="math notranslate nohighlight">\(b&gt;0\)</span>, <span class="math notranslate nohighlight">\(\log_b b = 1\)</span>.</p>
+</section>
+</div><p>This is another way of saying that <span class="math notranslate nohighlight">\(b^1 = b\)</span>.</p>
+<div class="proof property admonition" id="property-7">
+<p class="admonition-title"><span class="caption-number">Property 7 </span></p>
+<section class="property-content" id="proof-content">
+<p><span class="math notranslate nohighlight">\(\log_b x = \frac{\ln x}{\ln b}\)</span></p>
+</section>
+</div><p>This rule lets us convert between different logarithm bases.</p>
+<div class="proof property admonition" id="property-8">
+<p class="admonition-title"><span class="caption-number">Property 8 </span></p>
+<section class="property-content" id="proof-content">
+<p>For any <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(\log_b(x\cdot y) = \log_b(x) + \log_b(y)\)</span>.</p>
+</section>
+</div><p>This rule allows us to turn products into sums, which can often be computed more easily and with greater precision.</p>
+<p>As a corollary, we also get the analogous rule for ratios: <span class="math notranslate nohighlight">\(\log_b(x/y) = \log_b(x) - \log_b(y)\)</span>.</p>
+<div class="proof property admonition" id="property-9">
+<p class="admonition-title"><span class="caption-number">Property 9 </span></p>
+<section class="property-content" id="proof-content">
+<p>For any <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(\log_b(x^k) = k \cdot \log_b x\)</span>.</p>
+</section>
+</div><p>This is just a slight generalization of rule 4, allowing us to turn powers into products.
+Note that <span class="math notranslate nohighlight">\(k\)</span> need not be an integer, or positive: it works for any real number!</p>
+<p>In particular, we have <span class="math notranslate nohighlight">\(\log_b \frac{1}{x} = \log_b \left(x^{-1}\right) = -\log_b x\)</span>.</p>
+<div class="proof property admonition" id="property-10">
+<p class="admonition-title"><span class="caption-number">Property 10 </span></p>
+<section class="property-content" id="proof-content">
+<p><span class="math notranslate nohighlight">\(b^{\log_b x} = x\)</span>.</p>
+</section>
+</div><p>This is just notation that says <span class="math notranslate nohighlight">\(b^x\)</span> and <span class="math notranslate nohighlight">\(\log_b x\)</span> are mutual inverses.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "dstbook"
+        },
+        kernelOptions: {
+            kernelName: "dstbook",
+            path: "./content/appendixA"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'dstbook'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="ModularArithmetic.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Modular arithmetic</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../references.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">References</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Brian McFee<br/>
+  
+      &copy; Copyright 2020-2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

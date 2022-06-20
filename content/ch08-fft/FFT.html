@@ -1,0 +1,1124 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>8.2. Radix-2 Cooley-Tukey &#8212; Digital Signals Theory</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"loader": {"load": ["[tex]/configMacros", "[tex]/html"]}, "tex": {"packages": {"+": ["configMacros", "html"]}, "macros": {"blue": ["\\class{blue}{#1}", 1], "red": ["\\class{red}{#1}", 1], "orange": ["\\class{orange}{#1}", 1], "purple": ["\\class{purple}{#1}", 1], "green": ["\\class{green}{#1}", 1], "dkorange": ["\\class{dkorange}{#1}", 1], "cyan": ["\\class{cyan}{#1}", 1], "magenta": ["\\class{magenta}{#1}", 1], "yellow": ["\\class{yellow}{#1}", 1], "peagreen": ["\\class{peagreen}{#1}", 1], "darkblue": ["\\class{darkblue}{#1}", 1], "darkorange": ["\\class{darkorange}{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="8.3. Exercises" href="Exercises.html" />
+    <link rel="prev" title="8.1. Time-analysis of the DFT" href="DFT-Analysis.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/dstlogo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Digital Signals Theory</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Time-domain signals
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch01-signals/Intro.html">
+   1. Signals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Preliminaries.html">
+     1.1. Preliminaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Waves.html">
+     1.2. Periodicity and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Units.html">
+     1.3. Units and dimensional analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Acoustics.html">
+     1.4. Audio and signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch01-signals/Exercises.html">
+     1.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch02-sampling/intro.html">
+   2. Digital sampling
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Sampling.html">
+     2.1. Sampling period and rate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Aliasing.html">
+     2.2. Aliasing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Nyquist.html">
+     2.3. The Nyquist-Shannon sampling theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Quantization.html">
+     2.4. Quantization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Exercises.html">
+     2.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch03-convolution/intro.html">
+   3. Convolution
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Building.html">
+     3.1. Delay, gain, and mix
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Convolution.html">
+     3.2. Defining convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/IR.html">
+     3.3. Impulse Response
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Modes.html">
+     3.4. Convolution modes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Properties.html">
+     3.5. Properties of convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/LSI.html">
+     3.6. Linearity and Shift-invariance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Exercises.html">
+     3.7. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  The frequency domain
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch04-complex/Intro.html">
+   4. Complex numbers
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Definition.html">
+     4.1. Defining complex numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Basic-Operations.html">
+     4.2. Basic operations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Exponentials.html">
+     4.3. Complex exponentials
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Multiplication-and-division.html">
+     4.4. Multiplication and division
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Powers-and-waves.html">
+     4.5. Powers and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Exercises.html">
+     4.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch05-fourier/intro.html">
+   5. The Discrete Fourier Transform
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Similarity.html">
+     5.1. Similarity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Cosine.html">
+     5.2. Comparing to sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/AnalysisFrequencies.html">
+     5.3. Analysis frequencies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Phase.html">
+     5.4. Phase
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/DFT.html">
+     5.5. The Discrete Fourier Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Examples.html">
+     5.6. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/SummingSinusoids.html">
+     5.7. Summing sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Exercises.html">
+     5.8. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch06-dft-properties/intro.html">
+   6. Properties of the DFT
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Linearity.html">
+     6.1. Linearity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Shifting.html">
+     6.2. The DFT shifting theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Conjugate-Symmetry.html">
+     6.3. Conjugate Symmetry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Leakage.html">
+     6.4. Spectral leakage and windowing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Exercises.html">
+     6.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch07-inverse-dft/intro.html">
+   7. DFT Invertibility
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/Sinusoid.html">
+     7.1. Warm-up: a single sinusoid
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/InverseDFT.html">
+     7.2. The Inverse DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/Synthesis.html">
+     7.3. Synthesis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/Exercises.html">
+     7.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
+   8. Fast Fourier Transform
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="DFT-Analysis.html">
+     8.1. Time-analysis of the DFT
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     8.2. Radix-2 Cooley-Tukey
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Exercises.html">
+     8.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch09-stft/intro.html">
+   9. The Short-time Fourier Transform
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-stft/Framing.html">
+     9.1. Framing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-stft/STFT.html">
+     9.2. Defining the STFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-stft/Exercises.html">
+     9.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Filtering
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch10-convtheorem/intro.html">
+   10. Frequency domain convolution
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/ConvolutionTheorem.html">
+     10.1. The Convolution Theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/Filtering.html">
+     10.2. Convolutional Filtering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/FilterDesign.html">
+     10.3. Filter Design and Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/Phase.html">
+     10.4. Phase and group delay
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/Exercises.html">
+     10.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch11-iir/intro.html">
+   11. Infinite impulse response filters
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/Feedback.html">
+     11.1. Feedback filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/UsingIIR.html">
+     11.2. Using IIR filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/IIRFilters.html">
+     11.3. Common IIR filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/Exercises.html">
+     11.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch12-ztransform/intro.html">
+   12. Analyzing IIR filters
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch12-ztransform/ZT.html">
+     12.1. The z-transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch12-ztransform/zT-Properties.html">
+     12.2. Properties of the z-transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch12-ztransform/Transfer.html">
+     12.3. Transfer functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch12-ztransform/PoleZero.html">
+     12.4. Stability, poles, and zeros
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch12-ztransform/Exercises.html">
+     12.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../appendixA/Fundamentals.html">
+   Mathematical fundamentals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/Sets.html">
+     Sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/Sequences.html">
+     Sequences
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/ModularArithmetic.html">
+     Modular arithmetic
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/Exponents.html">
+     Exponentials
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#divide-and-conquer">
+   8.2.1. Divide and Conquer
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-is-this-helpful">
+     8.2.1.1. Why is this helpful?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-many-frequencies">
+   8.2.2. How many frequencies?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-radix-2-algorithm">
+   8.2.3. A radix-2 algorithm
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#time-analysis">
+     8.2.3.1. Time analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   8.2.4. Summary
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Radix-2 Cooley-Tukey</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#divide-and-conquer">
+   8.2.1. Divide and Conquer
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-is-this-helpful">
+     8.2.1.1. Why is this helpful?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-many-frequencies">
+   8.2.2. How many frequencies?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-radix-2-algorithm">
+   8.2.3. A radix-2 algorithm
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#time-analysis">
+     8.2.3.1. Time analysis
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   8.2.4. Summary
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="radix-2-cooley-tukey">
+<h1><span class="section-number">8.2. </span>Radix-2 Cooley-Tukey<a class="headerlink" href="#radix-2-cooley-tukey" title="Permalink to this headline">#</a></h1>
+<p>As mentioned in the introduction to this chapter, there are many algorithms which are collectively referred to as “Fast Fourier Transforms”.
+In this section, we’ll see one of the earliest methods, (re-)discovered in 1965 by Cooley and Tukey <span id="id1">[<a class="reference internal" href="../references.html#id8" title="James W Cooley and John W Tukey. An algorithm for the machine calculation of complex Fourier series. Mathematics of computation, 19(90):297–301, 1965.">CT65</a>]</span>, which can accelerate DFT calculations when <span class="math notranslate nohighlight">\(N\)</span> is an integral power of 2: <span class="math notranslate nohighlight">\(N = 2^K\)</span>.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>The Cooley-Tukey method for DFT calculation was known to Gauss all the way back in the early 19th century.</p>
+<p>What a clever chap.</p>
+</aside>
+<p>Modern FFT implementations use many tricks to speed up calculation, and generalize to arbitrary values for <span class="math notranslate nohighlight">\(N\)</span>.
+That said, the core idea of the “radix-2 Cooley-Tukey” method has plenty of interest to offer, and sheds some light on how more advanced techniques can be developed.</p>
+<section id="divide-and-conquer">
+<h2><span class="section-number">8.2.1. </span>Divide and Conquer<a class="headerlink" href="#divide-and-conquer" title="Permalink to this headline">#</a></h2>
+<p>We’ll start again with the DFT equation:</p>
+<div class="math notranslate nohighlight">
+\[\darkblue{X[m]} = \sum_{n=0}^{N-1} \blue{x[n]} \cdot \purple{e^{-2\pi \cdot \mathrm{j} \cdot m \cdot n / N}}.\]</div>
+<p>The key observation of Cooley and Tukey is that this summation can be broken apart in interesting ways.
+Specifically, we can separate the summation into <em>even indices</em> <span class="math notranslate nohighlight">\(n=0,2,4,\dots\)</span> and odd indices <span class="math notranslate nohighlight">\(n=1,3,5,\dots\)</span>.</p>
+<figure class="align-default" id="id2">
+<img alt="a signal recursively divided by taking alternating samples" src="../../_images/f488d17d07a93aaa9bf150aa08b1c652941f2fd55903b1500d71e6e408d0df80.svg" /><figcaption>
+<p><span class="caption-number">Fig. 8.2 </span><span class="caption-text">A discrete signal <span class="math notranslate nohighlight">\(x[n]\)</span> of <span class="math notranslate nohighlight">\(N=32\)</span> samples (top row) is divided into its <em>even</em> and <em>odd</em> samples (middle-left and middle-right).
+The even and odd signals themselves can be similarly divided (bottom row).
+This process can repeat up to <span class="math notranslate nohighlight">\(\log_2 N\)</span> times.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Writing <span class="math notranslate nohighlight">\(n=2k\)</span> for even and <span class="math notranslate nohighlight">\(n=2k+1\)</span> for odd indices, we get:</p>
+<div class="math notranslate nohighlight">
+\[\darkblue{X[m]} = \underbrace{\sum_{k=0}^{N/2-1} \blue{x[2k]} \cdot \purple{e^{-2\pi \cdot \mathrm{j} \cdot m \cdot 2k / N}}}_\text{Even part}
+\quad + 
+\underbrace{\sum_{k=0}^{N/2-1} \blue{x[2k+1]} \cdot \purple{e^{-2\pi \cdot \mathrm{j} \cdot m \cdot (2k+1) / N}}}_\text{Odd part}\]</div>
+<p>All we’ve done so far is change variables: the summations are identical to the original definition.
+However, if we notice that <span class="math notranslate nohighlight">\(2k / N = k / (N/2)\)</span>, we can interpret the first summation as the DFT <span class="math notranslate nohighlight">\(\magenta{X_E[m]}\)</span> where <span class="math notranslate nohighlight">\(\purple{x_E[n]} = \blue{x[2n]}\)</span> is the signal comprised of the even-numbered samples:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{k=0}^{N/2-1} \blue{x[2k]} \cdot \purple{e^{-2\pi \cdot \mathrm{j} \cdot m \cdot 2k / N}}
+\quad =
+\sum_{k=0}^{N/2-1} \blue{x[2k]} \cdot \purple{e^{-2\pi \cdot \mathrm{j} \cdot m \cdot k / (N/2)}}\]</div>
+<p>This trick doesn’t exactly work for the odd-part summation, but we can make it work with a little arithmetic.
+Observe that by the rule of exponents <span class="math notranslate nohighlight">\(e^{a+b} = e^a \cdot e^b\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\purple{e^{-2\pi \cdot \mathrm{j} \cdot m \cdot (2k+1) / N}}
+\quad = 
+\purple{\left({e^{-2\pi \cdot \mathrm{j} \cdot m \cdot 2k / N}\;\;\;\;} \right)} \cdot \red{\left({e^{-2\pi \cdot \mathrm{j} \cdot m / N}\;\;\;}\right)}.\]</div>
+<p>The first factor is exactly the same as in the even case, and gives us the DFT basis.
+The second factor, <span class="math notranslate nohighlight">\(\red{e^{-2\pi \cdot \mathrm{j} \cdot m / N}\;\;}\)</span> (commonly called a <em>“twiddle factor”</em>) does not depend on the variable of summation (<span class="math notranslate nohighlight">\(k\)</span>), and can therefore be factored out of the sum, giving us:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{k=0}^{N/2-1} \blue{x[2k+1]} \cdot \purple{e^{-2\pi \cdot \mathrm{j} \cdot m \cdot (2k+1) / N}}
+\quad =
+\red{\left({e^{-2\pi \cdot \mathrm{j} \cdot m / N}}\;\;\right)} \cdot \sum_{k=0}^{N/2-1} \blue{x[2k+1]} \cdot \purple{e^{-2\pi \cdot \mathrm{j} \cdot m \cdot k / (N/2)}}\]</div>
+<p>This says that the second summation is the DFT <span class="math notranslate nohighlight">\(\magenta{X_O[m]}\)</span> of the signal comprised of odd-indexed samples <span class="math notranslate nohighlight">\(\purple{x_O[n]} = \blue{x[2n+1]}\)</span>, with an additional rotation of <span class="math notranslate nohighlight">\(\red{-2\pi \cdot m / N}\)</span>.</p>
+<p>Combining these two observations, we can express the original DFT of <span class="math notranslate nohighlight">\(N\)</span> samples in terms of two DFTs of <span class="math notranslate nohighlight">\(N/2\)</span> samples:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Note that the multiplicative factor <span class="math notranslate nohighlight">\(\red{e^{-2\pi\cdot\mathrm{j}\cdot m / N}}\)</span> is exactly what we would get from the <a class="reference internal" href="../ch06-dft-properties/Shifting.html#shifting-theorem"><span class="std std-ref">DFT shifting theorem</span></a> when <span class="math notranslate nohighlight">\(\purple{x_O}\)</span> is delayed by one sample.</p>
+</aside>
+<div class="math notranslate nohighlight" id="equation-eq-fft">
+<span class="eqno">(8.1)<a class="headerlink" href="#equation-eq-fft" title="Permalink to this equation">#</a></span>\[\darkblue{X[m]} = \magenta{X_E[m]} + \red{\left({e^{-2\pi \cdot \mathrm{j} \cdot m / N}}\;\;\right)} \cdot \magenta{X_O[m]}\]</div>
+<p>This expression is an example of the <a class="reference external" href="https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm"><strong>divide-and-conquer</strong></a> approach to problem solving.
+When given a large problem to solve, it sometimes helps to break it into smaller problems whose solutions can be combined to solve the original problem.</p>
+<section id="why-is-this-helpful">
+<h3><span class="section-number">8.2.1.1. </span>Why is this helpful?<a class="headerlink" href="#why-is-this-helpful" title="Permalink to this headline">#</a></h3>
+<p>So far, all we’ve done is express a single component of the DFT <span class="math notranslate nohighlight">\(\darkblue{X[m]}\)</span> <em>recursively</em> in terms of two smaller DFT’s, <span class="math notranslate nohighlight">\(\magenta{X_E[m]}\)</span> and <span class="math notranslate nohighlight">\(\magenta{X_O[m]}\)</span>.
+If we only cared about computing a single frequency index <span class="math notranslate nohighlight">\(m\)</span>, this recursive formulation wouldn’t help us.
+Remember, we can compute a single DFT coefficient <span class="math notranslate nohighlight">\(\darkblue{X[m]}\)</span> in <span class="math notranslate nohighlight">\(N\)</span> steps (the inner loop of the naive algorithm in the previous section), and we know that it can’t be done in fewer than <span class="math notranslate nohighlight">\(N\)</span> steps because each sample <span class="math notranslate nohighlight">\(x[n]\)</span> must be looked at.</p>
+<p>Of course, we’re usually interested in computing the full DFT (all <span class="math notranslate nohighlight">\(N\)</span> frequencies).
+The recursive decomposition of <span class="math notranslate nohighlight">\(\darkblue{X[m]}\)</span> is helpful here because it applies simultaneously to <em>all frequencies</em> <span class="math notranslate nohighlight">\(m = 0, 1, 2, \dots, N-1\)</span>.
+That is, if someone gave us the entire DFT calculations for <span class="math notranslate nohighlight">\(\magenta{X_E}\)</span> and <span class="math notranslate nohighlight">\(\magenta{X_O}\)</span>, we could compute the entire DFT <span class="math notranslate nohighlight">\(\magenta{X}\)</span> in <span class="math notranslate nohighlight">\(N\)</span> additional steps by applying <a class="reference internal" href="#equation-eq-fft">(8.1)</a> (once for each <span class="math notranslate nohighlight">\(m=0,1,2,\dots,N-1\)</span>).
+In principle, we should be able to do something like the following:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The pseudo-code here does not quite work, for reasons given below.
+But it should give you a sense of how smaller DFTs can be combined to produce the full DFT.</p>
+</div>
+</aside>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">pseudo_fft</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">X_E</span><span class="p">,</span> <span class="n">X_O</span><span class="p">):</span>
+<span class="linenos"> 2</span>    <span class="sd">&#39;&#39;&#39;Compute the DFT of x given the even and odd DFTs X_E, X_O&#39;&#39;&#39;</span>
+<span class="linenos"> 3</span>    
+<span class="linenos"> 4</span>    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos"> 5</span>            
+<span class="linenos"> 6</span>    <span class="c1"># Combine the given even and odd spectra</span>
+<span class="linenos"> 7</span>    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex</span><span class="p">)</span>
+<span class="linenos"> 8</span>    
+<span class="linenos"> 9</span>    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+<span class="linenos">10</span>        <span class="n">X</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_E</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="n">j</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">m</span> <span class="o">/</span> <span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="n">X_O</span><span class="p">[</span><span class="n">m</span><span class="p">]</span>
+<span class="linenos">11</span>        
+<span class="linenos">12</span>    <span class="k">return</span> <span class="n">X</span>
+</pre></div>
+</div>
+<p>In reality, we won’t get <span class="math notranslate nohighlight">\(\magenta{X_E}\)</span> and <span class="math notranslate nohighlight">\(\magenta{X_O}\)</span> for free.
+However, if the total work taken to get <span class="math notranslate nohighlight">\(\magenta{X_E}\)</span> and <span class="math notranslate nohighlight">\(\magenta{X_O}\)</span> is less than the naive algorithm’s <span class="math notranslate nohighlight">\(N^2\)</span>, this still amounts to an improvement.</p>
+</section>
+</section>
+<section id="how-many-frequencies">
+<h2><span class="section-number">8.2.2. </span>How many frequencies?<a class="headerlink" href="#how-many-frequencies" title="Permalink to this headline">#</a></h2>
+<p>A careful look at <a class="reference internal" href="#equation-eq-fft">(8.1)</a> reveals something a little strange: the DFT <span class="math notranslate nohighlight">\(\darkblue{X[m]}\)</span> involves <span class="math notranslate nohighlight">\(N\)</span> frequencies (<span class="math notranslate nohighlight">\(m=0,1,2,\dots, N-1\)</span>), while the smaller DFTs <span class="math notranslate nohighlight">\(\magenta{X_E[m]}\)</span> and <span class="math notranslate nohighlight">\(\magenta{X_O[m]}\)</span> should have only <span class="math notranslate nohighlight">\(N/2\)</span> frequencies (<span class="math notranslate nohighlight">\(m=0,1,2,\dots,N/2-1\)</span>) since they are derived from signals of length <span class="math notranslate nohighlight">\(N/2\)</span>.
+This introduces a problem for lines 9–10 in the code block above: how do we recover all <span class="math notranslate nohighlight">\(N\)</span> frequencies when only <span class="math notranslate nohighlight">\(N/2\)</span> are present in <span class="math notranslate nohighlight">\(\magenta{X_E}\)</span> and <span class="math notranslate nohighlight">\(\magenta{X_O}\)</span>?</p>
+<p>Once again, <strong>aliasing</strong> can come to the rescue.</p>
+<p>Recall that each <span class="math notranslate nohighlight">\(\darkblue{X[m]}\)</span> is the result of a comparison to a wave that completes <span class="math notranslate nohighlight">\(\red{m}\)</span> cycles in <span class="math notranslate nohighlight">\(\blue{N}\)</span> samples, or in units of Hz:</p>
+<div class="math notranslate nohighlight">
+\[\red{f_m} = \frac{\red{m}}{\blue{N}} \cdot f_s.\]</div>
+<p>For <a class="reference internal" href="#equation-eq-fft">(8.1)</a> to make sense, <span class="math notranslate nohighlight">\(\magenta{X_E[m]}\)</span> should involve a comparison to a wave that complete <span class="math notranslate nohighlight">\(\red{m}\)</span> cycles in <span class="math notranslate nohighlight">\(\blue{N' = N/2}\)</span> samples.
+Note, however, that the sampling rate for the even signal <span class="math notranslate nohighlight">\(\purple{x_E}\)</span> is <span class="math notranslate nohighlight">\(f'_s = f_s/2\)</span> because the period between samples is double that of our original signal <span class="math notranslate nohighlight">\(\blue{x}\)</span>.
+If <span class="math notranslate nohighlight">\(\red{m} \geq N/2\)</span>, the aliasing equation <a class="reference internal" href="../ch02-sampling/Aliasing.html#equation-aliasing-eqn">(2.3)</a> tells us that this frequency has an aliasing frequency <span class="math notranslate nohighlight">\(\red{f_a}\)</span> given by:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\red{f_a} &amp;= \frac{\red{m}}{\blue{N'}} \cdot f'_s - f'_s &amp;\\
+&amp;= \frac{\red{m}}{\blue{N/2}}\cdot \frac{f_s}{2} - \frac{f_s}{2}\\
+&amp;= \frac{\red{m}}{\blue{N}} \cdot f_s - \frac{f_s}{2}\\
+&amp;= \frac{\red{m} - \blue{N/2}}{\blue{N}} \cdot f_s.
+\end{align*}\]</div>
+<p>In plain words, this says that to find <span class="math notranslate nohighlight">\(\magenta{X_E[m]}\)</span> for <span class="math notranslate nohighlight">\(\red{m} \geq N/2\)</span>, we should look at the DFT coefficient <span class="math notranslate nohighlight">\(\magenta{X_E[m - N/2]}\)</span>.
+This is relationship is depicted visually in <a class="reference internal" href="#fft-alias"><span class="std std-numref">Fig. 8.3</span></a>.</p>
+<figure class="align-default" id="fft-alias">
+<img alt="decimation in time produces aliasing" src="../../_images/953d60b871431724c33b35f38b82b61ee1168929c72e53497295f8ead364f66b.svg" /><figcaption>
+<p><span class="caption-number">Fig. 8.3 </span><span class="caption-text">A wave at <span class="math notranslate nohighlight">\(\blue{m} = N/2 + 1\)</span> (with <span class="math notranslate nohighlight">\(N=8\)</span>, <span class="math notranslate nohighlight">\(\blue{m}=5\)</span>) is decimated by taking only the even-index samples <span class="math notranslate nohighlight">\(n=0, 2, 4, \dots\)</span>.
+Due to aliasing, the resulting sequence is equivalent to a wave at <span class="math notranslate nohighlight">\(\red{m - N/2 = 1}\)</span>.</span><a class="headerlink" href="#fft-alias" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Frequency indices <span class="math notranslate nohighlight">\(\red{m} &lt; N/2\)</span> do not need special aliasing treatment, as they will occur exactly where we expect them to in the DFT spectrum: <span class="math notranslate nohighlight">\(\magenta{X_E[m]}\)</span>.</p>
+<p>We can notationally combine these two cases (<span class="math notranslate nohighlight">\(&lt;N/2\)</span> and <span class="math notranslate nohighlight">\(\geq N/2\)</span>) as</p>
+<div class="math notranslate nohighlight">
+\[\red{m} \rightarrow \left( \red{m} \mod \frac{\blue{N}}{2} \right),\]</div>
+<p>or, in Python code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">%</span> <span class="p">(</span><span class="n">N</span> <span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This allows us to correctly state the expression of <span class="math notranslate nohighlight">\(\darkblue{X[m]}\)</span> in terms of <span class="math notranslate nohighlight">\(\magenta{X_E}\)</span> and <span class="math notranslate nohighlight">\(\magenta{X_O}\)</span> for all <span class="math notranslate nohighlight">\(\red{m}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\darkblue{X[m]} = \magenta{X_E\left[m \mod \frac{N}{2}\right]} + 
+\red{\left({e^{-2\pi \cdot \mathrm{j} \cdot m / N}}\;\;\right)} \cdot \magenta{X_O\left[m \mod \frac{N}{2}\right]}.\]</div>
+<p>The benefit of this form is that we only rely on <span class="math notranslate nohighlight">\(N/2\)</span> coefficients in both <span class="math notranslate nohighlight">\(\magenta{X_E}\)</span> and <span class="math notranslate nohighlight">\(\magenta{X_O}\)</span>, but we are still able to recover all <span class="math notranslate nohighlight">\(N\)</span> coefficients <span class="math notranslate nohighlight">\(\darkblue{X[m]}\)</span>.
+This, ultimately, is the source of the efficiency gains in FFT algorithms: the solutions to smaller sub-problems can be used multiple times to produce different parts of the output. <span class="math notranslate nohighlight">\(\darkblue{X[m]}\)</span> and <span class="math notranslate nohighlight">\(\darkblue{X[m + N/2]}\)</span> both depend on <span class="math notranslate nohighlight">\(\magenta{X_E[m]}\)</span> and <span class="math notranslate nohighlight">\(\magenta{X_O[m]}\)</span>.
+We compute <span class="math notranslate nohighlight">\(\magenta{X_E}\)</span> and <span class="math notranslate nohighlight">\(\magenta{X_O}\)</span> once, but we get to use them twice.</p>
+</section>
+<section id="a-radix-2-algorithm">
+<h2><span class="section-number">8.2.3. </span>A radix-2 algorithm<a class="headerlink" href="#a-radix-2-algorithm" title="Permalink to this headline">#</a></h2>
+<p>Finally, combining the observations above, we can give a full definition of the radix-2 FFT algorithm.</p>
+<p>The last ingredient to this algorithm, compared to the naive DFT implementation, is <em>recursion</em>.
+To compute <span class="math notranslate nohighlight">\(\magenta{X_E}\)</span> and <span class="math notranslate nohighlight">\(\magenta{X_O}\)</span>, the algorithm will <strong>call itself</strong> on the appropriately sub-sampled signal.
+Once it has <span class="math notranslate nohighlight">\(\magenta{X_E}\)</span> and <span class="math notranslate nohighlight">\(\magenta{X_O}\)</span>, it then combines the results and returns the output spectrum.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title">Recursion is weird.</p>
+<p>If you’ve never seen recursion before, don’t panic.</p>
+<p>Yes, it’s weird, but it’s not magic.</p>
+<p>If it helps, think of a simpler recursive algorithm for adding up a list of numbers.
+You can think of any such sum as “the first number, plus whatever the sum of the rest is”.
+That definition also applies to the “sum of the rest” part, and every subsequent sum until there is only a single number left.</p>
+</aside>
+<p>If the input has only one sample (<span class="math notranslate nohighlight">\(N = 2^0 = 1\)</span>), then there is only one analysis frequency (<span class="math notranslate nohighlight">\(m=0\)</span>), and <span class="math notranslate nohighlight">\(X[0] = x[0]\)</span> is just the sample value itself.
+This represents the <strong>base case</strong>, the input which terminates the recursion.</p>
+<div class="highlight-python notranslate" id="radix2-fft"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">def</span> <span class="nf">fft2</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="linenos"> 2</span>    <span class="sd">&#39;&#39;&#39;Compute the DFT of an input x of N = 2**k samples&#39;&#39;&#39;</span>
+<span class="linenos"> 3</span>    
+<span class="linenos"> 4</span>    <span class="c1"># Get the length of the input</span>
+<span class="linenos"> 5</span>    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos"> 6</span>    
+<span class="linenos"> 7</span>    <span class="c1"># The DFT of a single sample is just the sample value itself</span>
+<span class="linenos"> 8</span>    <span class="c1"># Nothing else to do here, so return</span>
+<span class="linenos"> 9</span>    <span class="k">if</span> <span class="n">N</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="linenos">10</span>        <span class="k">return</span> <span class="n">x</span>
+<span class="linenos">11</span>        
+<span class="linenos">12</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">13</span>        <span class="c1"># Recursively compute the even and odd DFTs</span>
+<span class="linenos">14</span>        <span class="n">X_even</span> <span class="o">=</span> <span class="n">fft2</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># Start at 0 with steps of 2</span>
+<span class="linenos">15</span>        <span class="n">X_odd</span> <span class="o">=</span> <span class="n">fft2</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># Start at 1 with steps of 2</span>
+<span class="linenos">16</span>        
+<span class="linenos">17</span>        <span class="c1"># Allocate the output array</span>
+<span class="linenos">18</span>        <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">complex</span><span class="p">)</span>
+<span class="linenos">19</span>        
+<span class="linenos">20</span>        <span class="c1"># Combine the even and odd parts</span>
+<span class="linenos">21</span>        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+<span class="linenos">22</span>            <span class="c1"># Find the alias of frequency m in the smaller DFTs</span>
+<span class="linenos">23</span>            <span class="n">m_alias</span> <span class="o">=</span> <span class="n">m</span> <span class="o">%</span> <span class="p">(</span><span class="n">N</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">24</span>            <span class="n">X</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_even</span><span class="p">[</span><span class="n">m_alias</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="n">j</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">m</span> <span class="o">/</span> <span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="n">X_odd</span><span class="p">[</span><span class="n">m_alias</span><span class="p">]</span>
+<span class="linenos">25</span>            
+<span class="linenos">26</span>        <span class="k">return</span> <span class="n">X</span>
+</pre></div>
+</div>
+<section id="time-analysis">
+<h3><span class="section-number">8.2.3.1. </span>Time analysis<a class="headerlink" href="#time-analysis" title="Permalink to this headline">#</a></h3>
+<p>Analyzing the running time of the <code class="docutils literal notranslate"><span class="pre">fft2</span></code> algorithm above requires a slightly more sophisticated approach than the naive DFT algorithm, due to the use of recursion.</p>
+<p>Let <span class="math notranslate nohighlight">\(T(N)\)</span> represent the amount of time taken by the algorithm on an input of length <span class="math notranslate nohighlight">\(N\)</span>.
+For now, <span class="math notranslate nohighlight">\(T(N)\)</span> is an unknown quantity, but this notation will help us solve for it.
+We’re not going to aim for a precise count of the operations performed by the algorithm, but merely a coarse upper bound on how the computation scales with the length of the input (<span class="math notranslate nohighlight">\(N\)</span>).</p>
+<p>The base case, <span class="math notranslate nohighlight">\(T(1)\)</span>, takes some constant amount of time, which we can call <span class="math notranslate nohighlight">\(c\)</span>.
+This accounts for all computation up to line 10 where it returns from the <span class="math notranslate nohighlight">\(N=1\)</span> case.</p>
+<p>If <span class="math notranslate nohighlight">\(N&gt;1\)</span>, then we see two recursive calls to inputs of length <span class="math notranslate nohighlight">\(N/2\)</span>.
+This is followed by a loop of <span class="math notranslate nohighlight">\(N\)</span> steps (line 21), of which each step takes some constant amount of time that we’ll call <span class="math notranslate nohighlight">\(d\)</span>, for a total of <span class="math notranslate nohighlight">\(N\cdot d\)</span>.
+(We’ll absorb the amount of time to allocate the output array at line 18 into this quantity.)
+Using this observation, we can express the total time for <span class="math notranslate nohighlight">\(T(N)\)</span> recursively:</p>
+<div class="math notranslate nohighlight">
+\[T(N) = 2 \cdot T\left(\frac{N}{2}\right) + N\cdot d\]</div>
+<p>Each of these recursive calls, in turn has two more recursive calls plus <span class="math notranslate nohighlight">\(d\cdot N/2\)</span> work to combine the results:</p>
+<div class="math notranslate nohighlight">
+\[T(N) = 2 \cdot \left( 2\cdot T\left(\frac{N}{4}\right) + \frac{N}{2} \cdot d \right)+ N\cdot d\]</div>
+<p>and this process can repeat until the recursion stops at <span class="math notranslate nohighlight">\(N=1\)</span>.</p>
+<p>If we total up the non-recursive computation done at each <em>level</em> of the recursion, we can get a handle on the total amount of computation.
+This is illustrated in <a class="reference internal" href="#fig-recursion"><span class="std std-numref">Fig. 8.4</span></a>.
+To simplify notation, we’ll assume that <span class="math notranslate nohighlight">\(c \leq d\)</span>, meaning that the arithmetic operations at lines 23–24 are more expensive than the base-case operations in lines 1–10.</p>
+<figure class="align-default" id="fig-recursion">
+<img alt="a visual representation of time complexity in a recursive algorithm" src="../../_images/7e4f2c77f893f56fe2ad3f781d5db83513af100a6e8786ac81d57efab5b29b47.svg" /><figcaption>
+<p><span class="caption-number">Fig. 8.4 </span><span class="caption-text">The total amount of computation performed by the radix-2 FFT algorithm (<code class="docutils literal notranslate"><span class="pre">fft2</span></code>) can be computed by looking at the non-recursive computation done at each level, and then adding up the levels.
+Each level totals at most <span class="math notranslate nohighlight">\(d\cdot N\)</span> computation, and there are <span class="math notranslate nohighlight">\(1 + \log_2 N\)</span> levels.</span><a class="headerlink" href="#fig-recursion" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>What <a class="reference internal" href="#fig-recursion"><span class="std std-numref">Fig. 8.4</span></a> shows us is that each level <span class="math notranslate nohighlight">\(\ell\)</span> of the recursion has <span class="math notranslate nohighlight">\(2^\ell\)</span> calls to <code class="docutils literal notranslate"><span class="pre">fft2</span></code>, each of size <span class="math notranslate nohighlight">\(N/2^\ell\)</span>.
+Each of these does some linear amount of computation: <span class="math notranslate nohighlight">\(d \cdot N / 2^\ell\)</span>, and if we sum these together, the result for level <span class="math notranslate nohighlight">\(\ell\)</span> is <span class="math notranslate nohighlight">\(d \cdot N\)</span>.
+The total number of levels is <span class="math notranslate nohighlight">\(1 + \log_2 N\)</span>, since this counts how many times <span class="math notranslate nohighlight">\(N\)</span> can be divided by 2 before hitting the base case: <span class="math notranslate nohighlight">\(N=1\)</span> has one level, <span class="math notranslate nohighlight">\(N=2\)</span> should have two levels, <span class="math notranslate nohighlight">\(N=4\)</span> has 3 levels, and so forth.
+Multiplying the per-level work by the number of levels gives us a total upper bound of</p>
+<div class="math notranslate nohighlight">
+\[T(N) \leq d \cdot N \cdot (1 + \log_2 N).\]</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>In asymptotic algorithm analysis, we typically ignore constant factors and focus on the largest term that scales with the input length.
+Since <span class="math notranslate nohighlight">\(1 + \log_2 N &lt; 2 \cdot \log_2 N\)</span>, this means that we would ignore any linear dependencies on <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<p>The common notation for this is <span class="math notranslate nohighlight">\(T(N) \in \mathcal{O}(N \cdot \log N)\)</span>, which we read as “<span class="math notranslate nohighlight">\(T(N)\)</span> is <a class="reference external" href="https://en.wikipedia.org/wiki/Big_O_notation">big-Oh</a> (order of) <span class="math notranslate nohighlight">\(N\cdot \log N\)</span>”.</p>
+</aside>
+<p>Since <span class="math notranslate nohighlight">\(\log_2 N &lt; N\)</span>, this comes out to be substantially more efficient than the <span class="math notranslate nohighlight">\(d \cdot N^2\)</span> work performed by the naive approach.</p>
+<figure class="align-default" id="id3">
+<img alt="visual comparison of linear, quadratic, and linearithmic time complexity" src="../../_images/50d56dde08c242424455868f69d675dd0e1ca1e50a1d9eb5e928fbadf02560b0.svg" /><figcaption>
+<p><span class="caption-number">Fig. 8.5 </span><span class="caption-text">A comparison of linear (<span class="math notranslate nohighlight">\(\blue{N}\)</span>), quadratic (<span class="math notranslate nohighlight">\(\red{N^2}\)</span>), and <em>linearithmic</em> (<span class="math notranslate nohighlight">\(\green{N \cdot \log_2 N}\)</span>) growth.
+The linearithmic curve is much gentler than the quadratic curve, meaning that the amount of work increases slowly with the size of the input.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="summary">
+<h2><span class="section-number">8.2.4. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<p>In this chapter, we’ve seen that the radix-2 Cooley-Tukey algorithm is substantially faster than the naive DFT implementation.
+This is especially true when <span class="math notranslate nohighlight">\(N\)</span> is large, as is the common case in audio signal processing.</p>
+<p>The code given above for <code class="docutils literal notranslate"><span class="pre">fft2</span></code> is a rather simplistic implementation given to illustrate the basic concepts.
+It can be made much more efficient in several ways, including: pre-computing and caching the “twiddle” factors, re-using a single output buffer rather than re-allocating arrays for each partial output, and so on.</p>
+<p>The main limitation of the radix-2 method is that it only works if <span class="math notranslate nohighlight">\(N\)</span> is an integral power of 2: <span class="math notranslate nohighlight">\(N= 1, 2, 4, 8, 16, \dots\)</span>.
+If <span class="math notranslate nohighlight">\(N = 37\)</span> (for example), this method cannot be used.</p>
+<p>The radix-2 method is just one special case of the general method of Cooley and Tukey.
+In the radix-2 case, we divide an input of length <span class="math notranslate nohighlight">\(N\)</span> into 2 inputs of length <span class="math notranslate nohighlight">\(N/2\)</span>.
+More generally, if <span class="math notranslate nohighlight">\(N\)</span> is divisible by some integer <span class="math notranslate nohighlight">\(p\)</span>, we can divide into <span class="math notranslate nohighlight">\(p\)</span> inputs of length <span class="math notranslate nohighlight">\(N/p\)</span>.
+The basic principle behind this more general “mixed-radix” approach is the same: the DFTs of the smaller cases are combined to form the larger case by applying the appropriate delay (“twiddle factor”) to each one.
+This more general approach retains the <span class="math notranslate nohighlight">\(N\log N\)</span> computational complexity for broader classes of input length (not just powers of 2).</p>
+<p>Where the Cooley-Tukey method fails is when the input length <span class="math notranslate nohighlight">\(N\)</span> is a prime number (eg, 37, or 257), and cannot be divided evenly into pieces.
+In these cases, alternate methods have been developed which still achieve running time that scales like <span class="math notranslate nohighlight">\(N\log N\)</span>.</p>
+<p>In practice, modern FFT implementations—such as <a class="reference external" href="http://www.fftw.org/">the Fastest Fourier Transform in the West (FFTW)</a>—use many combinations of strategies to optimize the computation time for a given input length.</p>
+<p>The take-home message is that computing DFTs can be done in much less than quadratic time:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The DFT for a signal of <span class="math notranslate nohighlight">\(N\)</span> samples can be computed (by FFT methods) in time <span class="math notranslate nohighlight">\(\approx N \cdot \log_2 N\)</span>.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "dstbook"
+        },
+        kernelOptions: {
+            kernelName: "dstbook",
+            path: "./content/ch08-fft"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'dstbook'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="DFT-Analysis.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">8.1. </span>Time-analysis of the DFT</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Exercises.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">8.3. </span>Exercises</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Brian McFee<br/>
+  
+      &copy; Copyright 2020-2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

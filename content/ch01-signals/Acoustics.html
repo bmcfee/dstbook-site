@@ -1,0 +1,1080 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1.4. Audio and signals &#8212; Digital Signals Theory</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"loader": {"load": ["[tex]/configMacros", "[tex]/html"]}, "tex": {"packages": {"+": ["configMacros", "html"]}, "macros": {"blue": ["\\class{blue}{#1}", 1], "red": ["\\class{red}{#1}", 1], "orange": ["\\class{orange}{#1}", 1], "purple": ["\\class{purple}{#1}", 1], "green": ["\\class{green}{#1}", 1], "dkorange": ["\\class{dkorange}{#1}", 1], "cyan": ["\\class{cyan}{#1}", 1], "magenta": ["\\class{magenta}{#1}", 1], "yellow": ["\\class{yellow}{#1}", 1], "peagreen": ["\\class{peagreen}{#1}", 1], "darkblue": ["\\class{darkblue}{#1}", 1], "darkorange": ["\\class{darkorange}{#1}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="1.5. Exercises" href="Exercises.html" />
+    <link rel="prev" title="1.3. Units and dimensional analysis" href="Units.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/dstlogo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Digital Signals Theory</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Time-domain signals
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="Intro.html">
+   1. Signals
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Preliminaries.html">
+     1.1. Preliminaries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Waves.html">
+     1.2. Periodicity and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Units.html">
+     1.3. Units and dimensional analysis
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     1.4. Audio and signals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Exercises.html">
+     1.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch02-sampling/intro.html">
+   2. Digital sampling
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Sampling.html">
+     2.1. Sampling period and rate
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Aliasing.html">
+     2.2. Aliasing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Nyquist.html">
+     2.3. The Nyquist-Shannon sampling theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Quantization.html">
+     2.4. Quantization
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch02-sampling/Exercises.html">
+     2.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch03-convolution/intro.html">
+   3. Convolution
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Building.html">
+     3.1. Delay, gain, and mix
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Convolution.html">
+     3.2. Defining convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/IR.html">
+     3.3. Impulse Response
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Modes.html">
+     3.4. Convolution modes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Properties.html">
+     3.5. Properties of convolution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/LSI.html">
+     3.6. Linearity and Shift-invariance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch03-convolution/Exercises.html">
+     3.7. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  The frequency domain
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch04-complex/Intro.html">
+   4. Complex numbers
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Definition.html">
+     4.1. Defining complex numbers
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Basic-Operations.html">
+     4.2. Basic operations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Exponentials.html">
+     4.3. Complex exponentials
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Multiplication-and-division.html">
+     4.4. Multiplication and division
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Powers-and-waves.html">
+     4.5. Powers and waves
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch04-complex/Exercises.html">
+     4.6. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch05-fourier/intro.html">
+   5. The Discrete Fourier Transform
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Similarity.html">
+     5.1. Similarity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Cosine.html">
+     5.2. Comparing to sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/AnalysisFrequencies.html">
+     5.3. Analysis frequencies
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Phase.html">
+     5.4. Phase
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/DFT.html">
+     5.5. The Discrete Fourier Transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Examples.html">
+     5.6. Examples
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/SummingSinusoids.html">
+     5.7. Summing sinusoids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch05-fourier/Exercises.html">
+     5.8. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch06-dft-properties/intro.html">
+   6. Properties of the DFT
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Linearity.html">
+     6.1. Linearity
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Shifting.html">
+     6.2. The DFT shifting theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Conjugate-Symmetry.html">
+     6.3. Conjugate Symmetry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Leakage.html">
+     6.4. Spectral leakage and windowing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch06-dft-properties/Exercises.html">
+     6.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch07-inverse-dft/intro.html">
+   7. DFT Invertibility
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/Sinusoid.html">
+     7.1. Warm-up: a single sinusoid
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/InverseDFT.html">
+     7.2. The Inverse DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/Synthesis.html">
+     7.3. Synthesis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch07-inverse-dft/Exercises.html">
+     7.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch08-fft/intro.html">
+   8. Fast Fourier Transform
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-fft/DFT-Analysis.html">
+     8.1. Time-analysis of the DFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-fft/FFT.html">
+     8.2. Radix-2 Cooley-Tukey
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch08-fft/Exercises.html">
+     8.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch09-stft/intro.html">
+   9. The Short-time Fourier Transform
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-stft/Framing.html">
+     9.1. Framing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-stft/STFT.html">
+     9.2. Defining the STFT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch09-stft/Exercises.html">
+     9.3. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Filtering
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch10-convtheorem/intro.html">
+   10. Frequency domain convolution
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/ConvolutionTheorem.html">
+     10.1. The Convolution Theorem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/Filtering.html">
+     10.2. Convolutional Filtering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/FilterDesign.html">
+     10.3. Filter Design and Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/Phase.html">
+     10.4. Phase and group delay
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch10-convtheorem/Exercises.html">
+     10.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch11-iir/intro.html">
+   11. Infinite impulse response filters
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/Feedback.html">
+     11.1. Feedback filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/UsingIIR.html">
+     11.2. Using IIR filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/IIRFilters.html">
+     11.3. Common IIR filters
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch11-iir/Exercises.html">
+     11.4. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ch12-ztransform/intro.html">
+   12. Analyzing IIR filters
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch12-ztransform/ZT.html">
+     12.1. The z-transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch12-ztransform/zT-Properties.html">
+     12.2. Properties of the z-transform
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch12-ztransform/Transfer.html">
+     12.3. Transfer functions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch12-ztransform/PoleZero.html">
+     12.4. Stability, poles, and zeros
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ch12-ztransform/Exercises.html">
+     12.5. Exercises
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../appendixA/Fundamentals.html">
+   Mathematical fundamentals
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/Sets.html">
+     Sets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/Sequences.html">
+     Sequences
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/ModularArithmetic.html">
+     Modular arithmetic
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../appendixA/Exponents.html">
+     Exponentials
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../references.html">
+   References
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sound-propagation">
+   1.4.1. Sound propagation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pressure-intensity-amplitude-and-loudness">
+   1.4.2. Pressure, intensity, amplitude, and loudness
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decibels-db">
+     1.4.2.1. Decibels (dB)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#frequency-and-pitch">
+   1.4.3. Frequency and pitch
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiplicative-vs-additive">
+     1.4.3.1. Multiplicative vs. additive
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#frequency-ranges">
+     1.4.3.2. Frequency ranges
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Audio and signals</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sound-propagation">
+   1.4.1. Sound propagation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pressure-intensity-amplitude-and-loudness">
+   1.4.2. Pressure, intensity, amplitude, and loudness
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decibels-db">
+     1.4.2.1. Decibels (dB)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#frequency-and-pitch">
+   1.4.3. Frequency and pitch
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiplicative-vs-additive">
+     1.4.3.1. Multiplicative vs. additive
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#frequency-ranges">
+     1.4.3.2. Frequency ranges
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="audio-and-signals">
+<h1><span class="section-number">1.4. </span>Audio and signals<a class="headerlink" href="#audio-and-signals" title="Permalink to this headline">#</a></h1>
+<p>We’ll finish this chapter off with a quick overview of acoustic signals: how waves propagate in an environment, and how we can reason about them as signals.</p>
+<p>This introduction is superficial, and will mainly become relevant much later on when we go into convolutional filtering, but it may help to ground some of the principals in physical reality.
+For a more thorough introduction to acoustics, readers should consult <span id="id1">[<a class="reference internal" href="../references.html#id2" title="F. Alton Everest and Ken C. Pohlmann. Master Handbook of Acoustics. McGraw-Hill, New York, 6th ed edition, 2015. ISBN 978-0071841047.">EP15</a>]</span>.</p>
+<section id="sound-propagation">
+<h2><span class="section-number">1.4.1. </span>Sound propagation<a class="headerlink" href="#sound-propagation" title="Permalink to this headline">#</a></h2>
+<p>Let’s imagine a simple recording scenario.  There is some source emitting sound signal <span class="math notranslate nohighlight">\(x_s\)</span>, perhaps a musical instrument or a human voice, and a microphone is placed 5 meters away, recording the microphone signal <span class="math notranslate nohighlight">\(x_m\)</span>.
+To keep things simple, let’s imagine that there are no other sounds in the environment, and there are no surfaces that could cause reflections or resonances.</p>
+<p>If the speed of sound is some <span class="math notranslate nohighlight">\(C\)</span> <code class="docutils literal notranslate"><span class="pre">[meters</span> <span class="pre">/</span> <span class="pre">second]</span></code>, then it will take <span class="math notranslate nohighlight">\(5 / C\)</span> <code class="docutils literal notranslate"><span class="pre">[seconds]</span></code> for sound to travel from the source to the microphone.
+Put another way, the pressure we measure at time <span class="math notranslate nohighlight">\(t\)</span> is induced by the source signal at time <span class="math notranslate nohighlight">\(t - 5/C\)</span>.
+More generally, if the distance is <span class="math notranslate nohighlight">\(D\)</span> <code class="docutils literal notranslate"><span class="pre">[meters]</span></code>, we have the following</p>
+<aside class="margin sidebar">
+<p class="sidebar-title">Negative time offset?</p>
+<p>Many people find the negative time offset in <a class="reference internal" href="#equation-distance-delay">(1.7)</a> to be counter-intuitive, and it’s a common mistake to instead write <span class="math notranslate nohighlight">\(t+D/C\)</span>.</p>
+<p>It can help to reason about what <span class="math notranslate nohighlight">\(x_m(t)\)</span> represents: it’s recording a signal that must have already occurred.
+If <span class="math notranslate nohighlight">\(x_m(t)\)</span> depended on <span class="math notranslate nohighlight">\(x_s(t + D/C)\)</span>, then it must be recording from the future, which is impossible.</p>
+</aside>
+<div class="math notranslate nohighlight" id="equation-distance-delay">
+<span class="eqno">(1.7)<a class="headerlink" href="#equation-distance-delay" title="Permalink to this equation">#</a></span>\[x_m(t) \approx x_s(t - D/C).\]</div>
+<p>We’ve written <span class="math notranslate nohighlight">\(\approx\)</span> here, and not <span class="math notranslate nohighlight">\(=\)</span>, because the signals will not be identical: the amplitude will also change.</p>
+<figure class="align-default" id="id2">
+<img alt="A signal before and after applying a delay, with an arrow indicating corresponding time points." src="../../_images/46cdd1d0591ed3da843d5769ebebc505ea8b70df0c12189e8b2aa82099c8213b.svg" /><figcaption>
+<p><span class="caption-number">Fig. 1.12 </span><span class="caption-text">A signal <span class="math notranslate nohighlight">\(x_s\)</span> emitted by a source (<em>top</em>) and observed by a microphone as <span class="math notranslate nohighlight">\(x_m\)</span> (bottom).
+If the signal takes time <span class="math notranslate nohighlight">\(0.4\)</span> [seconds] to propagate from the source to microphone, then <span class="math notranslate nohighlight">\(x_m(t) = x_s(t-0.4)\)</span>.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="pressure-intensity-amplitude-and-loudness">
+<span id="pressure-intensity"></span><h2><span class="section-number">1.4.2. </span>Pressure, intensity, amplitude, and loudness<a class="headerlink" href="#pressure-intensity-amplitude-and-loudness" title="Permalink to this headline">#</a></h2>
+<p>The first property of audio signals that we often think of is <em>loudness</em>.
+This turns out to be a surprisingly subtle property: loudness is ultimately a psycho-acoustic phenomenon (something that happens in our brains), and not a physically measurable phenomenon.
+There are, however, numerous physical quantities that we <em>can</em> and do measure that relate to loudness.
+We’ll briefly summarize the most important ones here, as described in the <a class="reference external" href="https://www.iso.org/standard/64978.html">ISO 80000-8:2020 standards</a>:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title">Physical units</p>
+<p>If you’re a little out of practice with physical units, <strong>don’t worry about it</strong>.
+We include this information here for completeness, but it mostly won’t matter too much when working with digital signals.</p>
+<p>For reference though, a Pascal [Pa] is a unit of pressure: force spread over a surface area.
+If you’re from one of the few countries using “standard” units, think of “pounds per square-inch (PSI)” used to measure air pressure in tires: it’s the same idea.</p>
+</aside>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-left head"><p>Name</p></th>
+<th class="text-left head"><p>Description</p></th>
+<th class="text-right head"><p>Symbol</p></th>
+<th class="text-right head"><p>Units</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><em>Sound pressure</em></p></td>
+<td class="text-left"><p>the change in ambient (static) air pressure due to the sound</p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(p\)</span></p></td>
+<td class="text-right"><p>Pascals <span class="math notranslate nohighlight">\([\text{Pa}]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><em>Sound power</em></p></td>
+<td class="text-left"><p>the rate at which sound energy is emitted by a source</p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(P\)</span></p></td>
+<td class="text-right"><p>Watts <span class="math notranslate nohighlight">\([\text{W}]\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><em>Sound intensity</em></p></td>
+<td class="text-left"><p>sound power per unit area</p></td>
+<td class="text-right"><p><span class="math notranslate nohighlight">\(I\)</span></p></td>
+<td class="text-right"><p>Watts per square-meter <span class="math notranslate nohighlight">\(\left[\frac{\text{W}}{\text{m}^2}\right]\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>Human ears and microphones respond to <em>sound pressure</em> (<span class="math notranslate nohighlight">\(p\)</span>), the latter converting pressure to an electrical signal measured in Volts <span class="math notranslate nohighlight">\([\text{V}]\)</span>.</p>
+<figure class="align-default" id="id3">
+<img alt="A signal oscillating around the ambient pressure level, with the peak pressure level indicated." src="../../_images/43d620ff06397da81c2a76f9074fc55262612d7bda5cff50c2df6a7732efd7c0.svg" /><figcaption>
+<p><span class="caption-number">Fig. 1.13 </span><span class="caption-text">An acoustic signal <span class="math notranslate nohighlight">\(\blue{x}\)</span> causes air pressure to fluctuate around the ambient pressure.
+The amplitude of the signal is given by the maximum difference from the ambient pressure.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Sound power (<span class="math notranslate nohighlight">\(P\)</span>) and intensity (<span class="math notranslate nohighlight">\(I\)</span>) are useful for quantifying the transmission of sound through an environment.
+Intensity might seem a bit strange at first glance, as it divides a unit of power (Watts) by a unit of surface area (square-meters).
+This can be understood by imagining an omni-directional sound source with some fixed power <span class="math notranslate nohighlight">\(P\)</span>.
+As sound propagates from the source, its power is spread over the surface of a sphere.
+When the sound has traveled <span class="math notranslate nohighlight">\(r\)</span> meters from the source, the corresponding sphere has surface area</p>
+<div class="math notranslate nohighlight">
+\[a = 4\pi \cdot r^2.\]</div>
+<p>and the corresponding intensity <span class="math notranslate nohighlight">\(I\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[I = \frac{P}{a} = \frac{P}{4\pi \cdot r^2} \left[\frac{\text{W}}{\text{m}^2}\right]\]</div>
+<p>Without going too far into the details of these quantities, they are defined such that intensity (and power) is proportional to the <em>square</em> of pressure:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title">Proportionality</p>
+<p>The proportionality symbol <span class="math notranslate nohighlight">\(\propto\)</span> means that two quantities are multiplicatively related to each other, but the exact proportion is not too important (as long as it is constant).</p>
+<p>For example, one could write that the circumference of any circle is proportional to its radius:</p>
+<div class="math notranslate nohighlight">
+\[C = 2\pi \cdot r \propto r.\]</div>
+<p>if we didn’t care too much about the constant factor of <span class="math notranslate nohighlight">\(2\pi\)</span>.
+However, we could <em>not</em> write <span class="math notranslate nohighlight">\(C \propto r^2\)</span>, because there is no constant that relates the square of the radius to the circumference.</p>
+<p>While this notation does make dimensional analysis impossible, it can be helpful to isolate the key quantities of interest.</p>
+</aside>
+<div class="math notranslate nohighlight">
+\[I \propto p^2\]</div>
+<p>Equivalently, this implies that sound pressure is inversely proportional to distance:</p>
+<div class="math notranslate nohighlight">
+\[p \propto \sqrt{I} = \sqrt{\frac{P}{4\pi \cdot r^2}} = \frac{1}{r} \cdot \sqrt{\frac{P}{4\pi}} \propto \frac{1}{r}\]</div>
+<p>This tells us that if the power <span class="math notranslate nohighlight">\(P\)</span> is held constant, and we move a microphone away from the source, the output voltage will decay like <span class="math notranslate nohighlight">\(1/r\)</span>.
+In the context of this text, the voltage output of a microphone is not observed directly, but is instead post-processed and amplified before being digitized.
+The resulting <em>amplitude</em> (<span class="math notranslate nohighlight">\(A\)</span>) of the signal is generally proportional to the microphone’s output voltage, which is in turn proportional to pressure:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Signal amplitude <span class="math notranslate nohighlight">\(\propto\)</span> Voltage <span class="math notranslate nohighlight">\(\propto\)</span> Sound pressure</p>
+</div>
+<section id="decibels-db">
+<span id="decibels"></span><h3><span class="section-number">1.4.2.1. </span>Decibels (dB)<a class="headerlink" href="#decibels-db" title="Permalink to this headline">#</a></h3>
+<p>Human hearing is sensitive to sound pressure, but this sensitivity is not <em>linear</em>.
+A <em>doubling</em> of sound pressure <strong>does not</strong> result in the perception of being <em>twice as loud</em>.
+As mentioned above, perception of loudness is a complex phenomenon, but to a first approximation, it is fair to say that humans are sensitive to <em>ratios</em> of pressure (<span class="math notranslate nohighlight">\(p_1 / p_2\)</span>), not <em>differences</em> (<span class="math notranslate nohighlight">\(p_1 - p_2\)</span>).
+Logarithms allow us to convert ratios into differences:</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you’re rusty on logarithms, you may want to pause here and read through the <a class="reference internal" href="../appendixA/Exponents.html#logarithms"><span class="std std-ref">appendix</span></a>.</p>
+</div>
+</aside>
+<div class="math notranslate nohighlight">
+\[\log \frac{a}{b} = \log(a) - \log(b),\]</div>
+<p>which are often more convenient to deal with.
+This leads us to the <strong>decibel (dB)</strong> scale for ratios:</p>
+<div class="math notranslate nohighlight">
+\[\text{dB}(v_1, v_2) = 10 \cdot \log_{10} \left(\frac{v_1}{v_2}\right).\]</div>
+<p>Since the logarithm function expects a dimension-less input, the values being compared must have the same units, which cancel when divided.</p>
+<p><em>Sound intensity level</em> is defined in terms of the decibels between sound intensity <span class="math notranslate nohighlight">\(I\)</span> and a reference intensity <span class="math notranslate nohighlight">\(I_0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[L = 10 \cdot \log_{10} \left(\frac{I}{I_0}\right),\]</div>
+<p>or in terms of pressure (with reference pressure <span class="math notranslate nohighlight">\(p_0\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[10 \cdot \log_{10} \left(\frac{p^2}{p_0^2}\right) = 10 \cdot \log_{10} \left(\frac{p}{p_0}\right)^2 = 20 \cdot \log_{10} \left(\frac{p}{p_0}\right).\]</div>
+<p>Although we usually think of decibels as measuring intensity (or some nebulous correlate of <em>loudness</em>), decibels in fact just measure <em>ratios</em>, and can be applied to all kinds of quantities.
+When specifically applied to sound pressure measurements, we sometimes write <span class="math notranslate nohighlight">\(\text{dB}_\text{SPL}\)</span></p>
+<p><strong>Some facts about decibels</strong></p>
+<ul class="simple">
+<li><p>Decibels can be positive or negative. A ratio <span class="math notranslate nohighlight">\(&lt;1\)</span> corresponds to negative dB; a ratio <span class="math notranslate nohighlight">\(&gt;1\)</span> corresponds to positive dB.  A ratio of exactly 1 gives 0 dB.</p></li>
+<li><p>A decibel is one tenth of a Bel.  (But nobody really measures things in Bels.)</p></li>
+<li><p>An amplitude (or pressure) ratio of 2 (doubling) corresponds to <span class="math notranslate nohighlight">\(20 \log_{10} 2 \approx +6 \left[\text{dB}\right]\)</span>.</p></li>
+<li><p>A pressure ratio of 1/2 (halving) gives <span class="math notranslate nohighlight">\(-6 \left[\text{dB}\right]\)</span>.</p></li>
+<li><p>The standard reference pressure is <span class="math notranslate nohighlight">\(p_0 = 20\)</span> micro-Pascals.</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Sound_pressure#Examples">Wikipedia</a> gives a helpful list of familiar sound pressure levels in decibels.</p>
+<ul>
+<li><p>Typical speaking volume is in the range 40-60 dB.</p></li>
+</ul>
+</li>
+<li><p>The range of typical human hearing (quietest sound to loudest sound) is a complex phenomenon and depends on frequency, but is in the neighborhood of <span class="math notranslate nohighlight">\(100 \left[\text{dB}\right]\)</span>.</p></li>
+</ul>
+</section>
+</section>
+<section id="frequency-and-pitch">
+<h2><span class="section-number">1.4.3. </span>Frequency and pitch<a class="headerlink" href="#frequency-and-pitch" title="Permalink to this headline">#</a></h2>
+<p>After intensity, the next most salient feature of audio signals is <em>frequency</em> content.
+By definition, any periodic signal has a fundamental frequency <span class="math notranslate nohighlight">\(f_0\)</span>, but most signals are not completely periodic.
+As we will see much later on, there is a way to reason about the frequency content of arbitrary signals.
+For now, it will suffice to assume that any signal generally consists of a combination of multiple sinusoidal signals, each one having a distinct fundamental frequency <span class="math notranslate nohighlight">\(f_0\)</span>.</p>
+<p>Like <em>loudness</em> and <em>amplitude</em>, it is helpful to distinguish between <em>pitch</em> and <em>frequency</em>.
+<strong>Pitch</strong> is a perceptual feature of sound that exists in our brains, but <strong>frequency</strong> is a physical property of sound that can be measured.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Tuning systems
+In this section, and throughout the text, we will make the simplifying assumption of equal temperament when discussing pitch.</p>
+</div>
+</aside>
+<section id="multiplicative-vs-additive">
+<h3><span class="section-number">1.4.3.1. </span>Multiplicative vs. additive<a class="headerlink" href="#multiplicative-vs-additive" title="Permalink to this headline">#</a></h3>
+<p>The most important, distinctive aspect of frequency is that it is <em>multiplicative</em> rather than <em>additive</em>.
+For example, if we have a note at frequency <span class="math notranslate nohighlight">\(A_4 = 440~[\mathrm{Hz}]\)</span>, the next note of the same pitch class is <span class="math notranslate nohighlight">\(A_5 = 880 = 440 + 440\)</span>.
+If we again add <span class="math notranslate nohighlight">\(440\)</span> to <span class="math notranslate nohighlight">\(A_5\)</span>, we do not get <span class="math notranslate nohighlight">\(A_6\)</span>, but rather something close to <span class="math notranslate nohighlight">\(E_6 \approx 1319[\mathrm{Hz}] \approx 3\times 440= 1320\)</span>.
+To get <span class="math notranslate nohighlight">\(A_6\)</span>, we would have to <em>double</em> <span class="math notranslate nohighlight">\(A_5 = 880 + 880 = A_4 \cdot 4\)</span>.</p>
+<p>This observation is perhaps most intuitive to players of fretted string instruments (e.g., guitar), as it explains why the distance between frets gets narrower as one moves up the neck: frequency of a vibrating string is inversely proportional to its length.
+Players of fret-less stringed instruments also learn this, but frets make it much easier.</p>
+<p>More generally, the size of an octave (measured in Hz) is <em>not constant</em>.  Instead, the size doubles each time we go up by an octave.
+Similarly, the size of the octave <span class="math notranslate nohighlight">\(B_4\)</span>–<span class="math notranslate nohighlight">\(B_5\)</span> is not the same as the octave <span class="math notranslate nohighlight">\(A_4\)</span>–<span class="math notranslate nohighlight">\(A_5\)</span>.
+However, the <em>ratio</em> of frequencies separated by an octave is always constant (2) regardless of which octave or specific frequency we’re talking about.</p>
+<p>One way to think about this multiplicative behavior from some <span class="math notranslate nohighlight">\(f\)</span> to <span class="math notranslate nohighlight">\(f_2 = 2\cdot f\)</span> is that <span class="math notranslate nohighlight">\(f_2\)</span> has 2 cycles for every 1 cycle in <span class="math notranslate nohighlight">\(f\)</span>, as depicted below.</p>
+<figure class="align-default" id="id4">
+<img alt="Illustration of a sinusoid and two of its harmonics" src="../../_images/5839c555ddb752d0d71f6d2631e4ce25b1f5dfe56b12e27e5808f63587993f12.svg" /><figcaption>
+<p><span class="caption-number">Fig. 1.14 </span><span class="caption-text">Waves at frequencies <span class="math notranslate nohighlight">\(f=2\)</span> [Hz], <span class="math notranslate nohighlight">\(2\cdot f\)</span>, and <span class="math notranslate nohighlight">\(3\cdot f\)</span>.
+Note that <span class="math notranslate nohighlight">\(2\cdot f\)</span> and <span class="math notranslate nohighlight">\(3\cdot f\)</span> complete whole cycles for each cycle of <span class="math notranslate nohighlight">\(f\)</span>, but not for each-other.</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The multiplicative nature of frequency means that we need to consider ratios rather than differences when comparing frequencies.
+The octave relation <span class="math notranslate nohighlight">\((f, 2\cdot f)\)</span> gives a starting point for generating tuning systems, which map frequencies onto pitches and pitch-classes.</p>
+<p>We could spend quite some time on <a class="reference external" href="https://en.wikipedia.org/wiki/Musical_tuning#Tuning_systems">tuning systems</a>, but it’s a bit beyond the scope of what we’ll need.
+For better or worse, we’ll focus on 12-tone equal temperament (12-TET), which divides each octave “evenly” into 12 frequencies (<em>semitones</em>).
+The notion of “evenly” is that the ratio of each successive pair of frequencies remains constant, and after stepping through 12 of them, we have a full octave (ratio of 2).
+This implies that each ratio must be <span class="math notranslate nohighlight">\(2^{1/12} \approx 1.06\)</span>.</p>
+<p>While semitone divisions of the octave are useful in many musical contexts, they may be too coarse for other applications where we could benefit from a more fine-grained representation of frequency.
+This motivates the use of <strong>cents</strong> (denoted ¢), which divide each semitone range evenly into 100 pieces; or, equivalently, each octave into 1200 pieces.
+A change in frequency of 1¢ therefore corresponds to a multiplicative factor of <span class="math notranslate nohighlight">\(2^{1/1200} \approx 1.0006\)</span>.</p>
+</section>
+<section id="frequency-ranges">
+<h3><span class="section-number">1.4.3.2. </span>Frequency ranges<a class="headerlink" href="#frequency-ranges" title="Permalink to this headline">#</a></h3>
+<p>Finally, to ground the notion of frequency in reality, the figure below illustrates familiar frequency ranges.</p>
+<figure class="align-default" id="id5">
+<img alt="Illustration of different frequency ranges for human hearing, voice, telephone, etc." src="../../_images/fac8e1a43db8ae23c4e18da86d7ed50b8f076a7cccec8d83c09776fd4b2e0fb2.svg" /><figcaption>
+<p><span class="caption-number">Fig. 1.15 </span><span class="caption-text">A visual comparison of important (and not-so-important) frequency ranges.</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "dstbook"
+        },
+        kernelOptions: {
+            kernelName: "dstbook",
+            path: "./content/ch01-signals"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'dstbook'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Units.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">1.3. </span>Units and dimensional analysis</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Exercises.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">1.5. </span>Exercises</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Brian McFee<br/>
+  
+      &copy; Copyright 2020-2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
