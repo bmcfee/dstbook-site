@@ -1,0 +1,4 @@
+content/intro.md:66: [redirected with Found] https://jupyterbook.org to https://jupyterbook.org/en/stable/
+content/intro.md:43: [redirected permanently] http://www.pythontutor.com/ to https://pythontutor.com/
+content/intro.md:67: [redirected with Found] https://www.sphinx-doc.org to https://www.sphinx-doc.org/en/master/
+content/ch01-signals/Preliminaries.ipynb:140016: [redirected permanently] https://www.anaconda.com/distribution/ to https://www.anaconda.com/products/distribution

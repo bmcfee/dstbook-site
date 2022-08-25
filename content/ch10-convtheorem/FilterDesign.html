@@ -793,7 +793,7 @@ We then saw that the ideal low-pass filter produced some less-than-ideal results
 <p>In general, there is a region between the pass and stop bands where frequencies are attenuated, but still audible, which is known as the <strong>transition band</strong>.</p>
 <p>These regions are illustrated below for an example filter in <a class="reference internal" href="#freqresponse"><span class="std std-numref">Fig. 10.5</span></a>.</p>
 <figure class="align-default" id="freqresponse">
-<img alt="Illustration of a filter's frequency response with different regions annotated" src="../../_images/5845eeb0facec4bf134db01515d883b98f33a6d414b6f3bd5ef2dae7b6b898b5.svg" /><figcaption>
+<img alt="Illustration of a filter's frequency response with different regions annotated" src="../../_images/ecbfefe58c96def5e98f07e1a2ce5ab58fd4dad07b3858574bd1bd71fc50ebed.svg" /><figcaption>
 <p><span class="caption-number">Fig. 10.5 </span><span class="caption-text">The <em>frequency response</em> plot of a filter <span class="math notranslate nohighlight">\(h\)</span> is the magnitude of its DFT <span class="math notranslate nohighlight">\(H\)</span>.
 This filter was designed to have a cutoff of <span class="math notranslate nohighlight">\(f_c = 6000\)</span> Hz and a transition band of <span class="math notranslate nohighlight">\(300\)</span> Hz.</span><a class="headerlink" href="#freqresponse" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -831,7 +831,7 @@ Finally, a window <span class="math notranslate nohighlight">\(\red{w}\)</span> 
 \[\purple{h_w[k]} = \red{w[k]} \cdot \blue{h[k]}.\]</div>
 <p>This process is visually demonstrated by <a class="reference internal" href="#window-lpf"><span class="std std-numref">Fig. 10.6</span></a>.</p>
 <figure class="align-default" id="window-lpf">
-<img alt="Illustration of windowing applied to an ideal low-pass filter" src="../../_images/7a11f7ee1224ebd1a271dfaadf1f582a0d389cd0f62f9fa23ac40ae789118c7e.svg" /><figcaption>
+<img alt="Illustration of windowing applied to an ideal low-pass filter" src="../../_images/25f6b819ee98d46ef5392dd0b40873e3c57259609165df87e18a1d03256a68e3.svg" /><figcaption>
 <p><span class="caption-number">Fig. 10.6 </span><span class="caption-text"><strong>Left</strong>: the impulse response of an ideal low-pass filter is multiplied by a window function to produce the windowed low-pass filter (<strong>right</strong>).</span><a class="headerlink" href="#window-lpf" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
@@ -915,7 +915,7 @@ For example, we could construct a Hann-windowed low-pass filter at <span class="
               </div></div>
 </div>
 <figure class="align-default" id="firwin">
-<img alt="Frequency response for Hann-windowed filters of different lengths" src="../../_images/890d4fdbfe4724ad51df3a641bde00bfbbe518626fb55d45faa779279ee5c70b.svg" /><figcaption>
+<img alt="Frequency response for Hann-windowed filters of different lengths" src="../../_images/d167118e298626a582d6570b5fc578f0443992edcc2626333dce8f9b0cae99e0.svg" /><figcaption>
 <p><span class="caption-number">Fig. 10.7 </span><span class="caption-text"><strong>Left</strong>: Hann-windowed low-pass filters for <span class="math notranslate nohighlight">\(p=2,4,8,16\)</span> cycles of the cutoff frequency <span class="math notranslate nohighlight">\(\red{f_c=500}\)</span> (with <span class="math notranslate nohighlight">\(f_s=44100\)</span>).
 <strong>Middle</strong>: the frequency domain representation of the windowed filters (decibel-scaled).
 <strong>Right</strong>: a zoomed-in view of the filter DFTs, covering the frequency range <span class="math notranslate nohighlight">\([0, 1000]\)</span> Hz.
@@ -1047,7 +1047,7 @@ Just as with the window method, higher orders are more precise, but less computa
               </div></div>
 </div>
 <figure class="align-default" id="pmfir">
-<img alt="frequency response plots for Parks-McClellan filters of different lengths" src="../../_images/356834996ed22a94c540d1a19d77bc886792b0cba2b1b74141289ba1f9c76104.svg" /><figcaption>
+<img alt="frequency response plots for Parks-McClellan filters of different lengths" src="../../_images/7424d7e39032ba3bfc8f6be6156ddfd8854bccdcd55c06a1dc24f943e5d662d3.svg" /><figcaption>
 <p><span class="caption-number">Fig. 10.8 </span><span class="caption-text">Parks-McClellan filters with transition band <span class="math notranslate nohighlight">\([3/4 \cdot f_c, f_c] = [375, 500]\)</span> Hz (shaded regions) at multiple orders (<span class="math notranslate nohighlight">\(p=2,4,8,16\)</span> cycles of <span class="math notranslate nohighlight">\(f_c\)</span>).
 As in <a class="reference internal" href="#firwin"><span class="std std-numref">Fig. 10.7</span></a>, increasing the order improves the attenuation of the filter.</span><a class="headerlink" href="#pmfir" title="Permalink to this image">#</a></p>
 </figcaption>

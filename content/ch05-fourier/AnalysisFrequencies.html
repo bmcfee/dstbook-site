@@ -784,11 +784,11 @@ Our sampled wave will be given by</p>
 <div class="math notranslate nohighlight" id="equation-xcosexample">
 <span class="eqno">(5.6)<a class="headerlink" href="#equation-xcosexample" title="Permalink to this equation">#</a></span>\[\blue{x[n] = \cos\left(2\pi \cdot \frac{3}{40} \cdot n \right)}.\]</div>
 <figure class="align-default" id="analysis-example">
-<img alt="comparison between a sinusoid and reference signals" src="../../_images/e5acb8dfd5e673ec4c32cd77d6fdf07bfccd538957a15810e93ef442d5742a15.svg" /><figcaption>
-<p><span class="caption-number">Fig. 5.8 </span><span class="caption-text">Comparing a sinusoid <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> at an analysis frequency to each reference signal <span class="math notranslate nohighlight">\(\red{y_m[n]}\)</span>.</span><a class="headerlink" href="#analysis-example" title="Permalink to this image">#</a></p>
+<img alt="comparison between a sinusoid and reference signals" src="../../_images/6ec51940d58645bcf23f1796338523e74363792805a4956defaa7a568830b877.svg" /><figcaption>
+<p><span class="caption-number">Fig. 5.9 </span><span class="caption-text">Comparing a sinusoid <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> at an analysis frequency to each reference signal <span class="math notranslate nohighlight">\(\red{y_m[n]}\)</span>.</span><a class="headerlink" href="#analysis-example" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p><a class="reference internal" href="#analysis-example"><span class="std std-numref">Fig. 5.8</span></a> shows the similarity comparisons and resulting scores for the first five reference signals.
+<p><a class="reference internal" href="#analysis-example"><span class="std std-numref">Fig. 5.9</span></a> shows the similarity comparisons and resulting scores for the first five reference signals.
 In this case, all scores are 0 except for <span class="math notranslate nohighlight">\(\red{m=3}\)</span>, which corresponds exactly to the frequency of our test signal <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span>.</p>
 <p><em>Why does this happen?</em></p>
 <section id="understanding-analysis-frequencies">
@@ -869,11 +869,11 @@ If this happens, and <span class="math notranslate nohighlight">\(\red{m=k}\)</s
 <div class="math notranslate nohighlight">
 \[\blue{x[n]} = \cos\left(2\pi \cdot \frac{1.5}{40} \cdot n \right).\]</div>
 <figure class="align-default" id="non-analysis-example">
-<img alt="comparison between a non-analysis frequency wave and reference signals" src="../../_images/71321bc77e5c3ce272f81d12bcd108c59ba6bc093f85c476e8d43cb6dc36313f.svg" /><figcaption>
-<p><span class="caption-number">Fig. 5.9 </span><span class="caption-text">Comparing a sinusoid <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> at a non-analysis frequency to each reference signal <span class="math notranslate nohighlight">\(\red{y_m}\)</span> results in non-zero similarities <span class="math notranslate nohighlight">\(\purple{S}\)</span>.</span><a class="headerlink" href="#non-analysis-example" title="Permalink to this image">#</a></p>
+<img alt="comparison between a non-analysis frequency wave and reference signals" src="../../_images/69a4cddd8e0cd06160497fb51aab646542a0288c4cd19f3fe55345c4d542d85e.svg" /><figcaption>
+<p><span class="caption-number">Fig. 5.10 </span><span class="caption-text">Comparing a sinusoid <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> at a non-analysis frequency to each reference signal <span class="math notranslate nohighlight">\(\red{y_m}\)</span> results in non-zero similarities <span class="math notranslate nohighlight">\(\purple{S}\)</span>.</span><a class="headerlink" href="#non-analysis-example" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Like before, <a class="reference internal" href="#non-analysis-example"><span class="std std-numref">Fig. 5.9</span></a> shows the similarity comparisons and resulting scores for the first five reference signals.
+<p>Like before, <a class="reference internal" href="#non-analysis-example"><span class="std std-numref">Fig. 5.10</span></a> shows the similarity comparisons and resulting scores for the first five reference signals.
 In this case, the scores are all non-zero because the wave doesn’t precisely line up with itself at <span class="math notranslate nohighlight">\(N\)</span> samples.</p>
 <p>This phenomenon is known as <strong>spectral leakage</strong>: a wave at a non-analysis frequency will <em>leak</em> across the entire frequency range, and appear to be a little similar to each analysis frequency.</p>
 <p>We’ll have more to say about this in subsequent chapters, but for now, it’s important to understand that waves of different frequencies can still produce a non-zero similarity score.</p>

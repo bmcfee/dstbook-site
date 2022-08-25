@@ -941,8 +941,8 @@ x[n] &amp; \text{otherwise}
 </pre></div>
 </div>
 <figure class="align-default" id="id2">
-<img alt="an illustration of clipping a signal's sample values to lie within a specified range" src="../../_images/c163b1e971e5586b2b4e2582d2b5899ac06efab4b4698fc1cd0f096a861bf666.svg" /><figcaption>
-<p><span class="caption-number">Fig. 3.6 </span><span class="caption-text"><strong>Top</strong>: an input signal <span class="math notranslate nohighlight">\(x\)</span>.
+<img alt="an illustration of clipping a signal's sample values to lie within a specified range" src="../../_images/939e60553a22e271fc42e5951320f9faf01208bd8bdbf4c0e4f73ff8841efabd.svg" /><figcaption>
+<p><span class="caption-number">Fig. 3.8 </span><span class="caption-text"><strong>Top</strong>: an input signal <span class="math notranslate nohighlight">\(x\)</span>.
 <strong>Bottom</strong>: the result of clipping <span class="math notranslate nohighlight">\(x\)</span> to lie between <span class="math notranslate nohighlight">\(v_-\)</span> and <span class="math notranslate nohighlight">\(v_+\)</span> (dashed lines).</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
@@ -986,12 +986,12 @@ Here the key property that we’re looking at is symmetry (in time), so we shoul
 Sinusoids and square waves probably won’t work, but a sawtooth will do nicely.</p>
 <p>After that, we need only check what happens when we delay the input by some number of samples.  Here, we’ll take a 5-step delay, but any positive number would do.</p>
 <figure class="align-default" id="reverse">
-<img alt="a signal is delayed and reversed in time" src="../../_images/4b29495bffbecab0e99cdabcbb5d1cd98db8019f6b54657ed1b2db8df74d9c03.svg" /><figcaption>
-<p><span class="caption-number">Fig. 3.7 </span><span class="caption-text"><strong>Top</strong>: a signal <span class="math notranslate nohighlight">\(x[n]\)</span> and a 5-sample delayed copy.
+<img alt="a signal is delayed and reversed in time" src="../../_images/c20709a39fe5296d1a7ce1da7bf9e4864d9bdda784aa68730581c933ea55239c.svg" /><figcaption>
+<p><span class="caption-number">Fig. 3.9 </span><span class="caption-text"><strong>Top</strong>: a signal <span class="math notranslate nohighlight">\(x[n]\)</span> and a 5-sample delayed copy.
 <strong>Bottom</strong>: applying time-reversal before or after delaying the input produces different output signals.</span><a class="headerlink" href="#reverse" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p><a class="reference internal" href="#reverse"><span class="std std-numref">Fig. 3.7</span></a> shows that changing the order of operations (delay first or reverse first) matters, since the two signals in the bottom plot are not identical.
+<p><a class="reference internal" href="#reverse"><span class="std std-numref">Fig. 3.9</span></a> shows that changing the order of operations (delay first or reverse first) matters, since the two signals in the bottom plot are not identical.
 From this example, we can conclude that time-reversal is <em>not</em> shift-invariant.</p>
 </section>
 </div></section>
