@@ -840,8 +840,7 @@ This assumption can be encoded by using modular arithmetic to compute the delaye
 <div class="proof theorem admonition" id="theorem-1">
 <p class="admonition-title"><span class="caption-number">Theorem 10.1 </span> (The Convolution Theorem)</p>
 <section class="theorem-content" id="proof-content">
-<p>:label: conv-thm
-Let <span class="math notranslate nohighlight">\(\red{h}\)</span> and <span class="math notranslate nohighlight">\(\blue{x}\)</span> be sequences of length <span class="math notranslate nohighlight">\(N\)</span>, and let <span class="math notranslate nohighlight">\(\purple{y}=\red{h}*\blue{x}\)</span> denote the circular convolution between them.</p>
+<p>Let <span class="math notranslate nohighlight">\(\red{h}\)</span> and <span class="math notranslate nohighlight">\(\blue{x}\)</span> be sequences of length <span class="math notranslate nohighlight">\(N\)</span>, and let <span class="math notranslate nohighlight">\(\purple{y}=\red{h}*\blue{x}\)</span> denote the circular convolution between them.</p>
 <p>The DFT of the convolution is the product of the DFTs:</p>
 <div class="math notranslate nohighlight" id="equation-eq-conv-thm">
 <span class="eqno">(10.1)<a class="headerlink" href="#equation-eq-conv-thm" title="Permalink to this equation">#</a></span>\[\purple{y} = \red{h} * \blue{x} \quad \quad \Leftrightarrow \quad\quad \magenta{Y[m]} = \red{H[m]} \cdot \darkblue{X[m]}.\]</div>
@@ -938,10 +937,15 @@ That is, <span class="math notranslate nohighlight">\(\red{H[m]}\)</span> encode
 <section class="corollary-content" id="proof-content">
 <p>If <span class="math notranslate nohighlight">\(\red{w}\)</span> and <span class="math notranslate nohighlight">\(\blue{x}\)</span> are sequences of length <span class="math notranslate nohighlight">\(N\)</span>, then element-wise multiplication in the time domain is equivalent to circular convolution <em>in the frequency domain</em>.</p>
 <div class="math notranslate nohighlight">
-\[\text{DFT}(\red{w} \cdot \blue{x}) = \red{\text{DFT}(w)} * \darkblue{\text{DFT}(x)}\]</div>
+\[\text{DFT}(\red{w} \cdot \blue{x}) = \frac{1}{N} \cdot \red{\text{DFT}(w)} * \darkblue{\text{DFT}(x)},\]</div>
+<p>where frequency-domain convolution is defined as follows with <span class="math notranslate nohighlight">\(\red{W = \text{DFT}(w)}\)</span> and <span class="math notranslate nohighlight">\(\darkblue{X = \text{DFT}(x)}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\magenta{(X*W)[m]} = \sum_{k=0}^{N-1} \red{W[m]} \cdot \darkblue{X[m - k \mod N]}\]</div>
 </section>
 </div><p>The proof of <a class="reference internal" href="#dual-convolution">Corollary 10.1</a> is nearly identical to that of the convolution theorem, except that it uses a variation of the shifting theorem for the <em>inverse</em> DFT.</p>
-<p>The dual convolution theorem is mainly useful as a theoretical device, as it can help us to understand the effects of element-wise multiplication (e.g., when windowing a signal).</p>
+<p>The dual convolution theorem is mainly useful as a theoretical device, as it can help us to understand the effects of element-wise multiplication.  This occurs when windowing a signal, and if we apply the inverse DFT to each side of <a class="reference internal" href="#dual-convolution">Corollary 10.1</a>, we obtain</p>
+<div class="math notranslate nohighlight">
+\[\red{w} \cdot \blue{x} = \frac{1}{N} \cdot \text{IDFT}(\red{W} * \darkblue{X}).\]</div>
 <p>We won’t go into detail here, but the table below summarizes the relationships between DFT, IDFT, circular convolution, and element-wise multiplication.</p>
 <table class="colwidths-auto table">
 <thead>
