@@ -810,7 +810,7 @@ We can define the impulse response of this filter as</p>
 <p>and the length <span class="math notranslate nohighlight">\(K\)</span> is known as the <em>order</em> of the filter.</p>
 <p>As illustrated below, high frequencies will oscillate within the time window, and average to zero (or close to it), while low frequencies will not.</p>
 <figure class="align-default" id="id1">
-<img alt="Illustration of a moving average filter applied to waves at different frequencies" src="../../_images/748bfa5d20ddc1ac3f909016ee9bd027b014732665ccb7d8ae1d4f4d8f1c9c6d.svg" /><figcaption>
+<img alt="Illustration of a moving average filter applied to waves at different frequencies" src="../../_images/7660c12a2622d231bf35f3df2fdca15d4d54ea5f3f4270159f9ea2b835f9539d.svg" /><figcaption>
 <p><span class="caption-number">Fig. 10.1 </span><span class="caption-text"><strong>Left</strong>: two waves at frequencies <span class="math notranslate nohighlight">\(f=6\)</span> (top) and <span class="math notranslate nohighlight">\(f=2\)</span> (bottom) are sampled at <span class="math notranslate nohighlight">\(f_s = 32\)</span> for one second.
 A moving average filter of order <span class="math notranslate nohighlight">\(K=5\)</span> (shaded region) is applied to produce the output signals <span class="math notranslate nohighlight">\(\purple{y}=\red{h}*\blue{x}\)</span> via circular convolution (<strong>right</strong> plots).
 The solid horizontal lines (left) correspond to the average value over the window (marked points in the right plots).
@@ -828,14 +828,14 @@ So if <span class="math notranslate nohighlight">\(h\)</span> is an order-<span 
 \[\red{H[m]} = \red{\frac{1}{K}} \cdot \sum_{k=0}^{K-1} \blue{e^{-2\pi\cdot\mathrm{j} \cdot m \cdot k / N}}\]</div>
 <p>as visualized below.</p>
 <figure class="align-default" id="id2">
-<img alt="Illustration of a moving average filter and its DFT composed from individual delay filters" src="../../_images/efe91c1f79fb8b4ec1e6dd68b0f985e0e0ba737dbb9d19c0cc5aadf10f048128.svg" /><figcaption>
+<img alt="Illustration of a moving average filter and its DFT composed from individual delay filters" src="../../_images/ab0316fc0723296670be94ae8b0c3c885c932be52460e1f0206c80b030c28888.svg" /><figcaption>
 <p><span class="caption-number">Fig. 10.2 </span><span class="caption-text">An order-5 moving average filter <span class="math notranslate nohighlight">\(\red{h}\)</span> (<strong>top-left</strong>) can be constructed as the average of 5 delay filters (<strong>top row</strong>).
 Each delay’s DFT is a sinusoid (<strong>bottom row</strong>), and their sample-wise average produces the DFT of the moving average (<strong>bottom-left</strong>).</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>To understand the effect of this filter, we can focus on the spectral magnitudes <span class="math notranslate nohighlight">\(|\red{H[m]}|\)</span>, as these control how much each frequency will be attenuated.</p>
 <figure class="align-default" id="filter-mag">
-<img alt="Illustration of a moving average filter in the time and frequency domains" src="../../_images/bb7d14e5d0166ad005aaf1945b959ed9d4a0b262c37fba641045d341c8076359.svg" /><figcaption>
+<img alt="Illustration of a moving average filter in the time and frequency domains" src="../../_images/1394723b7cd6126e9e454a70b4e2cf1e467a2498d7f0fe04202161b2f981f2a1.svg" /><figcaption>
 <p><span class="caption-number">Fig. 10.3 </span><span class="caption-text"><strong>Left</strong>: an order-5 moving average filter <span class="math notranslate nohighlight">\(\red{h}\)</span>.
 <strong>Right</strong>: its DFT <span class="math notranslate nohighlight">\(\red{H}\)</span> (real and imaginary components), as well as its magnitude spectrum <span class="math notranslate nohighlight">\(|\red{H}|\)</span>.</span><a class="headerlink" href="#filter-mag" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -878,10 +878,10 @@ This will change the delay characteristics of the filter, but not its frequency 
 <p>This can be done manually by <code class="docutils literal notranslate"><span class="pre">np.fft.fftshift(h)</span></code>.
 Note that most FIR filter constructors, like those covered in the next section, will implement this automatically for you.</p>
 <figure class="align-default">
-<img alt="Illustration of a shifted (centered) filter" src="../../_images/8d11e2ea2ec7b4df607513c856d6841bbf1f7daf8a7724ce049b15a5624fbb9c.svg" /></figure>
+<img alt="Illustration of a shifted (centered) filter" src="../../_images/5bbb1451f0bbcbcb5caf9056b6f3b359caefca0ef9ac5aebf9dbde2126db1a21.svg" /></figure>
 </aside>
 <figure class="align-default" id="brickwall">
-<img alt="Illustration of an ideal low-pass filter in the frequency and time domains" src="../../_images/593ccc0643d8453a098526a0310eea1d3df8cd94e02ee7a2aa8d0ef306653768.svg" /><figcaption>
+<img alt="Illustration of an ideal low-pass filter in the frequency and time domains" src="../../_images/d507e556609852ad278ea9ee2fce229e3b4d7fac086122155bce0a7fb24b8e1f.svg" /><figcaption>
 <p><span class="caption-number">Fig. 10.4 </span><span class="caption-text"><strong>Left</strong>: an ideal low-pass filter <span class="math notranslate nohighlight">\(\red{H}\)</span> is constructed for <span class="math notranslate nohighlight">\(f_s=32\)</span>, <span class="math notranslate nohighlight">\(N=32\)</span>, and <span class="math notranslate nohighlight">\(f_c = 5\)</span>.
 <strong>Right</strong>: the time-domain filter is recovered by <span class="math notranslate nohighlight">\(\red{h} = \text{IDFT}(\red{H})\)</span>.</span><a class="headerlink" href="#brickwall" title="Permalink to this image">#</a></p>
 </figcaption>

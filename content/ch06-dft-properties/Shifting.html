@@ -777,7 +777,7 @@ This leads us to the notion of a <strong>circular shift</strong>.</p>
 <p>However, it is a natural consequence of combining our <a class="reference internal" href="../ch05-fourier/Cosine.html#dft-periodicity"><span class="std std-ref">periodicity assumption</span></a> with the definition of delay.</p>
 <p>Indeed, it can lead to some strange behaviors if <span class="math notranslate nohighlight">\(x[n]\)</span> is discontinuous at the repetition boundaries.</p>
 <figure class="align-default" id="circ-shift">
-<img alt="illustration of circular shifting" src="../../_images/730e09b1fc5a858d91691b8ec55eb70506bd1dd397849ea581ba834789c3ec61.svg" /><figcaption>
+<img alt="illustration of circular shifting" src="../../_images/53211efc52f69474f8cef6c6b25b16ee605dfd965b457e5918bb67fd55ad7f2c.svg" /><figcaption>
 <p><span class="caption-number">Fig. 6.2 </span><span class="caption-text">A repeating signal <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> with repetition boundaries (vertical lines) is shifted by 8 samples to produce <span class="math notranslate nohighlight">\(\purple{y[n]}\)</span>; three additional repetitions are illustrated in the shaded regions.
 Because <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> is discontinuous at the repetition boundary, this discontinuity is shifted to the middle of <span class="math notranslate nohighlight">\(\purple{y[n]}\)</span>, appearing as a large vertical gap in the signal.</span><a class="headerlink" href="#circ-shift" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -1009,42 +1009,42 @@ input[type=range].anim-slider {
 </style>
 
 <div class="animation">
-  <img id="_anim_imgbcbbd638fc374af1af60e27010ac7a8d">
+  <img id="_anim_img8e0a9138b2f146498664052df10bec09">
   <div class="anim-controls">
-    <input id="_anim_sliderbcbbd638fc374af1af60e27010ac7a8d" type="range" class="anim-slider"
+    <input id="_anim_slider8e0a9138b2f146498664052df10bec09" type="range" class="anim-slider"
            name="points" min="0" max="1" step="1" value="0"
-           oninput="animbcbbd638fc374af1af60e27010ac7a8d.set_frame(parseInt(this.value));">
+           oninput="anim8e0a9138b2f146498664052df10bec09.set_frame(parseInt(this.value));">
     <div class="anim-buttons">
-      <button title="Decrease speed" aria-label="Decrease speed" onclick="animbcbbd638fc374af1af60e27010ac7a8d.slower()">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim8e0a9138b2f146498664052df10bec09.slower()">
           <i class="fa fa-minus"></i></button>
-      <button title="First frame" aria-label="First frame" onclick="animbcbbd638fc374af1af60e27010ac7a8d.first_frame()">
+      <button title="First frame" aria-label="First frame" onclick="anim8e0a9138b2f146498664052df10bec09.first_frame()">
         <i class="fa fa-fast-backward"></i></button>
-      <button title="Previous frame" aria-label="Previous frame" onclick="animbcbbd638fc374af1af60e27010ac7a8d.previous_frame()">
+      <button title="Previous frame" aria-label="Previous frame" onclick="anim8e0a9138b2f146498664052df10bec09.previous_frame()">
           <i class="fa fa-step-backward"></i></button>
-      <button title="Play backwards" aria-label="Play backwards" onclick="animbcbbd638fc374af1af60e27010ac7a8d.reverse_animation()">
+      <button title="Play backwards" aria-label="Play backwards" onclick="anim8e0a9138b2f146498664052df10bec09.reverse_animation()">
           <i class="fa fa-play fa-flip-horizontal"></i></button>
-      <button title="Pause" aria-label="Pause" onclick="animbcbbd638fc374af1af60e27010ac7a8d.pause_animation()">
+      <button title="Pause" aria-label="Pause" onclick="anim8e0a9138b2f146498664052df10bec09.pause_animation()">
           <i class="fa fa-pause"></i></button>
-      <button title="Play" aria-label="Play" onclick="animbcbbd638fc374af1af60e27010ac7a8d.play_animation()">
+      <button title="Play" aria-label="Play" onclick="anim8e0a9138b2f146498664052df10bec09.play_animation()">
           <i class="fa fa-play"></i></button>
-      <button title="Next frame" aria-label="Next frame" onclick="animbcbbd638fc374af1af60e27010ac7a8d.next_frame()">
+      <button title="Next frame" aria-label="Next frame" onclick="anim8e0a9138b2f146498664052df10bec09.next_frame()">
           <i class="fa fa-step-forward"></i></button>
-      <button title="Last frame" aria-label="Last frame" onclick="animbcbbd638fc374af1af60e27010ac7a8d.last_frame()">
+      <button title="Last frame" aria-label="Last frame" onclick="anim8e0a9138b2f146498664052df10bec09.last_frame()">
           <i class="fa fa-fast-forward"></i></button>
-      <button title="Increase speed" aria-label="Increase speed" onclick="animbcbbd638fc374af1af60e27010ac7a8d.faster()">
+      <button title="Increase speed" aria-label="Increase speed" onclick="anim8e0a9138b2f146498664052df10bec09.faster()">
           <i class="fa fa-plus"></i></button>
     </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_selectbcbbd638fc374af1af60e27010ac7a8d"
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select8e0a9138b2f146498664052df10bec09"
           class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_bcbbd638fc374af1af60e27010ac7a8d"
+      <input type="radio" name="state" value="once" id="_anim_radio1_8e0a9138b2f146498664052df10bec09"
              >
-      <label for="_anim_radio1_bcbbd638fc374af1af60e27010ac7a8d">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_bcbbd638fc374af1af60e27010ac7a8d"
+      <label for="_anim_radio1_8e0a9138b2f146498664052df10bec09">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_8e0a9138b2f146498664052df10bec09"
              checked>
-      <label for="_anim_radio2_bcbbd638fc374af1af60e27010ac7a8d">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_bcbbd638fc374af1af60e27010ac7a8d"
+      <label for="_anim_radio2_8e0a9138b2f146498664052df10bec09">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_8e0a9138b2f146498664052df10bec09"
              >
-      <label for="_anim_radio3_bcbbd638fc374af1af60e27010ac7a8d">Reflect</label>
+      <label for="_anim_radio3_8e0a9138b2f146498664052df10bec09">Reflect</label>
     </form>
   </div>
 </div>
@@ -1054,9 +1054,9 @@ input[type=range].anim-slider {
   /* Instantiate the Animation class. */
   /* The IDs given should match those used in the template above. */
   (function() {
-    var img_id = "_anim_imgbcbbd638fc374af1af60e27010ac7a8d";
-    var slider_id = "_anim_sliderbcbbd638fc374af1af60e27010ac7a8d";
-    var loop_select_id = "_anim_loop_selectbcbbd638fc374af1af60e27010ac7a8d";
+    var img_id = "_anim_img8e0a9138b2f146498664052df10bec09";
+    var slider_id = "_anim_slider8e0a9138b2f146498664052df10bec09";
+    var loop_select_id = "_anim_loop_select8e0a9138b2f146498664052df10bec09";
     var frames = new Array(16);
     
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAkAAAAEgCAYAAABchszxAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
@@ -8066,7 +8066,7 @@ SAghhBAVRwIgIYQQQlSc/w+X/EFK0sDhtAAAAABJRU5ErkJggg==\
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
     setTimeout(function() {
-        animbcbbd638fc374af1af60e27010ac7a8d = new Animation(frames, img_id, slider_id, 208.0,
+        anim8e0a9138b2f146498664052df10bec09 = new Animation(frames, img_id, slider_id, 208.0,
                                  loop_select_id);
     }, 0);
   })()
@@ -8107,7 +8107,7 @@ As a result, we have that</p>
 <p>so the two signals have the same magnitude spectrum.
 However, there is no delay <span class="math notranslate nohighlight">\(\red{d}\)</span> that turns <span class="math notranslate nohighlight">\(\blue{x}\)</span> into <span class="math notranslate nohighlight">\(\purple{y}\)</span>.</p>
 <figure class="align-default" id="magnitude-shifting">
-<img alt="illustration of DFT magnitudes as a signal is delayed or negated" src="../../_images/e53ab023907c1bf22156c724b689774e917d4d8f245bc558c24ba1df7c5838da.svg" /><figcaption>
+<img alt="illustration of DFT magnitudes as a signal is delayed or negated" src="../../_images/3b1310a99487fd4dd2fb5be2b573df865c72a5a18810245df58c6e4ef80362f5.svg" /><figcaption>
 <p><span class="caption-number">Fig. 6.4 </span><span class="caption-text"><em>Left</em>: an impulse (top), a negative impulse (middle), and a 3-step delay (bottom).
 <em>Center</em>: the DFT spectrum (real and imaginary) components of each signal are distinct.
 <em>Right</em>: all three signals have identical magnitude spectra <span class="math notranslate nohighlight">\(|\darkblue{X[m]}| = 1\)</span> .</span><a class="headerlink" href="#magnitude-shifting" title="Permalink to this image">#</a></p>

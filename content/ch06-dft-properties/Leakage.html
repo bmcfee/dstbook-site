@@ -800,7 +800,7 @@ If we were to listen to a signal like this on a repeating loop, these discontinu
 <p>To illustrate the point, here we’ll construct a pure sinusoid at <span class="math notranslate nohighlight">\(f = 111\)</span>, with <span class="math notranslate nohighlight">\(f_s = 1000\)</span>, and sample for 1/4 second (<span class="math notranslate nohighlight">\(N= f_s/4 = 250\)</span>).
 This produces the following wave:</p>
 <figure class="align-default" id="id4">
-<img alt="../../_images/95672a3d9054e95bbad1cbc44e40cf70f2a0e5e0ce9f6584c11f2a99b50cc846.svg" src="../../_images/95672a3d9054e95bbad1cbc44e40cf70f2a0e5e0ce9f6584c11f2a99b50cc846.svg" /><figcaption>
+<img alt="../../_images/d25217db91f437d23956d09f1b331cfffb8d17433caa93f89f61dc5aeb1e2e67.svg" src="../../_images/d25217db91f437d23956d09f1b331cfffb8d17433caa93f89f61dc5aeb1e2e67.svg" /><figcaption>
 <p><span class="caption-number">Fig. 6.7 </span><span class="caption-text"><em>Top</em>: A wave <span class="math notranslate nohighlight">\(x[n]\)</span> at frequency <span class="math notranslate nohighlight">\(f=79\)</span>, with sampling rate <span class="math notranslate nohighlight">\(f_s=1000\)</span> and duration of 1/4 second (<span class="math notranslate nohighlight">\(N=f_s/4\)</span>).
 <span class="math notranslate nohighlight">\(f=79\)</span> is not an integer multiple of <span class="math notranslate nohighlight">\(f_s/N = 4\)</span>, so it is not an analysis frequency.
 Note the large gap between samples when the signal repeats at <span class="math notranslate nohighlight">\(t=0.25\)</span>.
@@ -842,13 +842,13 @@ The simplest way to achieve this is by multiplying the signal <span class="math 
 </section>
 </div><p>Hann windowing was developed by Julius Hann for smoothing climatological data <span id="id2">[<a class="reference internal" href="../references.html#id16" title="Julius Von Hann and Robert DeCourcy Ward. Handbook of climatology. MacMillan, 1903.">VHW03</a>]</span>, and was later adapted by Blackman and Tukey for signal processing <span id="id3">[<a class="reference internal" href="../references.html#id15" title="Ralph Beebe Blackman and John Wilder Tukey. The measurement of power spectra from the point of view of communications engineering—part i. Bell System Technical Journal, 37(1):185–282, 1958.">BT58</a>]</span>.</p>
 <figure class="align-default" id="hann-window">
-<img alt="Illustration of a Hann window" src="../../_images/ee13f4c4e5d73229349ab590ff786b54dbd12de78accdfe6811e44c9c1b4a6ab.svg" /><figcaption>
+<img alt="Illustration of a Hann window" src="../../_images/32f4e9b9c0b1411fbdf3969a5ce9c7f69745fc11626723d48fc77b20675b9aad.svg" /><figcaption>
 <p><span class="caption-number">Fig. 6.8 </span><span class="caption-text">A Hann window of length <span class="math notranslate nohighlight">\(N=32\)</span>.</span><a class="headerlink" href="#hann-window" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </aside>
 <figure class="align-default" id="windowing-example">
-<img alt="illustration of spectral leakage with and without windowing" src="../../_images/226aa0d76b5b634d9ef3a9f6fcd04fbfef0f1c4b669cc282f94cdd35730d307d.svg" /><figcaption>
+<img alt="illustration of spectral leakage with and without windowing" src="../../_images/df4275624219965697ed62938ed2def1d309194f60b1dbb4996858ab995a4f2a.svg" /><figcaption>
 <p><span class="caption-number">Fig. 6.9 </span><span class="caption-text">A sinusoid <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span> at a non-analysis frequency (<em>upper-left</em>, <span class="math notranslate nohighlight">\(f=2.25\)</span>, <span class="math notranslate nohighlight">\(N=128\)</span>, <span class="math notranslate nohighlight">\(f_s=64\)</span>) produces spectral energy at all frequencies in the DFT (<em>original spectrum</em>, bottom-right).
 Multiplying the sinusoid by a window function <span class="math notranslate nohighlight">\(\red{w[n]}\)</span> (<em>bottom-left</em>) tapers the signal values to 0 at the beginning and end, and reduces spectral leakage in the DFT magnitude spectrum <span class="math notranslate nohighlight">\(\darkblue{|\hat{X}|}\)</span> (<em>windowed spectrum</em>, bottom-right).</span><a class="headerlink" href="#windowing-example" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -856,7 +856,7 @@ Multiplying the sinusoid by a window function <span class="math notranslate nohi
 <p>Taking the DFT after windowing the signal significantly reduces the magnitude of components <span class="math notranslate nohighlight">\(\darkblue{\hat{X}[m]}\)</span> when <span class="math notranslate nohighlight">\(m\)</span> is far from the true frequency of the input signal, but retains energy for <span class="math notranslate nohighlight">\(m\)</span> close to the true frequency.</p>
 <p>If we loop the windowed signal, rather than the original signal, we’ll see that the boundary discontinuities have vanished.</p>
 <figure class="align-default" id="window-repeating">
-<img alt="a signal repeating with and without windowing" src="../../_images/6e8570019babe4dd919b8220cadf792141c1f782442b1454e07464b024976408.svg" /><figcaption>
+<img alt="a signal repeating with and without windowing" src="../../_images/92d65c34241e4af368085ae5e5c641f368fe26133f4905b9017094b6b8249bcc.svg" /><figcaption>
 <p><span class="caption-number">Fig. 6.10 </span><span class="caption-text"><em>Top</em>: repeating a sinusoid <span class="math notranslate nohighlight">\(\blue{x}\)</span> at a non-analysis frequency produces discontinuities when the signal repeats (<span class="math notranslate nohighlight">\(t=2, 4\)</span>).
 <em>Bottom</em>: windowing the sinusoid prior to repetition eliminates discontinuities, but introduces low-frequency modulation.</span><a class="headerlink" href="#window-repeating" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -882,7 +882,7 @@ In this example, we have traded off transient discontinuities for a smoothly var
 Most window functions have non-linear curves, and often end up resembling a “bell curve”.</p>
 <p>We won’t go into the details of how each of these window functions are defined, but <a class="reference internal" href="#window-examples"><span class="std std-numref">Fig. 6.11</span></a> demonstrates a handful of commonly used windows.</p>
 <figure class="align-default" id="window-examples">
-<img alt="visual comparison of several common window functions" src="../../_images/fee749b4d047a500b3b403de0d2597c0617928d4f60665e02f6bdb20d236c010.svg" /><figcaption>
+<img alt="visual comparison of several common window functions" src="../../_images/32ced1220fcc3401eb11b05b9c4abf0447db41b70a9283024ddd8b81e92d8c65.svg" /><figcaption>
 <p><span class="caption-number">Fig. 6.11 </span><span class="caption-text">Different choices of window function <span class="math notranslate nohighlight">\(\red{w}\)</span> and the corresponding DFT magnitude spectrum <span class="math notranslate nohighlight">\(|\hat{X}|\)</span> after applying each window to a sinusoid at non-analysis frequency <span class="math notranslate nohighlight">\(f=2.25\)</span> Hz.</span><a class="headerlink" href="#window-examples" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
@@ -903,7 +903,7 @@ In general, we won’t know if a signal contains non-analysis frequencies, so it
 What happens to signals that actually do contain analysis frequencies?</p>
 <p><a class="reference internal" href="#window-analysis-examples"><span class="std std-numref">Fig. 6.12</span></a> illustrates exactly the same comparisons as above, but now using an input signal <span class="math notranslate nohighlight">\(x\)</span> generated by a sinusoid at an analysis frequency.</p>
 <figure class="align-default" id="window-analysis-examples">
-<img alt="comparison of different window functions when applied to a sinusoid at an analysis frequency" src="../../_images/cca411ba30ef1f5ae1e8818067c8752da9f447c938988b20363cb5cd7caa402a.svg" /><figcaption>
+<img alt="comparison of different window functions when applied to a sinusoid at an analysis frequency" src="../../_images/4a181a689a278ffcfa4a88e72fd63a68ebd002513d9b9e0bb06dfe68a1ef91cb.svg" /><figcaption>
 <p><span class="caption-number">Fig. 6.12 </span><span class="caption-text">Different choices of window function <span class="math notranslate nohighlight">\(w\)</span> and the corresponding DFT magnitude spectrum after applying each window to a sinusoid at <strong>analysis</strong> frequency <span class="math notranslate nohighlight">\(f=3\)</span> Hz.</span><a class="headerlink" href="#window-analysis-examples" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>

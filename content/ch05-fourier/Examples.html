@@ -813,7 +813,7 @@ title="Fullscreen mode"
 \end{align*}\]</div>
 <p>Figure <a class="reference internal" href="#impulse-dft"><span class="std std-numref">Fig. 5.15</span></a> illustrates this for a few different values of <span class="math notranslate nohighlight">\(d\)</span>.</p>
 <figure class="align-default" id="impulse-dft">
-<img alt="illustration of delayed impulses and their corresponding Fourier transforms" src="../../_images/d01d0e0c61d902871f62547633d6a7fac0e8ec97d3f9563ee6850c693aad6ecd.svg" /><figcaption>
+<img alt="illustration of delayed impulses and their corresponding Fourier transforms" src="../../_images/f4bf72be9d8ffa033b343a9480b7438e7e8d83d69c86e334a5ac6270b3459a53.svg" /><figcaption>
 <p><span class="caption-number">Fig. 5.15 </span><span class="caption-text">Each row shows the time-domain (left) and frequency-domain (right) representation of a <span class="math notranslate nohighlight">\(d\)</span>-step delay signal (for varying values of <span class="math notranslate nohighlight">\(d\)</span>.  The shaded region corresponds to negative analysis frequencies.</span><a class="headerlink" href="#impulse-dft" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
@@ -874,7 +874,7 @@ This gives us</p>
 \end{align*}\]</div>
 <p>For all other <span class="math notranslate nohighlight">\(\red{m \neq k}\)</span>, we will get <span class="math notranslate nohighlight">\(\darkblue{X[m] = 0}\)</span>.</p>
 <figure class="align-default" id="wave-dft">
-<img alt="illustration of a sinusoid with different phase offsets and their corresponding effect on the DFT" src="../../_images/0d6ab14bdc8013ed42ccc03670fdedc1a00d8dd274daf0f07442d4e2fc628c7b.svg" /><figcaption>
+<img alt="illustration of a sinusoid with different phase offsets and their corresponding effect on the DFT" src="../../_images/085077816ec5cfd0d2f5b75df02b8c614f019bfc979d4b9f26927f261c2a6c30.svg" /><figcaption>
 <p><span class="caption-number">Fig. 5.16 </span><span class="caption-text"><strong>Left</strong>: sinusoids at analysis frequency <span class="math notranslate nohighlight">\(k=3\)</span> with varying phase <span class="math notranslate nohighlight">\(\phi\)</span>.
 <strong>Right</strong>: the DFT of a sinusoid is a pair of impulses located at <span class="math notranslate nohighlight">\(k\)</span> and <span class="math notranslate nohighlight">\(N-k\)</span>.
 The height of the impulses depends on the phase <span class="math notranslate nohighlight">\(\phi\)</span>.</span><a class="headerlink" href="#wave-dft" title="Permalink to this image">#</a></p>
@@ -936,7 +936,7 @@ Here, we’ll use the DFT to visualize a recording of a single note played on a 
                 </audio>
               </div><div class="output text_html"><pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><span style="font-weight: bold">&lt;</span><span style="color: #ff00ff; text-decoration-color: #ff00ff; font-weight: bold">Figure</span><span style="color: #000000; text-decoration-color: #000000"> size 432x288 with </span><span style="color: #008080; text-decoration-color: #008080; font-weight: bold">2</span><span style="color: #000000; text-decoration-color: #000000"> Axes</span><span style="font-weight: bold">&gt;</span>
 </pre>
-</div><img alt="../../_images/af737d4007e6b86dc36a1801952549d041d9c497dc8caf3afbf4be6462b5f7fb.svg" src="../../_images/af737d4007e6b86dc36a1801952549d041d9c497dc8caf3afbf4be6462b5f7fb.svg" /></div>
+</div><img alt="../../_images/f8d3e3adf2ea5d36bbfe848bca2061b1fe90a13988910d9c5290b7c5925973c9.svg" src="../../_images/f8d3e3adf2ea5d36bbfe848bca2061b1fe90a13988910d9c5290b7c5925973c9.svg" /></div>
 </div>
 <p>The first plot illustrates the raw waveform <span class="math notranslate nohighlight">\(\blue{x[n]}\)</span>.  While it’s possible to discern some properties of the audio from the plot (e.g., how its amplitude rises and decays over time), it’s virtually impossible to infer anything about the pitch or frequency content of the note.</p>
 <p>The magnitude spectrum (second plot) shows some interesting structure, but it would be easier to understand if we use the actual analysis frequency values <span class="math notranslate nohighlight">\(f_m\)</span> rather than their index <span class="math notranslate nohighlight">\(m\)</span> for the horizontal axis.</p>
@@ -954,7 +954,7 @@ So we can instead do:</p>
 </pre></div>
 </div>
 <figure class="align-default" id="trumpet-dft">
-<img alt="illustration of the DFT spectrum of a trumpet playing D-sharp 5" src="../../_images/f2c87000a8ffc6ad4c49c88013617cbfa53cbcbed77a3035c4ec5ce2cf55751a.svg" /><figcaption>
+<img alt="illustration of the DFT spectrum of a trumpet playing D-sharp 5" src="../../_images/a62a9359577499fd5a19e52f00c62276c31fc9a02a473606a1cedbb4be07afad.svg" /><figcaption>
 <p><span class="caption-number">Fig. 5.17 </span><span class="caption-text">The DFT spectrum <span class="math notranslate nohighlight">\(\darkblue{|X[m]|}\)</span> of a trumpet playing D#5 = 622.25 Hz, plotted as a function of analysis frequency <span class="math notranslate nohighlight">\(f_m\)</span>.
 The middle and bottom plots contain the same information as the top, but zoomed into <span class="math notranslate nohighlight">\(\pm 5\)</span> KHz (middle) and <span class="math notranslate nohighlight">\([550, 650]\)</span> Hz (bottom).
 A prominent peak can be observed near <span class="math notranslate nohighlight">\(f_m \approx 622.25\)</span> (and -622.25).</span><a class="headerlink" href="#trumpet-dft" title="Permalink to this image">#</a></p>

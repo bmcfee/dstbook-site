@@ -876,7 +876,7 @@ We’ll see how to do that in the next chapter.</p>
 </div>
 <p>We can now inspect the DFT of the input <span class="math notranslate nohighlight">\(x\)</span> and output <span class="math notranslate nohighlight">\(y\)</span> to see what the filter has done: the results are illustrated in <a class="reference internal" href="#butter"><span class="std std-numref">Fig. 11.3</span></a>.</p>
 <figure class="align-default" id="butter">
-<img alt="frequency and phase response for a Butterworth filter" src="../../_images/21c4ccfc6fa13746779de7269865852c2dd4f6f2b05230b66c01718092e56b12.svg" /><figcaption>
+<img alt="frequency and phase response for a Butterworth filter" src="../../_images/90739f6ed4535ceb7d168f25db484a2e7ca3b0638e0860964dbb40b759974dcd.svg" /><figcaption>
 <p><span class="caption-number">Fig. 11.3 </span><span class="caption-text"><strong>Top-left</strong>: a 250-sample delay signal <span class="math notranslate nohighlight">\(\blue{x}\)</span>, padded with zeros to 1000 samples.
 <strong>Top-center</strong>: the magnitude spectrum <span class="math notranslate nohighlight">\(|\darkblue{X}|\)</span>, measured in decibels, zoomed into the frequency range <span class="math notranslate nohighlight">\([0, 1000]\)</span>.
 <strong>Top-right</strong>: the unwrapped phase spectrum <span class="math notranslate nohighlight">\(\phi'\)</span> of <span class="math notranslate nohighlight">\(\blue{X}\)</span>.
@@ -888,7 +888,7 @@ We’ll see how to do that in the next chapter.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <figure class="align-default" id="buttergd">
-<img alt="illustration of non-linear phase response" src="../../_images/481fc42ee7fa0317a391a8664537bae8884f6456d3717023bf7dffa707fb2bd2.svg" /><figcaption>
+<img alt="illustration of non-linear phase response" src="../../_images/ad653a0e067e384b23e81937f06e9c76e415371d73b143c6a26229ea7cdeaae3.svg" /><figcaption>
 <p><span class="caption-number">Fig. 11.4 </span><span class="caption-text">A more careful look at the group delay of <span class="math notranslate nohighlight">\(\purple{y}\)</span> within the passband shows that the delay is not constant over all frequencies, especially near the cutoff <span class="math notranslate nohighlight">\(f_c=500\)</span>.</span><a class="headerlink" href="#buttergd" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
@@ -968,7 +968,7 @@ The example below illustrates how to apply this method to our example signal and
 </div>
 </div>
 <figure class="align-default" id="butter2">
-<img alt="Illustration of bidirectional filtering" src="../../_images/8979d7aa3e917587fee9729912cf8929f07f8eafd5c965050f2985d5eab72caa.svg" /><figcaption>
+<img alt="Illustration of bidirectional filtering" src="../../_images/9814be030dd7aa8a809a49fc702db503f437f6cc0815746edbf51adf00821579.svg" /><figcaption>
 <p><span class="caption-number">Fig. 11.5 </span><span class="caption-text"><strong>Top</strong>: the input signal <span class="math notranslate nohighlight">\(\blue{x}\)</span> (an impulse delayed by 250 samples), along with the single-pass output <span class="math notranslate nohighlight">\(\purple{y}\)</span> (order=10) and the double-pass output <span class="math notranslate nohighlight">\(\magenta{y_2}\)</span> (order=6).
 <strong>Middle</strong>: the DFT magnitudes of <span class="math notranslate nohighlight">\(\darkblue{X}\)</span> (constant), <span class="math notranslate nohighlight">\(\purple{Y}\)</span>, and <span class="math notranslate nohighlight">\(\magenta{Y_2}\)</span>.
 <strong>Bottom</strong>: the unwrapped phase of <span class="math notranslate nohighlight">\(\darkblue{X}\)</span>, <span class="math notranslate nohighlight">\(\purple{Y}\)</span>, and <span class="math notranslate nohighlight">\(\magenta{Y_2}\)</span>.

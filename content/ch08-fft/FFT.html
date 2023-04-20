@@ -823,7 +823,7 @@ That said, the core idea of the “radix-2 Cooley-Tukey” method has plenty of 
 <p>The key observation of Cooley and Tukey is that this summation can be broken apart in interesting ways.
 Specifically, we can separate the summation into <em>even indices</em> <span class="math notranslate nohighlight">\(n=0,2,4,\dots\)</span> and odd indices <span class="math notranslate nohighlight">\(n=1,3,5,\dots\)</span>.</p>
 <figure class="align-default" id="id2">
-<img alt="a signal recursively divided by taking alternating samples" src="../../_images/94c87ab1e4023fd784ec8e9c48d0fde155156d12fd48c23f4cd0b1c4899eb037.svg" /><figcaption>
+<img alt="a signal recursively divided by taking alternating samples" src="../../_images/de0ccef9fcc1cd3d64a3fdb9bb054f98902965fac2af55cdd6067f5ba7b4d5ca.svg" /><figcaption>
 <p><span class="caption-number">Fig. 8.2 </span><span class="caption-text">A discrete signal <span class="math notranslate nohighlight">\(x[n]\)</span> of <span class="math notranslate nohighlight">\(N=32\)</span> samples (top row) is divided into its <em>even</em> and <em>odd</em> samples (middle-left and middle-right).
 The even and odd signals themselves can be similarly divided (bottom row).
 This process can repeat up to <span class="math notranslate nohighlight">\(\log_2 N\)</span> times.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
@@ -918,7 +918,7 @@ If <span class="math notranslate nohighlight">\(\red{m} \geq N/2\)</span>, the a
 <p>In plain words, this says that to find <span class="math notranslate nohighlight">\(\magenta{X_E[m]}\)</span> for <span class="math notranslate nohighlight">\(\red{m} \geq N/2\)</span>, we should look at the DFT coefficient <span class="math notranslate nohighlight">\(\magenta{X_E[m - N/2]}\)</span>.
 This is relationship is depicted visually in <a class="reference internal" href="#fft-alias"><span class="std std-numref">Fig. 8.3</span></a>.</p>
 <figure class="align-default" id="fft-alias">
-<img alt="decimation in time produces aliasing" src="../../_images/c5613fbda4e4e4e452cd6d4388a771a2722dd50b1466407ccb4b13fb69991849.svg" /><figcaption>
+<img alt="decimation in time produces aliasing" src="../../_images/87ec65d3410aedab9802256f9fffdfd8f192fe9d3f66c575d5da06cca8b5f224.svg" /><figcaption>
 <p><span class="caption-number">Fig. 8.3 </span><span class="caption-text">A wave at <span class="math notranslate nohighlight">\(\blue{m} = N/2 + 1\)</span> (with <span class="math notranslate nohighlight">\(N=8\)</span>, <span class="math notranslate nohighlight">\(\blue{m}=5\)</span>) is decimated by taking only the even-index samples <span class="math notranslate nohighlight">\(n=0, 2, 4, \dots\)</span>.
 Due to aliasing, the resulting sequence is equivalent to a wave at <span class="math notranslate nohighlight">\(\red{m - N/2 = 1}\)</span>.</span><a class="headerlink" href="#fft-alias" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -1005,7 +1005,7 @@ Using this observation, we can express the total time for <span class="math notr
 This is illustrated in <a class="reference internal" href="#fig-recursion"><span class="std std-numref">Fig. 8.4</span></a>.
 To simplify notation, we’ll assume that <span class="math notranslate nohighlight">\(c \leq d\)</span>, meaning that the arithmetic operations at lines 23–24 are more expensive than the base-case operations in lines 1–10.</p>
 <figure class="align-default" id="fig-recursion">
-<img alt="a visual representation of time complexity in a recursive algorithm" src="../../_images/e0a02df24965241c51565ee325b45202fe4d0292ee65a4a8769b93aa81c15352.svg" /><figcaption>
+<img alt="a visual representation of time complexity in a recursive algorithm" src="../../_images/92091e820c634051f15f110e4a0a082731af50e30a7fc5825861be753b06b437.svg" /><figcaption>
 <p><span class="caption-number">Fig. 8.4 </span><span class="caption-text">The total amount of computation performed by the radix-2 FFT algorithm (<code class="docutils literal notranslate"><span class="pre">fft2</span></code>) can be computed by looking at the non-recursive computation done at each level, and then adding up the levels.
 Each level totals at most <span class="math notranslate nohighlight">\(d\cdot N\)</span> computation, and there are <span class="math notranslate nohighlight">\(1 + \log_2 N\)</span> levels.</span><a class="headerlink" href="#fig-recursion" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -1024,7 +1024,7 @@ Since <span class="math notranslate nohighlight">\(1 + \log_2 N &lt; 2 \cdot \lo
 </aside>
 <p>Since <span class="math notranslate nohighlight">\(\log_2 N &lt; N\)</span>, this comes out to be substantially more efficient than the <span class="math notranslate nohighlight">\(d \cdot N^2\)</span> work performed by the naive approach.</p>
 <figure class="align-default" id="id3">
-<img alt="visual comparison of linear, quadratic, and linearithmic time complexity" src="../../_images/ce73575e49d817923c09a394f3892e7ae12d91d65ff6a72e19165a6041dda3df.svg" /><figcaption>
+<img alt="visual comparison of linear, quadratic, and linearithmic time complexity" src="../../_images/ce394d4d495201593032fcacf76137bc52e9369467e9dfb8c48a6ebfb2a5348a.svg" /><figcaption>
 <p><span class="caption-number">Fig. 8.5 </span><span class="caption-text">A comparison of linear (<span class="math notranslate nohighlight">\(\blue{N}\)</span>), quadratic (<span class="math notranslate nohighlight">\(\red{N^2}\)</span>), and <em>linearithmic</em> (<span class="math notranslate nohighlight">\(\green{N \cdot \log_2 N}\)</span>) growth.
 The linearithmic curve is much gentler than the quadratic curve, meaning that the amount of work increases slowly with the size of the input.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
 </figcaption>
