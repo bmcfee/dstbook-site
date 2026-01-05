@@ -24,12 +24,11 @@
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -46,7 +45,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -621,6 +620,11 @@ const thebe_selector_output = ".output, .cell_output"
    References
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../errata.html">
+   Errata
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -786,7 +790,7 @@ In a slight abuse of notation, we use square brackets with index <span class="ma
 <span class="eqno">(2.1)<a class="headerlink" href="#equation-sampling-period" title="Permalink to this equation">#</a></span>\[x[n] = x(n \cdot t_s).\]</div>
 <p>By convention, we use <span class="math notranslate nohighlight">\(N\)</span> to denote the total number of samples.</p>
 <figure class="align-default" id="id1">
-<img alt="a continuous signal being sampled at uniformly spaced intervals" src="../../_images/ed42949307d30d1ce6c83eabf49be9980cdbd746e1cb8a6dcfd649d9ddd09527.svg" /><figcaption>
+<img alt="a continuous signal being sampled at uniformly spaced intervals" src="../../_images/a4241dc9d8a6ae765d21a9123bf7934fda08db8d3e20a32521ee41faf7666cc6.svg" /><figcaption>
 <p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">A continuous signal (solid curve) sampled at t_s=0.2 [seconds / sample] (dots).</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
@@ -806,7 +810,7 @@ resulting in the following (equivalent) form for discretely sampled signals:</p>
 When visualizing discrete-time signals, we adopt the convention of using <em>step-plots</em> rather than continuously varying curves (like <span class="math notranslate nohighlight">\(x(t)\)</span> in the figure above), to emphasize the fact that the signal has been discretized.
 Step plots, as demonstrated below, preserve the sample value <span class="math notranslate nohighlight">\(x[n]\)</span> up to the next sample position <span class="math notranslate nohighlight">\(x[n+1]\)</span>.</p>
 <figure class="align-default" id="id2">
-<img alt="A continuous signal sampled at different sampling rates." src="../../_images/c0b80df547ac994d1dcda584c1d6e4d90a565b5f13d4ab12935cac37c55ac8c9.svg" /><figcaption>
+<img alt="A continuous signal sampled at different sampling rates." src="../../_images/a503004c371cf119a2be0b0da8491d33e66c081e341d8a82c2c85c8ca20fbd92.svg" /><figcaption>
 <p><span class="caption-number">Fig. 2.2 </span><span class="caption-text">A continuous signal <span class="math notranslate nohighlight">\(x(t)\)</span> and the discrete signal <span class="math notranslate nohighlight">\(x[n]\)</span> obtained by sampling at 5 Hz (top), 25 Hz (middle), and 50 Hz (bottom).
 The discrete-time signal is illustrated as a step plot.
 At sufficiently high sampling rates, the continuous and discrete signals appear visually similar.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>

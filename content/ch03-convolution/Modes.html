@@ -24,12 +24,11 @@
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -46,7 +45,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -621,6 +620,11 @@ const thebe_selector_output = ".output, .cell_output"
    References
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../errata.html">
+   Errata
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -923,8 +927,8 @@ Same (right-align):	 [ 2  2  2 -8 -9]
 <p>The different convolution modes are summarized visually below, with <span class="math notranslate nohighlight">\(h\)</span> as the differencing filter used above, and <span class="math notranslate nohighlight">\(x\)</span> now as a square wave over 25 samples.</p>
 <p>The shaded regions of the bottom subplot correspond to those which depend on zero-padding.</p>
 <figure class="align-default" id="id2">
-<img alt="A figure illustrating the relationships between different convolution modes" src="../../_images/5bd4fe611a565b6b67b36c6130c10f8a4811b0c5ca0b94b4a066e9ce88195456.svg" /><figcaption>
-<p><span class="caption-number">Fig. 3.7 </span><span class="caption-text">Top-left: an input signal <span class="math notranslate nohighlight">\(x[n]\)</span>, followed by zero-padding.
+<img alt="A figure illustrating the relationships between different convolution modes" src="../../_images/3a9697ad285e43257b7909ae28d3a28140b499d4e86b4e89d08e88ee3fcfa5b7.svg" /><figcaption>
+<p><span class="caption-number">Fig. 3.5 </span><span class="caption-text">Top-left: an input signal <span class="math notranslate nohighlight">\(x[n]\)</span>, followed by zero-padding.
 Top-right: the coefficients of a filter <span class="math notranslate nohighlight">\(h[k]\)</span>.
 Remaining left plots: The full convolution <span class="math notranslate nohighlight">\(y = h * x\)</span> (dots) can be trimmed in various ways to produce each of the different convolution modes.
 The shaded regions correspond to output sample positions in the warm-up and ringing-out phases.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>

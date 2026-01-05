@@ -24,12 +24,11 @@
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -46,7 +45,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -621,6 +620,11 @@ const thebe_selector_output = ".output, .cell_output"
    References
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../errata.html">
+   Errata
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -941,8 +945,8 @@ x[n] &amp; \text{otherwise}
 </pre></div>
 </div>
 <figure class="align-default" id="id2">
-<img alt="an illustration of clipping a signal's sample values to lie within a specified range" src="../../_images/80d6289336ba94696b971aecd321e5210e4ac040ed9ade309af2bed9a9432bd7.svg" /><figcaption>
-<p><span class="caption-number">Fig. 3.8 </span><span class="caption-text"><strong>Top</strong>: an input signal <span class="math notranslate nohighlight">\(x\)</span>.
+<img alt="an illustration of clipping a signal's sample values to lie within a specified range" src="../../_images/6c0069398e5f051b58b068718abed65eb79df06f09349017cbfcf408efde40a1.svg" /><figcaption>
+<p><span class="caption-number">Fig. 3.6 </span><span class="caption-text"><strong>Top</strong>: an input signal <span class="math notranslate nohighlight">\(x\)</span>.
 <strong>Bottom</strong>: the result of clipping <span class="math notranslate nohighlight">\(x\)</span> to lie between <span class="math notranslate nohighlight">\(v_-\)</span> and <span class="math notranslate nohighlight">\(v_+\)</span> (dashed lines).</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
@@ -986,12 +990,12 @@ Here the key property that we’re looking at is symmetry (in time), so we shoul
 Sinusoids and square waves probably won’t work, but a sawtooth will do nicely.</p>
 <p>After that, we need only check what happens when we delay the input by some number of samples.  Here, we’ll take a 5-step delay, but any positive number would do.</p>
 <figure class="align-default" id="reverse">
-<img alt="a signal is delayed and reversed in time" src="../../_images/73084913af1c0c3c11113af36e328302074c136517d2e4e1b283e1078fc4e20c.svg" /><figcaption>
-<p><span class="caption-number">Fig. 3.9 </span><span class="caption-text"><strong>Top</strong>: a signal <span class="math notranslate nohighlight">\(x[n]\)</span> and a 5-sample delayed copy.
+<img alt="a signal is delayed and reversed in time" src="../../_images/f13d030094b17355f29ee79030b3dfe849a6006cd97b62a139e2095d6fc953ff.svg" /><figcaption>
+<p><span class="caption-number">Fig. 3.7 </span><span class="caption-text"><strong>Top</strong>: a signal <span class="math notranslate nohighlight">\(x[n]\)</span> and a 5-sample delayed copy.
 <strong>Bottom</strong>: applying time-reversal before or after delaying the input produces different output signals.</span><a class="headerlink" href="#reverse" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p><a class="reference internal" href="#reverse"><span class="std std-numref">Fig. 3.9</span></a> shows that changing the order of operations (delay first or reverse first) matters, since the two signals in the bottom plot are not identical.
+<p><a class="reference internal" href="#reverse"><span class="std std-numref">Fig. 3.7</span></a> shows that changing the order of operations (delay first or reverse first) matters, since the two signals in the bottom plot are not identical.
 From this example, we can conclude that time-reversal is <em>not</em> shift-invariant.</p>
 </section>
 </div></section>

@@ -24,12 +24,11 @@
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -46,7 +45,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -621,6 +620,11 @@ const thebe_selector_output = ".output, .cell_output"
    References
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../errata.html">
+   Errata
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -826,8 +830,8 @@ If <span class="math notranslate nohighlight">\(x_m(t)\)</span> depended on <spa
 <span class="eqno">(1.7)<a class="headerlink" href="#equation-distance-delay" title="Permalink to this equation">#</a></span>\[x_m(t) \approx x_s(t - D/C).\]</div>
 <p>We’ve written <span class="math notranslate nohighlight">\(\approx\)</span> here, and not <span class="math notranslate nohighlight">\(=\)</span>, because the signals will not be identical: the amplitude will also change.</p>
 <figure class="align-default" id="id2">
-<img alt="A signal before and after applying a delay, with an arrow indicating corresponding time points." src="../../_images/785b0cc65f8a375d80a0424b66d66311757334bf604344112b879b30bd26a2fd.svg" /><figcaption>
-<p><span class="caption-number">Fig. 1.14 </span><span class="caption-text">A signal <span class="math notranslate nohighlight">\(x_s\)</span> emitted by a source (<em>top</em>) and observed by a microphone as <span class="math notranslate nohighlight">\(x_m\)</span> (bottom).
+<img alt="A signal before and after applying a delay, with an arrow indicating corresponding time points." src="../../_images/e3ad4eb7365e4ab5391a10328cb398b094a67f4e4721b796e8a875e2c9bc5030.svg" /><figcaption>
+<p><span class="caption-number">Fig. 1.13 </span><span class="caption-text">A signal <span class="math notranslate nohighlight">\(x_s\)</span> emitted by a source (<em>top</em>) and observed by a microphone as <span class="math notranslate nohighlight">\(x_m\)</span> (bottom).
 If the signal takes time <span class="math notranslate nohighlight">\(0.4\)</span> [seconds] to propagate from the source to microphone, then <span class="math notranslate nohighlight">\(x_m(t) = x_s(t-0.4)\)</span>.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
@@ -873,8 +877,8 @@ If you’re from one of the few countries using “standard” units, think of �
 </table>
 <p>Human ears and microphones respond to <em>sound pressure</em> (<span class="math notranslate nohighlight">\(p\)</span>), the latter converting pressure to an electrical signal measured in Volts <span class="math notranslate nohighlight">\([\text{V}]\)</span>.</p>
 <figure class="align-default" id="id3">
-<img alt="A signal oscillating around the ambient pressure level, with the peak pressure level indicated." src="../../_images/c2b84cddc7b551bd2375cf79c390c3c2448d3de0e92e550a6d7b96e614d34a70.svg" /><figcaption>
-<p><span class="caption-number">Fig. 1.15 </span><span class="caption-text">An acoustic signal <span class="math notranslate nohighlight">\(\blue{x}\)</span> causes air pressure to fluctuate around the ambient pressure.
+<img alt="A signal oscillating around the ambient pressure level, with the peak pressure level indicated." src="../../_images/14b81aabbae6f3a245ca8ba257c1ec064d57c9c73af54f2d05de58726f51140b.svg" /><figcaption>
+<p><span class="caption-number">Fig. 1.14 </span><span class="caption-text">An acoustic signal <span class="math notranslate nohighlight">\(\blue{x}\)</span> causes air pressure to fluctuate around the ambient pressure.
 The amplitude of the signal is given by the maximum difference from the ambient pressure.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
@@ -984,8 +988,8 @@ Similarly, the size of the octave <span class="math notranslate nohighlight">\(B
 However, the <em>ratio</em> of frequencies separated by an octave is always constant (2) regardless of which octave or specific frequency we’re talking about.</p>
 <p>One way to think about this multiplicative behavior from some <span class="math notranslate nohighlight">\(f\)</span> to <span class="math notranslate nohighlight">\(f_2 = 2\cdot f\)</span> is that <span class="math notranslate nohighlight">\(f_2\)</span> has 2 cycles for every 1 cycle in <span class="math notranslate nohighlight">\(f\)</span>, as depicted below.</p>
 <figure class="align-default" id="id4">
-<img alt="Illustration of a sinusoid and two of its harmonics" src="../../_images/f374c0fcd30784dd14ee7e088f03d97ccbcf11a7eb50c3d7774350d394eeaafb.svg" /><figcaption>
-<p><span class="caption-number">Fig. 1.16 </span><span class="caption-text">Waves at frequencies <span class="math notranslate nohighlight">\(f=2\)</span> [Hz], <span class="math notranslate nohighlight">\(2\cdot f\)</span>, and <span class="math notranslate nohighlight">\(3\cdot f\)</span>.
+<img alt="Illustration of a sinusoid and two of its harmonics" src="../../_images/407fee023e60221e744cd47627eb93be8aaa17b0d0b0cb6ed6b83e195eb0f75b.svg" /><figcaption>
+<p><span class="caption-number">Fig. 1.15 </span><span class="caption-text">Waves at frequencies <span class="math notranslate nohighlight">\(f=2\)</span> [Hz], <span class="math notranslate nohighlight">\(2\cdot f\)</span>, and <span class="math notranslate nohighlight">\(3\cdot f\)</span>.
 Note that <span class="math notranslate nohighlight">\(2\cdot f\)</span> and <span class="math notranslate nohighlight">\(3\cdot f\)</span> complete whole cycles for each cycle of <span class="math notranslate nohighlight">\(f\)</span>, but not for each-other.</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
@@ -1003,8 +1007,8 @@ A change in frequency of 1¢ therefore corresponds to a multiplicative factor of
 <h3><span class="section-number">1.4.3.2. </span>Frequency ranges<a class="headerlink" href="#frequency-ranges" title="Permalink to this headline">#</a></h3>
 <p>Finally, to ground the notion of frequency in reality, the figure below illustrates familiar frequency ranges.</p>
 <figure class="align-default" id="id5">
-<img alt="Illustration of different frequency ranges for human hearing, voice, telephone, etc." src="../../_images/8adcf74ba6c60166900bcdef8db5160dce6d806683008e815ce630eae80c5364.svg" /><figcaption>
-<p><span class="caption-number">Fig. 1.17 </span><span class="caption-text">A visual comparison of important (and not-so-important) frequency ranges.</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
+<img alt="Illustration of different frequency ranges for human hearing, voice, telephone, etc." src="../../_images/7c14c9761c3caed64d810b3a561602e7cef76af80db631f0689a33f698684810.svg" /><figcaption>
+<p><span class="caption-number">Fig. 1.16 </span><span class="caption-text">A visual comparison of important (and not-so-important) frequency ranges.</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>

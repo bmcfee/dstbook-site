@@ -24,12 +24,11 @@
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -46,7 +45,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -621,6 +620,11 @@ const thebe_selector_output = ".output, .cell_output"
    References
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../errata.html">
+   Errata
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -904,7 +908,7 @@ However, correctly interpreting the phase spectrum requires a bit more care than
 <p>If we interpret delay as a convolutional filter, we can plot the phase spectrum of different delays to see what happens.
 Some examples are displayed below in <a class="reference internal" href="#delay-angle"><span class="std std-numref">Fig. 10.9</span></a>.</p>
 <figure class="align-default" id="delay-angle">
-<img alt="Illustration of phase response for different delay filters" src="../../_images/af3b12c1ddee77e80725edf010c49e65c3f62179326cbfa41e8642917c245675.svg" /><figcaption>
+<img alt="Illustration of phase response for different delay filters" src="../../_images/cd5630a89e183cb17ea225da47eb0464cc4d0eb418f09629d32b7f9d0bb9b105.svg" /><figcaption>
 <p><span class="caption-number">Fig. 10.9 </span><span class="caption-text"><strong>Left</strong>: three different delay filters (<span class="math notranslate nohighlight">\(\blue{1}\)</span>, <span class="math notranslate nohighlight">\(\red{4}\)</span>, and <span class="math notranslate nohighlight">\(\green{7}\)</span> samples) are plotted with length <span class="math notranslate nohighlight">\(N=64\)</span>.
 <strong>Right</strong>: for each filter, the phase spectrum <span class="math notranslate nohighlight">\(\phi[m]\)</span> is plotted as a function of frequency.</span><a class="headerlink" href="#delay-angle" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -930,7 +934,7 @@ The unwrapped angles will land outside the <span class="math notranslate nohighl
 </div>
 <p>The results of phase unwrapping on the delay filters in <a class="reference internal" href="#delay-angle"><span class="std std-numref">Fig. 10.9</span></a> are illustrated below.</p>
 <figure class="align-default" id="phase-unwrap">
-<img alt="illustration of phase unwrapping" src="../../_images/4d8e65e8a1d7416fbc8ae4fb05e0287d0de2fcf249d8aec61c12a7da4086b1db.svg" /><figcaption>
+<img alt="illustration of phase unwrapping" src="../../_images/40403c2c3d345f6fec67a98f10d507e60602b1991d3e3c1902c018bed771c512.svg" /><figcaption>
 <p><span class="caption-number">Fig. 10.10 </span><span class="caption-text"><strong>Top</strong>: the phase spectra <span class="math notranslate nohighlight">\(\phi[m]\)</span> of three different delay filters (<span class="math notranslate nohighlight">\(\blue{1}\)</span>, <span class="math notranslate nohighlight">\(\red{4}\)</span>, and <span class="math notranslate nohighlight">\(\green{7}\)</span> samples) appear as <em>zig-zag</em> lines, bounded between <span class="math notranslate nohighlight">\(-\pi\)</span> and <span class="math notranslate nohighlight">\(+\pi\)</span>.
 <strong>Bottom</strong>: the unwrapped phase spectra <span class="math notranslate nohighlight">\(\phi'[m]\)</span> appear as straight lines with slope depending on the amount of delay.</span><a class="headerlink" href="#phase-unwrap" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -1037,7 +1041,7 @@ To demonstrate this, let’s create two filters, one low-pass and one high-pass,
 </div>
 <p><a class="reference internal" href="#group-delay-plot"><span class="std std-numref">Fig. 10.11</span></a> illustrates the impulse response, frequency response, and unwrapped phase spectrum of these two filters.</p>
 <figure class="align-default" id="group-delay-plot">
-<img alt="illustration of group delay and linear phase in the pass-band" src="../../_images/17dfd02895170fe4ff837f03f144f1691c31db5e3aa6b753bc35bd7ca09ea24d.svg" /><figcaption>
+<img alt="illustration of group delay and linear phase in the pass-band" src="../../_images/27bbf3b5852fd2070069d8ae49d15d0c6a8d6e8f0bfd6b405311aad72a33f3d9.svg" /><figcaption>
 <p><span class="caption-number">Fig. 10.11 </span><span class="caption-text">Two FIR filters are shown (<strong>left column</strong>), along with their frequency response <span class="math notranslate nohighlight">\(|H[m]|\)</span> (<strong>center column</strong>) and unwrapped phase spectrum <span class="math notranslate nohighlight">\(\phi'[m]\)</span> (<strong>right column</strong>).
 Shaded regions correspond to the stop-bands of the filters in the frequency domain.
 <strong>Top row</strong>: a low-pass filter with <span class="math notranslate nohighlight">\(f_c=3000\)</span> Hz.

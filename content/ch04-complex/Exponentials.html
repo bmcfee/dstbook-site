@@ -24,12 +24,11 @@
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -46,7 +45,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -621,6 +620,11 @@ const thebe_selector_output = ".output, .cell_output"
    References
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../errata.html">
+   Errata
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -781,7 +785,7 @@ title="Fullscreen mode"
 \[e^z = e^{a + \mathrm{j}b} = e^a \cdot e^{\mathrm{j}b}\]</div>
 <p>Since <span class="math notranslate nohighlight">\(a\)</span> is real, we already have a good handle on how <span class="math notranslate nohighlight">\(e^a\)</span> behaves.
 Let’s focus on what happens just to that second factor, where the quantity in the exponent is purely imaginary: <span class="math notranslate nohighlight">\(e^{\mathrm{j}b}\)</span>.</p>
-<p><a class="reference internal" href="#euler-partial"><span class="std std-numref">Fig. 4.6</span></a> shows what happens as we form better approximations to <span class="math notranslate nohighlight">\(e^{\mathrm{j}b}\)</span> by taking more terms in the summation (up to 50), for <span class="math notranslate nohighlight">\(b \in [-4\pi, +4\pi]\)</span>.
+<p><a class="reference internal" href="#euler-partial"><span class="std std-numref">Fig. 4.5</span></a> shows what happens as we form better approximations to <span class="math notranslate nohighlight">\(e^{\mathrm{j}b}\)</span> by taking more terms in the summation (up to 50), for <span class="math notranslate nohighlight">\(b \in [-4\pi, +4\pi]\)</span>.
 For clarity, the numbers in the interval <span class="math notranslate nohighlight">\([-\pi, \pi]\)</span> are highlighted.</p>
 <figure class="align-default" id="euler-partial">
 <div class="output text_html">
@@ -969,42 +973,42 @@ input[type=range].anim-slider {
 </style>
 
 <div class="animation">
-  <img id="_anim_imgdf17a238caad488da9c40c51fc9315a9">
+  <img id="_anim_img9f606a51f31140fcb4ff2aeb7fd96bf9">
   <div class="anim-controls">
-    <input id="_anim_sliderdf17a238caad488da9c40c51fc9315a9" type="range" class="anim-slider"
+    <input id="_anim_slider9f606a51f31140fcb4ff2aeb7fd96bf9" type="range" class="anim-slider"
            name="points" min="0" max="1" step="1" value="0"
-           oninput="animdf17a238caad488da9c40c51fc9315a9.set_frame(parseInt(this.value));">
+           oninput="anim9f606a51f31140fcb4ff2aeb7fd96bf9.set_frame(parseInt(this.value));">
     <div class="anim-buttons">
-      <button title="Decrease speed" aria-label="Decrease speed" onclick="animdf17a238caad488da9c40c51fc9315a9.slower()">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim9f606a51f31140fcb4ff2aeb7fd96bf9.slower()">
           <i class="fa fa-minus"></i></button>
-      <button title="First frame" aria-label="First frame" onclick="animdf17a238caad488da9c40c51fc9315a9.first_frame()">
+      <button title="First frame" aria-label="First frame" onclick="anim9f606a51f31140fcb4ff2aeb7fd96bf9.first_frame()">
         <i class="fa fa-fast-backward"></i></button>
-      <button title="Previous frame" aria-label="Previous frame" onclick="animdf17a238caad488da9c40c51fc9315a9.previous_frame()">
+      <button title="Previous frame" aria-label="Previous frame" onclick="anim9f606a51f31140fcb4ff2aeb7fd96bf9.previous_frame()">
           <i class="fa fa-step-backward"></i></button>
-      <button title="Play backwards" aria-label="Play backwards" onclick="animdf17a238caad488da9c40c51fc9315a9.reverse_animation()">
+      <button title="Play backwards" aria-label="Play backwards" onclick="anim9f606a51f31140fcb4ff2aeb7fd96bf9.reverse_animation()">
           <i class="fa fa-play fa-flip-horizontal"></i></button>
-      <button title="Pause" aria-label="Pause" onclick="animdf17a238caad488da9c40c51fc9315a9.pause_animation()">
+      <button title="Pause" aria-label="Pause" onclick="anim9f606a51f31140fcb4ff2aeb7fd96bf9.pause_animation()">
           <i class="fa fa-pause"></i></button>
-      <button title="Play" aria-label="Play" onclick="animdf17a238caad488da9c40c51fc9315a9.play_animation()">
+      <button title="Play" aria-label="Play" onclick="anim9f606a51f31140fcb4ff2aeb7fd96bf9.play_animation()">
           <i class="fa fa-play"></i></button>
-      <button title="Next frame" aria-label="Next frame" onclick="animdf17a238caad488da9c40c51fc9315a9.next_frame()">
+      <button title="Next frame" aria-label="Next frame" onclick="anim9f606a51f31140fcb4ff2aeb7fd96bf9.next_frame()">
           <i class="fa fa-step-forward"></i></button>
-      <button title="Last frame" aria-label="Last frame" onclick="animdf17a238caad488da9c40c51fc9315a9.last_frame()">
+      <button title="Last frame" aria-label="Last frame" onclick="anim9f606a51f31140fcb4ff2aeb7fd96bf9.last_frame()">
           <i class="fa fa-fast-forward"></i></button>
-      <button title="Increase speed" aria-label="Increase speed" onclick="animdf17a238caad488da9c40c51fc9315a9.faster()">
+      <button title="Increase speed" aria-label="Increase speed" onclick="anim9f606a51f31140fcb4ff2aeb7fd96bf9.faster()">
           <i class="fa fa-plus"></i></button>
     </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_selectdf17a238caad488da9c40c51fc9315a9"
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select9f606a51f31140fcb4ff2aeb7fd96bf9"
           class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_df17a238caad488da9c40c51fc9315a9"
+      <input type="radio" name="state" value="once" id="_anim_radio1_9f606a51f31140fcb4ff2aeb7fd96bf9"
              >
-      <label for="_anim_radio1_df17a238caad488da9c40c51fc9315a9">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_df17a238caad488da9c40c51fc9315a9"
+      <label for="_anim_radio1_9f606a51f31140fcb4ff2aeb7fd96bf9">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_9f606a51f31140fcb4ff2aeb7fd96bf9"
              checked>
-      <label for="_anim_radio2_df17a238caad488da9c40c51fc9315a9">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_df17a238caad488da9c40c51fc9315a9"
+      <label for="_anim_radio2_9f606a51f31140fcb4ff2aeb7fd96bf9">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_9f606a51f31140fcb4ff2aeb7fd96bf9"
              >
-      <label for="_anim_radio3_df17a238caad488da9c40c51fc9315a9">Reflect</label>
+      <label for="_anim_radio3_9f606a51f31140fcb4ff2aeb7fd96bf9">Reflect</label>
     </form>
   </div>
 </div>
@@ -1014,9 +1018,9 @@ input[type=range].anim-slider {
   /* Instantiate the Animation class. */
   /* The IDs given should match those used in the template above. */
   (function() {
-    var img_id = "_anim_imgdf17a238caad488da9c40c51fc9315a9";
-    var slider_id = "_anim_sliderdf17a238caad488da9c40c51fc9315a9";
-    var loop_select_id = "_anim_loop_selectdf17a238caad488da9c40c51fc9315a9";
+    var img_id = "_anim_img9f606a51f31140fcb4ff2aeb7fd96bf9";
+    var slider_id = "_anim_slider9f606a51f31140fcb4ff2aeb7fd96bf9";
+    var loop_select_id = "_anim_loop_select9f606a51f31140fcb4ff2aeb7fd96bf9";
     var frames = new Array(325);
     
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbAAAAFECAYAAABGTWslAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
@@ -92304,18 +92308,18 @@ PF0io4rWAxMRkbqkJkQREalLCmAiIlKXFMBERKQuKYCJiEhdUgATEZG6pAAmIiJ16f8Bb42K6VLJ\
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
     setTimeout(function() {
-        animdf17a238caad488da9c40c51fc9315a9 = new Animation(frames, img_id, slider_id, 40.0,
+        anim9f606a51f31140fcb4ff2aeb7fd96bf9 = new Animation(frames, img_id, slider_id, 40.0,
                                  loop_select_id);
     }, 0);
   })()
 </script>
 </div><figcaption>
-<p><span class="caption-number">Fig. 4.6 </span><span class="caption-text">Partial summations illustrate how Euler’s formula maps imagine numbers <span class="math notranslate nohighlight">\(\mathrm{j}b\)</span> to the unit circle in the complex plane.</span><a class="headerlink" href="#euler-partial" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 4.5 </span><span class="caption-text">Partial summations illustrate how Euler’s formula maps imagine numbers <span class="math notranslate nohighlight">\(\mathrm{j}b\)</span> to the unit circle in the complex plane.</span><a class="headerlink" href="#euler-partial" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="eulers-formula">
 <h2><span class="section-number">4.3.1. </span>Euler’s formula<a class="headerlink" href="#eulers-formula" title="Permalink to this headline">#</a></h2>
-<p><a class="reference internal" href="#euler-partial"><span class="std std-numref">Fig. 4.6</span></a> shows that <span class="math notranslate nohighlight">\(e^{\mathrm{j}b}\)</span> wraps imaginary numbers around the unit circle in the complex plane.
+<p><a class="reference internal" href="#euler-partial"><span class="std std-numref">Fig. 4.5</span></a> shows that <span class="math notranslate nohighlight">\(e^{\mathrm{j}b}\)</span> wraps imaginary numbers around the unit circle in the complex plane.
 By visual inspection, one can see that the point <span class="math notranslate nohighlight">\(b=0\)</span> maps to <span class="math notranslate nohighlight">\(z=1 + 0\mathrm{j}=1\)</span>, which makes sense since <span class="math notranslate nohighlight">\(e^0 = 1\)</span>.
 More surprising are the points  <span class="math notranslate nohighlight">\(b=\pm\pi\)</span>, which both map to <span class="math notranslate nohighlight">\(z=-1\)</span>.
 Even more surprising than that, larger values of <span class="math notranslate nohighlight">\(b &gt; \pi\)</span> or smaller values <span class="math notranslate nohighlight">\(b &lt; -\pi\)</span> also (eventually) wrap around the circle.</p>
@@ -92345,8 +92349,8 @@ e^z = e^a \cdot e^{\mathrm{j}b} &amp;= e^a \cdot \left(\red{\cos(b)} + \mathrm{j
 As we’ve seen earlier, this number can be represented by the point <span class="math notranslate nohighlight">\((a, b)\)</span> in the complex plane.
 Equivalently, we can represent <span class="math notranslate nohighlight">\(z\)</span> in <strong>polar</strong> form in terms of its distance from the origin (which we call <span class="math notranslate nohighlight">\(r\)</span>) and the angle <span class="math notranslate nohighlight">\(\theta\)</span> it makes with the real axis.</p>
 <figure class="align-default" id="id1">
-<img alt="../../_images/5fbcdf6e32da575cb95a33aa78a48f92982eeb22caef96ae0d77206015728313.svg" src="../../_images/5fbcdf6e32da575cb95a33aa78a48f92982eeb22caef96ae0d77206015728313.svg" /><figcaption>
-<p><span class="caption-number">Fig. 4.7 </span><span class="caption-text">A complex number <span class="math notranslate nohighlight">\(z\)</span> can be expressed in polar form by finding its distance <span class="math notranslate nohighlight">\(r\)</span> from the origin, and the angle <span class="math notranslate nohighlight">\(\theta\)</span> it makes with the real number line.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+<img alt="../../_images/64acdce9de2e16ad83ab3008c13914e709cef091dc948c4f033c655d993af6c2.svg" src="../../_images/64acdce9de2e16ad83ab3008c13914e709cef091dc948c4f033c655d993af6c2.svg" /><figcaption>
+<p><span class="caption-number">Fig. 4.6 </span><span class="caption-text">A complex number <span class="math notranslate nohighlight">\(z\)</span> can be expressed in polar form by finding its distance <span class="math notranslate nohighlight">\(r\)</span> from the origin, and the angle <span class="math notranslate nohighlight">\(\theta\)</span> it makes with the real number line.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Putting this picture back into equations, <em>any complex number</em> <span class="math notranslate nohighlight">\(z\)</span> can be equivalently expressed using Euler’s formula as</p>

@@ -24,12 +24,11 @@
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -46,7 +45,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -621,6 +620,11 @@ const thebe_selector_output = ".output, .cell_output"
    References
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../errata.html">
+   Errata
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -825,7 +829,7 @@ Therefore, to remove these limitations, we will need to modify the DFT definitio
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <figure class="align-default" id="id1">
-<img alt="Illustration of a complex point being raised to successive negative powers traveling around the unit circle" src="../../_images/be3d6c422321589fe6ae4b4e3a80ebf7df118a4a54efb57881ecc176d5c76a16.svg" /><figcaption>
+<img alt="Illustration of a complex point being raised to successive negative powers traveling around the unit circle" src="../../_images/a6667166630a7bac894a3e47f699b9fb7fed2a9ea9f1f1dd0f00e7fe21709dd9.svg" /><figcaption>
 <p><span class="caption-number">Fig. 12.1 </span><span class="caption-text">When the complex number <span class="math notranslate nohighlight">\(z_{1/8} = \exp(\mathrm{j}\cdot 2\pi \cdot 1/8)\)</span> is raised to successive powers <span class="math notranslate nohighlight">\(z_{1/8}^{-n}\)</span> for <span class="math notranslate nohighlight">\(n=0, 1, 2, \dots\)</span>, the resulting effect is to move the point clockwise around the unit circle by steps of <span class="math notranslate nohighlight">\(2\pi\cdot 1/8\)</span> radians.
 This general pattern holds for any <span class="math notranslate nohighlight">\(z_{m/N}\)</span> with integers <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(N\)</span>, which provide the basis for the discrete Fourier transform.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -896,7 +900,7 @@ For example:</p>
 More generally, the range of frequencies <span class="math notranslate nohighlight">\(0 \leq f \leq f_s\)</span> are mapped continuously to the range of angles <span class="math notranslate nohighlight">\(0 \leq \theta \leq 2\pi\)</span>.
 This will become useful later on, when we use the z-transform to understand frequency response of feedback filters.</p>
 <figure class="align-default" id="id2">
-<img alt="Illustration of frequency mapping onto angle" src="../../_images/f65d43d3694b5f1c096b8eafdafa96e678c820b69844c3230bde077655ef3fc4.svg" /><figcaption>
+<img alt="Illustration of frequency mapping onto angle" src="../../_images/1addbdb2e3bdae3dd88d87ba5c2a68a19a3b8aacdec869db6de9e00c81a3898c.svg" /><figcaption>
 <p><span class="caption-number">Fig. 12.2 </span><span class="caption-text">The z-transform (and discrete-time Fourier transform) associates each continuous frequency <span class="math notranslate nohighlight">\(\purple{f}\)</span> with a specific angle <span class="math notranslate nohighlight">\(\purple{\theta = 2\pi \cdot f / f_s}\)</span>.
 Angles in the upper half of the complex plane correspond to positive frequencies between <span class="math notranslate nohighlight">\(\red{0}\)</span> and <span class="math notranslate nohighlight">\(\red{f_s/2}\)</span> (the Nyquist frequency).
 Angles in the lower half correspond to negative frequencies between <span class="math notranslate nohighlight">\(\red{0}\)</span> and <span class="math notranslate nohighlight">\(\red{-f_s/2} \equiv \red{f_s/2}\)</span>.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>

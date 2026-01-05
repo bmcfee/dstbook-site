@@ -24,12 +24,11 @@
     <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/.ipynb_checkpoints/custom-checkpoint.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -46,7 +45,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -621,6 +620,11 @@ const thebe_selector_output = ".output, .cell_output"
    References
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../errata.html">
+   Errata
+  </a>
+ </li>
 </ul>
 
     </div>
@@ -826,7 +830,7 @@ They are constructed by the function <code class="docutils literal notranslate">
 </div>
 <p><a class="reference internal" href="#cheby1"><span class="std std-numref">Fig. 11.6</span></a> illustrates the results of applying this filter to an impulse <span class="math notranslate nohighlight">\(x\)</span>, and how it compares to a Butterworth filter.</p>
 <figure class="align-default" id="cheby1">
-<img alt="Illustration of type-1 Chebyshev filter" src="../../_images/eea1b55d6642db1e6992e393bfe962cc7ce7d0d9c761c50099c9482fa84c5000.svg" /><figcaption>
+<img alt="Illustration of type-1 Chebyshev filter" src="../../_images/b5ebea18184df82c654e27a7723c3f66fdad482c2e2ca86bae20e86ce052c1be.svg" /><figcaption>
 <p><span class="caption-number">Fig. 11.6 </span><span class="caption-text">A type-1 Chebyshev filter with 3dB passband ripple, cutoff frequency of <span class="math notranslate nohighlight">\(f_c=500\)</span>, and stop-band starting at 1000 Hz is applied to an impulse <span class="math notranslate nohighlight">\(\blue{x}\)</span> to produce the impulse response <span class="math notranslate nohighlight">\(y\)</span>, measured for 2000 samples (at <span class="math notranslate nohighlight">\(f_s=44100\)</span>).
 For comparison purposes, a Butterworth filter with the same cutoff and order is also computed.
 <strong>Top</strong>: the impulse, and impulse response.
@@ -859,7 +863,7 @@ Type-2 filters are constructed by <code class="docutils literal notranslate"><sp
 </div>
 <p><a class="reference internal" href="#cheby2"><span class="std std-numref">Fig. 11.7</span></a> illustrates the behavior of the type-2 filter, compared to the type-1 filter with similar constraints.</p>
 <figure class="align-default" id="cheby2">
-<img alt="Comparison of type-1 and type-2 Chebyshev filters" src="../../_images/ef5bf0218ade047a46c9f3fca568916c22a1011a89a8b15fd0417ee45a151aa2.svg" /><figcaption>
+<img alt="Comparison of type-1 and type-2 Chebyshev filters" src="../../_images/c04534e6da9163563136bd674e1eac67ffeb799c9c33a02471e92e5d4998be98.svg" /><figcaption>
 <p><span class="caption-number">Fig. 11.7 </span><span class="caption-text">A type-2 Chebyshev filter with 60dB stop-band attenuation, cutoff frequency of <span class="math notranslate nohighlight">\(f_c=500\)</span>, and stop-band starting at 1000 Hz..
 The type-1 filter from <a class="reference internal" href="#cheby1"><span class="std std-numref">Fig. 11.6</span></a> is included for comparison purposes.
 <strong>Top</strong>: the impulse, and impulse response.
@@ -900,7 +904,7 @@ The <code class="docutils literal notranslate"><span class="pre">ellip</span></c
 </pre></div>
 </div>
 <figure class="align-default" id="elliptic">
-<img alt="An elliptic filter compared to Chebyshev filters" src="../../_images/f36f354ee3b23dcae64e5c8bad889e74eca54a4356f357b7a1c1cf152c05a253.svg" /><figcaption>
+<img alt="An elliptic filter compared to Chebyshev filters" src="../../_images/3733b44e4b85c91f862f05cca6c758cc1ccc4c5bcf654ae90ae458b621f0ba41.svg" /><figcaption>
 <p><span class="caption-number">Fig. 11.8 </span><span class="caption-text">An elliptic filter with 3dB pass-band ripple, 60dB stop-band attenuation, cutoff frequency of <span class="math notranslate nohighlight">\(f_c=500\)</span>, and stop-band starting at 1000 Hz.
 Chebyshev filters are included for comparison purposes.
 <strong>Top</strong>: the impulse, and impulse response.
