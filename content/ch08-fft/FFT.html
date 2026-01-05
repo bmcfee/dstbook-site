@@ -826,6 +826,13 @@ That said, the core idea of the “radix-2 Cooley-Tukey” method has plenty of 
 \[\darkblue{X[m]} = \sum_{n=0}^{N-1} \blue{x[n]} \cdot \purple{e^{-2\pi \cdot \mathrm{j} \cdot m \cdot n / N}}.\]</div>
 <p>The key observation of Cooley and Tukey is that this summation can be broken apart in interesting ways.
 Specifically, we can separate the summation into <em>even indices</em> <span class="math notranslate nohighlight">\(n=0,2,4,\dots\)</span> and odd indices <span class="math notranslate nohighlight">\(n=1,3,5,\dots\)</span>.</p>
+<figure class="align-default" id="id2">
+<img alt="a signal recursively divided by taking alternating samples" src="../../_images/2189ed3cf776059ddb047a9e16e2f2609730fcd44de7ba6191228af4f95bca5b.svg" /><figcaption>
+<p><span class="caption-number">Fig. 8.2 </span><span class="caption-text">A discrete signal <span class="math notranslate nohighlight">\(x[n]\)</span> of <span class="math notranslate nohighlight">\(N=32\)</span> samples (top row) is divided into its <em>even</em> and <em>odd</em> samples (middle-left and middle-right).
+The even and odd signals themselves can be similarly divided (bottom row).
+This process can repeat up to <span class="math notranslate nohighlight">\(\log_2 N\)</span> times.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Writing <span class="math notranslate nohighlight">\(n=2k\)</span> for even and <span class="math notranslate nohighlight">\(n=2k+1\)</span> for odd indices, we get:</p>
 <div class="math notranslate nohighlight">
 \[\darkblue{X[m]} = \underbrace{\sum_{k=0}^{N/2-1} \blue{x[2k]} \cdot \purple{e^{-2\pi \cdot \mathrm{j} \cdot m \cdot 2k / N}}}_\text{Even part}
@@ -913,10 +920,10 @@ If <span class="math notranslate nohighlight">\(\red{m} \geq N/2\)</span>, the a
 &amp;= \frac{\red{m} - \blue{N/2}}{\blue{N}} \cdot f_s.
 \end{align*}\]</div>
 <p>In plain words, this says that to find <span class="math notranslate nohighlight">\(\magenta{X_E[m]}\)</span> for <span class="math notranslate nohighlight">\(\red{m} \geq N/2\)</span>, we should look at the DFT coefficient <span class="math notranslate nohighlight">\(\magenta{X_E[m - N/2]}\)</span>.
-This is relationship is depicted visually in <a class="reference internal" href="#fft-alias"><span class="std std-numref">Fig. 8.2</span></a>.</p>
+This is relationship is depicted visually in <a class="reference internal" href="#fft-alias"><span class="std std-numref">Fig. 8.3</span></a>.</p>
 <figure class="align-default" id="fft-alias">
-<img alt="decimation in time produces aliasing" src="../../_images/dd6befb07d407e38eaa8585e5801dc4c9e43e581ce4e930232e47a0e730b9999.svg" /><figcaption>
-<p><span class="caption-number">Fig. 8.2 </span><span class="caption-text">A wave at <span class="math notranslate nohighlight">\(\blue{m} = N/2 + 1\)</span> (with <span class="math notranslate nohighlight">\(N=8\)</span>, <span class="math notranslate nohighlight">\(\blue{m}=5\)</span>) is decimated by taking only the even-index samples <span class="math notranslate nohighlight">\(n=0, 2, 4, \dots\)</span>.
+<img alt="decimation in time produces aliasing" src="../../_images/62e378a820daef2c9b160f260ba15722492fab44bf9e572fe934dbed4971d0c5.svg" /><figcaption>
+<p><span class="caption-number">Fig. 8.3 </span><span class="caption-text">A wave at <span class="math notranslate nohighlight">\(\blue{m} = N/2 + 1\)</span> (with <span class="math notranslate nohighlight">\(N=8\)</span>, <span class="math notranslate nohighlight">\(\blue{m}=5\)</span>) is decimated by taking only the even-index samples <span class="math notranslate nohighlight">\(n=0, 2, 4, \dots\)</span>.
 Due to aliasing, the resulting sequence is equivalent to a wave at <span class="math notranslate nohighlight">\(\red{m - N/2 = 1}\)</span>.</span><a class="headerlink" href="#fft-alias" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
@@ -999,15 +1006,15 @@ Using this observation, we can express the total time for <span class="math notr
 \[T(N) = 2 \cdot \left( 2\cdot T\left(\frac{N}{4}\right) + \frac{N}{2} \cdot d \right)+ N\cdot d\]</div>
 <p>and this process can repeat until the recursion stops at <span class="math notranslate nohighlight">\(N=1\)</span>.</p>
 <p>If we total up the non-recursive computation done at each <em>level</em> of the recursion, we can get a handle on the total amount of computation.
-This is illustrated in <a class="reference internal" href="#fig-recursion"><span class="std std-numref">Fig. 8.3</span></a>.
+This is illustrated in <a class="reference internal" href="#fig-recursion"><span class="std std-numref">Fig. 8.4</span></a>.
 To simplify notation, we’ll assume that <span class="math notranslate nohighlight">\(c \leq d\)</span>, meaning that the arithmetic operations at lines 23–24 are more expensive than the base-case operations in lines 1–10.</p>
 <figure class="align-default" id="fig-recursion">
-<img alt="a visual representation of time complexity in a recursive algorithm" src="../../_images/32fe2a3a365d11aad1eada215765e87b32b0ea68036d9a32d532dccf0364e220.svg" /><figcaption>
-<p><span class="caption-number">Fig. 8.3 </span><span class="caption-text">The total amount of computation performed by the radix-2 FFT algorithm (<code class="docutils literal notranslate"><span class="pre">fft2</span></code>) can be computed by looking at the non-recursive computation done at each level, and then adding up the levels.
+<img alt="a visual representation of time complexity in a recursive algorithm" src="../../_images/6bed85f923ef20eac3f88957384c758879f3496ea57120fbe10b135e067232a6.svg" /><figcaption>
+<p><span class="caption-number">Fig. 8.4 </span><span class="caption-text">The total amount of computation performed by the radix-2 FFT algorithm (<code class="docutils literal notranslate"><span class="pre">fft2</span></code>) can be computed by looking at the non-recursive computation done at each level, and then adding up the levels.
 Each level totals at most <span class="math notranslate nohighlight">\(d\cdot N\)</span> computation, and there are <span class="math notranslate nohighlight">\(1 + \log_2 N\)</span> levels.</span><a class="headerlink" href="#fig-recursion" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>What <a class="reference internal" href="#fig-recursion"><span class="std std-numref">Fig. 8.3</span></a> shows us is that each level <span class="math notranslate nohighlight">\(\ell\)</span> of the recursion has <span class="math notranslate nohighlight">\(2^\ell\)</span> calls to <code class="docutils literal notranslate"><span class="pre">fft2</span></code>, each of size <span class="math notranslate nohighlight">\(N/2^\ell\)</span>.
+<p>What <a class="reference internal" href="#fig-recursion"><span class="std std-numref">Fig. 8.4</span></a> shows us is that each level <span class="math notranslate nohighlight">\(\ell\)</span> of the recursion has <span class="math notranslate nohighlight">\(2^\ell\)</span> calls to <code class="docutils literal notranslate"><span class="pre">fft2</span></code>, each of size <span class="math notranslate nohighlight">\(N/2^\ell\)</span>.
 Each of these does some linear amount of computation: <span class="math notranslate nohighlight">\(d \cdot N / 2^\ell\)</span>, and if we sum these together, the result for level <span class="math notranslate nohighlight">\(\ell\)</span> is <span class="math notranslate nohighlight">\(d \cdot N\)</span>.
 The total number of levels is <span class="math notranslate nohighlight">\(1 + \log_2 N\)</span>, since this counts how many times <span class="math notranslate nohighlight">\(N\)</span> can be divided by 2 before hitting the base case: <span class="math notranslate nohighlight">\(N=1\)</span> has one level, <span class="math notranslate nohighlight">\(N=2\)</span> should have two levels, <span class="math notranslate nohighlight">\(N=4\)</span> has 3 levels, and so forth.
 Multiplying the per-level work by the number of levels gives us a total upper bound of</p>
@@ -1020,10 +1027,10 @@ Since <span class="math notranslate nohighlight">\(1 + \log_2 N &lt; 2 \cdot \lo
 <p>The common notation for this is <span class="math notranslate nohighlight">\(T(N) \in \mathcal{O}(N \cdot \log N)\)</span>, which we read as “<span class="math notranslate nohighlight">\(T(N)\)</span> is <a class="reference external" href="https://en.wikipedia.org/wiki/Big_O_notation">big-Oh</a> (order of) <span class="math notranslate nohighlight">\(N\cdot \log N\)</span>”.</p>
 </aside>
 <p>Since <span class="math notranslate nohighlight">\(\log_2 N &lt; N\)</span>, this comes out to be substantially more efficient than the <span class="math notranslate nohighlight">\(d \cdot N^2\)</span> work performed by the naive approach.</p>
-<figure class="align-default" id="id2">
-<img alt="visual comparison of linear, quadratic, and linearithmic time complexity" src="../../_images/862b66b91cd59e946c65a38d17354f1f92fb0794273fd7a295f0fc3fed7fe6c3.svg" /><figcaption>
-<p><span class="caption-number">Fig. 8.4 </span><span class="caption-text">A comparison of linear (<span class="math notranslate nohighlight">\(\blue{N}\)</span>), quadratic (<span class="math notranslate nohighlight">\(\red{N^2}\)</span>), and <em>linearithmic</em> (<span class="math notranslate nohighlight">\(\green{N \cdot \log_2 N}\)</span>) growth.
-The linearithmic curve is much gentler than the quadratic curve, meaning that the amount of work increases slowly with the size of the input.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+<figure class="align-default" id="id3">
+<img alt="visual comparison of linear, quadratic, and linearithmic time complexity" src="../../_images/377c14bb43e98843ed5f7e2fce5b956bc6495ae52cab56effecae628bf6d3a75.svg" /><figcaption>
+<p><span class="caption-number">Fig. 8.5 </span><span class="caption-text">A comparison of linear (<span class="math notranslate nohighlight">\(\blue{N}\)</span>), quadratic (<span class="math notranslate nohighlight">\(\red{N^2}\)</span>), and <em>linearithmic</em> (<span class="math notranslate nohighlight">\(\green{N \cdot \log_2 N}\)</span>) growth.
+The linearithmic curve is much gentler than the quadratic curve, meaning that the amount of work increases slowly with the size of the input.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>

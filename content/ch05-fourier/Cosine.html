@@ -877,8 +877,8 @@ Under this assumption, once we’ve observed these <span class="math notranslate
 These repetitions are implied to go on forever in each direction of time.
 Note that the repeating signal need not be continuous at the repetition boundaries: all that matters is that the observed signal repeats exactly.</p>
 <figure class="align-default" id="id1">
-<img alt="illustration of the repeating signal assumption" src="../../_images/23c351c6d7d3b347d21eef023f5e07178a32cf00640dbd6a3ca62f1ef73635b7.svg" /><figcaption>
-<p><span class="caption-number">Fig. 5.3 </span><span class="caption-text">A signal <span class="math notranslate nohighlight">\(x[n]\)</span> of some finite number of samples <span class="math notranslate nohighlight">\(N\)</span> (highlighted region) is assumed to repeat forever.
+<img alt="illustration of the repeating signal assumption" src="../../_images/1f1f5e9e8c0b33611b77556fc788af792f491ec6472db295a289fbac04b35d64.svg" /><figcaption>
+<p><span class="caption-number">Fig. 5.2 </span><span class="caption-text">A signal <span class="math notranslate nohighlight">\(x[n]\)</span> of some finite number of samples <span class="math notranslate nohighlight">\(N\)</span> (highlighted region) is assumed to repeat forever.
 Vertical lines denote the boundaries of each repetition of <span class="math notranslate nohighlight">\(x\)</span>, additional repetitions are depicted in the shaded region.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
@@ -896,8 +896,8 @@ Unfortunately, this is not the case.</p>
 \[\red{y[n] = \cos\left(2 \pi \cdot \frac{n}{f_s}\right)}\]</div>
 <p>we would observe the following:</p>
 <figure class="align-default" id="id2">
-<img alt="A repeating signal, a reference sinusoid, and the resulting similarity scores for each repetition" src="../../_images/2920d3b42944cdfa9049c024ea96e9fd9b2175b02bf58d1fdf6f42418dacb8df.svg" /><figcaption>
-<p><span class="caption-number">Fig. 5.4 </span><span class="caption-text">Top: a repeating signal <span class="math notranslate nohighlight">\(\blue{x}\)</span>, with one observed repetition highlighted.
+<img alt="A repeating signal, a reference sinusoid, and the resulting similarity scores for each repetition" src="../../_images/480755bfbecec9751ba63bdf7c54e15959d5fa2eeaacc1acffeeff47d9a51c2b.svg" /><figcaption>
+<p><span class="caption-number">Fig. 5.3 </span><span class="caption-text">Top: a repeating signal <span class="math notranslate nohighlight">\(\blue{x}\)</span>, with one observed repetition highlighted.
 Middle: a reference sinusoid <span class="math notranslate nohighlight">\(\red{y}\)</span>.
 Bottom: each repetition of <span class="math notranslate nohighlight">\(\blue{x}\)</span> produces a different similarity score when compared to the corresponding segment of the reference signal <span class="math notranslate nohighlight">\(\red{y}\)</span>.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -931,8 +931,8 @@ The reason behind that choice of terminology should be come clear in the next ch
 <p>Analysis frequencies have exactly the characteristic that we want: a shift by <span class="math notranslate nohighlight">\(\blue{N}\)</span> samples will leave the signal unchanged, so each repetition of <span class="math notranslate nohighlight">\(\blue{x}\)</span> is guaranteed to produce the same similarity score.
 For example, if we had chosen <span class="math notranslate nohighlight">\(\red{m=1}\)</span> (one cycle per signal duration) so that <span class="math notranslate nohighlight">\(\red{f} = \red{1}/\blue{N} \cdot f_s\)</span> (1.5 Hz for this case), we’d observe the following result:</p>
 <figure class="align-default" id="id3">
-<img alt="a repeating signal, a reference sinusoid at an analysis frequency, and the resulting similarity scores for each repetition" src="../../_images/5fa216bb78cc68ae5d8e2e8cdfaf1f0eb6ed1f44e24eef82b81f58fe864b0c03.svg" /><figcaption>
-<p><span class="caption-number">Fig. 5.5 </span><span class="caption-text">If the reference sinusoid corresponds to an analysis frequency, each repetition of <span class="math notranslate nohighlight">\(x\)</span> will produce the same similarity score.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+<img alt="a repeating signal, a reference sinusoid at an analysis frequency, and the resulting similarity scores for each repetition" src="../../_images/02d3aea42c9377349ffa0d4bb723a29492147f560c423f24abf1021dbd384451.svg" /><figcaption>
+<p><span class="caption-number">Fig. 5.4 </span><span class="caption-text">If the reference sinusoid corresponds to an analysis frequency, each repetition of <span class="math notranslate nohighlight">\(x\)</span> will produce the same similarity score.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Since we are now guaranteed that each repetition produces the same similarity score, we only need to look at one of them.</p>
@@ -949,8 +949,8 @@ There are, of course, infinitely many values for <span class="math notranslate n
 <span class="eqno">(5.5)<a class="headerlink" href="#equation-reference-signal" title="Permalink to this equation">#</a></span>\[\red{y_m[n]} = \cos\left(2\pi \cdot \frac{\red{m}}{\blue{N}}\cdot f_s \cdot \frac{n}{f_s} \right) = \cos\left(2\pi \cdot \frac{\red{m}}{\blue{N}} \cdot n \right).\]</div>
 <p>The plots below illustrate the sampled reference signals for the first few analysis frequencies with <span class="math notranslate nohighlight">\(f_s = 20\)</span> and <span class="math notranslate nohighlight">\(\blue{N} = 30\)</span> (1.5 seconds):</p>
 <figure class="align-default" id="id4">
-<img alt="visualization of four analysis frequencies" src="../../_images/8488f8c209e09e23d4081dbfa3173103a054cea6b3f65ea5aca9da8ccf830c5f.svg" /><figcaption>
-<p><span class="caption-number">Fig. 5.6 </span><span class="caption-text">The first four analysis frequencies for a signal of duration 1.5 seconds.</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+<img alt="visualization of four analysis frequencies" src="../../_images/d3f20e3c7794eb05bacecbb8b15a7556cbf0185e1b54d7bb9ac96bc73dfa0a16.svg" /><figcaption>
+<p><span class="caption-number">Fig. 5.5 </span><span class="caption-text">The first four analysis frequencies for a signal of duration 1.5 seconds.</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>If we continue this process a little further (<span class="math notranslate nohighlight">\(\red{m}= \dots, N-2, N-1, N, N+1, \dots\)</span>), what happens?</p>
@@ -1008,8 +1008,8 @@ We’ll use the same example signal as above, but we’ll now focus on a single 
 The middle column shows the product of <span class="math notranslate nohighlight">\(\blue{x[n]} \cdot \red{y_m[n]}\)</span> for each reference signal <span class="math notranslate nohighlight">\(\red{y_m}\)</span>,
 and the right column shows the resulting similarity scores.</p>
 <figure class="align-default" id="id5">
-<img alt="a signal compared to ten reference sinusoids and the resulting similarity scores" src="../../_images/2c31539a95958132b6e661ff5fefbe9fd35002f898757c385e3de66fd64a9b67.svg" /><figcaption>
-<p><span class="caption-number">Fig. 5.7 </span><span class="caption-text"><strong>Left</strong>: a signal <span class="math notranslate nohighlight">\(\blue{x}\)</span> overlaid with the first 10 reference sinusoids <span class="math notranslate nohighlight">\(\red{y_m}\)</span>.
+<img alt="a signal compared to ten reference sinusoids and the resulting similarity scores" src="../../_images/6d7f09ab1f0a686cf8a266bf8edfe35a538ffe6bdd142b700590da978558a8f3.svg" /><figcaption>
+<p><span class="caption-number">Fig. 5.6 </span><span class="caption-text"><strong>Left</strong>: a signal <span class="math notranslate nohighlight">\(\blue{x}\)</span> overlaid with the first 10 reference sinusoids <span class="math notranslate nohighlight">\(\red{y_m}\)</span>.
 <strong>Middle</strong>: the per-sample product.
 <strong>Right</strong>: the resulting similarity scores for each reference sinusoid.</span><a class="headerlink" href="#id5" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -1018,8 +1018,8 @@ and the right column shows the resulting similarity scores.</p>
 <p>More frequently, we omit the center column, and go directly to the third column.
 For our signal, if we show all <span class="math notranslate nohighlight">\(\blue{N}\)</span> similarity scores in one plot, it looks like this:</p>
 <figure class="align-default" id="id6">
-<img alt="visualization of similarity scores collected into a spectrum plot" src="../../_images/b975ed69f3f4e14176f74f7556b95a7ce091b82a78f6073d8dbeff1cf5818052.svg" /><figcaption>
-<p><span class="caption-number">Fig. 5.8 </span><span class="caption-text">A bar-plot illustrating the similarity score for the input signal compared to the full set of analysis frequencies.
+<img alt="visualization of similarity scores collected into a spectrum plot" src="../../_images/a7514a8f350a56faaa0c3dda2bb1ea396ca50bec69e5ce62d76b5cd2c2a15a41.svg" /><figcaption>
+<p><span class="caption-number">Fig. 5.7 </span><span class="caption-text">A bar-plot illustrating the similarity score for the input signal compared to the full set of analysis frequencies.
 Indices <span class="math notranslate nohighlight">\(m = 0, 1, \dots N/2\)</span> correspond to positive frequencies, and <span class="math notranslate nohighlight">\(m \geq N/2\)</span> (shaded region) correspond to negative frequencies.</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
