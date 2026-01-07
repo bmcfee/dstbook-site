@@ -779,8 +779,8 @@ Here, we can give a slightly more streamlined proof using the complex exponentia
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <figure class="align-default" id="id2">
-<img alt="illustration of conjugation in the complex plane" src="../../_images/ca78e62347d68fc70969d1234007051a99f362846b91a078dd08b14affb1839b.svg" /><figcaption>
-<p><span class="caption-number">Fig. 6.4 </span><span class="caption-text">Conjugating a complex exponential <span class="math notranslate nohighlight">\(e^{\mathrm{j}\theta}\)</span> is equivalent to negating its angle <span class="math notranslate nohighlight">\(\theta\)</span>.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+<img alt="illustration of conjugation in the complex plane" src="../../_images/ea671b4fbc4f64ae55aa66661f4847883b678e36904d3243cf3d6afdeaa76d53.svg" /><figcaption>
+<p><span class="caption-number">Fig. 6.5 </span><span class="caption-text">Conjugating a complex exponential <span class="math notranslate nohighlight">\(e^{\mathrm{j}\theta}\)</span> is equivalent to negating its angle <span class="math notranslate nohighlight">\(\theta\)</span>.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </aside>
@@ -855,10 +855,10 @@ This expression is implemented in Python as:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">N</span> <span class="o">//</span> <span class="mi">2</span>  <span class="c1"># Integer division</span>
 </pre></div>
 </div>
-<p><a class="reference internal" href="#conjugate-symmetry-fig"><span class="std std-numref">Fig. 6.5</span></a> depicts the conjugate symmetry relationships graphically for both the even- and odd-length cases.</p>
+<p><a class="reference internal" href="#conjugate-symmetry-fig"><span class="std std-numref">Fig. 6.6</span></a> depicts the conjugate symmetry relationships graphically for both the even- and odd-length cases.</p>
 <figure class="align-default" id="conjugate-symmetry-fig">
-<img alt="graphical depiction of conjugate symmetry pairing for even and odd lengths" src="../../_images/d6d6275f41c0f31f2ff5ac6ba8257a2295cd2f842fb0665707f03ef95771e54a.svg" /><figcaption>
-<p><span class="caption-number">Fig. 6.5 </span><span class="caption-text">The DFT conjugate symmetry property relates <span class="math notranslate nohighlight">\(\blue{X[m]}\)</span> with <span class="math notranslate nohighlight">\(\red{X[N-m]}\)</span> (arrows).
+<img alt="graphical depiction of conjugate symmetry pairing for even and odd lengths" src="../../_images/cd5b815292298e64fc9adb477f72723c7397e6f3dcffb3008e4fab7430459e5d.svg" /><figcaption>
+<p><span class="caption-number">Fig. 6.6 </span><span class="caption-text">The DFT conjugate symmetry property relates <span class="math notranslate nohighlight">\(\blue{X[m]}\)</span> with <span class="math notranslate nohighlight">\(\red{X[N-m]}\)</span> (arrows).
 Indices <span class="math notranslate nohighlight">\(\purple{m=0}\)</span> and <span class="math notranslate nohighlight">\(\purple{m=N/2}\)</span> (if <span class="math notranslate nohighlight">\(N\)</span> is even) are only related to themselves.
 If the signal length is even (<em>top</em>, <span class="math notranslate nohighlight">\(N=8\)</span>), then the first <span class="math notranslate nohighlight">\(M=1 + N/2\)</span> components are sufficient to determine all <span class="math notranslate nohighlight">\(N\)</span> components.
 If the signal length is odd (<em>bottom</em>, <span class="math notranslate nohighlight">\(N=7\)</span>), then <span class="math notranslate nohighlight">\(M=1 + (N-1)/2\)</span> are sufficient.</span><a class="headerlink" href="#conjugate-symmetry-fig" title="Permalink to this image">#</a></p>

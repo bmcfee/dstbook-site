@@ -828,17 +828,17 @@ They are constructed by the function <code class="docutils literal notranslate">
 <span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">cheby1</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">ripple</span><span class="p">,</span> <span class="n">fc</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><a class="reference internal" href="#cheby1"><span class="std std-numref">Fig. 11.5</span></a> illustrates the results of applying this filter to an impulse <span class="math notranslate nohighlight">\(x\)</span>, and how it compares to a Butterworth filter.</p>
+<p><a class="reference internal" href="#cheby1"><span class="std std-numref">Fig. 11.6</span></a> illustrates the results of applying this filter to an impulse <span class="math notranslate nohighlight">\(x\)</span>, and how it compares to a Butterworth filter.</p>
 <figure class="align-default" id="cheby1">
-<img alt="Illustration of type-1 Chebyshev filter" src="../../_images/b5ebea18184df82c654e27a7723c3f66fdad482c2e2ca86bae20e86ce052c1be.svg" /><figcaption>
-<p><span class="caption-number">Fig. 11.5 </span><span class="caption-text">A type-1 Chebyshev filter with 3dB passband ripple, cutoff frequency of <span class="math notranslate nohighlight">\(f_c=500\)</span>, and stop-band starting at 1000 Hz is applied to an impulse <span class="math notranslate nohighlight">\(\blue{x}\)</span> to produce the impulse response <span class="math notranslate nohighlight">\(y\)</span>, measured for 2000 samples (at <span class="math notranslate nohighlight">\(f_s=44100\)</span>).
+<img alt="Illustration of type-1 Chebyshev filter" src="../../_images/f7beec6f8648527a411eb61b66623298f28eaa78f033f851998f4f4eff0128e0.svg" /><figcaption>
+<p><span class="caption-number">Fig. 11.6 </span><span class="caption-text">A type-1 Chebyshev filter with 3dB passband ripple, cutoff frequency of <span class="math notranslate nohighlight">\(f_c=500\)</span>, and stop-band starting at 1000 Hz is applied to an impulse <span class="math notranslate nohighlight">\(\blue{x}\)</span> to produce the impulse response <span class="math notranslate nohighlight">\(y\)</span>, measured for 2000 samples (at <span class="math notranslate nohighlight">\(f_s=44100\)</span>).
 For comparison purposes, a Butterworth filter with the same cutoff and order is also computed.
 <strong>Top</strong>: the impulse, and impulse response.
 <strong>Middle</strong>: the DFT magnitude <span class="math notranslate nohighlight">\(|Y|\)</span> measured in decibels.
 <strong>Bottom</strong>: the unwrapped phase spectrum <span class="math notranslate nohighlight">\(\phi'\)</span>.</span><a class="headerlink" href="#cheby1" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>As <a class="reference internal" href="#cheby1"><span class="std std-numref">Fig. 11.5</span></a> illustrates, the frequency response drops much more rapidly after <span class="math notranslate nohighlight">\(f_c\)</span> than that of the Butterworth filter.
+<p>As <a class="reference internal" href="#cheby1"><span class="std std-numref">Fig. 11.6</span></a> illustrates, the frequency response drops much more rapidly after <span class="math notranslate nohighlight">\(f_c\)</span> than that of the Butterworth filter.
 The cost of this is two-fold:</p>
 <ol class="arabic simple">
 <li><p>There is ripple in the pass-band: <span class="math notranslate nohighlight">\(|Y|\)</span> is not constant for frequencies below <span class="math notranslate nohighlight">\(f_c\)</span>.</p></li>
@@ -861,17 +861,17 @@ Type-2 filters are constructed by <code class="docutils literal notranslate"><sp
 <span class="n">b2</span><span class="p">,</span> <span class="n">a2</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">cheby2</span><span class="p">(</span><span class="n">order2</span><span class="p">,</span> <span class="n">attenuation</span><span class="p">,</span> <span class="n">fstop</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><a class="reference internal" href="#cheby2"><span class="std std-numref">Fig. 11.6</span></a> illustrates the behavior of the type-2 filter, compared to the type-1 filter with similar constraints.</p>
+<p><a class="reference internal" href="#cheby2"><span class="std std-numref">Fig. 11.7</span></a> illustrates the behavior of the type-2 filter, compared to the type-1 filter with similar constraints.</p>
 <figure class="align-default" id="cheby2">
-<img alt="Comparison of type-1 and type-2 Chebyshev filters" src="../../_images/c04534e6da9163563136bd674e1eac67ffeb799c9c33a02471e92e5d4998be98.svg" /><figcaption>
-<p><span class="caption-number">Fig. 11.6 </span><span class="caption-text">A type-2 Chebyshev filter with 60dB stop-band attenuation, cutoff frequency of <span class="math notranslate nohighlight">\(f_c=500\)</span>, and stop-band starting at 1000 Hz..
-The type-1 filter from <a class="reference internal" href="#cheby1"><span class="std std-numref">Fig. 11.5</span></a> is included for comparison purposes.
+<img alt="Comparison of type-1 and type-2 Chebyshev filters" src="../../_images/0854311ef5dd0eaf16366578e186afd09d5378fdc7fdd99c7aef73c539cf2071.svg" /><figcaption>
+<p><span class="caption-number">Fig. 11.7 </span><span class="caption-text">A type-2 Chebyshev filter with 60dB stop-band attenuation, cutoff frequency of <span class="math notranslate nohighlight">\(f_c=500\)</span>, and stop-band starting at 1000 Hz..
+The type-1 filter from <a class="reference internal" href="#cheby1"><span class="std std-numref">Fig. 11.6</span></a> is included for comparison purposes.
 <strong>Top</strong>: the impulse, and impulse response.
 <strong>Middle</strong>: the DFT magnitude <span class="math notranslate nohighlight">\(|Y|\)</span> measured in decibels.
 <strong>Bottom</strong>: the unwrapped phase spectrum <span class="math notranslate nohighlight">\(\phi'\)</span>.</span><a class="headerlink" href="#cheby2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Compared to the type-1 filter, <a class="reference internal" href="#cheby2"><span class="std std-numref">Fig. 11.6</span></a> shows that the type-2 filter has a shallower transition, though it is still steeper than that of the Butterworth filter.
+<p>Compared to the type-1 filter, <a class="reference internal" href="#cheby2"><span class="std std-numref">Fig. 11.7</span></a> shows that the type-2 filter has a shallower transition, though it is still steeper than that of the Butterworth filter.
 Note that the pass-band frequency response has no ripple, and the phase is much closer to linear.
 We should therefore expect better preservation of the low-frequency content with the type-2 filter than with the type-1 filter.
 The main cost is that the transition region has less attenuation, so the filter will not be as <em>sharp</em>, and frequencies above <span class="math notranslate nohighlight">\(f_c\)</span> will propagate through slightly more with the type-2 filter.</p>
@@ -904,15 +904,15 @@ The <code class="docutils literal notranslate"><span class="pre">ellip</span></c
 </pre></div>
 </div>
 <figure class="align-default" id="elliptic">
-<img alt="An elliptic filter compared to Chebyshev filters" src="../../_images/3733b44e4b85c91f862f05cca6c758cc1ccc4c5bcf654ae90ae458b621f0ba41.svg" /><figcaption>
-<p><span class="caption-number">Fig. 11.7 </span><span class="caption-text">An elliptic filter with 3dB pass-band ripple, 60dB stop-band attenuation, cutoff frequency of <span class="math notranslate nohighlight">\(f_c=500\)</span>, and stop-band starting at 1000 Hz.
+<img alt="An elliptic filter compared to Chebyshev filters" src="../../_images/d4040977a305cb8b5d14581d12dbd3b3d5ad0f9fb8051c7371cae300a2b0c888.svg" /><figcaption>
+<p><span class="caption-number">Fig. 11.8 </span><span class="caption-text">An elliptic filter with 3dB pass-band ripple, 60dB stop-band attenuation, cutoff frequency of <span class="math notranslate nohighlight">\(f_c=500\)</span>, and stop-band starting at 1000 Hz.
 Chebyshev filters are included for comparison purposes.
 <strong>Top</strong>: the impulse, and impulse response.
 <strong>Middle</strong>: the DFT magnitude <span class="math notranslate nohighlight">\(|Y|\)</span> measured in decibels.
 <strong>Bottom</strong>: the unwrapped phase spectrum <span class="math notranslate nohighlight">\(\phi'\)</span>.</span><a class="headerlink" href="#elliptic" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p><a class="reference internal" href="#elliptic"><span class="std std-numref">Fig. 11.7</span></a> shows that allowing ripple in both the pass- and stop-bands allows the Elliptic filter to achieve a much steeper transition than either type-1 or type-2 Chebyshev filters.
+<p><a class="reference internal" href="#elliptic"><span class="std std-numref">Fig. 11.8</span></a> shows that allowing ripple in both the pass- and stop-bands allows the Elliptic filter to achieve a much steeper transition than either type-1 or type-2 Chebyshev filters.
 Note, however, that this also results in quite a bit of phase distortion in the Elliptic filter.</p>
 </section>
 <section id="summary">

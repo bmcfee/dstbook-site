@@ -908,7 +908,7 @@ However, correctly interpreting the phase spectrum requires a bit more care than
 <p>If we interpret delay as a convolutional filter, we can plot the phase spectrum of different delays to see what happens.
 Some examples are displayed below in <a class="reference internal" href="#delay-angle"><span class="std std-numref">Fig. 10.9</span></a>.</p>
 <figure class="align-default" id="delay-angle">
-<img alt="Illustration of phase response for different delay filters" src="../../_images/bdb2b6e9bfa7f8d231bf63002d7aee5d63fb347aaf1e4f9cea5354f9e47ae58c.svg" /><figcaption>
+<img alt="Illustration of phase response for different delay filters" src="../../_images/13691ca27c3e80d07cd38c8da30bd1b48b1fcb60bbbc195fdf3aef15bce5c4a1.svg" /><figcaption>
 <p><span class="caption-number">Fig. 10.9 </span><span class="caption-text"><strong>Left</strong>: three different delay filters (<span class="math notranslate nohighlight">\(\blue{1}\)</span>, <span class="math notranslate nohighlight">\(\red{4}\)</span>, and <span class="math notranslate nohighlight">\(\green{7}\)</span> samples) are plotted with length <span class="math notranslate nohighlight">\(N=64\)</span>.
 <strong>Right</strong>: for each filter, the phase spectrum <span class="math notranslate nohighlight">\(\phi[m]\)</span> is plotted as a function of frequency.</span><a class="headerlink" href="#delay-angle" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -934,7 +934,7 @@ The unwrapped angles will land outside the <span class="math notranslate nohighl
 </div>
 <p>The results of phase unwrapping on the delay filters in <a class="reference internal" href="#delay-angle"><span class="std std-numref">Fig. 10.9</span></a> are illustrated below.</p>
 <figure class="align-default" id="phase-unwrap">
-<img alt="illustration of phase unwrapping" src="../../_images/aa248c9d786500c3cdb1fa0391924e91d9b27274645799c3154bcc80b48139fd.svg" /><figcaption>
+<img alt="illustration of phase unwrapping" src="../../_images/550600d93ce3c713efba1e4f2dc6fe62f99ba4ca832c8ec362d93548ed6c532b.svg" /><figcaption>
 <p><span class="caption-number">Fig. 10.10 </span><span class="caption-text"><strong>Top</strong>: the phase spectra <span class="math notranslate nohighlight">\(\phi[m]\)</span> of three different delay filters (<span class="math notranslate nohighlight">\(\blue{1}\)</span>, <span class="math notranslate nohighlight">\(\red{4}\)</span>, and <span class="math notranslate nohighlight">\(\green{7}\)</span> samples) appear as <em>zig-zag</em> lines, bounded between <span class="math notranslate nohighlight">\(-\pi\)</span> and <span class="math notranslate nohighlight">\(+\pi\)</span>.
 <strong>Bottom</strong>: the unwrapped phase spectra <span class="math notranslate nohighlight">\(\phi'[m]\)</span> appear as straight lines with slope depending on the amount of delay.</span><a class="headerlink" href="#phase-unwrap" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -1041,7 +1041,7 @@ To demonstrate this, let’s create two filters, one low-pass and one high-pass,
 </div>
 <p><a class="reference internal" href="#group-delay-plot"><span class="std std-numref">Fig. 10.11</span></a> illustrates the impulse response, frequency response, and unwrapped phase spectrum of these two filters.</p>
 <figure class="align-default" id="group-delay-plot">
-<img alt="illustration of group delay and linear phase in the pass-band" src="../../_images/e11d8eca427b4b03aae619ee75f252bbb21049dd5b8e903de8c0f9829e867ba4.svg" /><figcaption>
+<img alt="illustration of group delay and linear phase in the pass-band" src="../../_images/09df8777bc0bc30375fb3c7c3c4ccaf638128415997705e423176b521af30bea.svg" /><figcaption>
 <p><span class="caption-number">Fig. 10.11 </span><span class="caption-text">Two FIR filters are shown (<strong>left column</strong>), along with their frequency response <span class="math notranslate nohighlight">\(|H[m]|\)</span> (<strong>center column</strong>) and unwrapped phase spectrum <span class="math notranslate nohighlight">\(\phi'[m]\)</span> (<strong>right column</strong>).
 Shaded regions correspond to the stop-bands of the filters in the frequency domain.
 <strong>Top row</strong>: a low-pass filter with <span class="math notranslate nohighlight">\(f_c=3000\)</span> Hz.
