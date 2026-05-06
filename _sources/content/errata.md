@@ -8,6 +8,7 @@ Errors listed here have been corrected in the online version.
 If you believe you have found an error in the current version of the text, please
 report it [on GitHub](https://github.com/bmcfee/dstbook/issues).
 
+- 2026-05-05: Updated plotting code for more consistently idiomatic Matplotlib style.
 - 2026-01-05: Corrected the order value of the butterworth filter used in Figure 11.6.
 - 2026-01-05: Corrected a mismatch between filter orders described in the text surrounding figure 10.7.
 - 2026-01-05: Updated all complex array allocations to use `dtype=complex` instead of the older, `dtype=np.complex` style.

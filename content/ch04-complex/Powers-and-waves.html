@@ -919,42 +919,42 @@ input[type=range].anim-slider {
 </style>
 
 <div class="animation">
-  <img id="_anim_imgdbff15e489fc49df8bfae22edc535890">
+  <img id="_anim_img61d39b63bc4b45a4addfe84c9f57ca4d">
   <div class="anim-controls">
-    <input id="_anim_sliderdbff15e489fc49df8bfae22edc535890" type="range" class="anim-slider"
+    <input id="_anim_slider61d39b63bc4b45a4addfe84c9f57ca4d" type="range" class="anim-slider"
            name="points" min="0" max="1" step="1" value="0"
-           oninput="animdbff15e489fc49df8bfae22edc535890.set_frame(parseInt(this.value));">
+           oninput="anim61d39b63bc4b45a4addfe84c9f57ca4d.set_frame(parseInt(this.value));">
     <div class="anim-buttons">
-      <button title="Decrease speed" aria-label="Decrease speed" onclick="animdbff15e489fc49df8bfae22edc535890.slower()">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="anim61d39b63bc4b45a4addfe84c9f57ca4d.slower()">
           <i class="fa fa-minus"></i></button>
-      <button title="First frame" aria-label="First frame" onclick="animdbff15e489fc49df8bfae22edc535890.first_frame()">
+      <button title="First frame" aria-label="First frame" onclick="anim61d39b63bc4b45a4addfe84c9f57ca4d.first_frame()">
         <i class="fa fa-fast-backward"></i></button>
-      <button title="Previous frame" aria-label="Previous frame" onclick="animdbff15e489fc49df8bfae22edc535890.previous_frame()">
+      <button title="Previous frame" aria-label="Previous frame" onclick="anim61d39b63bc4b45a4addfe84c9f57ca4d.previous_frame()">
           <i class="fa fa-step-backward"></i></button>
-      <button title="Play backwards" aria-label="Play backwards" onclick="animdbff15e489fc49df8bfae22edc535890.reverse_animation()">
+      <button title="Play backwards" aria-label="Play backwards" onclick="anim61d39b63bc4b45a4addfe84c9f57ca4d.reverse_animation()">
           <i class="fa fa-play fa-flip-horizontal"></i></button>
-      <button title="Pause" aria-label="Pause" onclick="animdbff15e489fc49df8bfae22edc535890.pause_animation()">
+      <button title="Pause" aria-label="Pause" onclick="anim61d39b63bc4b45a4addfe84c9f57ca4d.pause_animation()">
           <i class="fa fa-pause"></i></button>
-      <button title="Play" aria-label="Play" onclick="animdbff15e489fc49df8bfae22edc535890.play_animation()">
+      <button title="Play" aria-label="Play" onclick="anim61d39b63bc4b45a4addfe84c9f57ca4d.play_animation()">
           <i class="fa fa-play"></i></button>
-      <button title="Next frame" aria-label="Next frame" onclick="animdbff15e489fc49df8bfae22edc535890.next_frame()">
+      <button title="Next frame" aria-label="Next frame" onclick="anim61d39b63bc4b45a4addfe84c9f57ca4d.next_frame()">
           <i class="fa fa-step-forward"></i></button>
-      <button title="Last frame" aria-label="Last frame" onclick="animdbff15e489fc49df8bfae22edc535890.last_frame()">
+      <button title="Last frame" aria-label="Last frame" onclick="anim61d39b63bc4b45a4addfe84c9f57ca4d.last_frame()">
           <i class="fa fa-fast-forward"></i></button>
-      <button title="Increase speed" aria-label="Increase speed" onclick="animdbff15e489fc49df8bfae22edc535890.faster()">
+      <button title="Increase speed" aria-label="Increase speed" onclick="anim61d39b63bc4b45a4addfe84c9f57ca4d.faster()">
           <i class="fa fa-plus"></i></button>
     </div>
-    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_selectdbff15e489fc49df8bfae22edc535890"
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="_anim_loop_select61d39b63bc4b45a4addfe84c9f57ca4d"
           class="anim-state">
-      <input type="radio" name="state" value="once" id="_anim_radio1_dbff15e489fc49df8bfae22edc535890"
+      <input type="radio" name="state" value="once" id="_anim_radio1_61d39b63bc4b45a4addfe84c9f57ca4d"
              >
-      <label for="_anim_radio1_dbff15e489fc49df8bfae22edc535890">Once</label>
-      <input type="radio" name="state" value="loop" id="_anim_radio2_dbff15e489fc49df8bfae22edc535890"
+      <label for="_anim_radio1_61d39b63bc4b45a4addfe84c9f57ca4d">Once</label>
+      <input type="radio" name="state" value="loop" id="_anim_radio2_61d39b63bc4b45a4addfe84c9f57ca4d"
              checked>
-      <label for="_anim_radio2_dbff15e489fc49df8bfae22edc535890">Loop</label>
-      <input type="radio" name="state" value="reflect" id="_anim_radio3_dbff15e489fc49df8bfae22edc535890"
+      <label for="_anim_radio2_61d39b63bc4b45a4addfe84c9f57ca4d">Loop</label>
+      <input type="radio" name="state" value="reflect" id="_anim_radio3_61d39b63bc4b45a4addfe84c9f57ca4d"
              >
-      <label for="_anim_radio3_dbff15e489fc49df8bfae22edc535890">Reflect</label>
+      <label for="_anim_radio3_61d39b63bc4b45a4addfe84c9f57ca4d">Reflect</label>
     </form>
   </div>
 </div>
@@ -964,9 +964,9 @@ input[type=range].anim-slider {
   /* Instantiate the Animation class. */
   /* The IDs given should match those used in the template above. */
   (function() {
-    var img_id = "_anim_imgdbff15e489fc49df8bfae22edc535890";
-    var slider_id = "_anim_sliderdbff15e489fc49df8bfae22edc535890";
-    var loop_select_id = "_anim_loop_selectdbff15e489fc49df8bfae22edc535890";
+    var img_id = "_anim_img61d39b63bc4b45a4addfe84c9f57ca4d";
+    var slider_id = "_anim_slider61d39b63bc4b45a4addfe84c9f57ca4d";
+    var loop_select_id = "_anim_loop_select61d39b63bc4b45a4addfe84c9f57ca4d";
     var frames = new Array(500);
     
   frames[0] = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbAAAAFECAYAAABGTWslAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90\
@@ -273683,7 +273683,7 @@ QmCC\
     /* set a timeout to make sure all the above elements are created before
        the object is initialized. */
     setTimeout(function() {
-        animdbff15e489fc49df8bfae22edc535890 = new Animation(frames, img_id, slider_id, 40.0,
+        anim61d39b63bc4b45a4addfe84c9f57ca4d = new Animation(frames, img_id, slider_id, 40.0,
                                  loop_select_id);
     }, 0);
   })()
@@ -273694,7 +273694,7 @@ QmCC\
 </figure>
 <p>If we take just the real (or imaginary) part of <span class="math notranslate nohighlight">\(z^n\)</span> for the sequence of values of <span class="math notranslate nohighlight">\(n\)</span>, we’ll see a sinusoid with decaying (<span class="math notranslate nohighlight">\(r &lt; 1\)</span>), increasing (<span class="math notranslate nohighlight">\(r&gt;1\)</span>), or stable (<span class="math notranslate nohighlight">\(r=1\)</span>) amplitude, as illustrated below for the real part (top) and imaginary part (bottom).</p>
 <figure class="align-default" id="id2">
-<img alt="Isolated plots of the real and imaginary components of a complex exponential" src="../../_images/1fc9d05205df90d23b156bef2f349aa6ab2b844cf988d10d9f55f8fb65173c66.svg" /><figcaption>
+<img alt="Isolated plots of the real and imaginary components of a complex exponential" src="../../_images/7f36fe27a8f6c7cbd150f92761a7da2a31fe3f6ad738c3da5c8bba789b61eb2d.svg" /><figcaption>
 <p><span class="caption-number">Fig. 4.11 </span><span class="caption-text">The real (top) and imaginary (bottom) components of <span class="math notranslate nohighlight">\(z^n\)</span> as <span class="math notranslate nohighlight">\(n\)</span> grows, for different choices of <span class="math notranslate nohighlight">\(z\)</span>.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
